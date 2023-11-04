@@ -1,8 +1,8 @@
 ---
-description: The composition of the operating system.
+description: 운영체제의 구성
 ---
 
-# 운영체제의 구성
+# The composition of the operating system.
 
 운영체제는 커널, 파일 시스템, 프로세스, 사용자 인터페이스 등으로 구성되어 있습니다.
 
