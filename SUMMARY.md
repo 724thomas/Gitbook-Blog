@@ -59,7 +59,7 @@
 * [Operating System 101](os/operating-system-101/README.md)
   * [Operating system](os/operating-system-101/operating-system/README.md)
     * [The role of the operating system](os/operating-system-101/operating-system/the-role-of-the-operating-system.md)
-    * [운영체제의 구성](os/operating-system-101/operating-system/undefined.md)
+    * [The composition of the operating system.](os/operating-system-101/operating-system/the-composition-of-the-operating-system..md)
   * [Process](os/operating-system-101/process/README.md)
     * [In Linux, are all processes except the initial process child processes?](os/operating-system-101/process/in-linux-are-all-processes-except-the-initial-process-child-processes.md)
     * [Zombie process, orphan process](os/operating-system-101/process/zombie-process-orphan-process.md)
