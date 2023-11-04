@@ -13,3 +13,11 @@ description: 운영체제의 구성
 **프로세스(Process)**: 프로세스는 실행 중인 응용 프로그램을 의미합니다. 운영 체제는 프로세스를 생성, 제어, 관리하며, 다수의 프로세스를 실행할 수 있도록 합니다. 각 프로세스는 자신의 메모리 공간을 할당받으며, 다른 프로세스와 독립적으로 실행됩니다.
 
 **사용자 인터페이스(User Interface)**: 사용자 인터페이스는 사용자와 컴퓨터 간의 상호작용을 관리합니다. 사용자 인터페이스는 텍스트 기반 콘솔(Command-Line Interface, CLI)과 그래픽 기반 윈도우(Window) 등의 형태로 제공됩니다. (API - Application Programming Interface는 여기에 포함)
+
+<details>
+
+<summary>asdf?</summary>
+
+asdfasdf
+
+</details>
