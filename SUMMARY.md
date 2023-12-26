@@ -51,9 +51,10 @@
   * [Compiler](computer-science/computer-architecture-101/compiler.md)
   * [Linking](computer-science/computer-architecture-101/linking.md)
   * [Compiler vs Interpreter](computer-science/computer-architecture-101/compiler-vs-interpreter.md)
-  * [Page](computer-science/computer-architecture-101/page.md)
   * [Mutex vs Semaphore](computer-science/computer-architecture-101/mutex-vs-semaphore.md)
   * [32bit  CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
+  * [Local vs Static Variable](computer-science/computer-architecture-101/local-vs-static-variable.md)
+  * [Page](computer-science/computer-architecture-101/page.md)
 
 ## OS
 
