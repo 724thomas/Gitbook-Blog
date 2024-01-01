@@ -8,6 +8,7 @@
 * [Lcm, Gcd](algorithm/lcm-gcd.md)
 * [Sorting Array](algorithm/sorting-array.md)
 * [Round Up](algorithm/round-up.md)
+* [Binary Search](algorithm/binary-search.md)
 
 ## JAVA
 
