@@ -148,6 +148,8 @@
 
 ## KUBERNATES
 
+* [Helm](kubernates/helm/README.md)
+  * [Helm commands](kubernates/helm/helm-commands.md)
 * [Page 12](kubernates/page-12.md)
 
 ## GraphQL
