@@ -151,7 +151,9 @@
 * [Helm](kubernates/helm/README.md)
   * [Helm commands](kubernates/helm/helm-commands.md)
 * [Pod network](kubernates/pod-network.md)
-* [Service network](kubernates/service-network.md)
+* [Service network](kubernates/service-network/README.md)
+  * [deployment.yaml](kubernates/service-network/deployment.yaml.md)
+  * [services.yaml](kubernates/service-network/services.yaml.md)
 * [Page 12](kubernates/page-12.md)
 
 ## GraphQL

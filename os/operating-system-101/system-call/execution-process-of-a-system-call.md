@@ -2,9 +2,9 @@
 description: 시스템 콜이, 운영체제에서 어떤 과정으로 실행되는지에 대한 설명
 ---
 
-# 실행 과정
+# Execution process of a system call
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 **`write()` 시스템 콜 호출 예시 (x86 기준)**
 
