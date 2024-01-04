@@ -133,6 +133,7 @@
 ## DATA STRUCTURE
 
 * [Array vs Linked List](data-structure/array-vs-linked-list.md)
+* [Counting Sort](data-structure/counting-sort.md)
 
 ## GIT
 
