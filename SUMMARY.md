@@ -130,6 +130,10 @@
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 
+## DATA STRUCTURE
+
+* [Array vs Linked List](data-structure/array-vs-linked-list.md)
+
 ## GIT
 
 * [Page 8](git/page-8.md)
