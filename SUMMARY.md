@@ -154,6 +154,7 @@
 * [Service network](kubernates/service-network/README.md)
   * [deployment.yaml](kubernates/service-network/deployment.yaml.md)
   * [services.yaml](kubernates/service-network/services.yaml.md)
+* [Service type](kubernates/service-type.md)
 * [Page 12](kubernates/page-12.md)
 
 ## GraphQL
