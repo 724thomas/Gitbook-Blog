@@ -12,11 +12,11 @@
 
 ## JAVA
 
-* [Page 1](java/page-1.md)
+* [Template Page](java/template-page.md)
 
 ## SPRING
 
-* [Page 2](spring/page-2.md)
+* [Template Page](spring/template-page.md)
 
 ## PYTHON
 
@@ -24,7 +24,7 @@
 
 ## FASTAPI
 
-* [Page 14](fastapi/page-14.md)
+* [Template Page](fastapi/template-page.md)
 
 ## COMPUTER SCIENCE
 
@@ -113,15 +113,15 @@
 
 ## LINUX
 
-* [Page 4](linux/page-4.md)
+* [Template Page](linux/template-page.md)
 
 ## SERVER
 
-* [Page 5](server/page-5.md)
+* [Template Page](server/template-page.md)
 
 ## NETWORK
 
-* [Page 6](network/page-6.md)
+* [Template Page](network/template-page.md)
 
 ## DATABASE
 
@@ -137,15 +137,15 @@
 
 ## GIT
 
-* [Page 8](git/page-8.md)
+* [Template Page](git/template-page.md)
 
 ## INFRA
 
-* [Page 9](infra/page-9.md)
+* [Template Page](infra/template-page.md)
 
 ## AWS
 
-* [Page 10](aws/page-10.md)
+* [Template Page](aws/template-page.md)
 
 ## DOCKER
 
@@ -160,15 +160,15 @@
   * [deployment.yaml](kubernates/service-network/deployment.yaml.md)
   * [services.yaml](kubernates/service-network/services.yaml.md)
 * [Service type](kubernates/service-type.md)
-* [Page 12](kubernates/page-12.md)
+* [Template Page](kubernates/template-page.md)
 
 ## GraphQL
 
-* [Page 15](graphql/page-15.md)
+* [Template Page](graphql/template-page.md)
 
 ## WEB
 
-* [Page 16](web/page-16.md)
+* [Template Page](web/template-page.md)
 
 ## Reviews
 
