@@ -160,6 +160,7 @@
   * [deployment.yaml](kubernates/service-network/deployment.yaml.md)
   * [services.yaml](kubernates/service-network/services.yaml.md)
 * [Service type](kubernates/service-type.md)
+* [service-name-headless?](kubernates/service-name-headless.md)
 * [Template Page](kubernates/template-page.md)
 
 ## GraphQL
