@@ -159,9 +159,11 @@
 * [Service network](kubernates/service-network/README.md)
   * [deployment.yaml](kubernates/service-network/deployment.yaml.md)
   * [services.yaml](kubernates/service-network/services.yaml.md)
-* [Service type](kubernates/service-type/README.md)
+* [Service type](kubernates/service-type.md)
   * [Cluster IP](kubernates/service-type/cluster-ip.md)
+  * [NodePort](kubernates/service-type/nodeport.md)
 * [service-name-headless?](kubernates/service-name-headless.md)
+* [kube-proxy](kubernates/kube-proxy.md)
 * [Template Page](kubernates/template-page.md)
 
 ## GraphQL
