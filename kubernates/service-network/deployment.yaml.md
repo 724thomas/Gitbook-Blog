@@ -32,11 +32,11 @@ spec:
 
     \->&#x20;
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 *   kubectl get pods -o wide | grep -i **web**
 
     \->&#x20;
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 * kubectl delete -f deployment.yaml\
   \-> deployment.apps "web" deleted
