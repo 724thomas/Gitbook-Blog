@@ -153,6 +153,7 @@
 
 ## KUBERNATES
 
+* [Kubernetes Components](kubernates/kubernetes-components.md)
 * [Helm](kubernates/helm/README.md)
   * [Helm commands](kubernates/helm/helm-commands.md)
 * [Pod network](kubernates/pod-network.md)
