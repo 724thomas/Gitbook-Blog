@@ -10,6 +10,15 @@
 * [Round Up](algorithm/round-up.md)
 * [Binary Search](algorithm/binary-search.md)
 
+## Books
+
+* [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
+  * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
+  * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
+  * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
+  * [Stateless Web tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/stateless-web-tier.md)
+* [Computer System A programmer's perspective](books/computer-system-a-programmers-perspective.md)
+
 ## JAVA
 
 * [Template Page](java/template-page.md)
@@ -135,9 +144,9 @@
 * [Array vs Linked List](data-structure/array-vs-linked-list.md)
 * [Counting Sort](data-structure/counting-sort.md)
 
-## GIT
+## GIT, Github
 
-* [Template Page](git/template-page.md)
+* [git clone, invalid path error](git-github/git-clone-invalid-path-error.md)
 
 ## INFRA
 
@@ -153,6 +162,9 @@
 
 ## KUBERNATES
 
+* [!Encountered Errors](kubernates/encountered-errors/README.md)
+  * [my-sql restarts](kubernates/encountered-errors/my-sql-restarts.md)
+  * [kafka producer: disconnected](kubernates/encountered-errors/kafka-producer-disconnected.md)
 * [Kubernetes Components](kubernates/kubernetes-components.md)
 * [Helm](kubernates/helm/README.md)
   * [Helm commands](kubernates/helm/helm-commands.md)
