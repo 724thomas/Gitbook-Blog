@@ -211,3 +211,6 @@ docker-compose exec kafka-1 bash
 
 컨슈머를 확인하면 hello world, this is producer 라는 메세지를 볼 수 있다.
 
+
+
+참고: [https://devocean.sk.com/blog/techBoardDetail.do?ID=164016](https://devocean.sk.com/blog/techBoardDetail.do?ID=164016)
