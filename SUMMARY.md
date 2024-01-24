@@ -25,7 +25,7 @@
 
 ## SPRING
 
-* [Template Page](spring/template-page.md)
+* [using profile name as variable](spring/using-profile-name-as-variable.md)
 
 ## PYTHON
 
