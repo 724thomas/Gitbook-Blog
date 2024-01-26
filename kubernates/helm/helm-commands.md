@@ -33,7 +33,7 @@ helm만 설치되어있을때, 레포지토리가 아무것도 없는 상태이�
   * bitnami/mariadb를 app-db 이름으로 설치한다.
   * 주의해야할점은 install이라고 설치되는게 아니라, application으로 동작가능한 상태를 만드는 것
   * app-db : 배포되는 이름 커스터마이징된 이름
-*   helm install app-db --set auth.rootPassword=secretpassword,auth.databse=app\_database bitnami/mariadb
+*   helm install app-db --set auth.rootPassword=secretpassword bitnami/mariadb
 
     * inspect value안에 있는 값들을 바꿔서 배포도 가능하다.
 
