@@ -9,6 +9,7 @@
 * [Sorting Array](algorithm/sorting-array.md)
 * [Round Up](algorithm/round-up.md)
 * [Binary Search](algorithm/binary-search.md)
+* [Union Find](algorithm/union-find.md)
 
 ## Books
 
