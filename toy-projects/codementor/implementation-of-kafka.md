@@ -70,11 +70,11 @@ code Execute 서버에서는 언어마다 다르지만, 실행시간이 상당�
 
 메세징 큐가 없을때, 동기화식 요청을 하게 되면, 여러 요청이 한번에 들어오게 됐을때, 많은 요청들이 밀리게 되며,  codeExecute 서버가 터지거나, 요청이 누락되는 _**안정성문제가**_ 발생하기도 했습니다.
 
+<figure><img src="../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 
+##
 
 ## 효과
-
-<figure><img src="../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
 
 이를 해결하기 위해 카프카를 사용함으로써 안전하게 메세지를 차곡차곡 쌓아둘 수 있게 되었습니다.
 
