@@ -20,12 +20,11 @@
   * [Stateless Web tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/stateless-web-tier.md)
 * [Computer System A programmer's perspective](books/computer-system-a-programmers-perspective.md)
 
-***
+## TOY Project
 
-* [TOY Projects](toy-projects/README.md)
-  * [Template Page](toy-projects/template-page.md)
-  * [CodeMentor](toy-projects/codementor/README.md)
-    * [Implementation of Kafka](toy-projects/codementor/implementation-of-kafka.md)
+* [CodeMentor](toy-project/codementor/README.md)
+  * [Implementation of Kafka](toy-project/codementor/implementation-of-kafka.md)
+* [Template Page](toy-project/template-page.md)
 
 ## JAVA
 
@@ -162,7 +161,8 @@
 
 ## AWS
 
-* [Template Page](aws/template-page.md)
+* [Server Log Archive Pipeline](aws/server-log-archive-pipeline.md)
+* [Untitled](aws/untitled.md)
 
 ## DOCKER
 
