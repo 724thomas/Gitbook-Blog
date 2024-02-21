@@ -4,7 +4,7 @@ description: 쿠버네티스 도입 배경과 CodeMentoor 프로젝트 개선 �
 
 # Implementation of K8s
 
-###
+<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
 
 
