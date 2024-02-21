@@ -24,7 +24,7 @@
 
 * [CodeMentor](toy-project/codementor/README.md)
   * [Implementation of Kafka](toy-project/codementor/implementation-of-kafka.md)
-* [Template Page](toy-project/template-page.md)
+  * [Implementation of K8s](toy-project/codementor/implementation-of-k8s.md)
 
 ## JAVA
 
