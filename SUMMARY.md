@@ -25,6 +25,7 @@
 * [CodeMentor](toy-project/codementor/README.md)
   * [Implementation of Kafka](toy-project/codementor/implementation-of-kafka.md)
   * [Implementation of K8s](toy-project/codementor/implementation-of-k8s.md)
+  * [Communication between servers in msa](toy-project/codementor/communication-between-servers-in-msa.md)
 
 ## JAVA
 
