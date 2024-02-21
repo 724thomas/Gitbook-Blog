@@ -16,7 +16,7 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 > ## 모집과정
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
 
 모집은 4월 말부터 5월 초까지 대략 2주 동안 이뤄졌고, 세 가지 전공 분야에서 지원을 받았습니다.
 
@@ -34,13 +34,13 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 **서류 접수는 이력서 및 몇 가지 질문의 답변을 제출**하는 형식이었으며, **이력서는 PDF로** 받아들였다는 점이 특이했습니다. 코딩 테스트는 **온라인**으로 진행되었고, 각 직무에 따라 그 방식이 약간씩 달랐습니다. **백엔드 개발자는 알고리즘 문제 7개**를 풀었고, **모바일 및 프론트엔드 지원자들은 알고리즘 문제와 프로젝트 과제 두 가지 유형이 제공**되었습니다. **6시간에 걸쳐 코딩 테스트**가 있었고, 전날 블라인드 테스트를 진행해본 덕분인지, 제게는 **비교적 수월**했습니다. (아쉽게도, 문제 유형이나 난이도에 관한 구체적인 정보는 공유할 수 없습니다.)
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 **면접은 기술과 인성 면접이 연속으로 진행**되었으며, **총 1시간 동안 비대면**으로 이루어졌습니다. 기술 면접 준비는 면접 스터디와 다른 회사들에서의 면접 경험을 바탕으로 준비했습니다. 그렇지만 **AI 지식과 수행한 프로젝트에 관한 질문에 대한 대비가 다소 부족해 이 부분이 준비 과정에서 큰 부담**으로 다가왔습니다. 구체적인 면접 내용이나 절차는 공개할 수 없으나, **인성 면접의 질문들이 더 많은 비중**을 차지하였고, 부트캠프에서의 경험들과 그 때의 대처 경험으로 원활하게 대응할 수 있었습니다.&#x20;
 
 결과적으로 6월 초에 **최종합격** 소식을 듣게 되었고, 6월 말부터 패스파인더 프로그램에 참여하게 되었습니다.
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

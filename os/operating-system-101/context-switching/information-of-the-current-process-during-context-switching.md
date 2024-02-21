@@ -2,7 +2,7 @@
 description: 컨텍스트 스위칭이 발생할 때, 기존의 프로세스 정보는 커널 스택에 어떠한 형식으로 저장되나요?
 ---
 
-# 컨텍스트 스위칭 시 기존 프로세스 정보
+# Information of the current process during context switching
 
 #### **커널 공간의 주요 영역**
 
@@ -21,6 +21,6 @@ PCB는 커널 스택이 아니라 커널 데이터 영역에 저장되거나, PC
 
 
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
