@@ -84,47 +84,56 @@ S3에 Write 권한을 부여해줬습니다.
 from datetime import datetime, timedelta
 import boto3
 import json
+import os
 
+# Function to calculate the time range for 13 days ago
+# Logs in CloudWatch are deleted 2 weeks after
 def get_thirteen_days_ago_time_range():
-    target_date = datetime.now() - timedelta(days=XXXX)
+    target_date = datetime.now() - timedelta(days=13)
     start_time = datetime(target_date.year, target_date.month, target_date.day)
     end_time = start_time + timedelta(days=1)
     return int(start_time.timestamp() * 1000), int(end_time.timestamp() * 1000)
 
-def lambda_handler(event, context):
+# Function to upload a file from Lambda's ephemeral storage to S3
+def upload_to_s3(bucket, key, file_path):
     s3 = boto3.client('s3')
+    with open(file_path, 'rb') as file:
+        s3.upload_fileobj(file, Bucket=bucket, Key=key) 
+    os.remove(file_path)  # Clean up the file from /tmp after uploading to S3
+
+def lambda_handler(event, context):
     logs = boto3.client('logs')
+
     
-    start_time, end_time = get_thirteen_days_ago_time_range()
-    target_date_str = (datetime.now() - timedelta(days=XXXX)).strftime('%y%m%d')
-    log_file_name = f'logs_{target_date_str}.txt'
+    start_time, end_time = get_thirteen_days_ago_time_range() # Get the time range for 13 days ago
+    target_date_str = (datetime.now() - timedelta(days=13)).strftime('%y%m%d')
+    bucket_name = 'some-bucket-name'
     
-    # 각각의 로그 그룹에 대한 처리
-    log_group_prefixes = ['/XXXX/', '/YYYY/XXXX']
-    for prefix in log_group_prefixes:
-        # 해당 접두사를 가진 로그 그룹 조회
-        response = logs.describe_log_groups(logGroupNamePrefix=prefix)
+    log_group_prefixes = ['/aws/lambda/', '/ecs/'] 
+    for prefix in log_group_prefixes: # Loop through specified log group prefixes
+        response = logs.describe_log_groups(logGroupNamePrefix=prefix) # Retrieve log groups that match the prefix
         
-        for log_group in response['logGroups']:
+        for log_group in response['logGroups']: # Process each log group
             log_group_name = log_group['logGroupName']
-            # 해당 로그 그룹의 로그 이벤트 필터링
-            filter_response = logs.filter_log_events(
+            filter_response = logs.filter_log_events( # Retrieve log events for the log group within the time range
                 logGroupName=log_group_name,
                 startTime=start_time,
                 endTime=end_time
             )
             
-            # 로그 데이터 추출 및 S3 업로드
-            log_data = [event['message'] for event in filter_response['events']]
-            log_content = '\n'.join(log_data)
-            s3_key = f"{log_group_name.replace('/', '_')}/{log_file_name}"  # 예: aws_lambda_function-name/logs_240209~240215.txt
-            
-            s3.put_object(Bucket='bucket', Key=s3_key, Body=log_content)
+            tmp_file_path = f"/tmp/{log_group_name.replace('/', '_')}_{target_date_str}.txt" # Create a path for a temporary file in Lambda's ephemeral storage
+            with open(tmp_file_path, 'w') as tmp_file: # creates file automatically if not exists
+                for event in filter_response['events']: 
+                    tmp_file.write(event['message'] + '\n')
+
+            s3_key = f"{log_group_name.replace('/', '_')}/{target_date_str}.txt" # Construct the S3 key (file path in S3 bucket)
+            upload_to_s3(bucket_name, s3_key, tmp_file_path) # Upload the file from ephemeral storage to S3
 
     return {
         'statusCode': 200,
         'body': json.dumps('Log data uploaded to S3 for all groups')
     }
+
 ```
 
 해당 스크립트를 Deploy를 해주고, Test를 통해 잘 작동하는지 확인을 해봤습니다.
@@ -170,7 +179,7 @@ Aws EventBridge는 **이벤트**를 사용하여 애플리케이션 구성 요�
 
 <figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 
-Rate-based schedule을 사용하여 7일마다 작동하게 만들었습니다. TimeZone까지 설정할 수 있습니다.
+Rate-based schedule을 사용하여 매일마다(해당 사진은 7일입니다만..) 작동하게 만들었습니다. TimeZone까지 설정할 수 있습니다.
 
 Target으로는 AWS Lambda Invoke를 통해, 작성해두었던 Lambda 함수를 설정하였습니다.
 
@@ -200,14 +209,18 @@ Target으로는 AWS Lambda Invoke를 통해, 작성해두었던 Lambda 함수를
 
 위 방법으로 문제가 발생했을시 고려할 수 있는 두번째 방법입니다. 최종 로그 파일을 계속 RAM에 올려두지 않고, S3에 저장해놓고, 그 뒤에 append를 사용하여 각 파일들만 RAM에 올려서 뒤에 붙이는 방법을 사용할 수 있다. _**하지만**_ 하나의 로그파일 크기가 10240MB가 넘어간다면…?
 
-#### 3. ~~각 로그파일의 Chunk를 스트림으로 처리.~~ 2번과 동일.
-
-하나의 로그파일 크기가 10240MB가 넘어간다면, 해당 로그파일을 Chunk로 나눈 후에, 천천히 Chunk 별로 최종 로그 파일에 append 하는 방식입니다. 최종 로그 파일에 append를 하게되면, 해당 파일을 불러오지 않은 상태로 저장하기 때문에, Chunk 크기의 RAM만 필요하고, 이러한 Chunk 크기는 사용자가 RAM을 넘지 않는 선에서 스크립트로 조절이 가능합니다.
-
-#### 4. 합치지 않고 나눠진채로 저장.
+#### 3. 합치지 않고 나눠진채로 저장.
 
 위 방법들로는 해결이 안되는 상황이라면, 나눠져있는 로그 파일들을 단순히 S3로 옮기는, 단순히 목적만 달성하는 작업을 할 수 있습니다. 이 작업의 목적은 분석이 아닌, 비용이 더 싼 저장소로 옮기는 작업이기 때문에, 이 방법도 (최후의) 해결책이 될 수 있습니다.
 
+#### 4. Ephemeral Storage를 활용
+
+Lambda는 기본적으로 메모리와 Ephemeral Storage를 사용할 수 있습니다. Ephemeral Storage는 Lambda가 실행되면서 사용할 수 있는 임시 공간입니다. S3는 immutable이기때문에, Lambda의 ephemeral Storage에 이어 붙이는 방식을 사용합니다. 각 로그파일을 한줄씩 memory에 올리고, tmp 파일에 append하는 식으로 작업을 하고, 마지막으로 tmp파일을 S3로 저장하는 방식입니다.
+
+**(최종적으로 S3에 저장할때 tmp파일이 메모리에 올라가게 되지 않을까 걱정을 했는데, AWS SDKs의 boto3를 사용하면, 내부적으로 파일을 chunk로 나누어 보내게 되고, 최종적으로 S3에서 하나의 object로 합치는 작업을 한다고 합니다.)**
+
+
+
 ### 결론.
 
-해당 문제는 2, 3번 해결책을 적용할 수 없기때문에, 기존 1번 방법을 채택했습니다. 당장은 RAM메모리를 높게 설정하는 방식을 사용해도 문제가 없지만, 나중에는 모니터링을 통해 RAM메모리를 지속적으로 늘리던지, 아니면 다른 저장소를 임시로 사용하여 통합하는 과정을 거쳐야할 것 같습니다.
+해결책으로 저는 4번을 선택했습니다. 현 상황에서 가장 합리적인 방법이라고 생각이 들기때문입니다. 미래에 로그 파일이 커질때, memory가 아닌 ephemeral storage용량을 늘리면 되고, 10GB가 넘어가는 경우에는 그때 1번의 RAM 크기도 같이 조정하려고합니다. 만약, 20GB가 넘어간다면, 그때는 합치지 않고 나눠진채로 저장하는 방식을 사용해도 좋을 것 같습니다.
