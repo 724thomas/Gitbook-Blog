@@ -163,7 +163,7 @@
 ## AWS
 
 * [Server Log Archive Pipeline](aws/server-log-archive-pipeline.md)
-* [Untitled](aws/untitled.md)
+* [Image Processing using Lambda](aws/image-processing-using-lambda.md)
 
 ## DOCKER
 
