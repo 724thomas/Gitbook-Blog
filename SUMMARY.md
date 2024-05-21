@@ -202,6 +202,7 @@
 
 ## Reviews
 
+* [Graphic Intern Review](reviews/graphic-intern-review.md)
 * [Kakao Brain Pathfinder Review](reviews/kakao-brain-pathfinder-review.md)
 
 ## 😁 Dev Jokes
