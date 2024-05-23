@@ -146,6 +146,7 @@
   * [1st Normal Form](database/normalization/1st-normal-form.md)
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
+* [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
 
 ## DATA STRUCTURE
 
