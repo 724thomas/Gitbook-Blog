@@ -4,16 +4,12 @@ description: 추이성 문제 해결하기 - 이펙티브 자바
 
 # Handling Transitivity Issues in Java
 
-## 추이성 문제 해결하기 - 이펙티브 자바
-
-오늘은 **이펙티브 자바**에서 다루는 중요한 주제 중 하나인 \*\*추이성(Transitivity)\*\*에 대해 이야기해 보겠습니다. 추이성은 객체지향 프로그래밍에서 equals 메서드를 올바르게 구현하는 데 중요한 개념입니다. 예제 코드와 함께 구체적으로 살펴보겠습니다.
-
 ### 1. 추이성이란 무엇인가?
 
 추이성은 첫 번째 객체가 두 번째 객체와 같고, 두 번째 객체가 세 번째 객체와 같다면, 첫 번째 객체와 세 번째 객체도 같아야 한다는 의미입니다. 이를 코드로 쉽게 설명할 수 있습니다:
 
 ```java
-j@Override
+@Override
 public boolean equals(Object o) {
     return o instanceof CaseInsensitiveString &&
            ((CaseInsensitiveString) o).s.equalsIgnoreCase(s);
@@ -82,7 +78,7 @@ public boolean equals(Object o) {
 Point p = new Point(1, 2);
 ColorPoint cp = new ColorPoint(1, 2, Color.RED);
 
-p.equals(cp) 는 true를, cp.equals(p)는 false를 반환합니다.
+p.equals(cp)는 true를, cp.equals(p)는 false를 반환합니다.
 ```
 
 ### 5. 추이성 위배 코드
@@ -118,7 +114,7 @@ p1.equals(p2)와 p2.equals(p3)는 true를 반환하는데, p1.equals(p3)는 fals
 
 사실 이 현상은 모든 객체 지향 언어의 동치관계에서 나타나는 근본적인 문제입니다. 구체 클래스를 확장해 새로운 값을 추가하면서 equals 규약을 만족시킬 방법은 존재하지 않습니다.
 
-equals와 instanceOf 검사를 getClass 검사로 바꾸면 규약을 지키고 값도 추가하면서 구체 클래스를 상속할 수 있습니다.
+다음은 잘못된 해결책 코드입니다:
 
 ```java
 @Override
@@ -130,4 +126,26 @@ public boolean equals(Object o) {
 }
 ```
 
-이와 같이 equals를 구현하면 추이성을 지키면서 상속을 유지할 수 있습니다.
+이 방식은 equals 규약을 지켜주지만, 리스코프 치환 원칙(Liskov Substitution Principle)을 위배하게 됩니다.
+
+### 7. 리스코프 치환 원칙(Liskov Substitution Principle) 해결책
+
+리코프 치환 원칙을 준수하면서 추이성을 유지하는 방법은 다음과 같습니다:
+
+```java
+@Override
+public boolean equals(Object o) {
+    if (!(o instanceof Point))
+        return false;
+    if (!(o instanceof ColorPoint))
+        return o.equals(this);
+    ColorPoint cp = (ColorPoint) o;
+    return super.equals(cp) && ((ColorPoint) o).color == color;
+}
+```
+
+이 방식은 추이성을 지키면서도, 리스코프 치환 원칙을 준수합니다.
+
+### 8. 결론
+
+추상 클래스를 상속받는 하위 클래스에서 equals 규약을 지키면서 값을 추가하는 방법은 어렵습니다. 이를 위해서는 다양한 설계 패턴을 활용하여 문제를 해결해야 합니다.
