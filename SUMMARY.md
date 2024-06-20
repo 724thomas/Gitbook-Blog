@@ -20,7 +20,8 @@
   * [Stateless Web tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/stateless-web-tier.md)
 * [Computer System A programmer's perspective](books/computer-system-a-programmers-perspective.md)
 * [Effective Java](books/effective-java/README.md)
-  * [Handling Transitivity Issues in Java](books/effective-java/handling-transitivity-issues-in-java.md)
+  * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
+  * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
 
 ## TOY Project
 
