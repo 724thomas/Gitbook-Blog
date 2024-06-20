@@ -19,6 +19,8 @@
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
   * [Stateless Web tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/stateless-web-tier.md)
 * [Computer System A programmer's perspective](books/computer-system-a-programmers-perspective.md)
+* [Effective Java](books/effective-java/README.md)
+  * [Handling Transitivity Issues in Java](books/effective-java/handling-transitivity-issues-in-java.md)
 
 ## TOY Project
 
