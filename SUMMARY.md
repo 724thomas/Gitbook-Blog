@@ -22,6 +22,7 @@
 * [Effective Java](books/effective-java/README.md)
   * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
+  * [Always Override toString](books/effective-java/always-override-tostring.md)
 
 ## TOY Project
 
