@@ -23,6 +23,8 @@
   * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
   * [Always Override toString](books/effective-java/always-override-tostring.md)
+* [Head First Design Patterns](books/head-first-design-patterns/README.md)
+  * [Observer Pattern](books/head-first-design-patterns/observer-pattern.md)
 
 ## TOY Project
 
