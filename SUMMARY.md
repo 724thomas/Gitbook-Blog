@@ -16,6 +16,7 @@
 * [CS Note for Interview](books/cs-note-for-interview/README.md)
   * [1.1.1 Singleton Pattern](books/cs-note-for-interview/1.1.1-singleton-pattern.md)
   * [1.1.2 Factory Pattern](books/cs-note-for-interview/1.1.2-factory-pattern.md)
+  * [1.1.4 Observer Pattern](books/cs-note-for-interview/1.1.4-observer-pattern.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
