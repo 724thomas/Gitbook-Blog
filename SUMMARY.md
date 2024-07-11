@@ -184,6 +184,7 @@
 ## DOCKER
 
 * [Python Executable Environment](docker/python-executable-environment.md)
+* [Docker and VM](docker/docker-and-vm.md)
 
 ## docker-compose
 
