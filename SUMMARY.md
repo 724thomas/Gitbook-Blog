@@ -19,6 +19,7 @@
     * [1.1.2 Factory Pattern](books/cs-note-for-interview/ch1.-design-pattern-and-programming-paradigm/1.1.2-factory-pattern.md)
     * [1.1.4 Observer Pattern](books/cs-note-for-interview/ch1.-design-pattern-and-programming-paradigm/1.1.4-observer-pattern.md)
     * [1.1.5 Proxty Pattern & Proxy Server](books/cs-note-for-interview/ch1.-design-pattern-and-programming-paradigm/1.1.5-proxty-pattern-and-proxy-server.md)
+    * [1.1.8 Model-View-Controller Pattern](books/cs-note-for-interview/ch1.-design-pattern-and-programming-paradigm/1.1.8-model-view-controller-pattern.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
