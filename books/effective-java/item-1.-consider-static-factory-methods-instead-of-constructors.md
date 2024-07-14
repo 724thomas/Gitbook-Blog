@@ -11,7 +11,7 @@ description: 생성자 대신 정적 팩터리 메서드를 고려하라
 정적 팩터리 메서드는 클래스의 인스턴스를 반환하는 단순한 정적 메서드입니다. 예를 들어, `Boolean` 클래스에는 기본 타입의 `boolean` 값을 받아 `Boolean` 객체 참조로 변환하는 `valueOf` 메서드가 있습니다.
 
 ```java
-java코드 복사public static Boolean valueOf(boolean b) {
+public static Boolean valueOf(boolean b) {
     return b ? Boolean.TRUE : Boolean.FALSE;
 }
 ```
