@@ -47,7 +47,7 @@
 
 ## JAVA
 
-* [Template Page](java/template-page.md)
+* [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
 
 ## SPRING
 
