@@ -25,7 +25,7 @@ description: 옵저버 패턴
 
 다음은 옵저버 패턴의 구조를 나타내는 UML 다이어그램입니다.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ### 옵저버 패턴의 예제 코드
 
