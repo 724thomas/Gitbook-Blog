@@ -156,7 +156,7 @@
 
 ## NETWORK
 
-* [Template Page](network/template-page.md)
+* [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 
 ## DATABASE
 
