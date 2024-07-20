@@ -32,6 +32,7 @@
   * [Item 1. Consider Static Factory Methods Instead of Constructors](books/effective-java/item-1.-consider-static-factory-methods-instead-of-constructors.md)
   * [Item 2. Consider a Builder When Faced with Many Constructor Parameters](books/effective-java/item-2.-consider-a-builder-when-faced-with-many-constructor-parameters.md)
   * [Item 3. Ensure Singleton with Private Constructor or Enum Type](books/effective-java/item-3.-ensure-singleton-with-private-constructor-or-enum-type.md)
+  * [Item 4. Enforce Noninstantiability with a Private Constructor](books/effective-java/item-4.-enforce-noninstantiability-with-a-private-constructor.md)
   * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
   * [Always Override toString](books/effective-java/always-override-tostring.md)
