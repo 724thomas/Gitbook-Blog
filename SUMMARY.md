@@ -34,6 +34,7 @@
   * [Item 3. Ensure Singleton with Private Constructor or Enum Type](books/effective-java/item-3.-ensure-singleton-with-private-constructor-or-enum-type.md)
   * [Item 4. Enforce Noninstantiability with a Private Constructor](books/effective-java/item-4.-enforce-noninstantiability-with-a-private-constructor.md)
   * [Item 5. Prefer Dependency Injection to Hardwiring Resources](books/effective-java/item-5.-prefer-dependency-injection-to-hardwiring-resources.md)
+  * [Item 6. Avoid Creating Unnecessary Objects](books/effective-java/item-6.-avoid-creating-unnecessary-objects.md)
   * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
   * [Always Override toString](books/effective-java/always-override-tostring.md)
