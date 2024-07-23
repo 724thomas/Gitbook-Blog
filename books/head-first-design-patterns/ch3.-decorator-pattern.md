@@ -64,6 +64,8 @@ public class HouseBlend extends Beverage {
 
 `Espresso`와 `HouseBlend` 클래스는 `Beverage` 클래스를 확장하여 각각 에스프레소와 하우스 블렌드 커피의 가격과 설명을 정의한다.
 
+<figure><img src="../../.gitbook/assets/image (70).png" alt=""><figcaption></figcaption></figure>
+
 #### 2. 데코레이터 클래스 정의
 
 첨가물은 데코레이터 패턴을 통해 추가할 수 있다. 데코레이터 클래스는 `Beverage` 클래스를 확장한다.
@@ -114,6 +116,8 @@ public class Whip extends CondimentDecorator {
 }
 ```
 
+<figure><img src="../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
+
 `Mocha`와 `Whip` 클래스는 `CondimentDecorator` 클래스를 확장하여 각각 모카와 휘핑 크림 첨가물의 가격과 설명을 정의한다. 데코레이터 패턴을 통해 첨가물은 동적으로 커피에 추가될 수 있다.
 
 #### 3. 데코레이터 패턴 사용 예제
@@ -133,6 +137,8 @@ public class StarbuzzCoffee {
     }
 }
 ```
+
+<figure><img src="../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
 
 이 예제에서는 `Espresso`와 `HouseBlend` 커피에 `Mocha`와 `Whip` 첨가물을 추가하는 과정을 보여준다. 각 첨가물은 데코레이터 패턴을 통해 기존 객체에 동적으로 추가된다. 예를 들어, `HouseBlend` 커피에 `Mocha`와 `Whip` 첨가물을 추가하면, 최종 출력은 "House Blend Coffee, Mocha, Whip $1.39"가 된다.
 
@@ -156,6 +162,8 @@ public class StarbuzzCoffee {
 ### 데코레이터 패턴의 실제 사용 사례
 
 #### 1. Java I/O 라이브러리
+
+<figure><img src="../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 
 Java의 I/O 라이브러리는 데코레이터 패턴의 훌륭한 예시이다. `InputStream` 클래스와 다양한 데코레이터 클래스(`BufferedInputStream`, `DataInputStream` 등)는 파일 입출력 기능을 동적으로 확장하는 데 사용된다.
 
