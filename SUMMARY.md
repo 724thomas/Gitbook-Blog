@@ -46,7 +46,8 @@
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
   * [Always Override toString](books/effective-java/always-override-tostring.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
-  * [Observer Pattern](books/head-first-design-patterns/observer-pattern.md)
+  * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern.md)
+  * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern.md)
 
 ## TOY Project
 

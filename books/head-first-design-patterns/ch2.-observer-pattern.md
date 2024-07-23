@@ -1,8 +1,8 @@
 ---
-description: 옵저버 패턴
+description: Ch2. 옵저버 패턴
 ---
 
-# Observer Pattern
+# Ch2. Observer Pattern
 
 ## 옵저버 패턴
 
