@@ -118,34 +118,55 @@ public class Example {
 
 
 
-**스프링부트를 이용한 메모리 관리 예시**
+**예시: 캐시에서의 메모리 누수 방지**
 
 ```java
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class User {
-    private Long id;
-    private String name;
-}
+import java.util.Map;
+import java.util.WeakHashMap;
 
-@Service
-public class UserService {
-    private List<User> users = new ArrayList<>();
+public class Cache {
+    private final Map<String, Object> cache = new WeakHashMap<>();
 
-    public void addUser(User user) {
-        users.add(user);
+    public void addToCache(String key, Object value) {
+        cache.put(key, value);
     }
 
-    public void removeUser(Long userId) {
-        users.removeIf(user -> user.getId().equals(userId));
+    public Object getFromCache(String key) {
+        return cache.get(key);
     }
 }
 ```
 
-위 예시에서는 Lombok의 @Data, @NoArgsConstructor, @AllArgsConstructor 어노테이션을 사용하여 User 클래스의 getter, setter 및 생성자를 자동으로 생성했습니다. UserService 클래스에서는 사용자를 추가하고 제거하는 메서드를 정의하여, 불필요한 객체 참조를 제거함으로써 메모리 누수를 방지합니다.
+WeakHashMap을 사용하여 캐시에서 메모리 누수를 방지할 수 있습니다. 필요 없어진 키와 값은 가비지 컬렉터에 의해 자동으로 제거됩니다.
 
 
+
+**예시: 이벤트 리스너에서의 메모리 누수 방지**
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class EventSource {
+    private final List<EventListener> listeners = new ArrayList<>();
+
+    public void addListener(EventListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeListener(EventListener listener) {
+        listeners.remove(listener);
+    }
+}
+
+interface EventListener {
+    void onEvent();
+}
+```
+
+이벤트 리스너를 더 이상 사용하지 않을 때는 명시적으로 제거하여 메모리 누수를 방지합니다.
+
+###
 
 ### **사례**
 
