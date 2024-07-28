@@ -95,6 +95,18 @@ WeakReference는 객체가 약하게 참조되도록 하여, 필요 없을 때 �
 
 
 
+HashMap과 WeakHashMap
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+HashMap을  사용하면 GC 돌리고 나서도 2개가 남아있습니다.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+WeakHashMap을 사용하면 GC를 돌리면 1개가 남아있습니다.
+
+
+
 ### **자바 스프링부트에서 예시**
 
 Lombok의 `@Cleanup` 어노테이션은 try-with-resources와 유사하게 리소스를 자동으로 닫아줍니다.
