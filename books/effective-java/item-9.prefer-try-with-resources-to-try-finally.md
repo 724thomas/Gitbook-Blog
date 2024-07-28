@@ -120,7 +120,7 @@ try (BufferedReader br = new BufferedReader(new FileReader("test.txt"));
 Lombok은 자바에서 반복적인 코드를 줄여주는 라이브러리입니다. Lombok의 `@Cleanup` 어노테이션을 사용하여 리소스를 자동으로 닫을 수 있습니다. 이는 try-with-resources 구문과 유사한 방식으로 작동합니다.
 
 ```java
-java코드 복사import lombok.Cleanup;
+import lombok.Cleanup;
 import java.io.*;
 
 public class Example {
