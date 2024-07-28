@@ -4,7 +4,7 @@ description: AWS Lambda를 이용한 이미지 처리 최적화 전략
 
 # Image Processing using Lambda
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -26,7 +26,7 @@ AWS Lambda는 서버리스 아키텍처를 실현하는 AWS의 서비스로, 개
 
 ### \[클라이언트 -> 람다] 이미지 업로드 과정
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -73,13 +73,13 @@ AWS Lambda는 서버리스 아키텍처를 실현하는 AWS의 서비스로, 개
 
 
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### CloudWatch를 통한 메모리 모니터링
 
 AWS CloudWatch는 AWS 리소스 및 애플리케이션을 실시간으로 모니터링하는 서비스로, 메모리 사용량, CPU 사용량, 네트워크 트래픽 등 다양한 지표를 제공합니다. 특히 AWS Lambda와 같은 서버리스 아키텍처에서 CloudWatch를 사용하여 메모리 사용량을 모니터링하면, 함수 실행 시 발생할 수 있는 메모리 관련 문제를 신속하게 식별하고 대응할 수 있습니다. CloudWatch 알람을 설정하여 메모리 사용량이 임계값을 초과할 경우 알림을 받을 수 있으며, 이를 통해 메모리 사용량이 높아질 때 적절한 조치를 취할 수 있습니다. 또한, CloudWatch 로그를 분석하여 메모리 사용 패턴을 이해하고, 애플리케이션의 성능을 최적화하기 위한 인사이트를 얻을 수 있습니다. CloudWatch를 활용한 메모리 모니터링은 AWS Lambda 함수의 안정성과 효율성을 보장하는 데 중요한 역할을 합니다.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
