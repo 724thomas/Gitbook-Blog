@@ -35,6 +35,7 @@
     * [3.2.2 Memory Management](books/cs-note-for-interview/ch3.-operating-system/3.2.2-memory-management.md)
     * [3.3.1 Processes and Compilation Process](books/cs-note-for-interview/ch3.-operating-system/3.3.1-processes-and-compilation-process.md)
     * [3.3.3 Memory Structure of a Process](books/cs-note-for-interview/ch3.-operating-system/3.3.3-memory-structure-of-a-process.md)
+    * [3.3.4 Process Control Block (PCB)](books/cs-note-for-interview/ch3.-operating-system/3.3.4-process-control-block-pcb.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
