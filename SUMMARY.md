@@ -33,6 +33,7 @@
     * [3.1.1 Roles and Structure of Operating Systems](books/cs-note-for-interview/ch3.-operating-system/3.1.1-roles-and-structure-of-operating-systems.md)
     * [3.2.1 Memory Hierarchy](books/cs-note-for-interview/ch3.-operating-system/3.2.1-memory-hierarchy.md)
     * [3.2.2 Memory Management](books/cs-note-for-interview/ch3.-operating-system/3.2.2-memory-management.md)
+    * [3.3.1 Processes and Compilation Process](books/cs-note-for-interview/ch3.-operating-system/3.3.1-processes-and-compilation-process.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
