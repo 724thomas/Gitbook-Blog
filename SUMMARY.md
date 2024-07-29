@@ -39,6 +39,8 @@
     * [3.3.5 Multiprocessing](books/cs-note-for-interview/ch3.-operating-system/3.3.5-multiprocessing.md)
     * [3.3.6 Threads and Multithreading](books/cs-note-for-interview/ch3.-operating-system/3.3.6-threads-and-multithreading.md)
     * [3.3.7 Shared Resources and Critical Sections](books/cs-note-for-interview/ch3.-operating-system/3.3.7-shared-resources-and-critical-sections.md)
+    * [3.3.8 Deadlock](books/cs-note-for-interview/ch3.-operating-system/3.3.8-deadlock.md)
+    * [3.4 CPU Scheduling Algorithm](books/cs-note-for-interview/ch3.-operating-system/3.4-cpu-scheduling-algorithm.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
