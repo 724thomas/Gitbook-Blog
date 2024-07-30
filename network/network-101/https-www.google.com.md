@@ -2,7 +2,7 @@
 
 ## https://www.google.com을 브라우저에 입력하면 무슨 일이 발생할까?
 
-**!!! GSLB Glover Server Load Balancer**
+
 
 ## 1. IP 가져오기
 
@@ -46,7 +46,16 @@
 
 </details>
 
+### 1.2 GSLB (Global Server Load Balancing)
 
+1. DNS 리졸버가 DNS 서버로부터 IP 주소를 받는 과정에서 GSLB가 작동할 수 있습니다.
+2. GSLB는 각종 조건(지리적, 부하, 장애)등을 파악하여 최적의 데이터 센터를 선택하게되고, 데이터 센터IP를 대신반환합니다.
+
+### 1.3 CDN (Content Delivery Network)
+
+1. GSLB로부터 받은 IP 주소를 사용하여 CDN 노드에 요청을 보내게 됩니다.
+2. CDN 서버에서 캐시 미스가 발생하면 CDN이 원본 서버에 요청을 보내게 되고, 원본 서버에서 리소스를 받습니다.
+3. CDN 서버는 해당 리소스를 캐싱하는 동시에, 클라이언트에게 반환합니다.
 
 ## 2. TCP/IP 연결.
 
