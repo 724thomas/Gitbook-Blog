@@ -217,7 +217,7 @@ Data: 없음
 
 * Slow Start (느린 시작)
   * 처음에는 혼잡 윈도우(cwnd)를 1 MSS(Maximum Segment Size)로 설정합니다.
-  * 매 전송 라운드마다 수신된 ACK 패킷마다 cwnd를 1 MSS씩 증가시킵니다.
+  * 매 전송 라운드마다 윈도우 크기가 두 배로 증가합니다. 즉, 성공적으로 수신 확인 응답(ACK)을 받을 때마다 윈도우 크기가 지수적으로 증가합니다. (1, 2, 4, 8, ...)
   * cwnd가 ssthresh(slow start threshold) 값에 도달할 때까지 증가를 계속합니다.
   * cwnd가 ssthresh를 초과하면 Congestion Avoidance(혼잡 회피) 단계로 전환됩니다.
 * Congestion Avoidance (혼잡 회피)\
