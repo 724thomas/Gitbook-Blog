@@ -188,6 +188,7 @@
 * [Network 101](network/network-101/README.md)
   * [https://www.google.com](network/network-101/https-www.google.com.md)
   * [TCP vs UDP](network/network-101/tcp-vs-udp.md)
+  * [Http vs Https](network/network-101/http-vs-https.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 
 ## DATABASE
