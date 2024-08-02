@@ -73,6 +73,8 @@
 
 ## JAVA
 
+* [Java 101](java/java-101/README.md)
+  * [JVM Structure](java/java-101/jvm-structure.md)
 * [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
 
 ## SPRING
