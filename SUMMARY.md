@@ -57,6 +57,7 @@
   * [Item 7. Eliminate Obsolete Object References](books/effective-java/item-7.-eliminate-obsolete-object-references.md)
   * [Item 8. Avoid Finalizers and Cleaners](books/effective-java/item-8.-avoid-finalizers-and-cleaners.md)
   * [Item 9.Prefer try-with-resources to try-finally](books/effective-java/item-9.prefer-try-with-resources-to-try-finally.md)
+  * [Item 10. Adhering to General Rules When Overriding equals](books/effective-java/item-10.-adhering-to-general-rules-when-overriding-equals.md)
   * [Handling Transitivity Issues](books/effective-java/handling-transitivity-issues.md)
   * [Ensuring Consistency](books/effective-java/ensuring-consistency.md)
   * [Always Override toString](books/effective-java/always-override-tostring.md)
