@@ -167,7 +167,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 
 
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 가장 효율적인 방식으로, 작업이 완료될 때까지 대기하지 않고 다른 작업을 계속 수행합니다.
