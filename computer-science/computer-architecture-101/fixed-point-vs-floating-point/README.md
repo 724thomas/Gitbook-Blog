@@ -5,7 +5,7 @@ description: 고정소수점 vs 부동소수점
 # Fixed-point vs Floating-point
 
 1.  고정소수점 (Fixed-Point)\
-    ![](<../../../.gitbook/assets/image (7) (1) (1).png>)\
+    ![](<../../../.gitbook/assets/image (7) (1) (1) (1).png>)\
 
 
     고정소수점 방식에서는 소수점의 위치가 고정되어 있습니다.
@@ -19,7 +19,7 @@ description: 고정소수점 vs 부동소수점
       * 표현 범위가 제한적이다.
       * 큰 수와 작은 수의 연산에서 정밀도 손실이 발생할 수 있다.
 2.  부동소수점 (Floating-Point)\
-    ![](<../../../.gitbook/assets/image (8) (1) (1).png>)\
+    ![](<../../../.gitbook/assets/image (8) (1) (1) (1).png>)\
 
 
     부동소수점 방식에서는 수의 실제 값을 가수(Mantissa)와 지수(Exponent)의 조합으로 표현합니다.
