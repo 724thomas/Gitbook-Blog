@@ -194,7 +194,7 @@
   * [https://www.google.com](network/network-101/https-www.google.com.md)
   * [TCP vs UDP](network/network-101/tcp-vs-udp.md)
   * [Http vs Https](network/network-101/http-vs-https.md)
-  * [TLS Handshake](network/network-101/tls-handshake.md)
+  * [TLS Handshake 1.2](network/network-101/tls-handshake-1.2.md)
   * [HTTP Method](network/network-101/http-method.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 

@@ -26,7 +26,7 @@ init와 커널 스레드 데몬이 바로 대부분의 데몬을 동작시키는
 
 **init 데몬**
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 init 데몬은 1번 프로세스이며 프로세스 대부분의 조상 프로세스이다. pstree 명령으로 프로세스들의 실행 구조를 확인해보면 init가 다른 데몬의 조상임을 다 시 한 번 더 명확하게 알 수 있다.
 
