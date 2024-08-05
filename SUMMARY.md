@@ -42,6 +42,7 @@
     * [3.3.8 Deadlock](books/cs-note-for-interview/ch3.-operating-system/3.3.8-deadlock.md)
     * [3.4 CPU Scheduling Algorithm](books/cs-note-for-interview/ch3.-operating-system/3.4-cpu-scheduling-algorithm.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
+  * [1. Scalability based on user counts(1/2)](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/1.-scalability-based-on-user-counts-1-2.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
