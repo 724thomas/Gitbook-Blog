@@ -195,6 +195,7 @@
   * [TCP vs UDP](network/network-101/tcp-vs-udp.md)
   * [Http vs Https](network/network-101/http-vs-https.md)
   * [TLS Handshake](network/network-101/tls-handshake.md)
+  * [HTTP Method](network/network-101/http-method.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 
 ## DATABASE
