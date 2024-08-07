@@ -88,7 +88,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 * **정의**: \
   Sync Blocking 조합은 다른 작업이 진행되는 동안 자신의 작업을 처리하지 않고 (Blocking), 다른 작업의 완료 여부를 바로 받아 순차적으로 처리하는 (Sync) 방식입니다. 다른 작업의 결과가 자신의 작업에 영향을 주는 경우에 활용할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 모든 작업이 완료될 때까지 다음 작업을 시작하지 않습니다.
@@ -108,13 +108,13 @@ description: 블로킹, 논블로킹과 동기, 비동기
 사장: 퇴근
 ```
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 동기 논블로킹
 
 * **정의**: Sync Non-Blocking 조합은 다른 작업이 진행되는 동안에도 자신의 작업을 처리하고 (Non Blocking), 다른 작업의 결과를 바로 처리하여 작업을 순차대로 수행 하는 (Sync) 방식입니다.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 각 작업이 바로 완료되지 않으면 즉시 반환되고, 다른 작업을 시도할 수 있습니다.
@@ -136,13 +136,13 @@ description: 블로킹, 논블로킹과 동기, 비동기
 사장: 퇴근
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
 또 다른 예시는 게임입니다. 맵을 이동할때 생각을 해보면, 우선 맵을 다운로드 해야합니다. 그동안에는 로딩 화면이 뜨고, 이 로딩 화면은 로딩바가 채워지는 프로그램이 수행하고 있는 것입니다. 즉 제어권은 여전히 갖고 있어 화면에 로딩%가 표시되는 것입니다. 그리고 끊임없이 맵 데이터가 어느정도 로드가 됬는지 조회합니다. <mark style="color:red;">**자신의 작업을 계속하고 있지만, 다른 작업과의 동기를 위해 계속해서 다른 작업이 끝났는지 조회하는 것입니다.**</mark>
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 비동기 블로킹
 
@@ -152,7 +152,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
   * 논블로킹 I/O는 프로세스들의 작업을 컨트롤하는 것이 까다롭다.
   * 그렇다고 동기 & 블로킹 I/O와 멀티 프로세싱이나 쓰레딩을 결합해서 쓰자니 자원 문제도 있고 프로세스/스레드 간 통신이나 동기화가 어렵다.
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 여러 작업이 동시에 시작될 수 있지만, 각 작업은 여전히 블로킹됩니다.
@@ -167,7 +167,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 
 
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 가장 효율적인 방식으로, 작업이 완료될 때까지 대기하지 않고 다른 작업을 계속 수행합니다.
