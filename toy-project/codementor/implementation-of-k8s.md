@@ -20,7 +20,7 @@ CodeMentor 프로젝트는 처음 단일 서버로 시작했었습니다. 모든
 
 저희 프로젝트는 유저 코드 제출시, 기존 코드가 정답인지 확인을 하는 작업이 필요했고, 이는 코드가 실행되는 서버를 별도에 두고 실행을 해야했습니다. Time Out을 설정하긴 했지만, 코드 실행에 시간이 많이 소요가 되었습니다. 코드 실행 뿐만 아니라, GPT3.5 모델을 통해 유저의 코드에 대한 피드백과 모범 수정 코드를 생성하는 요청도 같이 보냈었습니다. 단일 요청에 대해서 두가지 과정을 다 거치고 요청 값을 돌려주는데에 짧게는 몇초, 길게는 2분의 시간 지연이 발생했었습니다. 여러 요청들이 들어왔을때, 앞의 요청들이 끝나지 않아서 뒤에 있는 요청들이 기다리는 시간이 길어지는 _**병목현상**_이 나타났습니다. 이를 해결하기 위한 새로운 접근 방식이 필요했습니다.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -32,7 +32,7 @@ _**@Async**_를 도입하면서,  저희 서비스는 이제 다수의 요청을
 
 &#x20;하지만, 이번에는 코드 실행 서버에서 문제가 발생했었습니다. 많은 요청들이 한꺼번에 들어오게 됐을때, 해당 서버가 터지는 등, _**비정상적인 종료**_가 발생했었습니다.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 

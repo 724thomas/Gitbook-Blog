@@ -10,7 +10,7 @@ description: 컨텍스트 스위칭 발생 시기
 
 💡 **프로세스 상태 변화의 관점**
 
-<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. **준비(Ready) → 실행(Running)**: 스케줄러에 의해 선택된 프로세스는 CPU를 할당받아 실행 상태로 전환됩니다. 준비 상태에 있던 프로세스가 실행 상태로 바뀌는 순간 컨텍스트 스위칭이 일어납니다.
 2. **실행(Running) → 대기(Waiting/Blocked)**: 프로세스가 I/O 요청 또는 다른 이벤트를 기다리게 될 경우, 실행 상태에서 대기 상태로 전환됩니다. 이때도 컨텍스트 스위칭이 발생하며, CPU는 다른 프로세스나 스레드에 할당됩니다.
