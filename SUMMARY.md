@@ -43,6 +43,7 @@
     * [3.4 CPU Scheduling Algorithm](books/cs-note-for-interview/ch3.-operating-system/3.4-cpu-scheduling-algorithm.md)
   * [Ch4. Database](books/cs-note-for-interview/ch4.-database/README.md)
     * [4.1 Database Basic](books/cs-note-for-interview/ch4.-database/4.1-database-basic.md)
+    * [4.2 Normalization](books/cs-note-for-interview/ch4.-database/4.2-normalization.md)
 * [Learning the Basics of Large-Scale System Design through Virtual Interview Cases](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/README.md)
   * [1. Scalability based on user counts(1/2)](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/1.-scalability-based-on-user-counts-1-2.md)
   * [1. Scalability based on user counts(2/2)](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/1.-scalability-based-on-user-counts-2-2.md)
