@@ -68,6 +68,7 @@
   * [Item 12. Always Override toString](books/effective-java/item-12.-always-override-tostring/README.md)
     * [Always Override toString](books/effective-java/item-12.-always-override-tostring/always-override-tostring.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
+  * [Ch1. Introduction to SimUDuck](books/head-first-design-patterns/ch1.-introduction-to-simuduck.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern.md)
   * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern.md)
 
