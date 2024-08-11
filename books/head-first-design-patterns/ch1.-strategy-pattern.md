@@ -8,7 +8,200 @@ description: 전략패턴
 
 전략 패턴은 소프트웨어 디자인에서 매우 중요한 패턴 중 하나로, 다양한 상황에서 사용될 수 있습니다. 이는 특히 동적 행동 변화가 필요한 경우에 매우 유용하며, 코드의 재사용성과 유지보수성을 높이는 데 큰 역할을 합니다.
 
-전략 패턴(Strategy Pattern)은 오리의 행동을 클래스 외부로 분리하여, 코드의 유연성을 높이고 중복을 최소화하는 데 매우 효과적입니다. 이 패턴을 통해 새로운 행동을 추가하거나 변경하는 작업이 쉬워지며, 런타임 시 행동을 동적으로 변경할 수 있어 다양한 시나리오에 대응할 수 있습니다.
+전략 패턴(Strategy Pattern)은 오리의 행동을 클래스 외부로 분리하여, 코드의 유연성을 높이고 중복을 최소화하는 데 매우 효과적입니다. 이 패턴을 통해 새로운 행동을 추가하거나 변경하는 작업이 쉬워지며, 런타임 시 행동을 동적으로 변경할 수 있어 다양한 시나리오에 대응할 수 있습니다.&#x20;
+
+<details>
+
+<summary>전략 패턴을 적용하지 않았을때 (쉬운 예시)</summary>
+
+전략 패턴을 적용하지 않은 경우, 모든 결제 로직이 `PaymentService` 클래스 안에 직접 구현됩니다.
+
+```java
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+@Slf4j
+@Service
+public class PaymentService {
+
+    public void processPayment(String paymentType, int amount) {
+        if ("CREDIT_CARD".equalsIgnoreCase(paymentType)) {
+            payWithCreditCard(amount);
+        } else if ("PAYPAL".equalsIgnoreCase(paymentType)) {
+            payWithPaypal(amount);
+        } else {
+            throw new IllegalArgumentException("Unknown payment type: " + paymentType);
+        }
+    }
+
+    private void payWithCreditCard(int amount) {
+        log.info("Paid {} using Credit Card.", amount);
+    }
+
+    private void payWithPaypal(int amount) {
+        log.info("Paid {} using PayPal.", amount);
+    }
+}
+```
+
+#### 2. 사용 예시
+
+이제 `PaymentService`를 사용하는 예제를 보여드리겠습니다.
+
+```java
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class Application {
+
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        PaymentService paymentService = context.getBean(PaymentService.class);
+        
+        // 신용카드로 결제
+        paymentService.processPayment("CREDIT_CARD", 1000);
+        
+        // 페이팔로 결제
+        paymentService.processPayment("PAYPAL", 2000);
+    }
+}
+```
+
+#### 3. 출력 결과
+
+```
+Paid 1000 using Credit Card.
+Paid 2000 using PayPal.
+```
+
+#### 문제점
+
+1. **확장성 부족**: 만약 새로운 결제 방법이 추가되면 `PaymentService` 클래스를 수정해야 합니다. 이는 OCP(개방-폐쇄 원칙) 위반입니다.
+2. **유지보수 어려움**: 모든 결제 로직이 하나의 클래스에 몰려 있어 코드가 복잡해지고, 유지보수가 어려워질 수 있습니다.
+3. **결합도 증가**: 결제 로직과 `PaymentService` 클래스가 강하게 결합되어 있어, 재사용성이 낮아집니다.
+
+이 방식에서는 결제 로직을 변경하거나 확장하기가 어렵습니다.
+
+</details>
+
+<details>
+
+<summary>젼략 패턴을 적용하고 난 후에 (쉬운 예시)</summary>
+
+1\. 전략 인터페이스 정의
+
+```java
+public interface PaymentStrategy {
+    void pay(int amount);
+}
+```
+
+#### 2. 전략 구현 클래스들
+
+```java
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class CreditCardPayment implements PaymentStrategy {
+    @Override
+    public void pay(int amount) {
+        log.info("Paid {} using Credit Card.", amount);
+    }
+}
+
+@Slf4j
+public class PaypalPayment implements PaymentStrategy {
+    @Override
+    public void pay(int amount) {
+        log.info("Paid {} using PayPal.", amount);
+    }
+}
+```
+
+#### 3. 클라이언트 서비스 클래스
+
+```java
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class PaymentService {
+    
+    private final PaymentStrategy paymentStrategy;
+
+    public void processPayment(int amount) {
+        paymentStrategy.pay(amount);
+    }
+}
+```
+
+`@RequiredArgsConstructor`는 `final`로 선언된 모든 필드를 포함하는 생성자를 자동으로 생성해 줍니다. 이로 인해 스프링이 이 생성자를 통해 의존성을 주입할 수 있습니다.
+
+#### 4. 스프링 설정 (Java Config or XML)
+
+여기서는 Java Config로 설정하는 방법을 보여줍니다.
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public PaymentStrategy creditCardPayment() {
+        return new CreditCardPayment();
+    }
+
+    @Bean
+    public PaymentStrategy paypalPayment() {
+        return new PaypalPayment();
+    }
+
+    @Bean
+    public PaymentService paymentService(PaymentStrategy paymentStrategy) {
+        return new PaymentService(paymentStrategy);
+    }
+}
+```
+
+이 설정 클래스에서는 `PaymentStrategy` 구현체 중 하나를 선택해서 `PaymentService`에 주입합니다. 예를 들어, `creditCardPayment`를 사용하도록 설정할 수 있습니다.
+
+#### 5. 사용 예시
+
+이제 서비스가 어떻게 사용되는지 예를 들어보겠습니다.
+
+```java
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class Application {
+
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        PaymentService paymentService = context.getBean(PaymentService.class);
+        
+        paymentService.processPayment(1000);
+    }
+}
+```
+
+#### 6. 출력 결과
+
+만약 `AppConfig`에서 `creditCardPayment()`를 주입했다면:
+
+```arduino
+Paid 1000 using Credit Card.
+```
+
+`paypalPayment()`를 주입했다면:
+
+```arduino
+Paid 1000 using PayPal.
+```
+
+</details>
 
 
 
