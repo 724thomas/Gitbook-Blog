@@ -70,6 +70,7 @@
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Introduction to SimUDuck](books/head-first-design-patterns/ch1.-introduction-to-simuduck.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern.md)
+  * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern-1.md)
   * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern.md)
 
 ## TOY Project
