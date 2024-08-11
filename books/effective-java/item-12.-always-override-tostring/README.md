@@ -189,7 +189,7 @@ public abstract class AutoValueExample {
 **답변:** `AutoValue` 외에도 `Lombok`과 같은 도구가 있습니다. `Lombok`은 `@ToString` 애노테이션을 사용하여 `toString` 메소드를 자동으로 생성합니다.
 
 ```java
-java코드 복사import lombok.ToString;
+import lombok.ToString;
 
 @ToString
 public class Person {
