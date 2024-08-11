@@ -69,8 +69,8 @@
     * [Always Override toString](books/effective-java/item-12.-always-override-tostring/always-override-tostring.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
-  * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern.md)
-  * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern-1.md)
+  * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
+    * [Ver1. Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/ver1.-ch2.-observer-pattern.md)
   * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern.md)
 
 ## TOY Project
