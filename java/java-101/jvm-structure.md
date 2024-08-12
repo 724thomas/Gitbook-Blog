@@ -4,10 +4,17 @@ description: JVM 구조
 
 # JVM Structure
 
+<figure><img src="../../.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>
+
 자바VM은 자바 프로그램을 실행하는 가상 머신으로, 여러 구성 요소로 나뉩니다. 주요 구성 요소는 다음과 같습니다:
 
 1. **클래스 로더(Class Loader)**
 2. **메모리 영역(Memory Areas)**
+   1. 메서드 영역(Method Area)
+   2. 힙 (Heap)
+   3. PC 레지스터 (PC Register)
+   4. JVM 스택 (JVM Stack)
+   5. 네이티브 메서드 스택 (Native Method Stack)
 3. **실행 엔진(Execution Engine)**
 4. **Java Native Interface (JNI)**
 5. **네이티브 메서드 라이브러리(Native Method Libraries)**
@@ -16,7 +23,7 @@ description: JVM 구조
 
 ## 클래스 로더(Class Loader)
 
-클래스 로더는 JVM이 자바 클래스 파일을 로드하고, 이를 런타임 데이터 영역으로 배치하는 역할을 합니다. 클래스 로더는 계층 구조로 되어 있으며, 주로 세가지 종류가 있습니다.
+클래스 로더는 JVM이 자바 클래스 파일을 동적으로로드하고, 이를 런타임 데이터 영역으로 배치하는 역할을 합니다. 클래스 로더는 계층 구조로 되어 있으며, 주로 세가지 종류가 있습니다.
 
 * Bootstrap ClassLoader: JVM 내부에 내장된 기본 클래스들을 로드합니다.
 * Extention ClassLoader: 기본 클래스 외의 추가적인 라이브러리를 로드합니다.
@@ -30,8 +37,8 @@ JVM은 실행 중에 다양한 메모리 영역을 사용합니다.
 
 * 메소드 영역: 클래스 메타데이터, 상수, 스태틱 변수 등을 저장합니다.
 * 힙: 모든 객체 인스턴스와 배열을 저장합니다
-* 스택: 각 스레드마다 별도로 생성되며, 메서드 호출 시 생성되는 프레임을 저장합니다.
 * PC 레지스터: 현재 실행 중인 JVM 명령어의 주소를 가리킵니다.
+* 스택: 각 스레드마다 별도로 생성되며, 메서드 호출 시 생성되는 프레임을 저장합니다.
 * 네이티브 메서드 스택: 네이티브 메서드 호출 시 사용되는 스택입니다.
 
 <details>
