@@ -26,12 +26,12 @@ init와 커널 스레드 데몬이 바로 대부분의 데몬을 동작시키는
 
 **init 데몬**
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 init 데몬은 1번 프로세스이며 프로세스 대부분의 조상 프로세스이다. pstree 명령으로 프로세스들의 실행 구조를 확인해보면 init가 다른 데몬의 조상임을 다 시 한 번 더 명확하게 알 수 있다.
 
 **커널 스레드 데몬**
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 커널의 일부분을 프로세스 처럼 관리하는 데몬을 커널 데몬이라고 한다. 이는 ps 명령으로 확인했을 때 대괄호로 둘러싸여 있는 프로세스들이다. 예전에는 대부분 k로 시작했으나, 요즘은 이를 반드시 준수하지 않는다. 커널 데몬은 대부분 입출력이나 메모리 관리, 디스크 동기화 등을 수행하며, 대체로 PID가 낮은 번호로 할당되어 있다. 일반 프로세스의 조상 데몬이 init라면 커널 데몬을 동작시키는 조상 데몬은 커널 스레드 데몬(kthreadd)이다. ps 명령으로 확인해보면 모든 커널 데몬의 PPID가 2번임을 알 수 있다. PID 2번은 kthreadd 데몬이다.
