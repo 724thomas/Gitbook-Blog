@@ -51,6 +51,7 @@
   * [3. Strategies for System Design Interviews](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/3.-strategies-for-system-design-interviews.md)
   * [4. Rate Limiter](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/4.-rate-limiter.md)
   * [5. Consistent Hashing](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/5.-consistent-hashing.md)
+  * [6. Key-Value System Design](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/6.-key-value-system-design.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
