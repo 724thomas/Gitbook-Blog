@@ -73,6 +73,7 @@
   * [Item 11. Override hashCode When You Override equals](books/effective-java/item-11.-override-hashcode-when-you-override-equals.md)
   * [Item 12. Always Override toString](books/effective-java/item-12.-always-override-tostring/README.md)
     * [Always Override toString](books/effective-java/item-12.-always-override-tostring/always-override-tostring.md)
+  * [Item13. Override Clone Judiciously](books/effective-java/item13.-override-clone-judiciously.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
