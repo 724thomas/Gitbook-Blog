@@ -17,7 +17,7 @@ description: CORS & SOP
 
 ## SOP
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 동일 출처 정책(Same-Origin Policy, SOP)은 웹 브라우저의 중요한 보안 정책으로, 한 출처에서 불러온 스크립트가 다른 출처의 리소스에 접근하는 것을 제한합니다. 이를 통해 악의적인 사이트가 사용자의 데이터를 탈취하거나, 사용자의 권한을 오용하는 것을 방지합니다. 즉, 동일 출처(Same-Origin) 서버에 있는 리소스는 자유로이 가져올수 있지만, 다른 출처(Cross-Origin) 서버에 있는 이미지나 유튜브 영상 같은 리소스는 상호작용이 불가능합니다.
 
