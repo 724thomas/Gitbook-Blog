@@ -74,6 +74,7 @@
   * [Item 12. Always Override toString](books/effective-java/item-12.-always-override-tostring/README.md)
     * [Always Override toString](books/effective-java/item-12.-always-override-tostring/always-override-tostring.md)
   * [Item13. Override Clone Judiciously](books/effective-java/item13.-override-clone-judiciously.md)
+  * [Item14. Consider Implementing Comparable](books/effective-java/item14.-consider-implementing-comparable.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
