@@ -80,7 +80,8 @@
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
     * [Ver1. Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/ver1.-ch2.-observer-pattern.md)
-  * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern.md)
+  * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern/README.md)
+    * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern/ch3.-decorator-pattern.md)
   * [Ch4. Factory Pattern](books/head-first-design-patterns/ch4.-factory-pattern.md)
 
 ## TOY Project
