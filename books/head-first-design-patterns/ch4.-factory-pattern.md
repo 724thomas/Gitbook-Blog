@@ -887,6 +887,294 @@ public class CaliforniaPizzaIngredientFactory implements PizzaIngredientFactory 
 
 
 
+
+
+## 전체 코드&#x20;
+
+각 피자 스타일(뉴욕, 시카고)에 맞는 피자 가게(`NYPizzaStore`, `ChicagoPizzaStore`)가 있고, 이들은 각각의 원재료 팩토리(`NYPizzaIngredientFactory`, `ChicagoPizzaIngredientFactory`)를 사용하여 피자를 생성합니다. 피자 객체는 추상 클래스 `Pizza`를 상속받아 구현되며, 각 피자는 원재료 팩토리에서 제공하는 재료로 조립됩니다.
+
+<details>
+
+<summary>피자 관련 클래스들</summary>
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// 피자 추상 클래스
+abstract class Pizza {
+    String name;
+    Dough dough;
+    Sauce sauce;
+    Cheese cheese;
+    List<String> toppings = new ArrayList<>();
+
+    abstract void prepare();
+
+    void bake() {
+        System.out.println("Baking " + name);
+    }
+
+    void cut() {
+        System.out.println("Cutting " + name);
+    }
+
+    void box() {
+        System.out.println("Boxing " + name);
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append("---- " + name + " ----\n");
+        result.append(dough + "\n");
+        result.append(sauce + "\n");
+        result.append(cheese + "\n");
+        for (String topping : toppings) {
+            result.append(topping + "\n");
+        }
+        return result.toString();
+    }
+}
+
+// CheesePizza 클래스
+class CheesePizza extends Pizza {
+    PizzaIngredientFactory ingredientFactory;
+
+    public CheesePizza(PizzaIngredientFactory ingredientFactory) {
+        this.ingredientFactory = ingredientFactory;
+    }
+
+    @Override
+    void prepare() {
+        System.out.println("Preparing " + name);
+        dough = ingredientFactory.createDough();
+        sauce = ingredientFactory.createSauce();
+        cheese = ingredientFactory.createCheese();
+    }
+}
+
+// VeggiePizza 클래스
+class VeggiePizza extends Pizza {
+    PizzaIngredientFactory ingredientFactory;
+
+    public VeggiePizza(PizzaIngredientFactory ingredientFactory) {
+        this.ingredientFactory = ingredientFactory;
+    }
+
+    @Override
+    void prepare() {
+        System.out.println("Preparing " + name);
+        dough = ingredientFactory.createDough();
+        sauce = ingredientFactory.createSauce();
+        cheese = ingredientFactory.createCheese();
+    }
+}
+```
+
+</details>
+
+<details>
+
+<summary>원재료 관련 클래스들</summary>
+
+```java
+// Dough 인터페이스
+interface Dough { }
+
+// Sauce 인터페이스
+interface Sauce { }
+
+// Cheese 인터페이스
+interface Cheese { }
+
+// 구체적인 원재료 클래스들
+class ThinCrustDough implements Dough {
+    public String toString() {
+        return "Thin Crust Dough";
+    }
+}
+
+class ThickCrustDough implements Dough {
+    public String toString() {
+        return "Thick Crust Dough";
+    }
+}
+
+class MarinaraSauce implements Sauce {
+    public String toString() {
+        return "Marinara Sauce";
+    }
+}
+
+class PlumTomatoSauce implements Sauce {
+    public String toString() {
+        return "Plum Tomato Sauce";
+    }
+}
+
+class ReggianoCheese implements Cheese {
+    public String toString() {
+        return "Reggiano Cheese";
+    }
+}
+
+class MozzarellaCheese implements Cheese {
+    public String toString() {
+        return "Mozzarella Cheese";
+    }
+}
+```
+
+</details>
+
+<details>
+
+<summary>원재료 팩토리 인터페이스 및 구체 팩토리들</summary>
+
+```java
+java코드 복사// 피자 원재료 팩토리 인터페이스
+interface PizzaIngredientFactory {
+    Dough createDough();
+    Sauce createSauce();
+    Cheese createCheese();
+}
+
+// 뉴욕 피자 원재료 팩토리
+class NYPizzaIngredientFactory implements PizzaIngredientFactory {
+    public Dough createDough() {
+        return new ThinCrustDough();
+    }
+
+    public Sauce createSauce() {
+        return new MarinaraSauce();
+    }
+
+    public Cheese createCheese() {
+        return new ReggianoCheese();
+    }
+}
+
+// 시카고 피자 원재료 팩토리
+class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
+    public Dough createDough() {
+        return new ThickCrustDough();
+    }
+
+    public Sauce createSauce() {
+        return new PlumTomatoSauce();
+    }
+
+    public Cheese createCheese() {
+        return new MozzarellaCheese();
+    }
+}
+```
+
+</details>
+
+<details>
+
+<summary>피자 가게 클래스들</summary>
+
+```java
+// 피자 가게 추상 클래스
+abstract class PizzaStore {
+
+    protected abstract Pizza createPizza(String item);
+
+    public Pizza orderPizza(String type) {
+        Pizza pizza = createPizza(type);
+        System.out.println("--- Making a " + pizza.getName() + " ---");
+        pizza.prepare();
+        pizza.bake();
+        pizza.cut();
+        pizza.box();
+        return pizza;
+    }
+}
+
+// 뉴욕 피자 가게
+class NYPizzaStore extends PizzaStore {
+    @Override
+    protected Pizza createPizza(String item) {
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
+
+        if (item.equals("cheese")) {
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("New York Style Cheese Pizza");
+        } else if (item.equals("veggie")) {
+            pizza = new VeggiePizza(ingredientFactory);
+            pizza.setName("New York Style Veggie Pizza");
+        }
+
+        return pizza;
+    }
+}
+
+// 시카고 피자 가게
+class ChicagoPizzaStore extends PizzaStore {
+    @Override
+    protected Pizza createPizza(String item) {
+        Pizza pizza = null;
+        PizzaIngredientFactory ingredientFactory = new ChicagoPizzaIngredientFactory();
+
+        if (item.equals("cheese")) {
+            pizza = new CheesePizza(ingredientFactory);
+            pizza.setName("Chicago Style Cheese Pizza");
+        } else if (item.equals("veggie")) {
+            pizza = new VeggiePizza(ingredientFactory);
+            pizza.setName("Chicago Style Veggie Pizza");
+        }
+
+        return pizza;
+    }
+}
+```
+
+</details>
+
+<details>
+
+<summary>클라이언트 코드</summary>
+
+```java
+public class PizzaTestDrive {
+
+    public static void main(String[] args) {
+        PizzaStore nyStore = new NYPizzaStore();
+        PizzaStore chicagoStore = new ChicagoPizzaStore();
+
+        Pizza pizza = nyStore.orderPizza("cheese");
+        System.out.println("Ethan ordered a " + pizza.getName() + "\n");
+
+        pizza = chicagoStore.orderPizza("cheese");
+        System.out.println("Joel ordered a " + pizza.getName() + "\n");
+
+        pizza = nyStore.orderPizza("veggie");
+        System.out.println("Ethan ordered a " + pizza.getName() + "\n");
+
+        pizza = chicagoStore.orderPizza("veggie");
+        System.out.println("Joel ordered a " + pizza.getName() + "\n");
+    }
+}
+```
+
+</details>
+
+
+
+
+
 ### **디자인 도구 상자 안에 들어가야 할 도구들 (Tools to Include in Your Design Toolbox)**
 
 여러 디자인 패턴을 활용해 피자 주문 시스템을 개발하면서, 코드 재사용성과 확장성을 크게 높일 수 있었습니다. 이러한 패턴들을 체계적으로 정리하여 디자인 도구 상자를 구성하면, 다른 프로젝트에서도 이 패턴들을 쉽게 적용할 수 있습니다.
