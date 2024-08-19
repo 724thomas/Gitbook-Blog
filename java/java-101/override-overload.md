@@ -46,6 +46,31 @@ class Child extends Parent {
 3. **예외 처리 제한**: 자식 클래스의 오버라이딩된 메서드는 부모 클래스 메서드에서 선언된 예외보다 더 상위의 예외를 던질 수 없습니다. 그러나 부모 클래스에서 던지지 않은 새로운 체크 예외를 던질 수는 없습니다.
 4. **반환 타입의 일관성**: 오버라이딩된 메서드는 부모 클래스의 메서드와 동일한 반환 타입을 가지거나, 자바 5 이후로는 더 구체적인 반환 타입(공변 반환 타입, Covariant Return Type)을 가질 수 있습니다.
 
+<details>
+
+<summary>공변 반환 타입, Covariant Return Type</summary>
+
+자바에서 메서드를 오버라이딩할 때, 자식 클래스에서 부모 클래스의 메서드를 재정의하면서 반환 타입을 부모 클래스에서 정의한 반환 타입의 하위 타입으로 변경할 수 있는 기능
+
+```java
+class Animal {
+    Animal getAnimal() {
+        return this;
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    Dog getAnimal() {  // 반환 타입을 'Animal'에서 'Dog'로 변경
+        return this;
+    }
+}
+```
+
+위 예제에서, `Dog` 클래스는 `Animal` 클래스의 `getAnimal()` 메서드를 오버라이딩하고 있습니다. 부모 클래스인 `Animal`의 `getAnimal()` 메서드는 `Animal` 타입을 반환하지만, `Dog` 클래스에서는 이를 `Dog` 타입으로 변경했습니다.
+
+</details>
+
 
 
 ### 1.3 오버라이딩의 실제 동작: 동적 바인딩(Dynamic Binding)
