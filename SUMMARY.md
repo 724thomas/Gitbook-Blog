@@ -81,6 +81,7 @@
   * [Item13. Override Clone Judiciously](books/effective-java/item13.-override-clone-judiciously.md)
   * [Item14. Consider Implementing Comparable](books/effective-java/item14.-consider-implementing-comparable.md)
   * [Item15. Minimize the Accessibility of Classes and Members](books/effective-java/item15.-minimize-the-accessibility-of-classes-and-members.md)
+  * [Item 16. Accessor Methods Over Public Fields](books/effective-java/item-16.-accessor-methods-over-public-fields.md)
   * [Item17. Minimize Mutability](books/effective-java/item17.-minimize-mutability.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
