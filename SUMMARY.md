@@ -301,3 +301,4 @@
   * [Plot twist](dev-jokes/image/plot-twist.md)
   * [Priorities](dev-jokes/image/priorities.md)
   * [SQL join guide](dev-jokes/image/sql-join-guide.md)
+  * [Google is generous](dev-jokes/image/google-is-generous.md)
