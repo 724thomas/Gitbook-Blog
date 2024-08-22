@@ -91,6 +91,7 @@
   * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern/README.md)
     * [Ch3. Decorator Pattern](books/head-first-design-patterns/ch3.-decorator-pattern/ch3.-decorator-pattern.md)
   * [Ch4. Factory Pattern](books/head-first-design-patterns/ch4.-factory-pattern.md)
+  * [Ch5. Singleton Pattern](books/head-first-design-patterns/ch5.-singleton-pattern.md)
 
 ## TOY Project
 
