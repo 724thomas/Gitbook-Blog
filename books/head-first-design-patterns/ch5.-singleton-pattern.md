@@ -408,3 +408,145 @@ public class Singleton {
 * **레이지 싱글턴(Lazy Singleton):** 초기화 비용이 높은 경우, 인스턴스를 미리 생성하지 않고 처음 사용할 때 생성하는 패턴입니다. 더블 체크 잠금이나 이른 초기화가 이러한 패턴에 해당합니다.
 * **레지스트리 싱글턴(Registry Singleton):** 싱글턴 인스턴스를 레지스트리에 저장하고, 필요한 경우 레지스트리에서 해당 인스턴스를 가져오는 방식입니다.
 
+
+
+## 9. 질문
+
+### 9.1 모든 메서드와 변수를 static으로 선언해서 클래스를 만들면 되지 않나요? 결과적으로 싱글턴 패턴을 사용하는 것과 똑같을 것 같은데요?
+
+모든 메서드와 변수를 `static`으로 선언한 클래스는 싱글턴 패턴과 유사해 보일 수 있지만, 두 가지 중요한 차이가 있습니다. \
+첫째, `static`으로 선언된 클래스는 **인스턴스화**가 필요하지 않으며, 전역 상태를 가진 객체가 없기 때문에 **상속**이나 **다형성**을 활용할 수 없습니다. 반면, 싱글턴 클래스는 특정 객체의 인스턴스가 하나만 존재한다는 점에서 다른 객체지향적 설계를 유지할 수 있습니다.&#x20;
+
+<details>
+
+<summary>static 메서드와 상속</summary>
+
+<pre class="language-java"><code class="lang-java"><strong>class Parent {
+</strong>    public static void staticMethod() {
+        System.out.println("Parent static method");
+    }
+    
+    public void instanceMethod() {
+        System.out.println("Parent instance method");
+    }
+}
+
+class Child extends Parent {
+    // static 메서드는 오버라이드가 아니라, 그냥 숨기기(Hiding)
+    public static void staticMethod() {
+        System.out.println("Child static method");
+    }
+    
+    @Override
+    public void instanceMethod() {
+        System.out.println("Child instance method");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        Parent child = new Child();
+        
+        // static 메서드는 인스턴스 타입에 상관없이 선언된 클래스 타입에 따라 실행됨
+        parent.staticMethod(); // "Parent static method"
+        child.staticMethod();  // "Parent static method" (Child가 아니라 Parent의 메서드가 호출됨)
+
+        parent.instanceMethod(); // "Parent instance method"
+        child.instanceMethod();  // "Child instance method" (상속된 instance method는 오버라이딩됨)
+    }
+}
+</code></pre>
+
+위 예시에서 `staticMethod()`는 오버라이딩되지 않고, **숨겨지기(Hiding)** 때문에 자식 클래스에서 `staticMethod()`를 재정의해도 부모 클래스의 `staticMethod()`가 호출됩니다. 반면에, `instanceMethod()`는 자식 클래스에서 오버라이딩되어 실제로 `Child` 클래스의 메서드가 호출됩니다.
+
+`static` 클래스나 메서드는 특정 인스턴스에 종속되지 않기 때문에, \*\*클래스 계층구조 내에서 상속을 통해 오버라이딩(Overriding)\*\*하는 것이 불가능합니다.
+
+</details>
+
+<details>
+
+<summary>다형성과 static</summary>
+
+`static`으로 선언된 클래스는 인스턴스화되지 않으며, 다형성을 구현하기 위해서는 **객체의 인스턴스**가 필요합니다. 하지만, `static` 클래스 또는 메서드는 클래스 레벨에서 작동하므로, 다형성을 적용할 수 없습니다.
+
+```java
+abstract class Animal {
+    public abstract void sound();
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Meow");
+    }
+}
+
+public class Main {
+    public static void makeSound(Animal animal) {
+        animal.sound(); // 다형성: 런타임에 적절한 메서드가 호출됨
+    }
+
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+
+        makeSound(dog); // "Bark"
+        makeSound(cat); // "Meow"
+    }
+}
+```
+
+위 예시에서는 `Animal`이라는 부모 클래스를 상속받은 `Dog`와 `Cat` 클래스가 각각의 `sound()` 메서드를 오버라이드하고 있습니다. `makeSound()` 메서드는 인자로 `Animal` 타입의 객체를 받지만, 실제로는 `Dog`나 `Cat` 객체에 따라 다르게 동작하는 **다형성**을 보여줍니다.
+
+만약 `sound()` 메서드가 `static`으로 선언되었다면, 이러한 다형성을 사용할 수 없게 됩니다. 대신 클래스 타입에 따라 메서드가 정적으로 호출되기 때문에, 항상 부모 클래스의 메서드가 호출되거나, 자식 클래스의 메서드가 호출되더라도 런타임에 동적으로 바뀌지 않습니다.
+
+</details>
+
+\
+둘째, `static` 클래스는 언제든지 메모리에 로드될 수 있어 \*\*지연 초기화(lazy initialization)\*\*가 불가능합니다. 싱글턴 패턴은 인스턴스를 실제로 필요할 때 생성할 수 있어, 리소스를 효율적으로 관리할 수 있습니다.
+
+
+
+
+
+### 9.2 클래스 로더와 관련된 문제는 없나요? 클래스 로더가 각각 다른 싱글턴의 인스턴스를 가질 수 있다는 얘기를 들었거든요.
+
+네, 클래스 로더와 관련된 문제가 있을 수 있습니다. 자바에서 클래스 로더는 JVM이 클래스를 메모리에 로드하는 역할을 합니다.&#x20;
+
+만약 애플리케이션에 여러 개의 클래스 로더가 존재한다면, 각 클래스 로더는 동일한 클래스를 별도로 로드하여 **서로 다른 인스턴스**를 생성할 수 있습니다. 이로 인해, 싱글턴 패턴의 본래 목적이 무색해질 수 있습니다. 특히, 애플리케이션 서버와 같은 환경에서 클래스 로더가 여러 개일 경우, 의도치 않게 여러 개의 싱글턴 인스턴스가 생성될 수 있습니다. 이 문제를 해결하기 위해서는 **정적 팩토리 메서드**나 **서비스 로더**를 사용해 싱글턴 인스턴스를 관리하는 방법을 고려할 수 있습니다.
+
+### 9.3 리플렉션, 직렬화, 역직렬화 문제도 있지 않나요?
+
+*   **리플렉션 문제**: 리플렉션을 사용하면 클래스의 `private` 생성자에 접근할 수 있기 때문에, 싱글턴 클래스의 인스턴스를 여러 개 생성할 수 있는 위험이 있습니다. 이를 방지하려면, 싱글턴 클래스의 생성자에서 리플렉션을 통한 새로운 인스턴스 생성 시도에 대해 예외를 발생시키는 방법이 필요합니다.
+
+    ```java
+    private Singleton() {
+        if (instance != null) {
+            throw new IllegalStateException("이미 인스턴스가 존재합니다.");
+        }
+    }
+    ```
+*   **직렬화 및 역직렬화 문제**: 직렬화와 역직렬화는 객체를 바이트 스트림으로 변환하고, 다시 객체로 복원하는 과정입니다. 싱글턴 클래스가 직렬화된 후 역직렬화되면 새로운 인스턴스가 생성되어 **싱글턴 원칙**이 깨질 수 있습니다. 이를 방지하기 위해서는 `readResolve()` 메서드를 오버라이드하여, 역직렬화 시 기존의 싱글턴 인스턴스를 반환하도록 해야 합니다.
+
+    ```java
+    private Object readResolve() {
+        return getInstance();
+    }
+    ```
+
+### 9.4 싱글턴은 느슨한 결합 원칙에 위배되지 않나요? Singleton에 의존하는 객체는 전부 하나의 객체에만 결합된 것 아닌가요?
+
+싱글턴 패턴은 종종 **느슨한 결합 원칙**에 위배될 수 있다는 지적을 받습니다. 이는 싱글턴 인스턴스에 의존하는 객체들이 모두 동일한 인스턴스에 강하게 결합되기 때문입니다. 이런 결합은 객체 지향 설계에서 **유연성**을 저하시킬 수 있습니다. 예를 들어, 테스트나 확장성을 고려할 때 문제가 될 수 있습니다. 이를 해결하기 위해서는 싱글턴 객체를 인터페이스로 추상화하거나, 의존성 주입(Dependency Injection)을 통해 결합도를 낮출 수 있습니다. 이렇게 하면, 실제 인스턴스를 테스트 목적으로 \*\*모의 객체(Mock Object)\*\*로 대체할 수 있어 테스트 용이성을 높일 수 있습니다.
+
+## 9.5 싱글턴이 서브클래스를 만들어도 되는 건가요?
+
+싱글턴 클래스의 서브클래스를 만드는 것은 일반적으로 권장되지 않습니다. 싱글턴의 목적은 하나의 인스턴스만 존재하도록 보장하는 것이기 때문에, 서브클래스를 생성하면 이러한 제약이 깨질 수 있습니다. 특히, 서브클래스가 추가로 인스턴스를 만들 수 있는 상황에서는 싱글턴의 의미가 무색해집니다. 만약 서브클래스를 반드시 만들어야 한다면, 서브클래스의 생성자를 `protected`로 선언하고, 서브클래스도 싱글턴으로 구현하여 **상속받은 클래스들 역시 하나의 인스턴스만 가지도록** 해야 합니다. 그러나, 이런 구조는 복잡성을 증가시킬 수 있으므로 가능하면 피하는 것이 좋습니다.
+
