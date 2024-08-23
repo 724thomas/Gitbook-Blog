@@ -59,6 +59,7 @@
   * [6. Key-Value System Design](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/6.-key-value-system-design.md)
   * [7. Designing a Unique ID Generator for Distributed Systems](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/7.-designing-a-unique-id-generator-for-distributed-systems.md)
   * [8. Designing a URL Shortener](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/8.-designing-a-url-shortener.md)
+  * [9. Designing a Web Crawler](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/9.-designing-a-web-crawler.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
