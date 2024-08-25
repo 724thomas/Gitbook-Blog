@@ -15,7 +15,7 @@ description: 상속보다는 컴포지션을 사용하라
 `Vehicle` 클래스를 상속받아 `Car`와 `Truck` 클래스를 구현합니다.
 
 ```java
-java코드 복사// Vehicle 클래스: 모든 차량의 공통 기능을 정의
+// Vehicle 클래스: 모든 차량의 공통 기능을 정의
 public class Vehicle {
     private String brand;
     private String model;
