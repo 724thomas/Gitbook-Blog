@@ -88,6 +88,7 @@
   * [Item 16. Accessor Methods Over Public Fields](books/effective-java/item-16.-accessor-methods-over-public-fields.md)
   * [Item17. Minimize Mutability](books/effective-java/item17.-minimize-mutability.md)
   * [Item18. Composition over inherentance](books/effective-java/item18.-composition-over-inherentance.md)
+  * [Item 19. Design and Document for Inheritance, or Else Prohibit It](books/effective-java/item-19.-design-and-document-for-inheritance-or-else-prohibit-it.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
