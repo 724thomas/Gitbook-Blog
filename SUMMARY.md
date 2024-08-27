@@ -113,6 +113,7 @@
   * [Override, Overload](java/java-101/override-overload.md)
   * [Interface vs Abstract Class](java/java-101/interface-vs-abstract-class.md)
   * [Primitive vs Object Type](java/java-101/primitive-vs-object-type.md)
+  * [Identity and equality](java/java-101/identity-and-equality.md)
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
