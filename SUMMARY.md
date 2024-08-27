@@ -89,6 +89,7 @@
   * [Item17. Minimize Mutability](books/effective-java/item17.-minimize-mutability.md)
   * [Item18. Composition over inherentance](books/effective-java/item18.-composition-over-inherentance.md)
   * [Item 19. Design and Document for Inheritance, or Else Prohibit It](books/effective-java/item-19.-design-and-document-for-inheritance-or-else-prohibit-it.md)
+  * [Item20. Prefer Interfaces to Abstract Classes](books/effective-java/item20.-prefer-interfaces-to-abstract-classes.md)
 * [Head First Design Patterns](books/head-first-design-patterns/README.md)
   * [Ch1. Strategy Pattern](books/head-first-design-patterns/ch1.-strategy-pattern.md)
   * [Ch2. Observer Pattern](books/head-first-design-patterns/ch2.-observer-pattern/README.md)
