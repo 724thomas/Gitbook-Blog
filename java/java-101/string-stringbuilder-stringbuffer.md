@@ -32,7 +32,10 @@ str = str.concat(" World");
 
 ```java
 StringBuilder sb = new StringBuilder("Hello");
-sb.append(" World");
+sb.append(" World"); // "Hello World"
+sb.insert(5, ","); // "Hello, World"
+sb.delete(5, 6); // "Hello World"
+sb.reverse(); // "dlroW olleH"
 ```
 
 위 코드에서는 `StringBuilder` 객체가 생성되고, `append` 메서드를 통해 `" World"`가 추가됩니다. 이 과정에서 새로운 객체가 생성되지 않고, 기존 `StringBuilder` 객체의 값이 변경됩니다.
