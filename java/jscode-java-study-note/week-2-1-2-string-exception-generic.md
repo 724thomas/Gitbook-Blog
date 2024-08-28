@@ -4,7 +4,7 @@ description: 문자열, 예외, 제네릭
 
 # Week 2(1/2) - String, Exception, Generic
 
-#### 1. String 리터럴과 `new String("")`의 차이
+## 1. String 리터럴과 `new String("")`의 차이
 
 자바에서 `String`은 불변 객체(immutable object)입니다. 즉, 한 번 생성된 문자열은 변경할 수 없습니다. 이를 통해 자바에서 문자열을 다루는 두 가지 주요 방식인 _String 리터럴_과 `new String("")`에 대해 알아보겠습니다.
 
@@ -32,7 +32,7 @@ String str4 = new String("Hello");
 * _성능_: String 리터럴 방식이 메모리와 성능 면에서 효율적입니다.
 * _참조 비교_: String 리터럴은 상수 풀에 저장된 동일한 문자열을 참조하지만, `new String()`은 매번 새로운 객체를 생성하므로 참조 비교(`==`)에서 다른 결과가 나옵니다.
 
-#### 2. String, StringBuilder, StringBuffer의 차이점
+## 2. String, StringBuilder, StringBuffer의 차이점
 
 자바에서 문자열을 다루기 위한 대표적인 클래스 세 가지는 `String`, `StringBuilder`, `StringBuffer`입니다. 각 클래스의 주요 차이점과 사용 사례를 살펴보겠습니다.
 
@@ -63,7 +63,7 @@ String str4 = new String("Hello");
 
 
 
-#### 3. Exception과 Error의 차이
+## 3. Exception과 Error의 차이
 
 **3.1 Exception**
 
@@ -78,7 +78,7 @@ String str4 = new String("Hello");
 * **복구 가능성**: `Exception`은 복구 가능하지만, `Error`는 복구할 수 없습니다.
 * **발생 원인**: `Exception`은 코드 로직이나 외부 환경의 문제로 발생할 수 있으며, `Error`는 JVM 레벨의 심각한 문제로 인해 발생합니다.
 
-#### 4. Exception 클래스의 예시
+## 4. Exception 클래스의 예시
 
 자바에서 `Exception` 클래스는 여러 하위 클래스로 세분화되어 있습니다. 대표적인 예시들을 살펴보겠습니다.
 
@@ -104,7 +104,7 @@ public class InvalidAgeException extends Exception {
 
 사용자 정의 예외는 `Exception` 클래스를 상속받아 개발자가 필요에 따라 정의할 수 있습니다.
 
-#### 5. Checked Exception과 Unchecked Exception의 차이
+## 5. Checked Exception과 Unchecked Exception의 차이
 
 자바의 예외는 `Checked Exception`과 `Unchecked Exception`으로 구분됩니다. 각 예외의 차이점과 처리 방식을 살펴보겠습니다.
 
@@ -127,7 +127,7 @@ public class InvalidAgeException extends Exception {
 | `Checked Exception`   | 반드시 처리하거나 선언해야 함 | `IOException`, `SQLException`                 |
 | `Unchecked Exception` | 처리 요구사항 없음       | `NullPointerException`, `ArithmeticException` |
 
-#### 6. throw와 throws의 차이
+## 6. throw와 throws의 차이
 
 `throw`와 `throws`는 예외 처리에서 사용되는 중요한 키워드입니다. 이 둘의 차이점과 사용 방법을 살펴보겠습니다.
 
@@ -161,7 +161,7 @@ public void readFile(String fileName) throws IOException {
 * **사용 목적**: `throw`는 예외를 발생시키는 데 사용되며, `throws`는 메서드가 어떤 예외를 던질 수 있는지를 선언합니다.
 * **위치**: `throw`는 메서드 내에서 사용되며, `throws`는 메서드 시그니처에 사용됩니다.
 
-#### 7. try-catch-finally 구문에서 finally의 역할
+## 7. try-catch-finally 구문에서 finally의 역할
 
 `finally` 블록은 `try-catch` 구문에서 예외 발생 여부와 관계없이 항상 실행되는 부분입니다. 주요 역할과 사용 사례는 다음과 같습니다.
 
@@ -196,7 +196,7 @@ public void readFile(String fileName) throws IOException {
 * `return` 문이 `try` 또는 `catch` 블록에 있더라도, `finally` 블록은 실행됩니다.
 * `finally` 블록은 선택적이며, 반드시 사용해야 하는 것은 아닙니다.
 
-#### 8. Throwable과 Exception의 차이
+## 8. Throwable과 Exception의 차이
 
 `Throwable`과 `Exception`은 자바의 예외 처리에서 중요한 역할을 하는 클래스입니다. 이들의 차이점을 살펴보겠습니다.
 
@@ -217,7 +217,7 @@ public void readFile(String fileName) throws IOException {
 * **상속 관계**: `Throwable`은 최상위 클래스이며, `Exception`은 그 하위 클래스입니다.
 * **주요 역할**: `Throwable`은 예외와 오류를 모두 포함하며, `Exception`은 주로 예외를 처리합니다.
 
-#### 9. 제네릭(Generic)이란 무엇이고, 왜 사용할까요?
+## 9. 제네릭(Generic)이란 무엇이고, 왜 사용할까요?
 
 **9.1 제네릭(Generic)의 정의**
 
@@ -257,7 +257,7 @@ public class Box<T> {
 
 제네릭을 사용하여 타입 안정성을 보장한 예로, `ArrayList<String>`을 사용한 경험을 들 수 있습니다. 제네릭을 적용하지 않은 `ArrayList`는 `Object` 타입의 요소를 받아들이기 때문에, 요소를 꺼낼 때마다 타입 캐스팅을 해야 합니다. 이 과정에서 `ClassCastException`이 발생할 수 있지만, 제네릭을 사용하면 이러한 문제를 컴파일 시점에 방지할 수 있습니다.
 
-#### 10. 제네릭을 사용한 경험을 소개해 주세요.
+## 10. 제네릭을 사용한 경험을 소개해 주세요.
 
 **10.1 제네릭을 통한 타입 안정성 보장**
 
