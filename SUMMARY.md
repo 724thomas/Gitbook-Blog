@@ -121,6 +121,7 @@
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
+  * [Week 2(1/2) - String, Exception, Generic](java/jscode-java-study-note/week-2-1-2-string-exception-generic.md)
 * [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
 
 ## SPRING
