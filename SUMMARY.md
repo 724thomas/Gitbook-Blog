@@ -100,6 +100,7 @@
   * [Ch4. Factory Pattern](books/head-first-design-patterns/ch4.-factory-pattern.md)
   * [Ch5. Singleton Pattern](books/head-first-design-patterns/ch5.-singleton-pattern.md)
   * [Ch6. Command Pattern](books/head-first-design-patterns/ch6.-command-pattern.md)
+  * [Ch7. Adapter and Facade Pattern](books/head-first-design-patterns/ch7.-adapter-and-facade-pattern.md)
 
 ## TOY Project
 
