@@ -119,6 +119,7 @@
   * [Primitive vs Object Type](java/java-101/primitive-vs-object-type.md)
   * [Identity and equality](java/java-101/identity-and-equality.md)
   * [String, StringBuilder, StringBuffer](java/java-101/string-stringbuilder-stringbuffer.md)
+  * [Checked Exceptions and Unchecked Exceptions](java/java-101/checked-exceptions-and-unchecked-exceptions.md)
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
