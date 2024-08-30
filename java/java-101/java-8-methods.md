@@ -258,26 +258,39 @@ public class DiamondProblemExample implements InterfaceA, InterfaceB {
 * **명시적인 비동기 API**: 비동기 작업의 흐름을 명확하게 표현할 수 있습니다.
 * **병렬 실행 지원**: 여러 비동기 작업을 병렬로 실행하여 성능을 향상시킬 수 있습니다.
 
-### CompletableFuture의 작업 종류
+<details>
+
+<summary>CompletableFuture의 작업 종류</summary>
 
 비동기 작업 실행, 작업 콜백, 작업 조합, 예외처리가 있습니다.
 
 * 비동기 작업 실행
   * `runAsync(Runnable)` - 반환 값이 없는 비동기 작업을 실행합니다.
   * `supplyAsync(Supplier<U>)` - 반환 값이 있는 비동기 작업을 실행합니다.
+
+<!---->
+
 * 작업 콜백
   * `thenApply(Function<T, U>)` - 결과를 받아서 다른 결과로 변환합니다.
   * `thenAccept(Consumer<T>)` - 결과를 받아서 소비합니다. 반환 값은 없습니다.
   * `thenRun(Runnable)` - 결과를 받지 않고 단순히 실행합니다.
+
+<!---->
+
 * 작업 조합
   * `thenCompose(Function<T, CompletionStage<U>>)` 이전 작업의 결과를 받아서 새로운 비동기 작업을 실행합니다.
   * `thenCombine(CompletionStage<U>, BiFunction<T, U, V>)` - 두 개의 비동기 작업 결과를 조합합니다.
   * `allOf(CompletableFuture<?>...)` - 여러 비동기 작업을 모두 완료할 때까지 기다립니다.
   * `anyOf(CompletableFuture<?>...)` - 여러 비동기 작업 중 하나라도 완료되면 결과를 반환합니다.
+
+<!---->
+
 * 예외 처리
   * `exceptionally(Function<Throwable, T>)` - 예외가 발생했을 때 기본값을 반환하거나, 예외를 처리합니다.
   * `handle(BiFunction<T, Throwable, U>)` - 정상 결과와 예외를 모두 처리할 수 있습니다.
   * `handleAsync(BiFunction<T, Throwable, U>)` - 비동기적으로 정상 결과와 예외를 모두 처리할 수 있습니다.
+
+</details>
 
 
 
