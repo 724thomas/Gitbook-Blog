@@ -4,6 +4,19 @@ description: 컬렉션
 
 # Week3(1/2) Collections
 
+<details>
+
+<summary> 피드백</summary>
+
+* Collection과 Collections의 차이
+* Java Collection Framework의 2가지 구성
+* HashMap의 최악시간 복잡도
+  * 단순 해시충돌이 발생했을 때 O(n)?
+* 자바에서 스레드를 만드는 방법
+* Runnable과 Callable 차이
+
+</details>
+
 ## JCF(Java Collection Framework)란 무엇인가요?
 
 자바에서 데이터 구조(컬렉션)를 다루기 위한 표준화된 클래스 및 인터페이스의 모음입니다. 배열, 리스트, 스택, 큐, 해시맵 같은 데이터 구조를 효율적으로 사용할 수 있는 방법을 제공합니다.
