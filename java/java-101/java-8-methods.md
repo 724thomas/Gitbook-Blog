@@ -4,7 +4,7 @@ description: Java 8에서 추가된 기능
 
 # Java 8 methods
 
-## 스트림 (Stream)
+## Stream
 
 스트림은 데이터를 저장하지 않고, 일련의 연산을 통해 데이터를 처리하는 추상화된 개념입니다. 이를 통해 대량의 데이터를 간결하고 효율적으로 처리할 수 있습니다.
 
@@ -24,7 +24,7 @@ description: Java 8에서 추가된 기능
 
 
 
-## 람다 (Lambda)
+## Lambda
 
 람다 표현식은 Java 8에서 도입된 함수형 프로그래밍의 핵심 기능 중 하나입니다. 람다 표현식을 사용하면 익명 함수를 간단하게 표현할 수 있으며, 코드의 간결성과 가독성을 높여줍니다.
 
@@ -164,7 +164,7 @@ public class CustomFunctionalInterfaceExample {
 
 
 
-## 디폴트 (Default)
+## Default
 
 이전 버전의 Java에서는 인터페이스에 메서드를 추가할 경우, 그 인터페이스를 구현하는 모든 클래스에서 해당 메서드를 구현해야 했습니다. 하지만 디폴트 메서드를 사용하면 인터페이스에 메서드를 추가하더라도 구현 클래스에서 해당 메서드를 구현할 필요가 없습니다.
 
@@ -240,7 +240,7 @@ public class DiamondProblemExample implements InterfaceA, InterfaceB {
 
 
 
-## 컴플리터블 퓨처 (Completable Future)
+## Completable Future
 
 비동기 프로그래밍은 처음 자바5에 Future가 추가되면서 가능하게 되었고, 이것을 통해 비동기 작업에 대한 결과값을 반환받을 수 있게 됐습니다. Future에는 단점들이 존재했는데, 단점들을 해결하고자 나온게 자바8에서 CompletableFuture입니다.
 
@@ -294,3 +294,172 @@ public class DiamondProblemExample implements InterfaceA, InterfaceB {
 
 
 
+## Optional
+
+`Optional`은 값이 있을 수도 있고 없을 수도 있는 객체를 감싸는 컨테이너 클래스입니다.
+
+### 특징
+
+* **명시적 Null 처리**: `Optional`을 사용하면 `null` 반환 가능성을 명시적으로 나타낼 수 있습니다.
+* **널 참조 방지**: `Optional` 메서드를 통해 안전한 `null` 참조를 보장합니다.
+* **간결한 코드**: 반복적인 `null` 체크를 줄이고, 더 간결하고 가독성 높은 코드를 작성할 수 있습니다.
+
+### Optional 생성
+
+<details>
+
+<summary>Optional.of()</summary>
+
+`Optional.of()`는 `null`이 아닌 값을 감쌉니다. 만약 `null` 값을 전달하면 `NullPointerException`이 발생합니다.
+
+```java
+String name = "John";
+Optional<String> optionalName = Optional.of(name);
+```
+
+</details>
+
+<details>
+
+<summary>Optional.ofNullable()</summary>
+
+`Optional.ofNullable()`는 값이 `null`일 수도 있고, 아닐 수도 있는 경우에 사용됩니다. `null` 값이 전달되면 빈 `Optional` 객체(`Optional.empty()`)를 반환합니다.
+
+```java
+String name = null;
+Optional<String> optionalName = Optional.ofNullable(name);
+```
+
+</details>
+
+<details>
+
+<summary>Optional.Empty()</summary>
+
+`Optional.empty()`는 값이 없는 빈 `Optional` 객체를 반환합니다.
+
+```java
+Optional<String> emptyOptional = Optional.empty();
+```
+
+</details>
+
+### Optional 값 다루기
+
+<details>
+
+<summary>isPresent()</summary>
+
+`isPresent()` 메서드는 `Optional` 객체에 값이 존재하는지 확인합니다. 값이 존재하는 경우 `true`를 반환하며, `get()` 메서드를 통해 값을 가져올 수 있습니다. 그러나 `get()` 메서드는 값이 없을 경우 `NoSuchElementException`을 발생시키므로, 반드시 `isPresent()`로 값이 있는지 먼저 확인해야 합니다.
+
+```java
+Optional<String> optionalName = Optional.of("John");
+
+if (optionalName.isPresent()) {
+    System.out.println(optionalName.get()); // 출력: John
+}
+```
+
+</details>
+
+<details>
+
+<summary>ifPresent()</summary>
+
+`ifPresent()` 메서드는 값이 존재하는 경우에만 특정 동작을 수행할 수 있습니다. 값이 없을 때는 아무 작업도 하지 않습니다.
+
+```java
+optionalName.ifPresent(name -> System.out.println("Name: " + name));
+ // 출력: Name: John
+```
+
+</details>
+
+<details>
+
+<summary>orElse()</summary>
+
+`orElse()` 메서드는 `Optional` 객체에 값이 없을 경우 제공된 기본 값을 반환합니다.
+
+```java
+String name = optionalName.orElse("Default Name");
+System.out.println(name); // 출력: John
+
+Optional<String> emptyOptional = Optional.empty();
+String defaultName = emptyOptional.orElse("Default Name");
+System.out.println(defaultName); // 출력: Default Name
+```
+
+</details>
+
+<details>
+
+<summary>orElseGet()</summary>
+
+`orElseGet()` 메서드는 `Optional`에 값이 없을 경우 기본 값을 제공하는 `Supplier`를 실행합니다. `orElse()`와의 차이점은 기본 값을 계산하는 비용이 높은 경우, `orElseGet()`을 사용하여 지연 평가(lazy evaluation)를 할 수 있다는 점입니다.
+
+```java
+String name = optionalName.orElseGet(() -> "Default Name");
+```
+
+</details>
+
+<details>
+
+<summary>orElseThrow()</summary>
+
+`orElseThrow()` 메서드는 값이 없을 경우 예외를 발생시킵니다.
+
+```java
+String name = optionalName.orElseThrow(() -> new IllegalArgumentException("Name not found"));
+```
+
+</details>
+
+### Optional + Stream
+
+<details>
+
+<summary>예시: 사용자 목록에서 특정 사용자 찾기</summary>
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+class User {
+    private String name;
+    private int age;
+
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+public class OptionalStreamExample {
+    public static void main(String[] args) {
+        List<User> users = Arrays.asList(
+            new User("John", 25),
+            new User("Jane", 22),
+            new User("Jack", 28)
+        );
+
+        Optional<User> user = users.stream()
+            .filter(u -> "Jane".equals(u.getName()))
+            .findFirst();
+
+        user.ifPresent(u -> System.out.println("User found: " + u.getName())); // 출력: User found: Jane
+    }
+}
+```
+
+</details>
