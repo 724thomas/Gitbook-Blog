@@ -126,6 +126,7 @@
   * [Checked Exceptions and Unchecked Exceptions](java/java-101/checked-exceptions-and-unchecked-exceptions.md)
   * [Java 8 methods](java/java-101/java-8-methods.md)
   * [Try-with-reources](java/java-101/try-with-reources.md)
+  * [Strong Coupling and Loose Coupling](java/java-101/strong-coupling-and-loose-coupling.md)
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
