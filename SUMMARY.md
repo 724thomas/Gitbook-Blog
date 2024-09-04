@@ -66,6 +66,7 @@
   * [12. Chat System Design](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/12.-chat-system-design.md)
   * [13. AutoComplete](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/13.-autocomplete.md)
   * [14. Design YouTube](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/14.-design-youtube.md)
+  * [15. Design Google Drive](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/15.-design-google-drive.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
