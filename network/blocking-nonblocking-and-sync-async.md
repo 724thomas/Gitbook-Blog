@@ -88,7 +88,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 * **정의**: \
   Sync Blocking 조합은 다른 작업이 진행되는 동안 자신의 작업을 처리하지 않고 (Blocking), 다른 작업의 완료 여부를 바로 받아 순차적으로 처리하는 (Sync) 방식입니다. 다른 작업의 결과가 자신의 작업에 영향을 주는 경우에 활용할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 모든 작업이 완료될 때까지 다음 작업을 시작하지 않습니다.
@@ -114,7 +114,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 
 * **정의**: Sync Non-Blocking 조합은 다른 작업이 진행되는 동안에도 자신의 작업을 처리하고 (Non Blocking), 다른 작업의 결과를 바로 처리하여 작업을 순차대로 수행 하는 (Sync) 방식입니다.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 각 작업이 바로 완료되지 않으면 즉시 반환되고, 다른 작업을 시도할 수 있습니다.
@@ -152,7 +152,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
   * 논블로킹 I/O는 프로세스들의 작업을 컨트롤하는 것이 까다롭다.
   * 그렇다고 동기 & 블로킹 I/O와 멀티 프로세싱이나 쓰레딩을 결합해서 쓰자니 자원 문제도 있고 프로세스/스레드 간 통신이나 동기화가 어렵다.
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 여러 작업이 동시에 시작될 수 있지만, 각 작업은 여전히 블로킹됩니다.
@@ -167,7 +167,7 @@ description: 블로킹, 논블로킹과 동기, 비동기
 
 
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **특징**:
   * 가장 효율적인 방식으로, 작업이 완료될 때까지 대기하지 않고 다른 작업을 계속 수행합니다.
