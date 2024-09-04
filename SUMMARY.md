@@ -64,6 +64,7 @@
   * [10. Notification System Design](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/10.-notification-system-design.md)
   * [11. Designing a News Feed System](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/11.-designing-a-news-feed-system.md)
   * [12. Chat System Design](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/12.-chat-system-design.md)
+  * [13. AutoComplete](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/13.-autocomplete.md)
   * [Loadbalancer Algorithms](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/loadbalancer-algorithms.md)
   * [Cache tier](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cache-tier.md)
   * [CDN, Content Delivery Network](books/learning-the-basics-of-large-scale-system-design-through-virtual-interview-cases/cdn-content-delivery-network.md)
