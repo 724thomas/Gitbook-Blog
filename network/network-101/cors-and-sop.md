@@ -17,7 +17,7 @@ description: CORS & SOP
 
 ## SOP
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 동일 출처 정책(Same-Origin Policy, SOP)은 웹 브라우저의 중요한 보안 정책으로, 한 출처에서 불러온 스크립트가 다른 출처의 리소스에 접근하는 것을 제한합니다. 이를 통해 악의적인 사이트가 사용자의 데이터를 탈취하거나, 사용자의 권한을 오용하는 것을 방지합니다. 즉, 동일 출처(Same-Origin) 서버에 있는 리소스는 자유로이 가져올수 있지만, 다른 출처(Cross-Origin) 서버에 있는 이미지나 유튜브 영상 같은 리소스는 상호작용이 불가능합니다.
 
@@ -39,11 +39,11 @@ description: CORS & SOP
 
 ## 출처 비교와 차단은 브라우저에 구현된 스펙
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 서버는 리소스 요청에 의한 응답은 말끔히 해주었고, 잘못이 없습니다. 하지만 브라우저가 이 응답을 분석해서 동일 출처가 아니면, 시뻘건 에러를 내뿜는 것입니다. (사실 서버가 헤더 정보를 덜 줘서 그런것) 그래서 브라우저에는 에러가 뜨지만, 정작 서버 쪽에는 정상적으로 응답을 했다고 하기 때문에 난항은 겪는 것입니다. 즉, 응답 데이터는 멀쩡하지만 브라우저 단에서 받을수 없도록 차단을 한 것입니다.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -53,11 +53,11 @@ description: CORS & SOP
 
 
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 해결방법
 

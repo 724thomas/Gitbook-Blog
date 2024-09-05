@@ -132,6 +132,7 @@
   * [Strong Coupling and Loose Coupling](java/java-101/strong-coupling-and-loose-coupling.md)
   * [Serialization and Deserialization](java/java-101/serialization-and-deserialization.md)
   * [Concurrency Programming in Java](java/java-101/concurrency-programming-in-java.md)
+  * [Mutable vs Immutable](java/java-101/mutable-vs-immutable.md)
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
