@@ -261,6 +261,8 @@
   * [HTTP Method](network/network-101/http-method.md)
   * [CORS & SOP](network/network-101/cors-and-sop.md)
   * [Web Server Software](network/network-101/web-server-software.md)
+* [JSCODE Network Study Note](network/jscode-network-study-note/README.md)
+  * [Week1 Computer Network Basic](network/jscode-network-study-note/week1-computer-network-basic.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 
 ## DATABASE
