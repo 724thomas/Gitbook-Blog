@@ -101,7 +101,7 @@ HashMap과 WeakHashMap
 
 HashMap을  사용하면 GC 돌리고 나서도 2개가 남아있습니다.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 WeakHashMap을 사용하면 GC를 돌리면 1개가 남아있습니다.
 
