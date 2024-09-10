@@ -136,6 +136,7 @@
   * [Serialization and Deserialization](java/java-101/serialization-and-deserialization.md)
   * [Concurrency Programming in Java](java/java-101/concurrency-programming-in-java.md)
   * [Mutable vs Immutable](java/java-101/mutable-vs-immutable.md)
+  * [JDK vs JRE](java/java-101/jdk-vs-jre.md)
 * [JSCODE Java Study Note](java/jscode-java-study-note/README.md)
   * [Week 1(1/2) - Basic Java](java/jscode-java-study-note/week-1-1-2-basic-java.md)
   * [Week 1(2/2) - OOP](java/jscode-java-study-note/week-1-2-2-oop.md)
@@ -242,6 +243,8 @@
     * [Cases where IPC is used](os/operating-system-101/interprocess-communication-ipc/cases-where-ipc-is-used.md)
     * [Process address space in IPC Shared Memory technique](os/operating-system-101/interprocess-communication-ipc/process-address-space-in-ipc-shared-memory-technique.md)
     * [Types of IPC](os/operating-system-101/interprocess-communication-ipc/types-of-ipc.md)
+* [JSCODE OS Study Note](os/jscode-os-study-note/README.md)
+  * [Week1 OS & How Computer Systems Work](os/jscode-os-study-note/week1-os-and-how-computer-systems-work.md)
 
 ## LINUX
 
