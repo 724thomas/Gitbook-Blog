@@ -270,6 +270,8 @@
 
 ## DATABASE
 
+* [JSCODE Databse Study Note](database/jscode-databse-study-note/README.md)
+  * [Week1 DBMS, RDBMS basics](database/jscode-databse-study-note/week1-dbms-rdbms-basics.md)
 * [Normalization](database/normalization/README.md)
   * [1st Normal Form](database/normalization/1st-normal-form.md)
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
