@@ -150,6 +150,9 @@
 ## SPRING
 
 * [using profile name as variable](spring/using-profile-name-as-variable.md)
+* [Template Method Pattern](spring/template-method-pattern.md)
+* [Strategy Pattern](spring/strategy-pattern.md)
+* [Proxy Pattern](spring/proxy-pattern.md)
 
 ## PYTHON
 
