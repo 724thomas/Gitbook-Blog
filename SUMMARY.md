@@ -145,6 +145,7 @@
   * [Week3(1/2) Collections](java/jscode-java-study-note/week3-1-2-collections.md)
   * [Week3(2/2) Threads](java/jscode-java-study-note/week3-2-2-threads.md)
   * [Week4 Java Concurrency Programming](java/jscode-java-study-note/week4-java-concurrency-programming.md)
+  * [Week5 JVM & GC](java/jscode-java-study-note/week5-jvm-and-gc.md)
 * [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
 
 ## SPRING
