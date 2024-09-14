@@ -270,6 +270,7 @@
   * [Web Server Software](network/network-101/web-server-software.md)
 * [JSCODE Network Study Note](network/jscode-network-study-note/README.md)
   * [Week1 Computer Network Basic](network/jscode-network-study-note/week1-computer-network-basic.md)
+  * [Week2 Application Layer Protocol](network/jscode-network-study-note/week2-application-layer-protocol.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 
 ## DATABASE
