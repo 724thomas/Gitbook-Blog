@@ -154,6 +154,8 @@
 * [Template Method Pattern](spring/template-method-pattern.md)
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
+* [Spring Questions](spring/spring-questions/README.md)
+  * [Dependency Injection](spring/spring-questions/dependency-injection.md)
 
 ## PYTHON
 
