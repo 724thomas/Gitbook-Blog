@@ -252,6 +252,7 @@
 * [JSCODE OS Study Note](os/jscode-os-study-note/README.md)
   * [Week1 OS & How Computer Systems Work](os/jscode-os-study-note/week1-os-and-how-computer-systems-work.md)
   * [Week2(1/2) Process](os/jscode-os-study-note/week2-1-2-process.md)
+  * [Week2(2/2) Thread](os/jscode-os-study-note/week2-2-2-thread.md)
 
 ## LINUX
 
