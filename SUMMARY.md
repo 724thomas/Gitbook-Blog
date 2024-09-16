@@ -251,6 +251,7 @@
     * [Types of IPC](os/operating-system-101/interprocess-communication-ipc/types-of-ipc.md)
 * [JSCODE OS Study Note](os/jscode-os-study-note/README.md)
   * [Week1 OS & How Computer Systems Work](os/jscode-os-study-note/week1-os-and-how-computer-systems-work.md)
+  * [Week2(1/2) Process](os/jscode-os-study-note/week2-1-2-process.md)
 
 ## LINUX
 
