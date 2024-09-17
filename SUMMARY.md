@@ -156,6 +156,12 @@
 * [Proxy Pattern](spring/proxy-pattern.md)
 * [Spring Questions](spring/spring-questions/README.md)
   * [Dependency Injection](spring/spring-questions/dependency-injection.md)
+  * [Spring Core](spring/spring-questions/spring-core.md)
+  * [Spring Boot](spring/spring-questions/spring-boot.md)
+  * [Spring Data JPA](spring/spring-questions/spring-data-jpa.md)
+  * [Spring Security](spring/spring-questions/spring-security.md)
+  * [Transaction](spring/spring-questions/transaction.md)
+  * [Spring Batch](spring/spring-questions/spring-batch.md)
 
 ## PYTHON
 
