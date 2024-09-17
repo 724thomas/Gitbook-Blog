@@ -13,3 +13,4 @@ description: 스프링 Data JPA
 * CascadeType 옵션의 종류와 사용법은 무엇인가요?
 * FetchType.LAZY와 FetchType.EAGER의 차이점은?
 * @Modifying 어노테이션의 사용법은?
+* 동적 쿼리를 JPA에서 어떻게 작성하나요?
