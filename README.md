@@ -18,8 +18,3 @@ description: I decode the enigma of technology, one blog post at a time.
 \
 [이력서(웹 버전) wonjoonthomaschoi.site/resume/kor](http://wonjoonthomaschoi.site/resume/kor)
 
-\
-**Table of Contents**
-
-
-
