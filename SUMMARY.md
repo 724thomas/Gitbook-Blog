@@ -155,13 +155,14 @@
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
 * [Spring Questions](spring/spring-questions/README.md)
-  * [Dependency Injection](spring/spring-questions/dependency-injection.md)
-  * [Spring Core](spring/spring-questions/spring-core.md)
+  * [Spring Framework](spring/spring-questions/spring-framework.md)
+  * [Spring MVC & Web Request](spring/spring-questions/spring-mvc-and-web-request.md)
+  * [AOP (Aspect-Oriented Programming)](spring/spring-questions/aop-aspect-oriented-programming.md)
   * [Spring Boot](spring/spring-questions/spring-boot.md)
-  * [Spring Data JPA](spring/spring-questions/spring-data-jpa.md)
-  * [Spring Security](spring/spring-questions/spring-security.md)
-  * [Transaction](spring/spring-questions/transaction.md)
-  * [Spring Batch](spring/spring-questions/spring-batch.md)
+  * [ORM & Data Access](spring/spring-questions/orm-and-data-access.md)
+  * [Security](spring/spring-questions/security.md)
+  * [Performance & Issue Handling](spring/spring-questions/performance-and-issue-handling.md)
+  * [ETC](spring/spring-questions/etc.md)
 
 ## PYTHON
 
