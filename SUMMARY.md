@@ -254,6 +254,7 @@
   * [Week2(1/2) Process](os/jscode-os-study-note/week2-1-2-process.md)
   * [Week2(2/2) Thread](os/jscode-os-study-note/week2-2-2-thread.md)
   * [Week3 CPU Scheduling](os/jscode-os-study-note/week3-cpu-scheduling.md)
+  * [Week4 Process Synchronize](os/jscode-os-study-note/week4-process-synchronize.md)
 
 ## LINUX
 
