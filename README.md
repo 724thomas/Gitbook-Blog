@@ -8,6 +8,8 @@ description: I decode the enigma of technology, one blog post at a time.
 
 #### Contact & Channel
 
+[블로그 https://wonjoon.gitbook.io/joons-til](https://wonjoon.gitbook.io/joons-til)
+
 이메일 724thomas@gmail.com\
 \
 [깃허브 github.com/724thomas](https://github.com/724thomas)\
