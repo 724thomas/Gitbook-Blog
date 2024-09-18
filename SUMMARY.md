@@ -150,10 +150,6 @@
 
 ## SPRING
 
-* [using profile name as variable](spring/using-profile-name-as-variable.md)
-* [Template Method Pattern](spring/template-method-pattern.md)
-* [Strategy Pattern](spring/strategy-pattern.md)
-* [Proxy Pattern](spring/proxy-pattern.md)
 * [Spring Questions](spring/spring-questions/README.md)
   * [Spring Framework](spring/spring-questions/spring-framework.md)
   * [Spring MVC & Web Request](spring/spring-questions/spring-mvc-and-web-request.md)
@@ -161,8 +157,11 @@
   * [Spring Boot](spring/spring-questions/spring-boot.md)
   * [ORM & Data Access](spring/spring-questions/orm-and-data-access.md)
   * [Security](spring/spring-questions/security.md)
-  * [Performance & Issue Handling](spring/spring-questions/performance-and-issue-handling.md)
   * [ETC](spring/spring-questions/etc.md)
+* [using profile name as variable](spring/using-profile-name-as-variable.md)
+* [Template Method Pattern](spring/template-method-pattern.md)
+* [Strategy Pattern](spring/strategy-pattern.md)
+* [Proxy Pattern](spring/proxy-pattern.md)
 
 ## PYTHON
 

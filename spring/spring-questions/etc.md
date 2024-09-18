@@ -29,21 +29,3 @@ description: 의존성 주입
 * **기타 도구**
   * Apache Freemarker란 무엇인가요?
   * Apache Kafka를 설명해주세요.
-
-
-
-**배치 처리 및 기타**
-
-* **Spring Batch**
-  * Spring Batch란 무엇이며, 어떤 기능을 제공하나요?
-  * Spring Batch의 Job과 Step 구조를 설명해주세요.
-  * Chunk 기반 처리 방식에 대해 설명해주세요.
-* **데이터 소스와 커넥션 풀**
-  * DataSource란 무엇인가요?
-  * 커넥션 풀(Connection Pool)이란 무엇이며, Spring Boot에서 어떤 것을 사용하나요?
-* **코딩 관례와 디자인 패턴**
-  * Setter를 무분별하게 사용하면 안 되는 이유는 무엇인가요?
-  * 싱글톤 패턴이란 무엇이며, 어떻게 구현하나요?
-  * Java 구성 방법의 이점은 무엇인가요?
-* **Spring의 레이어드 아키텍처**
-  * Spring의 레이어드 아키텍처에 대해 설명해주세요.
