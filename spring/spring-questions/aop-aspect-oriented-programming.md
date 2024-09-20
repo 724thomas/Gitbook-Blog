@@ -44,7 +44,80 @@ description: AOP
 * **Aspect**가 적용될 수 있는 프로그램 내의 **특정 실행 시점**을 의미. AOP에서는 주로 **메서드 실행 시점**을 조인 포인트로 다룹니다.
 * 메서드 실행전, 실행 후, 예외가 발생했을때, 생성자가 호출될 떄 등이 조인 포인트
 
+<details>
+
+<summary>Example</summary>
+
+조인 포인트의 핵심은 이러한 실행 지점이 Aspect가 개입할 수 있는 위치라는 점입니다. 조인 포인트는 프로그램의 흐름에서 애드바이스(Advice)를 삽입할 수 있는 지점을 말하며, 이를 통해 비즈니스 로직과 횡단 관심사를 분리할 수 있게 해줍니다.
+
+#### 조인 포인트 예시
+
+조인 포인트가 어떻게 AOP의 개념에서 활용되는지를 명확히 설명하기 위한 예시입니다:
+
+```java
+public class OrderService {
+
+    // 이 메서드 실행 자체가 조인 포인트입니다.
+    public void placeOrder() {
+        System.out.println("Order placed successfully.");
+    }
+
+    // 메서드 실행 후에도 조인 포인트로 간주됩니다.
+    public void cancelOrder() {
+        System.out.println("Order canceled successfully.");
+    }
+
+    // 예외가 발생하면 해당 지점도 조인 포인트가 됩니다.
+    public void refundOrder() throws Exception {
+        System.out.println("Attempting to refund...");
+        throw new Exception("Refund failed!");
+    }
+}
+```
+
+#### 조인 포인트 설명
+
+* **메서드 실행 전**: `placeOrder()` 메서드가 호출되기 직전의 지점이 조인 포인트입니다.
+* **메서드 실행 후**: `cancelOrder()` 메서드가 실행된 직후의 지점이 조인 포인트입니다.
+* **예외 발생 시**: `refundOrder()` 메서드에서 예외가 발생하는 지점이 조인 포인트입니다.
+* **생성자 호출**: 만약 `OrderService` 객체가 생성되는 시점도 조인 포인트가 될 수 있습니다.
+
+이러한 다양한 실행 지점이 조인 포인트로 사용될 수 있으며, AOP에서 이 지점들을 선택하여 애드바이스를 적용하는 것이 가능합니다. 조인 포인트는 특정 지점에서 애드바이스가 실행될 수 있도록 하는 모든 잠재적 지점을 나타내며, 실제 어떤 지점에서 애드바이스가 실행될지는 포인트컷(Pointcut)에 의해 결정됩니다.
+
+</details>
+
 포인트 컷
 
 * 어떤 조인 포인트에 Aspect를 적용할지 결정하는 필터.
 * 여러 조인 포인트 중에서 특정 조건을 만족하는 조인 포인트만 선택하여 부가 기능 적용.
+
+<details>
+
+<summary>Example</summary>
+
+포인트컷은 조인 포인트를 선택하는 필터 역할을 합니다. 예를 들어, 특정 클래스의 메서드 실행 시 어드바이스를 적용하려면 다음과 같이 포인트컷을 설정할 수 있습니다.
+
+**예시 코드: 포인트컷 설정**
+
+```java
+@Aspect
+public class LoggingAspect {
+
+    // 포인트컷 정의: UserService 클래스의 모든 메서드를 대상으로 함
+    @Pointcut("execution(* com.example.service.UserService.*(..))")
+    private void userServiceMethods() {}
+
+    // 어드바이스 적용: 위에서 정의한 포인트컷에 로깅 어드바이스를 적용
+    @Before("userServiceMethods()")
+    public void logBefore(JoinPoint joinPoint) {
+        System.out.println("Before method: " + joinPoint.getSignature().getName());
+    }
+}
+```
+
+**설명**
+
+* **포인트컷**: `@Pointcut("execution(* com.example.service.UserService.*(..))")`은 `UserService` 클래스의 모든 메서드에 적용되는 조인 포인트를 선택하는 포인트컷입니다.
+* **어드바이스**: `@Before("userServiceMethods()")`는 포인트컷에서 선택한 조인 포인트에 메서드 실행 전에 로깅을 수행하는 어드바이스를 적용합니다.
+
+</details>
