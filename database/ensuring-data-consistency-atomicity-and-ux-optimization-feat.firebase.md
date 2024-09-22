@@ -14,7 +14,7 @@ description: 'Firebase 구독 관리: 데이터 일관성, 원자성 및 UX 최�
 
 ```java
 //구독
-@Transactional(propagation = Propagation.REQUIRES_NEW)
+@Transactional
 public void createSubscription(long userId, String topicName) {
     var user = userApiRepository.findById(userId).orElseThrow(NotFoundException::new);
     var fcmToken = user.getFcmToken();
@@ -35,7 +35,7 @@ public void createSubscription(long userId, String topicName) {
 }
 
 //구독 취소
-@Transactional(propagation = Propagation.REQUIRES_NEW)
+@Transactional
 public void deleteSubscription(long userId, String topicName) {
     var topicSubOpt = topicSubscriptionRepository.findByTopicNameAndUserId(topicName, userId);
 
@@ -123,7 +123,7 @@ public class RetryService {
 
 ```java
 // 구독 취소
-@Transactional(propagation = Propagation.REQUIRES_NEW)
+@Transactional
 public void deleteSubscription(long userId, String topicName) {
     var topicSubOpt = topicSubscriptionRepository.findByTopicNameAndUserId(topicName, userId);
 
