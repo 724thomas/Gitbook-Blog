@@ -163,6 +163,11 @@
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
 
+***
+
+* [JPA](jpa/README.md)
+  * [Template Page](jpa/template-page.md)
+
 ## PYTHON
 
 * [Icecream](python/icecream.md)
