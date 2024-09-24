@@ -11,6 +11,7 @@ description: Domain Name System
 * 로컬 호스트 파일과 브라우저 캐시를 확인하여 해당 도메인의 IP 주소가 있는지 확인
 * 재귀적(recursive, dns resolver) 또는 반복적(iterative) 방식으로 이루어집니다.
 * 재귀적 방식은 하나의 DNS 서버가 다른 DNS 서버로 계속 질의를 넘기면서 최종 IP 주소를 반환하는 방식이고, 반복적 방식은 클라이언트가 직접 각 DNS 서버에 차례대로 질의하는 방식
+* A: IPv4, AAAA: IPv6, CNAME: 다음 DNS주소
 
 
 
@@ -21,8 +22,7 @@ description: Domain Name System
 * DNS 리졸버에 질의를 보냅니다.
 * DNS리졸버는 각각 Recursive, Iterative 방식으로 질의가 되며, 결과 IP를 반환합니다.
 * (브라우저 캐시는 사용X. 단순히 웹페이지의 리소스를 저장하는 공간)
-
-
+* 둘다 혼합해서 사용. 브라우저 입장에서는 Recursive가 되지만, DNS리졸버 입장에서는 Iterative가 된다.
 
 ## DNS 질의의 종류에 대해 설명해주세요
 
@@ -39,7 +39,7 @@ Recursive
 
 
 
-## DNS 서버에세 IP 주소를 요청할 때, 왜 UDP를 사용하나요?
+## DNS 서버에서 IP 주소를 요청할 때, 왜 UDP를 사용하나요?
 
 * 간단한 요청-응답 패턴이고 속도와 효율성 떄문 (핸드쉐이크X)
 * 응답을 못받거나, 응답데이터가 512바이트를 초과할때 TCP로 전환
