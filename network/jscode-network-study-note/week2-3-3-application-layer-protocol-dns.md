@@ -39,6 +39,15 @@ Recursive
 
 
 
+## DNS 계층의 이름들이 뭔가요?
+
+* Root - 가장 상단
+* TLD(Top Level Domain) - Root 다음
+* SLD(Second Level Domain)
+* Subdomain
+* Host순.
+* Authoritative Name Server - IP를 반환할 수 있어서 더 이상 Iterative 안해도되는 서버.
+
 ## DNS 서버에서 IP 주소를 요청할 때, 왜 UDP를 사용하나요?
 
 * 간단한 요청-응답 패턴이고 속도와 효율성 떄문 (핸드쉐이크X)
