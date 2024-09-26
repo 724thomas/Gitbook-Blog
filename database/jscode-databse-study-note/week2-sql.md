@@ -39,7 +39,7 @@ SQL은 결과를 지정하게되고, C언어는 결과가 아닌 과정을 지�
 ## DCL이 무엇이고 어떤 구문이 있나요?
 
 * **데이터베이스에 대한 접근 권한을 제어**하는 SQL의 한 부분
-* GRANT, REVOKE(권한), COMMIT, ROLLBACK(트랜잭션)
+* GRANT, REVOKE(권한)
 
 
 
