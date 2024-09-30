@@ -4,6 +4,12 @@ description: 선언형, 명령형의 차이
 
 # Declarative vs Imperative
 
+<div data-full-width="true">
+
+<figure><img src="../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
+
+</div>
+
 요약:
 
 * **선언형 프로그래밍**: "무엇을(What)"에 집중하여, 결과를 기술하는 방식. 내부 동작에 대한 관심이 줄어듦.
