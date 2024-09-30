@@ -113,11 +113,11 @@ javac HelloWorld.java -> HelloWord.class 생성
 
 ## 3. 클래스 로더 -  클래스 로딩
 
-<figure><img src="../../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (206).png" alt=""><figcaption></figcaption></figure>
 
 JVM의 클래스 로더가 .class 파일을 로드하고, 런타임 데이터 영역(Runtime Data Area)으로 배치합니다. 이 과정에서 필요에 따라 다른 클래스를 로드하거나 링크합니다. 클래스 로딩은 세 단계로 이루어집니다.
 
-<figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (207).png" alt=""><figcaption></figcaption></figure>
 
 * **로딩(Loading)**: 클래스 파일을 읽고 메모리에 적재합니다.
 * **링킹(Linking)**: 클래스 파일의 참조를 확인하고, 기본 초기화를 수행합니다.
@@ -130,7 +130,7 @@ JVM의 클래스 로더가 .class 파일을 로드하고, 런타임 데이터 �
 
 ## 4. 실행 엔진 - 바이트 코드 실행
 
-<figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (205).png" alt=""><figcaption></figcaption></figure>
 
 실행 엔진이 바이트코드를 해석하여 실행합니다. 실행 방식은 인터프리터와 JIT 컴파일러를 통해 이루어집니다.
 
@@ -141,7 +141,7 @@ JVM의 클래스 로더가 .class 파일을 로드하고, 런타임 데이터 �
 
 ## 5. 가비지 컬렉터 -   실행중 메모리 관리
 
-<figure><img src="../../.gitbook/assets/image (105).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
 
 JVM은 실행 중에 메모리를 효율적으로 관리합니다. JVM의 가비지 컬렉터(Garbage Collector)가 주기적으로 힙 메모리를 검사하여 더 이상 참조되지 않는 객체를 제거합니다. 가비지 컬렉션은 크게 다음과 같은 단계로 이루어집니다:
 
@@ -157,7 +157,7 @@ JVM은 실행 중에 메모리를 효율적으로 관리합니다. JVM의 가비
 
 런타임 데이터 영역은 JVM의 메모리 영역으로, 자바 애플리케이션을 실행할 때 사용되는 데이터들을 적재하는 영역.
 
-<figure><img src="../../.gitbook/assets/image (106).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
 
 * 메소드 영역: 클래스 메타데이터, 상수, 스태틱 변수 등을 저장합니다.
 * 힙: 모든 객체 인스턴스와 배열을 저장합니다
@@ -171,7 +171,7 @@ JVM은 실행 중에 메모리를 효율적으로 관리합니다. JVM의 가비
 
 <summary>5-2. 메서드 영역</summary>
 
-<img src="../../.gitbook/assets/image (107).png" alt="" data-size="original">
+<img src="../../.gitbook/assets/image (210).png" alt="" data-size="original">
 
 JVM이 시작될 때 생성되는 공간으로, 바이트 코드(.class)를 처음 메모리 공간에 올릴 때 **초기화되는 대상을 저장하기 위한 메모리 공간**. JVM이 동작하고 클래스가 로드될때 적재되서 **프로그램이 종료될 때까지 저장**. 쉽게 말해, 정적 필드와, 클래스 구조만을 갖고 있다.
 
@@ -188,13 +188,13 @@ JVM이 시작될 때 생성되는 공간으로, 바이트 코드(.class)를 처�
 
 &#x20;JVM이 관리하는 프로그램 상에서 데이터를 저장하기 위해 **런타임 시 동적으로 할당하여 사용하는 영역**. new 연산자로 생성되는 클래스와 인스턴스 변수, 배열 타입 등 Reference Type이 저장되는 영역,
 
-![](<../../.gitbook/assets/image (110).png>)
+![](<../../.gitbook/assets/image (213).png>)
 
 Rreference Type으로, JVM 스택 영역의 변수나 다른 객체의 필드에서 참조. 힙의 참조 주소는 스택이 갖고 있고 해당 객체를 통해서만 힙 영역에 있는 인스턴스를 핸들링할 수 있는 것.
 
-![](<../../.gitbook/assets/image (111).png>)
+![](<../../.gitbook/assets/image (214).png>)
 
-![](<../../.gitbook/assets/image (114).png>)
+![](<../../.gitbook/assets/image (217).png>)
 
 </details>
 
@@ -204,7 +204,7 @@ Rreference Type으로, JVM 스택 영역의 변수나 다른 객체의 필드에
 
 **int, long, boolean 등 primitive type 자료형을 생성할때 저장하는 공간으로, 임시적으로 사용되는 변수나 정보들이 저장되는 영역.**
 
-![](<../../.gitbook/assets/image (115).png>)
+![](<../../.gitbook/assets/image (218).png>)
 
 메서드 호출 시마다 각각의 스택 프레임(메서드만을 위한 공간)이 생성되고 메서드 안에서 사용되는 값들을 저장하고, 호출된 메서드의 매개변수, 지역변수, 리턴 값 및 연산 시 일어나는 값들을 임시로 저장. 메서드가 끝나면 프레임 별로 삭제. (LIFO)
 
@@ -212,7 +212,7 @@ Rreference Type으로, JVM 스택 영역의 변수나 다른 객체의 필드에
 
 </details>
 
-<figure><img src="../../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (219).png" alt=""><figcaption></figcaption></figure>
 
 
 

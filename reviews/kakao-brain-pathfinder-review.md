@@ -16,7 +16,7 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 > ## 모집과정
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
 
 모집은 4월 말부터 5월 초까지 대략 2주 동안 이뤄졌고, 세 가지 전공 분야에서 지원을 받았습니다.
 
@@ -34,13 +34,13 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 **서류 접수는 이력서 및 몇 가지 질문의 답변을 제출**하는 형식이었으며, **이력서는 PDF로** 받아들였다는 점이 특이했습니다. 코딩 테스트는 **온라인**으로 진행되었고, 각 직무에 따라 그 방식이 약간씩 달랐습니다. **백엔드 개발자는 알고리즘 문제 7개**를 풀었고, **모바일 및 프론트엔드 지원자들은 알고리즘 문제와 프로젝트 과제 두 가지 유형이 제공**되었습니다. **6시간에 걸쳐 코딩 테스트**가 있었고, 전날 블라인드 테스트를 진행해본 덕분인지, 제게는 **비교적 수월**했습니다. (아쉽게도, 문제 유형이나 난이도에 관한 구체적인 정보는 공유할 수 없습니다.)
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
 
 **면접은 기술과 인성 면접이 연속으로 진행**되었으며, **총 1시간 동안 비대면**으로 이루어졌습니다. 기술 면접 준비는 면접 스터디와 다른 회사들에서의 면접 경험을 바탕으로 준비했습니다. 그렇지만 **AI 지식과 수행한 프로젝트에 관한 질문에 대한 대비가 다소 부족해 이 부분이 준비 과정에서 큰 부담**으로 다가왔습니다. 구체적인 면접 내용이나 절차는 공개할 수 없으나, **인성 면접의 질문들이 더 많은 비중**을 차지하였고, 부트캠프에서의 경험들과 그 때의 대처 경험으로 원활하게 대응할 수 있었습니다.&#x20;
 
 결과적으로 6월 초에 **최종합격** 소식을 듣게 되었고, 6월 말부터 패스파인더 프로그램에 참여하게 되었습니다.
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -50,7 +50,7 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 입사하기 약 2주 전, 다양한 서류 준비와 함께 업무에서 사용할 영어 이름(Joon)을 결정해야 했습니다. 또한, **총 32명으로 구성된 패스파인더** 팀과 소통할 수 있는 공간이 마련되었고, 각자 **자기소개를 작성**하여 서로를 알아가는 시간을 가졌습니다.
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
 
 **3일간의 온보딩 과정**은 대여 장소에서 진행되었으며, 카카오브레인의 **상징적인 노란색 사원증과 업무용 맥북**을 받았습니다. 비록 인턴이지만 제 사진이 담긴 사원증을 받아서, 지금까지의 노력이 어느 정도는 보상받은 느낌이었습니다. 그러나 그 기쁨도 잠시,
 
@@ -66,9 +66,9 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 오피스에 첫 출근하게 되었고, 입구 스크린에서 저희를 환영하는 LDAP을 발견할 수 있었습니다. 사**무실은 그리 크지 않았고, 자율 출퇴근제로 인해 많은 좌석이 비어 있었습니다만, 이 공간이 얼마나 편안한 근무 환경을 제공하는지 느낄 수 있었습니다.** 나중에야 알게 되었는데, 카카오브레인은 **풀재택 근무**를 실시하고 있어서, 사무실에는 개발자들이 별로없었습니다.
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -78,11 +78,11 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 **카카오의 구내식당 춘식도락은 출근의 주된 동기부여**이자, 제 생각에는 **카카오의 최고 복지 혜택**이었습니다. **매일 네 가지 다른 메뉴가 제공**되고, 각각이 매우 맛있어 보여서 항상 어떤 것을 선택할지 고민이 되었습니다. 또한, 만약 양이 부족하다면 모든 반찬을 더 받을 수 있었습니다. 운좋게도 패스파인더 프로그램이 진행되는 동안 **춘식도락의 주년 기념일**이 있어, 특별한 식사를 즐길 기회가 있었습니다. 왕갈비탕이나 돈마호크 커틀렛과 같은, 일반적인 구내 식당에서 보기 어려운 메뉴를 맛볼 수 있었습니다.
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (125).png" alt=""><figcaption></figcaption></figure>
 
 춘식도락 외에도, **상당히 높은 급여**를 받았습니다. 인턴으로서 받는 월급이라고 생각하기 어려울 만큼 많았으며, 일반 회사 직원들의 급여보다도 대체로 높았습니다. (**카카오브레인 인턴이 국내 기업 가운데 가장 높은 급여를 받는다 라는 얘기가 괜히 있는게 아니더군요**). 이외에도, **각 팀에는 법인 카드가 제공**되었습니다. 회사의 여건상 1기 때처럼 개인법카가 주어져서 출퇴근을 택시로 하지는 못했지만, **상대적으로 제약 없이 사용**할 수 있었습니다.
 
@@ -100,7 +100,7 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 카카오브레인에서 **기대하는 기획의 퀄리티도 매우 높았었습니다.** **카카오브레인에서는생성형 AI 및 LLM을 활용한 비즈니스 아이디어를 탐색**하고 있었기에, **패스파인더를 통해 이러한 아이디어를 발견할 수 있을거라는 기대**를 했던 것 같습니다. 따라서 기획 단계에서는 **비즈니스 모델을 포함하여 타서비스와의 경쟁력 역시 고려**해야 했습니다. 추가로, 한가지 기획에 대하여 **잠재 고객을 직접 찾아내어 수요와 가설을 검증**하고, 이 서비스가 실제로 얼**마나 많은 사용자에게 가치를 제공할 수 있는지 직접 탐색**하고 알아냈어야 했습니다. 이러한 다양한 역량은 개발자들에게는 다소 부족했기에, **여러 팀이 어려움을 겪었고, 프로젝트 기간 동안 여러 팀의 기획이 큰 변화를 겪는 사례도 자주 있었습니다.**
 
-<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (126).png" alt=""><figcaption></figcaption></figure>
 
 비록 카카오브레인의 요구사항들이 까다로웠지만, **에자일 프로세스**라는 전략적인 방법론도 제공해주었습니다. 이는 **외부 사이드 프로젝트 같은 곳에서 쓰이는 가벼운 애자일이 아니라, 현업에서 사용되는, 열정적이고 몰입도 높은 애자일**이었습니다. 각 팀에는 **애자일 코치가 배정**되어 애자일 프로세스의 이해와 적응에 도움을 주었고, 그들의 깊은 노하우 덕분에 많은 것을 배울 수 있었습니다. 이 과정에서 **데일리 스크럼, 위클리 플래닝, 팀별 회고 등의 활동을 통해 MVP와 Sprint Goal을 선정하고, 팀워크를 통한 지속적인 발전**을 경험했습니다.
 
@@ -130,11 +130,11 @@ description: '카카오브레인 패스파인더2기 후기 : 언어모델사업
 
 > ## PeterPen: 주어진 Rubric에 따른 서술형 답안 첨삭 및 생성 서비스
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (128).png" alt=""><figcaption></figcaption></figure>
 
 LLM의 강점들을 고려하여 저희는 **마지막 아이디어**를 냈습니다. 주어진 **점수표를 기준으로 서술형 문제를 첨삭, 채점해주고, 생성해주는 서비스**를 기획하였고, 이를 구체화하기 위한 대상은 **토플(TOEFL) 영어 시험**이었습니다. 유저들이 겪고 있는 페인포인트도 확실했고, 사업적으로도 매력있는 주제였습니다.
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
 저희가 생각한 페인포인트는 **3가지** 였습니다.
 
@@ -144,7 +144,7 @@ LLM의 강점들을 고려하여 저희는 **마지막 아이디어**를 냈습�
 
 위 페인포인트를 해결하기 위해 LLM을 도입하면 아래와 같은 효과를 얻을 수 있을거라 기대했습니다.
 
-<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -166,7 +166,7 @@ LLM의 강점들을 고려하여 저희는 **마지막 아이디어**를 냈습�
 
 저희의 첫 역경은 **토플에 대한 이해도가 낮았다**는 것입니다. 시험을 몇번 치뤄봤던 경험이 있는 **저를 제외하고는 다들 경험이 없었고**, 어떤식으로 진행이 되는지 **시간을 들여서 공부를 했어야 했습니다**. 그리고 LLM의 결과를 저희가 평가하기가 어렵다보니, **불확실한 상황에서 실험**을 계속 진행했었습니다.
 
-<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (129).png" alt=""><figcaption></figcaption></figure>
 
 이를 해결하기 위해 **성능 검증에 대한 실험 설계를 구체적이고 효율적**으로 했어야 했고, 이 과정에서 유명 **학원 강사들을 초빙**해야 했습니다. 서술형 문제가 주관적인 평가이다 보니, 많은 강사분들을 모셔야했었고, 이로 인해 **일주일이라는 시간이 소요됐고, 그만큼 프로젝트 진행 및  개발에 차질**이 생기게 됐었습니다.
 
@@ -178,7 +178,7 @@ LLM의 강점들을 고려하여 저희는 **마지막 아이디어**를 냈습�
 
 패스파인더 기간 도중 갑자기 **토플 서술형 문제의 유형이 바뀌는 사태**가 생겼었습니다. 토플이 생긴기 처음으로 해당 유형이 바뀌게 됐고, 이로 인해 새로운 유형에 대한  데이터가 없다보니, **성능 검증이 불가능**해졌었습니다.
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p><a href="http://www.dizzotv.com/site/data/html_dir/2023/04/11/2023041180166.html">http://www.dizzotv.com/site/data/html_dir/2023/04/11/2023041180166.html</a></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (130).png" alt=""><figcaption><p><a href="http://www.dizzotv.com/site/data/html_dir/2023/04/11/2023041180166.html">http://www.dizzotv.com/site/data/html_dir/2023/04/11/2023041180166.html</a></p></figcaption></figure>
 
 이를 해결하기 위해 **기존의 독립형(Independent), 통합형(Integrated) 문제에 대해 충분히 검증을 한 후 새로운 유형(Academic Discussion)에 적용을 해보는 걸로 결론**을 내렸었습니다. 피벗팅을 하기에는 너무 늦었고, 다른 타경쟁서비스들도 똑같은 위기를 겪고 있다고 생각하며 **이 상황을 기회로 바꿀 수 있다**고 판단했습니다.
 
@@ -202,7 +202,7 @@ LLM의 강점들을 고려하여 저희는 **마지막 아이디어**를 냈습�
 
 > ## 회고
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (132).png" alt=""><figcaption></figcaption></figure>
 
 저희 팀이 최종적으로 기획한 서비스는 **서술형 문제 첨삭 및 채점 서비스로**, 패스파인더 팀들 중 가장 **시장성이 큰 프로젝트**였었던 것 같습니다. 여러 방면으로 확장을 계획했던 초기 기획과는 다르게 성능 문제로 인해 구현할 시간이 없었지만, **길고 긴 줄다리기 끝에 성능적으로 만족스러운 결과는 얻을 수 있었던 것** 같습니다.
 

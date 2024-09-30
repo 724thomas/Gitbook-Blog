@@ -8,7 +8,7 @@ Service는 k8s의 api중 하나이다.
 
 쿠버네티스의 node들간의 loadbalancing을 만들어주는 역할을 한다.
 
-<figure><img src="../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 하나의 IP = Virtual IP, k8s = Cluster IP
 

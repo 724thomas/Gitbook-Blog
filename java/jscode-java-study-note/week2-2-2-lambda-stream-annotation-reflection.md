@@ -187,53 +187,34 @@ method.invoke(clazz.newInstance());
 
 ## 17. 리플렉션을 활용해서 어노테이션의 메타 데이터를 가져오는 등의 로직을 실제로 구현해 보신 적이 있으신가요?
 
-**17.1 리플렉션과 어노테이션의 연계**
-
-리플렉션을 사용하면 클래스, 메서드, 필드에 선언된 어노테이션의 메타데이터를 런타임에 조회할 수 있습니다. 이를 통해 어노테이션 기반의 설정이나 동작을 동적으로 구현할 수 있습니다.
-
-**17.2 예시: 커스텀 어노테이션 처리**
-
-다음은 리플렉션을 사용하여 커스텀 어노테이션 `@LogExecutionTime`이 붙은 메서드를 찾아 실행 시간을 로깅하는 예시입니다.
+테스트 코드를 작성할때, private으로 지정된 메서드를 테스트하기 위해서 사용할 수 있습니다.
 
 ```java
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface LogExecutionTime {
-}
-
-// 서비스 클래스
-public class MyService {
-    @LogExecutionTime
-    public void serve() {
-        // 실행 로직
-    }
-}
-
-// 리플렉션을 사용한 어노테이션 처리기
-public class AnnotationProcessor {
-    public static void processAnnotations(Object obj) throws Exception {
-        for (Method method : obj.getClass().getDeclaredMethods()) {
-            if (method.isAnnotationPresent(LogExecutionTime.class)) {
-                long start = System.currentTimeMillis();
-                method.invoke(obj);
-                long end = System.currentTimeMillis();
-                System.out.println(method.getName() + " 실행 시간: " + (end - start) + "ms");
-            }
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-        MyService service = new MyService();
-        processAnnotations(service);
-    }
+public class Add {
+  private int add(int a, int b) {
+      return a + b;
+  }
 }
 ```
 
-위 코드에서 `AnnotationProcessor`는 `MyService` 클래스의 메서드에 선언된 `@LogExecutionTime` 어노테이션을 리플렉션을 통해 찾아내고, 해당 메서드의 실행 시간을 측정하여 출력합니다.
+```java
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-**17.3 실제 구현 경험**
+import java.lang.reflect.InvocationTargetException; 
+import java.lang.reflect.Method;
 
-실제 프로젝트에서 리플렉션을 활용하여 어노테이션 기반의 설정이나 로직을 처리하는 경험이 많습니다. 특히 스프링 프레임워크와 같이 어노테이션을 활용한 설정이 중요한 환경에서, 이러한 기술을 사용하여 다양한 자동화 및 동적 처리를 구현할 수 있었습니다.
+public Test {
+	
+    @Test
+    public void test() {
+		Method method = Add.class.getDeclaredMethod("add", int.class, int.class);
+        method.setAccessible(true);
+        int ret = method.invoke(1, 2);
+        assertEquals(3, ret);
+    }
+}
+```
 
 ## 18. `System.out.println` 클래스는 성능이 좋지 않다고 하는데 이유가 무엇일까요?
 

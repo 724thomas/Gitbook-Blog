@@ -6,7 +6,7 @@ description: 서버 로그 아카이빙 파이프라인
 
 ## 파이프라인:
 
-<figure><img src="../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (160).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -14,7 +14,7 @@ description: 서버 로그 아카이빙 파이프라인
 
 
 
-<figure><img src="../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (162).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. AWS CloudWatch
 
@@ -34,7 +34,7 @@ CloudWatch에서 어디론가 데이터를 옮긴다고 가정했을때, 기존 
 
 
 
-<figure><img src="../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (163).png" alt=""><figcaption></figcaption></figure>
 
 ### 2. AWS S3
 
@@ -64,7 +64,7 @@ CloudWatch에서 어디론가 데이터를 옮긴다고 가정했을때, 기존 
 
 
 
-<figure><img src="../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (164).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. AWS Lambda
 
@@ -72,7 +72,7 @@ AWS 람다는 파이썬/자바스크립트로 코드를 작성할 수 있습니�
 
 람다를 통해 CloudWatch Logs에서 S3로 저장하는 과정에서, IAM을 통해서 권한 설정이 필요했습니다.
 
-<figure><img src="../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (165).png" alt=""><figcaption></figcaption></figure>
 
 CloudWatch Logs에 Read, Write,
 
@@ -140,7 +140,7 @@ def lambda_handler(event, context):
 
 
 
-<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (167).png" alt=""><figcaption></figcaption></figure>
 
 > Memory와 Ephemeral Storage
 
@@ -169,7 +169,7 @@ Lambda 함수의 메모리 사용량과 Ephemeral Storage(임시 저장소) 용�
 
 
 
-<figure><img src="../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (168).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. AWS EventBridge
 
@@ -177,7 +177,7 @@ Aws EventBridge는 **이벤트**를 사용하여 애플리케이션 구성 요�
 
 저는 AWS EventBridge에서 Schedules를 사용하였습니다. Schedules는 Cron같은 기능을 제공하여, 특정 시간에 이벤트를 발생시켜줍니다.
 
-<figure><img src="../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (169).png" alt=""><figcaption></figcaption></figure>
 
 Rate-based schedule을 사용하여 매일마다(해당 사진은 7일입니다만..) 작동하게 만들었습니다. TimeZone까지 설정할 수 있습니다.
 
