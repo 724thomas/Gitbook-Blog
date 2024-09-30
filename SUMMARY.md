@@ -168,6 +168,8 @@
 
 ***
 
+* [Programming Paradigm](programming-paradigm/README.md)
+  * [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
 * [JPA](jpa/README.md)
   * [Template Page](jpa/template-page.md)
 
