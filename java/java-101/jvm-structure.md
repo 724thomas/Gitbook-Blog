@@ -4,7 +4,7 @@ description: JVM 구조
 
 # JVM Structure
 
-<figure><img src="../../.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
 
 자바VM은 자바 프로그램을 실행하는 가상 머신으로, 여러 구성 요소로 나뉩니다. 주요 구성 요소는 다음과 같습니다:
 

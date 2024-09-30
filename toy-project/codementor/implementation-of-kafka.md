@@ -14,7 +14,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 
 
-<figure><img src="../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (152).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -41,7 +41,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 아래는 _**쿠팡이츠의**_ 데이터 파이프라인입니다.
 
-<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (156).png" alt=""><figcaption></figcaption></figure>
 
 쿠팡이츠의 데이터 파이프라인은 Non real-time, Near real-time, Pure real-time 세 부분으로 나뉘어져 있으며, 데이터의 전처리, 후처리, 적재 단계에서 Kafka를 활용합니다. 특히, Pure real-time 부분에서 Kafka의 역할이 중요합니다.
 
@@ -49,7 +49,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 아래는 _**우버**_의 데이터 파이프라인입니다.
 
-<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
 우버 또한 비실시간, 실시간을 나눠서 처리하고 있습니다.
 
@@ -57,7 +57,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 마지막으로 _**넷플릭스**_입니다.
 
-<figure><img src="../../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
 
 1차적으로 수신의 접점으로 카프카에 적재되고 있습니다.
 
@@ -76,13 +76,13 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 이러한 서버들의 특성상, 메시징 큐가 없는 경우 동기식 요청으로 인해 서버 과부하 및 안정성 문제가 발생했습니다.
 
-<figure><img src="../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (154).png" alt=""><figcaption></figcaption></figure>
 
 ##
 
 ## 효과
 
-<figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (155).png" alt=""><figcaption></figcaption></figure>
 
 Kafka의 도입으로 안전하게 메세지를 차곡차곡 쌓아둘 수 있었고, 아래와 같은 효과를 얻었습니다:
 

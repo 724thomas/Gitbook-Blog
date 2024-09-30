@@ -12,7 +12,7 @@
 
 해결책 1.
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../.gitbook/assets/image (98).png>)
 
 git clone한 directory에서 git bash를 열고
 

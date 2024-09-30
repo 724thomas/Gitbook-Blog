@@ -14,7 +14,7 @@ description: 무상태 웹 계층
 
 무상태 서버에는 이런 장치가 없다.
 
-<figure><img src="../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (145).png" alt=""><figcaption></figcaption></figure>
 
 A 사용자가 웹서버1로 인증을 하게 됬을때, 상태가 공유되지 않은 상태에서 웹서버2로 요청을 보내게되면 인증은 실패한다. 이런 문제를 해결하기 위해 로드밸런스는 고정 세션이라는 기능을 제공하지만, 이 기능은 로드밸런서에 부담을 준다.
 
@@ -22,7 +22,7 @@ A 사용자가 웹서버1로 인증을 하게 됬을때, 상태가 공유되지 
 
 상태정보를 공유 저장소에 저장하게 되면, 사용자의 요청은 어떤 웹 서버로든 전달될 수 있다.
 
-<figure><img src="../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 
 
