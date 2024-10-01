@@ -18,6 +18,10 @@ Transactional은 스프링에서 제공하는 어노테이션입니다. 메서�
 * readonly: 읽기 전용 여부. 기본: false
 * rollbackFor/noRollbackFor: 롤백/커밋 대상 예외 지정
 
+
+
+
+
 ## 2. 작동 원리
 
 트랜잭션은 AOP를 기반으로 동작합니다. 스프링은 프록시 객체를 생성하여 실제 메서드 호출 전에 트랜잭션을 시작하고, 실행 후에는 트랜잭션을 커밋하거나 롤백합니다. 개발자 대신 트랜잭션을 관리하게 됩니다.
@@ -25,6 +29,8 @@ Transactional은 스프링에서 제공하는 어노테이션입니다. 메서�
 AOP가 프록시 객체를 생성하여 동작하기 때문에, private이나 protected 메서드 처럼 외부에서 접근할 수 없는 접근 제어자를 사용하게되면 @Transactional이 적용되지 않습니다.
 
 프록시 기반 AOP는 동일 클래스 내에서 자기 자신의 메서드를 호출할 경우 프록시가 적용되지 않는다는 제한이 있습니다. 따라서 같은 클래스 내의 메서드 호출 시에는 @Transactional이 제대로 적용되지 않을 수 있습니다. (이 경우, 구조를 재설계 / 트랜잭션 관리를 명시적으로 처리)
+
+
 
 
 
@@ -75,6 +81,8 @@ public void child(UserStats userStats) {
 
 </div>
 
+
+
 ## 4. 트랜잭션 격리 수준(isolation = Isolation.\~\~)
 
 트랜잭션 격리 수준은 동시에 실행되는 트랜잭션 간의 데이터 일관성을 유지하기 위한 설정입니다.
@@ -92,6 +100,8 @@ public void child(UserStats userStats) {
 
 
 
+
+
 ## 5. 예외 처리와 롤백(rollbackFor / noRollbackFor = \~\~)
 
 기본적으로 Unchecked 예외가 발생하면 롤백되고, Checked 예외는 롤백되지 않습니다. 필요시 지정할 수 있습니다.
@@ -106,6 +116,8 @@ IllegalArgumentException이 발생해도 트랜잭션이 롤백되지 않고 커
 
 여러 예외를 지정할 수도 있습니다. \
 @Transactional(rollbackFor = {SQLException.class, IOException.class})
+
+
 
 
 
@@ -155,6 +167,8 @@ public class ChildService {
 
 
 
+
+
 ## 7. 트랜잭션의 타임아웃 설정(timeout = \~)
 
 타임아웃 설정은 트랜잭션이 시작된 후 지정된 시간 내에 완료되지 않으면 자동으로 롤백되는 기능입니다.
@@ -183,6 +197,8 @@ public class UserService {
 1. 트랜잭션 시작: 트랜잭션 매니저는 해당 시간 동안 트랜잭션이 완료되기를 기다립니다.
 2. 정상 종료: 타임아웃 시간 내에 정상적으로 완료되면 트랜잭션은 커밋됩니다.
 3. 타임아웃 초과: 트랜잭션 매니저는 트랜잭션을 롤백하고, 변경 사항은 모두 취소
+
+
 
 
 
@@ -263,6 +279,8 @@ EventListener를 사용하게되면, 커밋이 되기 전에 이메일 전송을
 * 데이터 일관성 유지
 * 불필요한 작업 방지
 * 롤백 시점에 따른 보정 작업
+
+
 
 
 
