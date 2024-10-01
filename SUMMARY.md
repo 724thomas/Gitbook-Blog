@@ -166,12 +166,13 @@
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
 
-***
+## Programming Paradigm
 
-* [Programming Paradigm](programming-paradigm/README.md)
-  * [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
-* [JPA](jpa/README.md)
-  * [Template Page](jpa/template-page.md)
+* [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
+
+## JPA
+
+* [Template Page](jpa/template-page.md)
 
 ## PYTHON
 
