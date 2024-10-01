@@ -81,13 +81,13 @@ fetch('https://api.example.com/data')
 4. 브라우저는 서버로부터 응답을 받으면, **`Access-Control-Allow-Origin` 헤더**를 확인합니다. 이 헤더에 클라이언트의 출처가 포함되어 있으면, 브라우저는 \*\*SOP(동일 출처 정책)\*\*의 제한을 완화하고 응답을 처리
 5. CORS를 통해 서버가 명시적으로 허용한 출처에서만 데이터를 가져오기 때문에, **SOP를 우회**하더라도 **백엔드 서버의 자원**만 불러올 수 있어 보안상 크게 문제가 되지 않습니다.
 
-
-
 </details>
 
 
 
 ## REST가 뭔가요? RESTFUL API는 뭔가요?
+
+<figure><img src="../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
 
 REST
 
@@ -209,7 +209,7 @@ CDN 캐시
 
 ## L7 로드 밸런서에 대해 설명해주세요.
 
-* **L7 로드 밸런서**는 **OSI 7계층** 중에서 \*\*애플리케이션 계층(Application Layer)\*\*에서 작동하는 로드 밸런서
+* **L7 로드 밸런서**는 **OSI 7계층** 중에서 **애플리케이션 계층(Application Layer)**에서 작동하는 로드 밸런서
 * HTTP, HTTPS 같은 **애플리케이션 프로토콜**을 이해하고, **URL**, **쿠키**, **헤더**, **메서드** 등의 정보에 기반해 **더 세밀한 로드 밸런싱**을 수행
 * 스티키 세션 기능
 * 컨텐츠 기반 라우팅(Http Method 기반)
