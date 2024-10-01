@@ -165,6 +165,7 @@
 * [Template Method Pattern](spring/template-method-pattern.md)
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
+* [@Transactional](spring/transactional.md)
 
 ## Programming Paradigm
 
