@@ -44,16 +44,16 @@ HTTP의 **stateless** 환경에서 **사용자 인증**과 **인가**를 처리�
 
 * **제3자 서비스**가 사용자 정보를 접근할 수 있도록 허가하는 **인증 및 인가 프레임워크**
 
-**유저(사용자)**가 **클라이언트(애플리케이션)**를 통해, **서버(제3의 인증 서버, Google)**에 인증 요청을 보내는 시나리오
+<mark style="color:purple;">**유저(사용자)**</mark>가 <mark style="color:green;">**클라이언트(애플리케이션)**</mark>를 통해, <mark style="color:blue;">**백엔드 서버**</mark><mark style="color:blue;">(자바 서버)</mark>, <mark style="color:red;">**서버(제3의 인증 서버, Google)**</mark>에 인증 요청을 보내는 시나리오
 
-1. 사용자가 애플리케이션에 로그인 요청(GOogle로 로그인 선택)
-2. 애플리케이션이 유저를 제3의 인증서버로 리디렉션
-3. 유저가 제3의 인증서버에서 로그인
-4. 인증서버는 Authorization Code를 발급후 애플리케이션으로 리디렉션
-5. 애플리케이션이 Authorization Code를 백엔드 서버로 전달
-6. 백엔드 서버가 인증서버로부터 AccessToken요청.
-7. 인증서버가 백엔드 서버에 액세스, 리프레시 토큰 전달
-8. 백엔드 서버가 AccessToken을 통해 인증서버에게 유저 데이터 요청
-9. 백엔드 서버가 유저에게 엑세스, 리프레시 토큰 전달.
+1. <mark style="color:purple;">**유저**</mark>가 <mark style="color:green;">**클라이언트**</mark>에 로그인 요청(Google로 로그인 선택)
+2. 애플리케이션이 <mark style="color:purple;">**유저**</mark>를 제3의 <mark style="color:red;">**서버**</mark>로 리디렉션
+3. <mark style="color:purple;">**유저**</mark>가 제3의 <mark style="color:red;">**서버**</mark>에서 로그인
+4. <mark style="color:red;">**서버**</mark>는 Authorization Code를 발급후 <mark style="color:green;">**클라이언트**</mark>으로 리디렉션
+5. &#x20;<mark style="color:green;">**클라이언트**</mark>가 Authorization Code를 <mark style="color:blue;">**백엔드 서버**</mark>로 전달
+6. <mark style="color:green;">**클라이언트**</mark>가 <mark style="color:red;">**서버**</mark>로부터 AccessToken요청.
+7. <mark style="color:red;">**서버**</mark>가 <mark style="color:blue;">**백엔드 서버**</mark>에 액세스, 리프레시 토큰 전달
+8. <mark style="color:blue;">**백엔드 서버**</mark>가 AccessToken을 통해 <mark style="color:red;">**서버**</mark>에게 <mark style="color:purple;">**유저**</mark> 데이터 요청
+9. <mark style="color:blue;">**백엔드 서버**</mark>가 <mark style="color:purple;">**유저**</mark>에게 엑세스, 리프레시 토큰 전달.
 10. **이후 클라이언트는 요청을 보낼떄마다 HTTP헤더의 Authorization 필드에 포함시켜 서버로 전송**
 
