@@ -69,7 +69,7 @@ description: 트랜잭션, 회복
 * Repeatable Read: 다른 트랜잭션에 의해 중간에 값이 바뀌어도, 처음 본인이 읽은 값을 유지.
 * Serializable: 순차적 실행
 
-
+**InnoDB에서는 Repeatable Read격리 수준이지만, MVCC와 Locking(Next Key Lock)을 통해 팬텀리드를 해결합니다.**
 
 ## Read Uncommitted에 대해 설명해주세요
 
