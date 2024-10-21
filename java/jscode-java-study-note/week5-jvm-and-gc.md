@@ -31,7 +31,7 @@ JNI (C, C++ 등의 네이티브 코드 호출이 가능한 인터페이스)
 
 Native Method Library (JNI를 통해 호출되는 네이티브 메서드를 포함하는 라이브러리)
 
-
+(실행 과정: [https://wonjoon.gitbook.io/joons-til/java/java-101/java-compiles-and-execution-method#id-3](https://wonjoon.gitbook.io/joons-til/java/java-101/java-compiles-and-execution-method#id-3))
 
 
 
