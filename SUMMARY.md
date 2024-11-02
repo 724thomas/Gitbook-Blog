@@ -150,6 +150,7 @@
   * [Week4 Java Concurrency Programming](java/jscode-java-study-note/week4-java-concurrency-programming.md)
   * [Week5 JVM & GC](java/jscode-java-study-note/week5-jvm-and-gc.md)
 * [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
+* [Checked vs Unchecked Exception](java/checked-vs-unchecked-exception.md)
 
 ## SPRING
 
