@@ -19,8 +19,8 @@ Table Of Contents
 이메일 724thomas@gmail.com\
 \
 [깃허브 github.com/724thomas](https://github.com/724thomas)\
-\
-[포트폴리오(웹 버전) wonjoonthomaschoi.site/portfolio/kor](http://wonjoonthomaschoi.site/portfolio/kor)\
-\
-[이력서(웹 버전) wonjoonthomaschoi.site/resume/kor](http://wonjoonthomaschoi.site/resume/kor)
 
+
+이력서 [https://wonjoonthomaschoi.notion.site/140addeab35680c79943e5530ad196c8?pvs=74](https://wonjoonthomaschoi.notion.site/140addeab35680c79943e5530ad196c8?pvs=74)
+
+포트폴리오 [https://wonjoonthomaschoi.notion.site/140addeab3568150b6ded356ea199e48](https://wonjoonthomaschoi.notion.site/140addeab3568150b6ded356ea199e48)
