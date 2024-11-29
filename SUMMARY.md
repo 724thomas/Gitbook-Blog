@@ -231,7 +231,7 @@
     * [Access speed of Stack vs Heap](os/operating-system-101/process/access-speed-of-stack-vs-heap.md)
     * [Reason for memory space partitioning](os/operating-system-101/process/reason-for-memory-space-partitioning.md)
     * [Process of compiling a process](os/operating-system-101/process/process-of-compiling-a-process.md)
-    * [sudo kill -9 $CURRENT\_PID](os/operating-system-101/process/sudo-kill-9-usdcurrent\_pid.md)
+    * [sudo kill -9 $CURRENT\_PID](os/operating-system-101/process/sudo-kill-9-usdcurrent_pid.md)
   * [Thread](os/operating-system-101/thread/README.md)
     * [Composition of a thread's address space](os/operating-system-101/thread/composition-of-a-threads-address-space.md)
   * [Process vs Thread](os/operating-system-101/process-vs-thread/README.md)
@@ -317,6 +317,7 @@
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 * [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
+* [Redis: Remote Dictionary Server](database/redis-remote-dictionary-server.md)
 
 ## DATA STRUCTURE
 
