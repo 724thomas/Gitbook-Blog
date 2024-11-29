@@ -8,7 +8,7 @@ description: AOP
 
 ## AOP(Aspect-Oriented Programming)란 무엇이며, 어떤 문제를 해결하기 위한 것인가요?
 
-* **관심사의 분리(Separation of Concerns)**를 통해 공통적인 기능을 모듈화하여 코드의 중복을 줄이고 가독성을 높이는 프로그래밍 패러다임
+* **관심사의 분리(Separation of Concerns)**&#xB97C; 통해 공통적인 기능을 모듈화하여 코드의 중복을 줄이고 가독성을 높이는 프로그래밍 패러다임
 * 로깅, 트랜잭션 관리, 보안, 예외처리 등을 비즈니스 로직과 분리하여 중복을 제거하는 것이 목표.
 
 

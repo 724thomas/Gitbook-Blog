@@ -15,7 +15,7 @@ description: 명령 사이클(instruction cycle) (CPU 동작 방식)
      * CPU의 프로그램 카운터(Program Counter, PC)가 가리키는 메모리 주소에서 명령어를 가져와 명령어 레지스터(Instruction Register, IR)에 저장
    * 프로그램 카운터는 다음 명령어의 주소를 가리키도록 증가
 2. **간접(Indirect)**
-   * IR의 명령이 메모리 접근을 필요로 한다면, 해당 명령이의 메모리 주소가 **`직접` 주소**인지 **`간접 주소`**인지 확인
+   * IR의 명령이 메모리 접근을 필요로 한다면, 해당 명령이의 메모리 주소가 **`직접` 주소**인지 **`간접 주소`**&#xC778;지 확인
      * if **`직접 주소 명령`**
        * 추가적인 작업 없이 다음 단계로 진행
      * if **`간접 주소 명령`**
@@ -59,14 +59,14 @@ description: 명령 사이클(instruction cycle) (CPU 동작 방식)
 
 
 
-![스크린샷 2023-09-20 오후 5.23.40.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/cc7e2c56-c0b4-4ec2-b96f-8b74abd33a8b/0087f83c-9051-4323-a0c9-808f7d9992f3/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA\_2023-09-20\_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE\_5.23.40.png)
+![스크린샷 2023-09-20 오후 5.23.40.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/cc7e2c56-c0b4-4ec2-b96f-8b74abd33a8b/0087f83c-9051-4323-a0c9-808f7d9992f3/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-09-20_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.23.40.png)
 
 ***
 
 참조
 
-[명령 주기](https://ko.wikipedia.org/wiki/%EB%AA%85%EB%A0%B9\_%EC%A3%BC%EA%B8%B0)
+[명령 주기](https://ko.wikipedia.org/wiki/%EB%AA%85%EB%A0%B9_%EC%A3%BC%EA%B8%B0)
 
 [https://velog.io/@onenewarm/%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%82%AC%EC%9D%B4%ED%81%B4](https://velog.io/@onenewarm/%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%82%AC%EC%9D%B4%ED%81%B4)
 
-[\[컴퓨터 공학 기초 강의\] 11강. 명령어 사이클과 인터럽트](https://youtu.be/3Yz7OnVUM28?si=31EIJvkmYVr\_pkbJ)
+[\[컴퓨터 공학 기초 강의\] 11강. 명령어 사이클과 인터럽트](https://youtu.be/3Yz7OnVUM28?si=31EIJvkmYVr_pkbJ)

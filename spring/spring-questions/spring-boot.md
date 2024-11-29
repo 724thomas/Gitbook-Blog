@@ -96,7 +96,7 @@ Spring Boot 프로젝트의 **부모 POM(Project Object Model) 파일**로서, M
 
 WAR 배포
 
-* 애플리케이션이 **독립 실행형**이 아닌, 외부에 설치된 **서블릿 컨테이너** 또는 **WAS(Web Application Server)**에 배포되는 방식
+* 애플리케이션이 **독립 실행형**이 아닌, 외부에 설치된 **서블릿 컨테이너** 또는 **WAS(Web Application Server)**&#xC5D0; 배포되는 방식
 
 
 

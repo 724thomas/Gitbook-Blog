@@ -1,6 +1,6 @@
 # 쓰레드는 PCB를 갖고 있을까?
 
-스레드는 전통적인 PCB(Process Control Block)를 갖고 있지 않습니다. 대신, 스레드 관련 정보는 **Thread Control Block (TCB)**에 저장되며, 공유 자원과 관련된 정보는 PCB에 저장됩니다.
+스레드는 전통적인 PCB(Process Control Block)를 갖고 있지 않습니다. 대신, 스레드 관련 정보는 **Thread Control Block (TCB)**&#xC5D0; 저장되며, 공유 자원과 관련된 정보는 PCB에 저장됩니다.
 
 💡 **Thread Control Block (TCB)**
 

@@ -46,4 +46,4 @@ def prime_list(start, end):
     return [i for i in range(start, end) if sieve[i]]
 ```
 
-시간 복잡도는 **O(NloglogN)**이지만, 공간복잡도가 **O(n)**이다.
+시간 복잡도는 **O(NloglogN)**&#xC774;지만, 공간복잡도가 **O(n)**&#xC774;다.
