@@ -48,7 +48,7 @@ description: UDP, TCP
 ## 파이프라인 프로토콜이 뭔가요?
 
 * Stop and Wait 프로토콜의 비효율성을 개선하기 위한 방식
-* 파이프라이닝은 여러 패킷을 **연속적으로 전송**하면서 동시에 **수신 확인 응답(ACK)**을 기다리는 방식
+* 파이프라이닝은 여러 패킷을 **연속적으로 전송**하면서 동시에 **수신 확인 응답(ACK)**&#xC744; 기다리는 방식
 * 전송 속도 향상.
 * Go Back N 방식: 오류 발생시 해당 패킷 이후 모든 패킷을 재전송
 * Selective Repeat 방식: 특정 패킷만 재전송
@@ -61,7 +61,7 @@ description: UDP, TCP
 
 * **연결 지향형**이면서 **신뢰성을 보장**하는 전송 계층 프로토콜
 * 흐름 제어: **수신 측의 처리 능력**을 고려한 전송을 수행
-* 혼잡 제어: 송신 측은 네트워크 상황을 감지하여 **혼잡 윈도우(congestion window)**를 조절하며, 데이터 전송 속도를 동적으로 변경 (AIMD +Increase /2 Decrease, Slow Start)
+* 혼잡 제어: 송신 측은 네트워크 상황을 감지하여 **혼잡 윈도우(congestion window)**&#xB97C; 조절하며, 데이터 전송 속도를 동적으로 변경 (AIMD +Increase /2 Decrease, Slow Start)
 
 
 
@@ -78,7 +78,7 @@ description: UDP, TCP
 
 <figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
-* **4-way handshake**는 **TCP 연결을 종료**할 때 사용하는 절차. 주요 패킷은 **FIN(Finish)**과 **ACK(Acknowledgment)**
+* **4-way handshake**는 **TCP 연결을 종료**할 때 사용하는 절차. 주요 패킷은 **FIN(Finish)**&#xACFC; **ACK(Acknowledgment)**
 * 클라이언트 → 서버: FIN
 * 서버 → 클라이언트: ACK
 * 서버 → 클라이언트: FIN

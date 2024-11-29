@@ -47,7 +47,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 
 
-아래는 _**우버**_의 데이터 파이프라인입니다.
+아래는 _**우버**_&#xC758; 데이터 파이프라인입니다.
 
 <figure><img src="../../.gitbook/assets/image (158).png" alt=""><figcaption></figcaption></figure>
 
@@ -55,7 +55,7 @@ CodeMentor 서비스에서는 메세징 플랫폼이 필요했습니다.
 
 
 
-마지막으로 _**넷플릭스**_입니다.
+마지막으로 _**넷플릭스**_&#xC785;니다.
 
 <figure><img src="../../.gitbook/assets/image (159).png" alt=""><figcaption></figcaption></figure>
 
@@ -89,7 +89,7 @@ Kafka의 도입으로 안전하게 메세지를 차곡차곡 쌓아둘 수 있�
 1. **메시지 관리의 효율성**: Kafka를 사용하여 메시지를 안전하게 관리하고 순차적으로 처리할 수 있게 되었습니다.
 2. **Evaluation 서버의 비동기 처리**: Evaluation 서버는 Kafka에서 메시지를 하나씩 꺼내어 나머지 작업들을 비동기 방식으로 안전하게 처리합니다.
 3. **시스템의 동적 확장성**: 15초마다 실행되는 Probe를 통한 헬스체크를 통해, Code Execution 파드는 동적으로 확장되어 많은 요청을 유연하게 처리할 수 있게 되었습니다.\
-   _(Probe에 대한 설명은 다른 문서에서 다루겠습니다.)_
+   &#xNAN;_(Probe에 대한 설명은 다른 문서에서 다루겠습니다.)_
 
 
 

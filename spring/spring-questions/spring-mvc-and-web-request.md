@@ -29,9 +29,9 @@ description: 스프링 MVC와 웹 요청 처리
 
 클라이언트-> DispatcherServlet -> HandlerMapping -> HandlerAdapter -> Controller -> ModelAndView->
 
-&#x20;\-> DispatcherServlet -> ViewResolver -> View ->
+&#x20;-> DispatcherServlet -> ViewResolver -> View ->
 
-\-> DispatcherServlet -> 클라이언트
+-> DispatcherServlet -> 클라이언트
 
 
 
@@ -207,10 +207,10 @@ Filter: **요청 전처리**나 **응답 후처리**를 담당
 
 Intercepter: 컨트롤러에 대한 **전처리, 후처리** 및 **요청 완료 후 처리**를 수행
 
-* 클라이언트 요청 → **preHandle()**에서 전처리 (예: 로그인 여부 체크).
+* 클라이언트 요청 → **preHandle()**&#xC5D0;서 전처리 (예: 로그인 여부 체크).
 * 컨트롤러가 요청 처리.
-* **postHandle()**에서 응답 전처리 (예: 데이터 포맷 변경).
-* 뷰가 렌더링된 후, **afterCompletion()**에서 후처리 (예: 로그 기록, 예외 처리).
+* **postHandle()**&#xC5D0;서 응답 전처리 (예: 데이터 포맷 변경).
+* 뷰가 렌더링된 후, **afterCompletion()**&#xC5D0;서 후처리 (예: 로그 기록, 예외 처리).
 
 
 

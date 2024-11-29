@@ -6,7 +6,7 @@ description: 문자열, 예외, 제네릭
 
 ## 1. String 리터럴과 `new String("")`의 차이
 
-자바에서 `String`은 불변 객체(immutable object)입니다. 즉, 한 번 생성된 문자열은 변경할 수 없습니다. 이를 통해 자바에서 문자열을 다루는 두 가지 주요 방식인 _String 리터럴_과 `new String("")`에 대해 알아보겠습니다.
+자바에서 `String`은 불변 객체(immutable object)입니다. 즉, 한 번 생성된 문자열은 변경할 수 없습니다. 이를 통해 자바에서 문자열을 다루는 두 가지 주요 방식인 _String 리터&#xB7F4;_&#xACFC; `new String("")`에 대해 알아보겠습니다.
 
 **1.1 String 리터럴**
 

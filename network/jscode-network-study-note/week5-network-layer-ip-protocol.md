@@ -48,7 +48,7 @@ Private IP
 
 * 내부 네트워크에서만 사용되는 IP 주소
 * **로컬 네트워크(사설 네트워크)** 내에서 사용
-* 외부와 통신하려면 \*\*NAT(Network Address Translation)\*\*를 사용하여 Public IP로 변환
+* 외부와 통신하려면 **NAT(Network Address Translation)**&#xB97C; 사용하여 Public IP로 변환
 
 
 
