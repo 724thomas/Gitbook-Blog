@@ -159,12 +159,12 @@ LIMIT 20 OFFSET 0;
 ```
 {% endcode %}
 
-* **SELECT**: `User`와 `UserSocialStats` 테이블에서 유저 정보(닉네임, 서비스 이름, 팔로워 수 등)를 가져옴.
+* **SELECT**: User와 UserSocialStats 테이블에서 유저 정보(닉네임, 서비스 이름, 팔로워 수 등)를 가져옴.
 * **FROM 및 JOIN**:
-  * `User`와 `UserSocialStats`를 조인하여 유저 정보와 통계를 결합.
-  * `BlockUser`와의 조인을 통해 특정 유저(`12345`)가 차단한 유저를 식별.
+  * User와 UserSocialStats를 조인하여 유저 정보와 통계를 결합.
+  * BlockUser와의 조인을 통해 특정 유저(`12345`)가 차단한 유저를 식별.
 * **WHERE**: 삭제된 유저와 차단된 유저를 제외.
-* **ORDER BY**: 팔로워 수(`followerCount`) 기준 내림차순으로 정렬.
+* **ORDER BY**: 팔로워 수(followerCount) 기준 내림차순으로 정렬.
 * **LIMIT**: 상위 20개의 결과를 반환.
 
 
