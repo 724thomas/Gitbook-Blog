@@ -318,7 +318,7 @@
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 * [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
 * [Redis: Remote Dictionary Server](database/redis-remote-dictionary-server.md)
-* [Query optimization - User list](database/query-optimization-user-list.md)
+* [Enhancing Query Performance - User list](database/enhancing-query-performance-user-list.md)
 
 ## DATA STRUCTURE
 
