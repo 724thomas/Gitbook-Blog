@@ -1,8 +1,8 @@
 ---
-description: SQL 쿼리 최적화 - 유저 목록
+description: 조회 쿼리 성능 향상 - 유저 목록
 ---
 
-# Query optimization - User list
+# Enhancing Query Performance - User list
 
 ## 1. 상황 설명:
 
