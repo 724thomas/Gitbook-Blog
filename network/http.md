@@ -4,11 +4,22 @@ description: HyperText Transfer Protocol
 
 # HTTP
 
-0.9 - GET, No Header, HTML파일만 전송, HTTP헤더X, HTTP 상태코드X
+## 1. HTTP 0.9
 
-1.0 - Header, Status Code, new Method
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:red;">GET 요청만 존재</mark>
+* <mark style="color:red;">Header X</mark>
+* <mark style="color:red;">Status Code X</mark>
+* <mark style="color:red;">HTML파일만 전송</mark>
+
+## 2. HTTP 1.0
 
 <figure><img src="../.gitbook/assets/image (262).png" alt=""><figcaption></figcaption></figure>
+
+* <mark style="color:green;">Header</mark>
+* <mark style="color:green;">Status Code</mark>
+* <mark style="color:green;">new Method</mark>
 
 ## 3. HTTP 1.1
 
@@ -88,19 +99,20 @@ ETag: "67890efgh"
 
 </details>
 
-### 3.5. Head Of Line Blocking
+### 3.5. HTTP Head Of Line Blocking
 
 <figure><img src="../.gitbook/assets/image (268).png" alt=""><figcaption></figcaption></figure>
 
-* 파이프라인의 요청에서 문제가 발생하면, 그 뒤에 요청들은 기다리는 문제
+* 요청에서 문제가 발생하면, 그 뒤에 요청들은 기다리는 문제
 
 ## 4. HTTP 2.0
 
-* Binary Framing Layer
-* Multiplexing
-* Stream Prioritization
-* Server Push
-* HPack Compression
+* <mark style="color:green;">Binary Framing Layer</mark>
+* <mark style="color:green;">Multiplexing</mark>
+* <mark style="color:green;">Stream Prioritization</mark>
+* <mark style="color:green;">Server Push</mark>
+* <mark style="color:green;">HPack Compression</mark>
+* <mark style="color:red;">TCP의 Head Of Line Blocking</mark>
 
 ### 4.1. Binary Framing Layer
 
@@ -116,11 +128,11 @@ ETag: "67890efgh"
 
 * 단일 TCP 연결에서 스트림 채널을 열어, 여러 HTTP 요청/응답을 병렬로 전송
 * 하나의 요청이 지연되도 다른 요청에 영향을 주지 않음
-* HTTP 1.1의 FIFO 방식 Head Of Line Blocking 문제 해결
+* HTTP 1.1 TCP Head Of Line Blocking(FIFO 방식) 문제 해결
 
 ### 4.3. Stream Prioritization
 
-<figure><img src="../.gitbook/assets/image (271).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * 요청에 대한 우선순위 부여
 * 서버측에서는 우선순위가 높은 요청 먼저 처리
