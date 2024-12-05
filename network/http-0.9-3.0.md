@@ -1,8 +1,8 @@
 ---
-description: HyperText Transfer Protocol
+description: HTTP 0.9-3.0
 ---
 
-# HTTP
+# HTTP 0.9-3.0
 
 ## 1. HTTP 0.9
 
@@ -160,6 +160,7 @@ ETag: "67890efgh"
 <figure><img src="../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
 
 * UDP 기반으로 TCP 연결과정 생략
+* TCP Head Of Line Blocking 해결
 
 
 
