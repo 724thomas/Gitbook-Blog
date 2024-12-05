@@ -159,18 +159,12 @@ ETag: "67890efgh"
 
 <figure><img src="../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
 
-* UDP 기반으로 TCP 연결과정 생략
-* TCP Head Of Line Blocking 해결
+* TCP 연결과정 생략
+* UDP 기반으로 순차적 처리X
+* TCP Head Of Line Blocking 해결. 손실된 패킷만 재전송
 
 
 
 ## 6. 정리
 
 <figure><img src="../.gitbook/assets/image (277).png" alt=""><figcaption></figcaption></figure>
-
-HTTP 메시지 전송 방식의 변화, 요청과 응답의 다중화, 리소스간 우선 순위 설정, Server Push, Header 압축,  TCP의 Head of Line Blocking
-
-3.0 QUIC. TCP의 지연 불가피 한계를 극복하려는 전송 프로토콜, 전송 속도 향상, Connection UUID로 서버와 연결, TLS 기본 적용, 독립 스트림 사용
-
-
-
