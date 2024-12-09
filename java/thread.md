@@ -482,3 +482,164 @@ public class InnerRunnableMainV4 {
 
 ```
 
+
+
+## 3. 스레드 제어와 생명 주기
+
+### 3.1. 스레드 제어
+
+#### 3.1.1. 스레드 생성
+
+```java
+ Thread myThread = new Thread(new HelloRunnable(), "myThread")
+```
+
+* Runnable 인터페이스: 실행할 작업을 포함하는 인터페이스. HelloRunnable 클래스는 Runnable 인터페이스를 구현한 클래스.
+* 스레드 이름: "myThread" 라는 이름으로 스레드 생성. 디버깅/로깅 목적. (default : Thread-0, -1, ...)
+
+#### 3.1.2. 스레드 객체 정보
+
+```java
+log("myThread = " + myThread);
+```
+
+* myThread 객체를 문자열로 변환하여 출력.
+* toString() -> 스레드ID, 스레드 이름, 우선순위, 스레드 그룹을 포함 (Thread\[#21,myThread,5,main])
+
+#### 3.1.3. 스레드ID
+
+```java
+log("myThread.threadId() = " + myThread.threadId());
+```
+
+* threadId(): 스레드 고유 식별자를 반환. ID는 JVM내에서 유일. 직접 지정할 수 없으며 생성시 할당.
+
+#### 3.1.4. 스레드 이름
+
+```java
+ log("myThread.getName() = " + myThread.getName());
+```
+
+* getName(): 스레드 이름 반환. 스레드 이름은 중복 가능
+
+#### 3.1.5. 스레드 우선순위
+
+```java
+ log("myThread.getPriority() = " + myThread.getPriority());
+```
+
+* getPriority(): 스레드의 우선순위를 반환하는 메서드. 1(가장 낮음)\~ 10(가장 높음). 기본값은 5. setPriority()를 통해 우선순위 변경 가능.
+* 스레드 스케줄러가 어떤 스레드를 우선 실행할지 결정하는데 사용. JVM구성과 OS따라 달라질 수 있음
+
+#### 3.1.6. 스레드 그룹 (잘 안쓰임)
+
+```java
+ log("myThread.getThreadGroup() = " + myThread.getThreadGroup());
+```
+
+* getThreadGroup(): 스레드가 속한 그룹을 반환. 스레드 그룹은 스레드를 그룹화하여 관리할 수 있는 기능 제공. 여러 스레드를 묶어서 특정 작업 수행가능(일괄 종료, 우선순위 설정 등)
+* 기본적으로 모든 스레드는 부모 스레드와 동일한 스레드 그룹에 속한다.
+* 부모 스레드: 새로운 스레드를 생성하는 스레드를 의미. 스레드는 다른 스레드에 의해 생성되는데, 이러한 생성 관계에서 새로 생성된 스레드는 생성한 스레드를 부모로 간주.
+
+#### 3.1.7. 스레드 상태
+
+```java
+ log("myThread.getState() = " + myThread.getState());
+```
+
+* getState(): 스레드의 현재 상태를 반환.
+  * NEW: 아직 시작되지 않은 상태
+  * RUNNABLE: 스레드가 실행중 / 실행될 준비가 된 상태
+  * BLOCKED: 동기화 락을 기다리는 상태
+  * WAITING: 다른 스레드의 특정 작업이 완료되기를 기다리는 상태
+  * TIMED\_WAITING: 일정 시간 동안 기다리는 상태
+  * TERMINATED: 스레드가 실행을 마친 상태
+
+### 3.2. 스레드 생명주기
+
+<figure><img src="../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
+
+* NEW: 아직 시작되지 않은 상태
+  * 스레드가 생성되고 아직 시작되지 않은 상태
+  * Thread 객체가 생성되지만 start() 메서드가 아직 호출되지 않은 상태.
+* RUNNABLE: 스레드가 실행중 / 실행될 준비가 된 상태
+  * 스레드가 실행될 준비가 된 상태. 실제 CPU에서 실행될 수 있음. start() 메서드가 호출되면 이 상태로 됨.
+  * RUNNABLE은 실행되고 있는 뜻이 아니라, OS의 스케줄러가 각 스레드에 CPU 시간을 할당하여 실행하기 떄문에, Runnable 상태에 있는 스레드는 스케줄러의 실행 대기열에 포함되어 있다가 차례로 CPU에서 실행.
+* BLOCKED: 동기화 락을 기다리는 상태
+  * synchronized (lock) 같은 코드 블록에 진입하려고 할때, 다른 스레드가 이미 lock을 가지고 있는 경우
+* WAITING: 다른 스레드의 특정 작업이 완료되기를 기다리는 상태
+  * wait(), join() 메서드가 호출될때 이 상태로 됨. 다른 스레드가 notify() / notifyAll() 메서드를 호출하거나 join()이 완료될때까지 기다림.
+* TIMED\_WAITING: 일정 시간 동안 기다리는 상태
+  * sleep(XXms) / wait(long timeout), join(long millis) 메서드가 호출될때 이 상태로 ㅗ딤.
+  * 주어진 시간이 경과 / 다른 스레드가 해당 스레드를 꺠우면 상태에서 벗어남.
+* TERMINATED: 스레드가 실행을 마친 상태
+  * 정상 종료 / 예외가 발생하여 종료된 경우. 스레드는 한번 종료되면 재시작 불가.
+
+
+
+상태 전이 과정:
+
+* NEW -> RUNNABLE: start() 메서드를 호출
+* RUNNABLE -> BLOCKED / WAITING / TIMED\_WAITING: 락을 얻지 못하거나 wait() / sleep() 메서드를 호출
+* BLOCKED / WAITING / TIMED\_WAITING -> RUNNABLE: 스레드가 락을 얻음 / 기다림이 완료
+* RUNNABLE -> TERMINATED: run() 메서드가 완료됨
+
+```java
+import static util.MyLogger.log;
+
+public class ThreadStateMain {
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = new Thread(new MyRunnable(), "myThread");
+        log("myThread.state1 = " + thread.getState()); // NEW
+        log("myThread.start()");
+        thread.start();
+        Thread.sleep(1000);
+        log("myThread.state3 = " + thread.getState()); // TIMED_WAITING
+        Thread.sleep(4000);
+        log("myThread.state5 = " + thread.getState()); // TERMINATED
+        log("end");
+    }
+
+    static class MyRunnable implements Runnable {
+        @Override
+        public void run() {
+            try {
+                log("start");
+                log("myThread.state2 = " +
+                        Thread.currentThread().getState()); // RUNNABLE
+                log("sleep() start");
+                Thread.sleep(3000);
+                log("sleep() end");
+                log("myThread.state4 = " +
+                        Thread.currentThread().getState()); // RUNNABLE
+                log("end");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+}
+```
+
+```
+// 실행 결과
+ 11:40:31.503 [     main] myThread.state1 = NEW
+ 11:40:31.505 [     main] myThread.start()
+ 11:40:31.505 [ myThread] start
+ 11:40:31.505 [ myThread] myThread.state2 = RUNNABLE
+ 11:40:31.505 [ myThread] sleep() start
+ 11:40:32.507 [     main] myThread.state3 = TIMED_WAITING
+ 11:40:34.510 [ myThread] sleep() end
+ 11:40:34.512 [ myThread] myThread.state4 = RUNNABLE
+ 11:40:34.512 [ myThread] end
+ 11:40:36.511 [     main] myThread.state5 = TERMINATED
+ 11:40:36.512 [     main] end
+```
+
+* Thread.currentThread() 를 호출하면 해당 코드를 실행하는 스레드 객체를 조회할 수 있다.
+* Thread.sleep(): 해당 코드를 호출한 스레드는 TIMED\_WAITING 상태가 되면서 특정 시간 만큼 대기한다. 시간은 밀리초(ms) 단위이다. 1밀리초 = 1/1000 초, 1000밀리초 = 1초이다.&#x20;
+* Thread.sleep(): InterruptedException 이라는 체크 예외를 던진다. 따라서 체크 예외를 잡아서 처리하거나 던져야 한다
+* InterruptedException: 은 인터럽트가 걸릴 때 발생.
+
+<figure><img src="../.gitbook/assets/image (285).png" alt=""><figcaption></figcaption></figure>
+
