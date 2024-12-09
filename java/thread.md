@@ -643,3 +643,189 @@ public class ThreadStateMain {
 
 <figure><img src="../.gitbook/assets/image (285).png" alt=""><figcaption></figcaption></figure>
 
+### 3.3. 체크 예외 재정의
+
+```java
+public interface Runnable {
+    void run();
+}
+```
+
+Runnable 인터페이스는 위와 같이 정의 되어있다.
+
+체크 예외는:
+
+* 부모 메서드가 체크 예외를 던지지 않는 경우, 재정의된 자식 메서드도 체크 예외를 던질 수 없다.
+* 자식 메서드는 부모 메서드가 던질 수 있는 체크 예외의 하위 타입만 던질 수 있다.
+
+위 규칙에 따라, runnable 인터페이스의 run() 메서드를 재정의하는 곳에서는 체크 예외를 밖으로 던질 수 없음.
+
+체크 예외를 run() 메서드에서 던질 수 없게 강제하고 있는데, 이는 개발자가 반드시 예외를 try-cahtch 블록 내에서 처리해야된다. (프로그램의 비정상 종료 상황 방지). 특히 멀티스레딩 환경에서는 예외 처리를 강제함으로써 스레드의 안정성과 일관성을 유지할 수 있음.
+
+### 3.4. Sleep 유틸리티
+
+Thread.sleep() 메서드는 InterruptedException 체크 예외를 발생시킨다. 이를 매번 try-catch로 감싸주지 않는 방식으로 변경할 수 있음.
+
+```java
+package util;
+
+import static util.MyLogger.log;
+
+public abstract class ThreadUtils {
+    public static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            log("인터럽트 발생, " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+### 3.5. join
+
+Join은 특정 시간 만큼만 대기함.
+
+* join(): 호출 스레드는 대상 스레드가 완료될 때까지 무한정 대기
+* join(ms): 호출 스레드는 특정 시간 동안 만큼만 대기. 호출 스레드는 지정한 시간이 지나면 다시 RUNNABLE 상태가됨.
+
+```java
+package thread.control.join;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class JoinMainV4 {
+    public static void main(String[] args) throws InterruptedException {
+        log("Start");
+        SumTask task1 = new SumTask(1, 50);
+        Thread thread1 = new Thread(task1, "thread-1");
+
+        thread1.start();
+
+        //스레드가 종료될 때 까지 대기
+        log("join(1000) - main 스레드가 thread1 종료까지 1초 대기");
+        thread1.join(1000);
+        log("main 스레드 대기 완료");
+
+        log("task1.result = " + task1.result);
+    }
+
+    static class SumTask implements Runnable {
+        int startValue;
+        int endValue;
+        int result = 0;
+
+        public SumTask(int startValue, int endValue) {
+            this.startValue = startValue;
+            this.endValue = endValue;
+        }
+
+        @Override
+        public void run() {
+            log("작업 시작");
+            sleep(2000);
+            int sum = 0;
+            for (int i = startValue; i <= endValue; i++) {
+                sum += i;
+            }
+            result = sum;
+            log("작업 완료 result = " + result);
+        }
+    }
+}
+```
+
+* 별도의 스레드에서 1-50까지 더하고, 그 결과를 조회
+* join(1000)을 사용해서 1초만 대기
+
+```
+// 실행 결과
+17:34:54.572 [     main] Start
+17:34:54.575 [     main] join(1000) - main 스레드가 thread1 종료까지 1초 대기
+17:34:54.575 [ thread-1] 작업 시작
+17:34:55.580 [     main] main 스레드 대기 완료
+17:34:55.585 [     main] task1.result = 0
+17:34:56.580 [ thread-1] 작업 완료 result = 1275
+```
+
+<figure><img src="../.gitbook/assets/image (286).png" alt=""><figcaption></figcaption></figure>
+
+* main 스레드는 join(1000)을 사용해서 thread-1을 1초간 기다린다. 이때 main 스레드의 생태는 TIMED\_WAITING이다.
+* thread-1의 작업에는 2초가 걸린다.
+* 1초가 지나도 thread-1의 작업이 완료되지 않으므로, main 스레드는 대기를 중단. 그리고 main 스레드는 다시 RUNNABLE 상태로 바뀌면서 다음 코드를 수행. 이때 thread-1의 작업이 아직 완료되지 않았기 때문에 task1.result=0이 출력.
+* main 스레드가 종료된 이후에 thread-1이 계산을 끝낸다. result=1275가 출력.
+
+
+
+```java
+package thread.control.test;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class JoinTest1Main {
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(new MyTask(), "t1");
+        Thread t2 = new Thread(new MyTask(), "t2");
+        Thread t3 = new Thread(new MyTask(), "t3");
+        t1.start();
+        t1.join();
+        t2.start();
+        t2.join();
+        t3.start();
+        t3.join();
+        System.out.println("모든 스레드 실행 완료");
+    }
+
+    static class MyTask implements Runnable {
+        @Override
+        public void run() {
+            for (int i = 1; i <= 3; i++) {
+                log(i);
+                sleep(1000);
+            }
+        }
+    }
+}
+ 
+```
+
+* 위 코드는 총 9초의 실행이 걸림. join()이 될때까지 3초를 기다림
+
+```java
+package thread.start;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class JoinTest2Main {
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(new MyTask(), "t1");
+        Thread t2 = new Thread(new MyTask(), "t2");
+        Thread t3 = new Thread(new MyTask(), "t3");
+        t1.start();
+        t2.start();
+        t3.start();
+        t1.join();
+        t2.join();
+        t3.join();
+        System.out.println("모든 스레드 실행 완료");
+    }
+
+    static class MyTask implements Runnable {
+        @Override
+        public void run() {
+            for (int i = 1; i <= 3; i++) {
+                log(i);
+                sleep(1000);
+            }
+        }
+    }
+}
+ 
+```
+
+* 위 코드는 효율적으로 스레드를 사용하고 있다.
+* 총 걸리는 시간은 3초.
