@@ -829,3 +829,286 @@ public class JoinTest2Main {
 
 * 위 코드는 효율적으로 스레드를 사용하고 있다.
 * 총 걸리는 시간은 3초.
+
+
+
+## 4. 스레드 제어와 생명 주기2
+
+### 4.1. 인터럽트
+
+```java
+package thread.control.interrupt;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class ThreadStopMainV1 {
+    public static void main(String[] args) {
+        MyTask task = new MyTask();
+        Thread thread = new Thread(task, "work");
+        thread.start();
+        sleep(4000);
+        log("작업 중단 지시 runFlag=false");
+        task.runFlag = false;
+    }
+
+    static class MyTask implements Runnable {
+        volatile boolean runFlag = true; // 제어 변수
+
+        @Override
+        public void run() {
+            while (runFlag) {
+                log("작업 중");
+                sleep(3000);
+            }
+            log("자원 정리");
+            log("작업 종료");
+        }
+    }
+}
+```
+
+```
+// 실행 결과
+14:58:27.520 [     work] 작업 중
+14:58:30.525 [     work] 작업 중
+14:58:31.510 [     main] 작업 중단 지시 runFlag=false
+14:58:33.532 [     work] 자원 정리  <- 2초
+14:58:33.533 [     work] 작업 종료
+```
+
+* 특정 스레드의 작업을 중단하는 가장 쉬운 방법은 변수를 사용. 하지만, 변수를 사용하더라도 스레드가 즉각 반응을 하지 않음.
+* sleep(3000)으로 인해 3초동안 잠들어 있기때문에, 변수가 변경되어도 자원 정리까지 대기 시간 발생
+
+
+
+이를 해결하기 위해 인터럽트를 사용할 수 있다. 인터럽트를 사용하면 WAITING, TIMED\_WAITING같은 대기 상태의 스레드를 직접 꺠워서, RUNNABLE 상태로 만들 수 있음.
+
+```java
+package thread.control.interrupt;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class ThreadStopMainV2 {
+    public static void main(String[] args) {
+        MyTask task = new MyTask();
+        Thread thread = new Thread(task, "work");
+        thread.start();
+        sleep(4000);
+        log("작업 중단 지시 thread.interrupt()");
+        thread.interrupt();
+        log("work 스레드 인터럽트 상태1 = " + thread.isInterrupted());
+    }
+
+    static class MyTask implements Runnable {
+        @Override
+        public void run() {
+            try {
+                while (true) {
+                    log("작업 중");
+                    Thread.sleep(3000);
+                }
+            } catch (InterruptedException e) {
+                log("work 스레드 인터럽트 상태2 = " +
+                        Thread.currentThread().isInterrupted());
+                log("interrupt message=" + e.getMessage());
+                log("state=" + Thread.currentThread().getState());
+            }
+            log("자원 정리");
+            log("작업 종료");
+        }
+    }
+}
+```
+
+* 특정 스레드의 인스턴스에 interrupt() 메서드가 호출되면, 해당 스레드에 인터럽트가 발생.
+* 인터럽트가 발생하면 해당 스레드에 InterruptedException 발생. 이로 인해 RUNNABLE 상태로 전환.
+* 다만, 즉각적으로 InterruptedException이 발생하지는 않는다.
+
+```
+// 실행 결과
+18:10:40.024 [     work] 작업 중
+18:10:43.026 [     work] 작업 중
+18:10:44.011 [     main] 작업 중단 지시 thread.interrupt()
+18:10:44.021 [     main] work 스레드 인터럽트 상태1 = true
+18:10:44.021 [     work] work 스레드 인터럽트 상태2 = false
+18:10:44.022 [     work] interrupt message=sleep interrupted
+18:10:44.022 [     work] state=RUNNABLE
+18:10:44.022 [     work] 자원 정리
+18:10:44.023 [     work] 작업 종료
+```
+
+* Thread.interrupt를 통해 작업을 중단하면 거의 즉각적으로 인터럽트가 발생
+* 이떄 work 스레드는 TIMED\_WAITING -> RUNNABLE 상태로 변경.
+* 하지만, while (true) 부분을 체크하지 않기때문에 인터럽트가 발생해도 이 부분은 항상 true 이기 떄문에 다음 코드로 넘어감. 그리고 sleep()을 호출하고 나서야 인터럽트가 발생.
+
+
+
+while( isInterrupted() )으로 변경하면 조금 더 빨리 반응할 수 있음. 하지만 이렇게 하게되면 work 상태가 계속 true로 유지되는게 문제.
+
+이를 해결하기 위해, Thread.interrupted() 메서드를 사용.
+
+* 스레드가 인터럽트 상태라면 true를 반환하고 해당 스레드의 인터럽트 상태를 false로 변경
+* 스레드가 인터럽트 상태가 아니라면 false를 반환하고, 해당 스레드의 인터럽트 상태를 변경하지 않음.
+
+```java
+package thread.control.interrupt;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class ThreadStopMainV4 {
+    public static void main(String[] args) {
+        MyTask task = new MyTask();
+        Thread thread = new Thread(task, "work");
+        thread.start();
+        sleep(100); //시간을 줄임
+        log("작업 중단 지시 - thread.interrupt()");
+        thread.interrupt();
+        log("work 스레드 인터럽트 상태1 = " + thread.isInterrupted());
+    }
+
+    static class MyTask implements Runnable {
+        @Override
+        public void run() {
+        
+            // 중요
+            while (!Thread.interrupted()) { //인터럽트 상태 변경O
+                log("작업 중"); 
+            }
+            
+            
+            log("work 스레드 인터럽트 상태2 = " +
+                    Thread.currentThread().isInterrupted());
+            try {
+                log("자원 정리 시도");
+                Thread.sleep(1000);
+                log("자원 정리 완료");
+            } catch (InterruptedException e) {
+                log("자원 정리 실패 - 자원 정리 중 인터럽트 발생");
+                log("work 스레드 인터럽트 상태3 = " +
+                        Thread.currentThread().isInterrupted());
+            }
+            log("작업 종료");
+        }
+    }
+}
+```
+
+```
+// 실행 결과
+...
+15:40:45:356 [     work] 작업 중
+15:40:45:356 [     work] 작업 중
+15:40:45:357 [     work] 작업 중
+15:40:45:357 [     work] 작업 중
+15:40:45:357 [     main] 작업 중단 지시 - thread.interrupt()
+15:40:45:357 [     work] 작업 중
+15:40:45:364 [     work] work 스레드 인터럽트 상태2 = false
+15:40:45:364 [     main] work 스레드 인터럽트 상태1 = false
+15:40:45:364 [     work] 자원 정리 시도
+15:40:46:365 [     work] 자원 정리 완료
+15:40:46:365 [     work] 작업 종료
+```
+
+* 결과적으로 while문을 탈출하는 시점에, 스레드의 인터럽트 상태도 false로 변경.
+* 자바는 인터럽트 예외가 한번 발생하면, 스레드의 인터럽트 상태를 다시 정상(false)로 되돌림. **스레드의 인터럽트 상태를 정상으로 돌리지 않으면 이후에도 계속 인터럽트가 발생.**
+
+
+
+### **4.2. Yield**
+
+어떤 스레드를 얼마나 실행할지는 운영체제가 스케줄링을 통해 결정한다. 그런데 특정 스레드가 크게 바쁘지 않은 상황 이어서 다른 스레드에 CPU 실행 기회를 양보하고 싶을 수 있다. 이렇게 양보하면 스케줄링 큐에 대기 중인 다른 스레드 가 CPU 실행 기회를 더 빨리 얻을 수 있다
+
+자바의 스레드가 RUNNABLE 상태일때, 운영체제의 스케줄링은 아래의 상태를 가질 수 있다:
+
+* Running: CPU에서 실행중
+* Ready: CPU에서 실행되길 기다리며 큐에 대기중
+
+
+
+yield()는 현재 실행 중인 스레드가 자발적으로 CPU를 양보하여 다른 스레드가 실행될 수 있도록한다. 메서드를 호출한 스레드는 RUNNABLE 상태를 유지하면서 CPU를 양보한다. 즉, 이 스레드는 다시 스케줄링 큐에 들어가면서 다른 스레드에게 CPU 사용 기회를 넘긴다. 다만, CPU가 비어있다면 큐에서 다시 꺼내서 실행된다.
+
+```java
+package thread.control.printer;
+
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import static util.MyLogger.log;
+
+public class MyPrinterV4 {
+    public static void main(String[] args) throws InterruptedException {
+        Printer printer = new Printer();
+        Thread printerThread = new Thread(printer, "printer");
+        printerThread.start();
+        Scanner userInput = new Scanner(System.in);
+        while (true) {
+            System.out.println("프린터할 문서를 입력하세요. 종료 (q): ");
+            String input = userInput.nextLine();
+            if (input.equals("q")) {
+                printerThread.interrupt();
+                break;
+            }
+            printer.addJob(input);
+        }
+    }
+
+    static class Printer implements Runnable {
+        Queue<String> jobQueue = new ConcurrentLinkedQueue<>();
+
+        @Override
+        public void run() {
+            while (!Thread.interrupted()) {
+                if (jobQueue.isEmpty()) {
+                    Thread.yield(); //추가
+                    continue;
+                }
+                try {
+                    String job = jobQueue.poll();
+                    log("출력 시작: " + job + ", 대기 문서: " + jobQueue);
+                    Thread.sleep(3000); //출력에 걸리는 시간
+                    log("출력 완료: " + job);
+                } catch (InterruptedException e) {
+                    log("인터럽트!");
+                    break;
+                }
+            }
+            log("프린터 종료");
+        }
+
+        public void addJob(String input) {
+            jobQueue.offer(input);
+        }
+    }
+}
+```
+
+```
+// 입력과 실행 결과
+프린터할 문서를 입력하세요. 종료 (q): 
+a
+프린터할 문서를 입력하세요. 종료 (q): 
+15:46:30:670 [  printer] 출력 시작: a, 대기 문서: []
+b
+프린터할 문서를 입력하세요. 종료 (q): 
+c
+프린터할 문서를 입력하세요. 종료 (q): 
+d
+프린터할 문서를 입력하세요. 종료 (q): 
+15:46:33:675 [  printer] 출력 완료: a
+15:46:33:675 [  printer] 출력 시작: b, 대기 문서: [c, d]
+15:46:36:690 [  printer] 출력 완료: b
+15:46:36:690 [  printer] 출력 시작: c, 대기 문서: [d]
+q
+15:46:37:343 [  printer] 인터럽트!
+15:46:37:343 [  printer] 프린터 종료
+
+Process finished with exit code 0
+
+```
+
+
+
