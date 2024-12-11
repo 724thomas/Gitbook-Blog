@@ -6,6 +6,10 @@ description: I decode the enigma of technology, one blog post at a time.
 
 ## Recent Posts
 
+{% content-ref url="java/memory-visibility.md" %}
+[memory-visibility.md](java/memory-visibility.md)
+{% endcontent-ref %}
+
 {% content-ref url="java/thread.md" %}
 [thread.md](java/thread.md)
 {% endcontent-ref %}
