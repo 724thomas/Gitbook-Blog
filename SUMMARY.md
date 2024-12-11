@@ -152,6 +152,7 @@
 * [Batch delete instead of Cascade](java/batch-delete-instead-of-cascade.md)
 * [Checked vs Unchecked Exception](java/checked-vs-unchecked-exception.md)
 * [Thread](java/thread.md)
+* [Memory Visibility](java/memory-visibility.md)
 
 ## SPRING
 
