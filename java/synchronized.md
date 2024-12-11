@@ -125,21 +125,21 @@ public class BankAccountV1 implements BankAccount {
 
 과정:
 
-<div align="left"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
 
 t1: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
-<div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
 
 t2: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
-<div align="left"><figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
-
 <div align="left"><figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure></div>
+
+<div align="left"><figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
 
 t1: balance(1000) - amount(800) = 200
 
-<div align="left"><figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
 
 t2: balance(200) - amount(800) = -600
 
@@ -242,9 +242,9 @@ public class BankAccountV2 implements BankAccount {
 13:58:40:650 [     main] 최종 잔액: 200
 ```
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 * t1이 모두 수행될떄까지 t2는 메서드를 시작할 수 없게 된다.
 * t1이 실행될동안 t2는 **BLOCKED** 상태이다.
@@ -467,7 +467,9 @@ WAITING 상태에 특정한 시간까지만 대기하는 기능이 포함된 것
 
 
 
-### 2.4. Lock 인터페이스
+## 3. Lock 인터페이스와 ReentrantLock
+
+### 3.1. Lock 인터페이스
 
 자바1.0 Synchronized와 BLOCKED 상태를 통한 임계 영역 관리의 한계를 극복하기 위해 자바1.5부터 Lock 인터페이스와 ReentrantLock 구현체가 등장했다.
 
@@ -513,5 +515,300 @@ public interface Lock {
 
 
 
-### 2.5. ReentrantLock
+### 3.2. ReentrantLock - 이론
 
+공정성을 해결하기 위해 사용된다. Lock 인터페이스의 구현체 중 가장 대표적. 공정하게 스레드가 락을 얻을 수 있도록 한다.
+
+````java
+// 사용 예시
+package thread.sync.locks.reentrantLock;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class ReentrantLockEx {
+    // 비공정 모드 락
+    private final Lock nonFairLock = new ReentrantLock();
+    // 공정 모드 락
+    private final Lock fairLock = new ReentrantLock(true);
+    public void nonFairLockTest() {
+        nonFairLock.lock();
+        try {
+            // 임계 영역
+        } finally {
+            nonFairLock.unlock();
+        }
+    }
+    public void fairLockTest() {
+        fairLock.lock();
+        try {
+            // 임계 영역
+        } finally {
+            fairLock.unlock();
+        }
+    }
+}
+```
+
+````
+
+ReentrantLock은 공정성(fairness) 모드와 비공정성(non-fair) 모드로 설정 가능.
+
+* 공정 모드(fair mode)
+  * 생성자에 true를 전달.
+  * 락을 요청한 순서대로 스레드가 락을 획득할 수 있게 한다. FIFO 방식으로 공정성을 보장하지만 성능 저하
+* 비공정 모드(non-fair mode)
+  * 공정모드보다 락을 획득하는 속도가 빠르다
+  * 새로운 스레드가 기존 대기 스레드보다 먼저 락을 획득할 수 있다.
+  * starvation이 발생할 수도 있다 (다만 내부적으로는 queue가 사용되어서, 정확히 락을 반환한 시점에 새로운 스레드가 오지 않는 이상 크게 문제는 없다고 함)
+* 정리: 비공정 모드 vs 공정모드 - 성능 중시 vs 순서 보장
+
+### 3.3. ReentrantLock - 활용
+
+이를 출금 예제에 활용해본다.
+
+```java
+package thread.sync;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class BankAccountV4 implements BankAccount {
+    private int balance;
+
+    private final Lock lock = new ReentrantLock();
+
+    public BankAccountV4(int balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public boolean withdraw(int amount) {
+        log("거래 시작: " + getClass().getSimpleName());
+
+        lock.lock();
+        try {
+            log("[검증 시작] 출금액: " + amount + ", 잔액: " + balance);
+            if (balance < amount) {
+                log("[검증 실패] 출금액: " + amount + ", 잔액: " + balance);
+                return false;
+            }
+            log("[검증 완료] 출금액: " + amount + ", 잔액: " + balance);
+            sleep(1000); // 출금에 걸리는 시간으로 가정
+            balance = balance - amount;
+            log("[출금 완료] 출금액: " + amount + ", 변경 잔액: " + balance);
+        } finally {
+            lock.unlock(); // ReentrantLock을 사용할 때는 반드시 unlock()을 호출해야 한다.
+        }
+
+        log("거래 종료");
+        return true;
+    }
+
+    @Override
+    public int getBalance() {
+        lock.lock();
+        try {
+            return balance;
+        } finally {
+            lock.unlock();
+        }
+
+    }
+}
+```
+
+```
+// 실행 결과
+17:10:50:919 [       t1] 거래 시작: BankAccountV4
+17:10:50:919 [       t2] 거래 시작: BankAccountV4
+17:10:50:929 [       t1] [검증 시작] 출금액: 800, 잔액: 1000
+17:10:50:930 [       t1] [검증 완료] 출금액: 800, 잔액: 1000
+17:10:51:397 [     main] t1 state: TIMED_WAITING
+17:10:51:397 [     main] t2 state: WAITING
+17:10:51:945 [       t1] [출금 완료] 출금액: 800, 변경 잔액: 200
+17:10:51:945 [       t1] 거래 종료
+17:10:51:946 [       t2] [검증 시작] 출금액: 800, 잔액: 200
+17:10:51:946 [       t2] [검증 실패] 출금액: 800, 잔액: 200
+17:10:51:949 [     main] 최종 잔액: 200
+```
+
+* private final Lock lock = new ReentrantLock()을 사용하도록 선언
+* 임계 영역이 끝나면 반드시 락을 반납해야한다. lock.unlock()은 반드시 finally에 작성.
+* t2는 WAITING 상태이다. BLOCKED 상태는 synchronized에서만 사용된다.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* t2는 락을 획득하지 못해서 x002 대기큐에 들어가게 된다(이때 락은 모니터 락이 아님)
+
+### 3.4. ReentrantLock - 대기 중단
+
+ReentrantLock을 사용하면 락을 무한 대기하지 않고, 중간에 빠져나오는게 가능. 락을 얻을 수 없다면 즉시 빠져나오기도 가능.
+
+* boolean tryLock()&#x20;
+  * 락 획득을 시도하고 즉시 성공 여부를 반환. 만약 다른 스레드가 이미 락을 획득했다면 false 반환. 그렇지 않으면 락을 획득하고 true 반환.
+  * 맛집에 대기 줄이 없으면 바로 들어가고, 대기 줄이 있으면 즉시 포기
+* boolean tryLock(long time, TimeUnit unit)
+  * 주어진 시간 동안 락 획득을 시도한다. 주어진 시간 안에 락을 획득하면 true 반환. 주어진 시간이 지나도 락을 획득하지 못한 경우 false를 반환. 대기중 인터럽트가 발생하면 InterruptedException이 발생하며 락 획득을 포기한다.
+  * 맛집에 줄을 서지만 특정 시간 만큼 기다린다. 특정 시간이 지나도 계속 줄을 서야 한다면 포기한다. 친구가 다른 맛집을 찾았다고 중간에 연락해도 포기한다.
+
+**tryLock 예시**
+
+```java
+package thread.sync;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class BankAccountV5 implements BankAccount {
+    private int balance;
+
+    private final Lock lock = new ReentrantLock();
+
+    public BankAccountV5(int balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public boolean withdraw(int amount) {
+        log("거래 시작: " + getClass().getSimpleName());
+
+        if (!lock.tryLock()) {
+            log("[진입 실패] 이미 처리중인 작업이 있습니다.");
+            return false;
+        }
+        
+        try {
+            log("[검증 시작] 출금액: " + amount + ", 잔액: " + balance);
+            if (balance < amount) {
+                log("[검증 실패] 출금액: " + amount + ", 잔액: " + balance);
+                return false;
+            }
+            sleep(1000);
+            balance = balance - amount;
+            log("[출금 완료] 출금액: " + amount + ", 변경 잔액: " + balance);
+        } finally {
+            lock.unlock();
+        }
+
+        log("거래 종료");
+        return true;
+    }
+
+    @Override
+    public int getBalance() {
+        lock.lock();
+        try {
+            return balance;
+        } finally {
+            lock.unlock();
+        }
+
+    }
+}
+```
+
+```
+// 실행 결과
+17:18:47:025 [       t1] 거래 시작: BankAccountV5
+17:18:47:025 [       t2] 거래 시작: BankAccountV5
+17:18:47:029 [       t2] [진입 실패] 이미 처리중인 작업이 있습니다.
+17:18:47:036 [       t1] [검증 시작] 출금액: 800, 잔액: 1000
+17:18:47:503 [     main] t1 state: TIMED_WAITING
+17:18:47:503 [     main] t2 state: TERMINATED
+17:18:48:051 [       t1] [출금 완료] 출금액: 800, 변경 잔액: 200
+17:18:48:051 [       t1] 거래 종료
+17:18:48:054 [     main] 최종 잔액: 200
+```
+
+* t2의 상태가 TERMINATED인것을 볼 수 있다.
+
+
+
+**tryLock(시간) 예시**
+
+```java
+package thread.sync;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static util.MyLogger.log;
+import static util.ThreadUtils.sleep;
+
+public class BankAccountV6 implements BankAccount {
+    private int balance;
+
+    private final Lock lock = new ReentrantLock();
+
+    public BankAccountV6(int balance) {
+        this.balance = balance;
+    }
+
+    @Override
+    public boolean withdraw(int amount) {
+        log("거래 시작: " + getClass().getSimpleName());
+
+        try {
+            if (!lock.tryLock(500, TimeUnit.MILLISECONDS)) {
+                log("[진입 실패] 이미 처리중인 작업이 있습니다.");
+                return false;
+            }
+        } catch (InterruptedException e) {
+            log("[진입 실패] 다른 스레드에 의해 인터럽트 되었습니다.");
+            return false;
+        }
+
+
+        try {
+            log("[검증 시작] 출금액: " + amount + ", 잔액: " + balance);
+            if (balance < amount) {
+                log("[검증 실패] 출금액: " + amount + ", 잔액: " + balance);
+                return false;
+            }
+            sleep(1000);
+            balance = balance - amount;
+            log("[출금 완료] 출금액: " + amount + ", 변경 잔액: " + balance);
+        } finally {
+            lock.unlock();
+        }
+
+        log("거래 종료");
+        return true;
+    }
+
+    @Override
+    public int getBalance() {
+        lock.lock();
+        try {
+            return balance;
+        } finally {
+            lock.unlock();
+        }
+
+    }
+}
+```
+
+```
+// 실행 결과
+17:22:01:143 [       t2] 거래 시작: BankAccountV6
+17:22:01:143 [       t1] 거래 시작: BankAccountV6
+17:22:01:154 [       t2] [검증 시작] 출금액: 800, 잔액: 1000
+17:22:01:620 [     main] t1 state: TIMED_WAITING
+17:22:01:620 [     main] t2 state: TIMED_WAITING
+17:22:01:651 [       t1] [진입 실패] 이미 처리중인 작업이 있습니다.
+17:22:02:161 [       t2] [출금 완료] 출금액: 800, 변경 잔액: 200
+17:22:02:161 [       t2] 거래 종료
+17:22:02:165 [     main] 최종 잔액: 200
+```
+
+* t1는 TIMED\_WAITING 상태로 있다가, TERMINATED가 된다.
+* 0.5초간 락을 획득하지 못함으로 false를 반환하게 된다.

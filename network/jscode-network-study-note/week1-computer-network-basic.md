@@ -159,7 +159,7 @@ TCP/IP 모델의 4계층:&#x20;
 
 ## 라우터에 대해 설명해주세요
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 네트워크 계층(3계층)에서 동작하는 네트워크 장치,
 * 서로 다른 네트워크를 연결하고 데이터 패킷을 올바른 경로로 전달하는 역할.

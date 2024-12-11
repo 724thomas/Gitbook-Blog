@@ -6,7 +6,7 @@ description: HTTP 0.9-3.0
 
 ## 1. HTTP 0.9
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:red;">GET 요청만 존재</mark>
 * <mark style="color:red;">Header X</mark>
