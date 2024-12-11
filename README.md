@@ -4,11 +4,21 @@ description: I decode the enigma of technology, one blog post at a time.
 
 # README
 
+## Recent Posts
+
+{% content-ref url="java/thread.md" %}
+[thread.md](java/thread.md)
+{% endcontent-ref %}
+
+{% content-ref url="network/http-0.9-3.0.md" %}
+[http-0.9-3.0.md](network/http-0.9-3.0.md)
+{% endcontent-ref %}
+
+{% content-ref url="database/redis-remote-dictionary-server.md" %}
+[redis-remote-dictionary-server.md](database/redis-remote-dictionary-server.md)
+{% endcontent-ref %}
 
 
-Table Of Contents
-
-[https://github.com/724thomas/Gitbook-Blog/blob/main/SUMMARY.md](SUMMARY.md)
 
 
 
