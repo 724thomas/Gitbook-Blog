@@ -1,8 +1,8 @@
 ---
-description: 동기화
+description: Synchronized && ReentrantLock
 ---
 
-# Synchronized
+# Synchronized && ReentrantLock
 
 ## 1. 출금 예제
 

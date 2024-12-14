@@ -153,7 +153,8 @@
 * [Checked vs Unchecked Exception](java/checked-vs-unchecked-exception.md)
 * [Thread](java/thread.md)
 * [Memory Visibility](java/memory-visibility.md)
-* [Synchronized](java/synchronized.md)
+* [Synchronized && ReentrantLock](java/synchronized-and-and-reentrantlock.md)
+* [Producer & Consumer](java/producer-and-consumer.md)
 
 ## SPRING
 

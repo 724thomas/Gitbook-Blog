@@ -6,8 +6,8 @@ description: I decode the enigma of technology, one blog post at a time.
 
 ## Recent Posts
 
-{% content-ref url="java/synchronized.md" %}
-[synchronized.md](java/synchronized.md)
+{% content-ref url="java/synchronized-and-and-reentrantlock.md" %}
+[synchronized-and-and-reentrantlock.md](java/synchronized-and-and-reentrantlock.md)
 {% endcontent-ref %}
 
 {% content-ref url="java/memory-visibility.md" %}
