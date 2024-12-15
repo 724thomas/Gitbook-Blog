@@ -328,4 +328,192 @@ consumer가 먼저 실행이 되었을때, 소비자 스레드들은 모두 null
 
 ## 2. Object - wait, notify
 
-임계 영역
+Synchronized를 사용했을때 문제점은 (락을 가지고 무한 대기) Object 클래스로 해결이 가능하다. Wait(), notify() 메서드를 사용하며, Object는 모든 자바 객체의 부모이기 때문에 사용 가능하다.
+
+* Object.wait():
+  * 현재 스레드가 가진 락을 반납하고 WAITING 한다.
+  * 현재 스레드를 WAITING 상태로 전환. 현재 스레드가 synchronized 블록이나 메서드에서 락을 소유하고 있을 때만 호출 가능.&#x20;
+  * 호출한 스레드는 락을 반납하고, 다른 스레드가 해당 락을 획득할 수 있게 한다. 이때 WAITING 상태로 전환된 스레드는 다른 스레드가 notify() 또는 notifyAll()을 호출할때 까지 WAITING 상태를 유지.
+* Object.notify():
+  * 대기 중인 스레드 중 하나를 꺠운다 (랜덤)
+  * 이 메서드는 synchronized 블록 또는 메서드에서 호출되어야한다.
+  * 깨운 스레드는 락을 다시 획득할 기회를 얻게 된다.
+* Object.notifyAll():
+  * 대기 중인 모든 스레드를 꺠운다
+  * Synchronized 블록이나 메서드에서 호출되어야한다.
+  * 모든 대기 중인 스레드가 락을 획득할 수 있는 기회를 얻게 된다.
+
+### 2.1. 예제 코드 1
+
+```java
+package thread.bounded;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+
+import static util.MyLogger.log;
+
+public class BoundedQueueV3 implements BoundedQueue {
+    private final Queue<String> queue = new ArrayDeque<>();
+    private final int max;
+
+    public BoundedQueueV3(int max) {
+        this.max = max;
+    }
+
+    public synchronized void put(String data) {
+        while (queue.size() == max) {
+            log("[put] 큐가 가득 참, 생산자 대기");
+            try {
+                wait(); // RUNNABLE -> WAITING, 락 반납
+                log("[put] 생산자 깨어남");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        queue.offer(data);
+        log("[put] 생산자 데이터 저장, notify() 호출");
+        notify(); // 대기 스레드, WAIT -> BLOCKED
+        //notifyAll(); // 모든 대기 스레드, WAIT -> BLOCKED
+    }
+
+    public synchronized String take() {
+        while (queue.isEmpty()) {
+            log("[take] 큐에 데이터가 없음, 소비자 대기");
+            try {
+                wait();
+                log("[take] 소비자 깨어남");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        String data = queue.poll();
+        log("[take] 소비자 데이터 획득, notify() 호출");
+        notify(); // 대기 스레드, WAIT -> BLOCKED
+        //notifyAll(); // 모든 대기 스레드, WAIT -> BLOCKED
+        return data;
+    }
+
+    @Override
+    public String toString() {
+        return queue.toString();
+    }
+}
+```
+
+생산자 먼저 실행:
+
+```
+18:50:36:344 [     main] ==[생산자 먼저 실행] 시작, BoundedQueueV3==
+
+18:50:36:348 [     main] 생산자 시작
+18:50:36:361 [ Thread-0] [생산 시도] data1 -> []
+18:50:36:362 [ Thread-0] [put] 생산자 데이터 저장, notify() 호출
+18:50:36:362 [ Thread-0] [생산 완료] data1 -> [data1]
+18:50:36:468 [ Thread-1] [생산 시도] data2 -> [data1]
+18:50:36:468 [ Thread-1] [put] 생산자 데이터 저장, notify() 호출
+18:50:36:469 [ Thread-1] [생산 완료] data2 -> [data1, data2]
+18:50:36:573 [ Thread-2] [생산 시도] data3 -> [data1, data2]
+18:50:36:573 [ Thread-2] [put] 큐가 가득 참, 생산자 대기
+
+18:50:36:678 [     main] 현재 상태 출력, 큐 데이터: [data1, data2]
+18:50:36:679 [     main] Thread-0: TERMINATED
+18:50:36:679 [     main] Thread-1: TERMINATED
+18:50:36:679 [     main] Thread-2: WAITING
+
+18:50:36:680 [     main] 소비자 시작
+18:50:36:682 [ Thread-3] [소비 시도]     ? <- [data1, data2]
+18:50:36:682 [ Thread-3] [take] 소비자 데이터 획득, notify() 호출
+18:50:36:682 [ Thread-2] [put] 생산자 깨어남
+18:50:36:683 [ Thread-2] [put] 생산자 데이터 저장, notify() 호출
+18:50:36:683 [ Thread-3] [소비 완료] data1 <- [data2]
+18:50:36:683 [ Thread-2] [생산 완료] data3 -> [data2, data3]
+18:50:36:783 [ Thread-4] [소비 시도]     ? <- [data2, data3]
+18:50:36:784 [ Thread-4] [take] 소비자 데이터 획득, notify() 호출
+18:50:36:784 [ Thread-4] [소비 완료] data2 <- [data3]
+18:50:36:888 [ Thread-5] [소비 시도]     ? <- [data3]
+18:50:36:889 [ Thread-5] [take] 소비자 데이터 획득, notify() 호출
+18:50:36:889 [ Thread-5] [소비 완료] data3 <- []
+
+18:50:36:993 [     main] 현재 상태 출력, 큐 데이터: []
+18:50:36:993 [     main] Thread-0: TERMINATED
+18:50:36:994 [     main] Thread-1: TERMINATED
+18:50:36:994 [     main] Thread-2: TERMINATED
+18:50:36:994 [     main] Thread-3: TERMINATED
+18:50:36:995 [     main] Thread-4: TERMINATED
+18:50:36:995 [     main] Thread-5: TERMINATED
+18:50:36:995 [     main] ==[생산자 먼저 실행] 종료, BoundedQueueV3==
+
+Process finished with exit code 0
+
+```
+
+<figure><img src="../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+
+* p3는 자리가 없으므로 wait()을 호출하고 스레드 대기 집합에 들어간다.
+* c1이 실행되면서 데이터를 큐에서 빼고, 스레드 대기 집합에 있는 스레드를 하나 꺠운다.
+* 해당 상황에서 결과적으로 봤을때는 잘 작동한다.
+
+소비자 먼저 실행:
+
+```
+18:53:03:732 [     main] ==[소비자 먼저 실행] 시작, BoundedQueueV3==
+
+18:53:03:737 [     main] 소비자 시작
+18:53:03:740 [ Thread-0] [소비 시도]     ? <- []
+18:53:03:740 [ Thread-0] [take] 큐에 데이터가 없음, 소비자 대기
+18:53:03:855 [ Thread-1] [소비 시도]     ? <- []
+18:53:03:856 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+18:53:03:960 [ Thread-2] [소비 시도]     ? <- []
+18:53:03:961 [ Thread-2] [take] 큐에 데이터가 없음, 소비자 대기
+
+18:53:04:065 [     main] 현재 상태 출력, 큐 데이터: []
+18:53:04:072 [     main] Thread-0: WAITING
+18:53:04:072 [     main] Thread-1: WAITING
+18:53:04:073 [     main] Thread-2: WAITING
+
+18:53:04:073 [     main] 생산자 시작
+18:53:04:079 [ Thread-3] [생산 시도] data1 -> []
+18:53:04:079 [ Thread-3] [put] 생산자 데이터 저장, notify() 호출
+18:53:04:079 [ Thread-0] [take] 소비자 깨어남
+18:53:04:080 [ Thread-0] [take] 소비자 데이터 획득, notify() 호출
+18:53:04:080 [ Thread-1] [take] 소비자 깨어남
+18:53:04:080 [ Thread-3] [생산 완료] data1 -> [data1]
+18:53:04:080 [ Thread-0] [소비 완료] data1 <- []
+18:53:04:080 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+18:53:04:185 [ Thread-4] [생산 시도] data2 -> []
+18:53:04:186 [ Thread-4] [put] 생산자 데이터 저장, notify() 호출
+18:53:04:186 [ Thread-2] [take] 소비자 깨어남
+18:53:04:186 [ Thread-4] [생산 완료] data2 -> [data2]
+18:53:04:186 [ Thread-2] [take] 소비자 데이터 획득, notify() 호출
+18:53:04:187 [ Thread-1] [take] 소비자 깨어남
+18:53:04:187 [ Thread-2] [소비 완료] data2 <- []
+18:53:04:187 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+18:53:04:290 [ Thread-5] [생산 시도] data3 -> []
+18:53:04:291 [ Thread-5] [put] 생산자 데이터 저장, notify() 호출
+18:53:04:291 [ Thread-1] [take] 소비자 깨어남
+18:53:04:291 [ Thread-5] [생산 완료] data3 -> [data3]
+18:53:04:291 [ Thread-1] [take] 소비자 데이터 획득, notify() 호출
+18:53:04:292 [ Thread-1] [소비 완료] data3 <- []
+
+18:53:04:395 [     main] 현재 상태 출력, 큐 데이터: []
+18:53:04:395 [     main] Thread-0: TERMINATED
+18:53:04:396 [     main] Thread-1: TERMINATED
+18:53:04:396 [     main] Thread-2: TERMINATED
+18:53:04:396 [     main] Thread-3: TERMINATED
+18:53:04:396 [     main] Thread-4: TERMINATED
+18:53:04:397 [     main] Thread-5: TERMINATED
+18:53:04:397 [     main] ==[소비자 먼저 실행] 종료, BoundedQueueV3==
+
+Process finished with exit code 0
+
+```
+
+<figure><img src="../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
+
+* 소비자 스레드들이 모두 실행되지만 큐에 데이터가 없으므로 모두 대기 집합에서 WAITING 상태.
+* p1이 데이터를 큐에 넣고 대기 집합에서 스레드를 하나 깨운다.
+* c1이 꺠어나고 데이터를 뺀 다음 대기 집합에서 스레드를 하나 깨운다.
+* 이때, c2, c3 스레드들이 꺠어나지만 데이터가 없어서 다시 들어가게된다. 이부분이 매우 비효율적이다.
+* c2, c3가 다시 WAITING 상태로 들어가게되면 p2가 데이터를 저장한다.
+* 결과적으로는 잘 돌아간다.

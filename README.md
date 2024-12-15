@@ -6,6 +6,10 @@ description: I decode the enigma of technology, one blog post at a time.
 
 ## Recent Posts
 
+{% content-ref url="java/producer-and-consumer.md" %}
+[producer-and-consumer.md](java/producer-and-consumer.md)
+{% endcontent-ref %}
+
 {% content-ref url="java/synchronized-and-and-reentrantlock.md" %}
 [synchronized-and-and-reentrantlock.md](java/synchronized-and-and-reentrantlock.md)
 {% endcontent-ref %}
