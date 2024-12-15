@@ -517,3 +517,368 @@ Process finished with exit code 0
 * 이때, c2, c3 스레드들이 꺠어나지만 데이터가 없어서 다시 들어가게된다. 이부분이 매우 비효율적이다.
 * c2, c3가 다시 WAITING 상태로 들어가게되면 p2가 데이터를 저장한다.
 * 결과적으로는 잘 돌아간다.
+
+### 2.2. wait, notify의 한계
+
+위 예시에서는 wait()을 통해 스레드를 WAITING 상태로 대기 집합에 넣을 수 있었다.  몇가지 단점이 있다.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* notify() / notifyAll() 을 통해서 스레드를 깨우게 되는데, 랜덤으로 스레드를 깨우게 된다.&#x20;
+* 이때, 상황에 따라 Thread Starvation이 발생할 수 있다. 왜냐하면 랜덤으로 스레드가 깨어나서 락을 획득하기 떄문에, 락을 획득 못하는 스레드가 발생할 수 있다.
+
+
+
+## 3. Lock & ReentrantLock
+
+### 3.1. Condition
+
+Lock 인터페이스와 Reentrant 락을 사용하게 되면 대기 집합을 분리할 수 있다.
+
+```java
+package thread.bounded;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static util.MyLogger.log;
+
+public class BoundedQueueV4 implements BoundedQueue {
+    private final Lock lock = new ReentrantLock();
+    private final Condition condition = lock.newCondition();
+    private final Queue<String> queue = new ArrayDeque<>();
+    private final int max;
+
+    public BoundedQueueV4(int max) {
+        this.max = max;
+    }
+
+    public void put(String data) {
+        lock.lock();
+        try {
+            while (queue.size() == max) {
+                log("[put] 큐가 가득 참, 생산자 대기");
+                try {
+                    condition.await();
+                    log("[put] 생산자 깨어남");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            queue.offer(data);
+            log("[put] 생산자 데이터 저장, notify() 호출");
+            condition.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public String take() {
+        lock.lock();
+        try {
+            while (queue.isEmpty()) {
+                log("[take] 큐에 데이터가 없음, 소비자 대기");
+                try {
+                    condition.await();
+                    log("[take] 소비자 깨어남");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            String data = queue.poll();
+            log("[take] 소비자 데이터 획득, notify() 호출");
+            condition.signal();
+            return data;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return queue.toString();
+    }
+}
+```
+
+* Condition (Condition condition = lock.newCondition() )
+  * Condition은 ReentrantLock을 사용하는 스레드가 대기하는 스레드 공간이다.
+  * lock.newCondition() 메서드를 호출하면 스레드 대기 공간이 만들어진다. Lock(ReentrantLock)의 스레드 대기 공간은 이렇게 만들 수 있다.
+  * Object.wait() 에서 사용한 스레드 대기 공간은 모든 객체 인스턴스가 내부에 기본으로 가지고 있는 반면, Lock(ReentrantLock)을 사용하는 경우 스레드 대기 공간을 집접 만들어서 사용해야함.
+* condition.await()
+  * Object.wait()과 유사.
+  * 지정한 condition에 현재 스레드를 WAITING 상태로 보관. 이때 ReentrantLock에서 획득한 락을 반납.
+* condition.signal()
+  * Object.notify()와 유사한 기능. 지정한 condition에서 대기중인 스레드를 하나 꺠우고, 해당 스레드를 condition에서 빼온다.
+
+
+
+생산자 먼저:
+
+```
+20:26:25:191 [     main] ==[생산자 먼저 실행] 시작, BoundedQueueV4==
+
+20:26:25:195 [     main] 생산자 시작
+20:26:25:209 [ Thread-0] [생산 시도] data1 -> []
+20:26:25:209 [ Thread-0] [put] 생산자 데이터 저장, notify() 호출
+20:26:25:210 [ Thread-0] [생산 완료] data1 -> [data1]
+20:26:25:311 [ Thread-1] [생산 시도] data2 -> [data1]
+20:26:25:311 [ Thread-1] [put] 생산자 데이터 저장, notify() 호출
+20:26:25:312 [ Thread-1] [생산 완료] data2 -> [data1, data2]
+20:26:25:416 [ Thread-2] [생산 시도] data3 -> [data1, data2]
+20:26:25:417 [ Thread-2] [put] 큐가 가득 참, 생산자 대기
+
+20:26:25:521 [     main] 현재 상태 출력, 큐 데이터: [data1, data2]
+20:26:25:522 [     main] Thread-0: TERMINATED
+20:26:25:522 [     main] Thread-1: TERMINATED
+20:26:25:523 [     main] Thread-2: WAITING
+
+20:26:25:523 [     main] 소비자 시작
+20:26:25:526 [ Thread-3] [소비 시도]     ? <- [data1, data2]
+20:26:25:526 [ Thread-3] [take] 소비자 데이터 획득, notify() 호출
+20:26:25:527 [ Thread-2] [put] 생산자 깨어남
+20:26:25:527 [ Thread-3] [소비 완료] data1 <- [data2]
+20:26:25:527 [ Thread-2] [put] 생산자 데이터 저장, notify() 호출
+20:26:25:528 [ Thread-2] [생산 완료] data3 -> [data2, data3]
+20:26:25:626 [ Thread-4] [소비 시도]     ? <- [data2, data3]
+20:26:25:627 [ Thread-4] [take] 소비자 데이터 획득, notify() 호출
+20:26:25:627 [ Thread-4] [소비 완료] data2 <- [data3]
+20:26:25:731 [ Thread-5] [소비 시도]     ? <- [data3]
+20:26:25:732 [ Thread-5] [take] 소비자 데이터 획득, notify() 호출
+20:26:25:732 [ Thread-5] [소비 완료] data3 <- []
+
+20:26:25:837 [     main] 현재 상태 출력, 큐 데이터: []
+20:26:25:837 [     main] Thread-0: TERMINATED
+20:26:25:838 [     main] Thread-1: TERMINATED
+20:26:25:838 [     main] Thread-2: TERMINATED
+20:26:25:838 [     main] Thread-3: TERMINATED
+20:26:25:839 [     main] Thread-4: TERMINATED
+20:26:25:839 [     main] Thread-5: TERMINATED
+20:26:25:840 [     main] ==[생산자 먼저 실행] 종료, BoundedQueueV4==
+
+Process finished with exit code 0
+```
+
+
+
+소비자 먼저:
+
+```
+20:27:18:867 [     main] ==[소비자 먼저 실행] 시작, BoundedQueueV4==
+
+20:27:18:870 [     main] 소비자 시작
+20:27:18:873 [ Thread-0] [소비 시도]     ? <- []
+20:27:18:873 [ Thread-0] [take] 큐에 데이터가 없음, 소비자 대기
+20:27:18:978 [ Thread-1] [소비 시도]     ? <- []
+20:27:18:978 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+20:27:19:083 [ Thread-2] [소비 시도]     ? <- []
+20:27:19:083 [ Thread-2] [take] 큐에 데이터가 없음, 소비자 대기
+
+20:27:19:188 [     main] 현재 상태 출력, 큐 데이터: []
+20:27:19:195 [     main] Thread-0: WAITING
+20:27:19:196 [     main] Thread-1: WAITING
+20:27:19:196 [     main] Thread-2: WAITING
+
+20:27:19:197 [     main] 생산자 시작
+20:27:19:203 [ Thread-3] [생산 시도] data1 -> []
+20:27:19:203 [ Thread-3] [put] 생산자 데이터 저장, notify() 호출
+20:27:19:204 [ Thread-0] [take] 소비자 깨어남
+20:27:19:204 [ Thread-3] [생산 완료] data1 -> [data1]
+20:27:19:204 [ Thread-0] [take] 소비자 데이터 획득, notify() 호출
+20:27:19:205 [ Thread-1] [take] 소비자 깨어남
+20:27:19:205 [ Thread-0] [소비 완료] data1 <- []
+20:27:19:205 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+20:27:19:308 [ Thread-4] [생산 시도] data2 -> []
+20:27:19:309 [ Thread-4] [put] 생산자 데이터 저장, notify() 호출
+20:27:19:309 [ Thread-2] [take] 소비자 깨어남
+20:27:19:309 [ Thread-4] [생산 완료] data2 -> [data2]
+20:27:19:309 [ Thread-2] [take] 소비자 데이터 획득, notify() 호출
+20:27:19:310 [ Thread-1] [take] 소비자 깨어남
+20:27:19:310 [ Thread-2] [소비 완료] data2 <- []
+20:27:19:310 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+20:27:19:413 [ Thread-5] [생산 시도] data3 -> []
+20:27:19:414 [ Thread-5] [put] 생산자 데이터 저장, notify() 호출
+20:27:19:414 [ Thread-1] [take] 소비자 깨어남
+20:27:19:414 [ Thread-5] [생산 완료] data3 -> [data3]
+20:27:19:414 [ Thread-1] [take] 소비자 데이터 획득, notify() 호출
+20:27:19:415 [ Thread-1] [소비 완료] data3 <- []
+
+20:27:19:518 [     main] 현재 상태 출력, 큐 데이터: []
+20:27:19:518 [     main] Thread-0: TERMINATED
+20:27:19:519 [     main] Thread-1: TERMINATED
+20:27:19:519 [     main] Thread-2: TERMINATED
+20:27:19:519 [     main] Thread-3: TERMINATED
+20:27:19:519 [     main] Thread-4: TERMINATED
+20:27:19:520 [     main] Thread-5: TERMINATED
+20:27:19:520 [     main] ==[소비자 먼저 실행] 종료, BoundedQueueV4==
+```
+
+
+
+### 3.2. Condition 활용
+
+Condition을 여러개를 만들어서 대기 공간을 분리할 수 있다.
+
+```java
+package thread.bounded;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+import static util.MyLogger.log;
+
+public class BoundedQueueV5 implements BoundedQueue {
+    private final Lock lock = new ReentrantLock();
+    private final Condition producerCondition = lock.newCondition();
+    private final Condition consumerCondition = lock.newCondition();
+    private final Queue<String> queue = new ArrayDeque<>();
+    private final int max;
+
+    public BoundedQueueV5(int max) {
+        this.max = max;
+    }
+
+    public void put(String data) {
+        lock.lock();
+        try {
+            while (queue.size() == max) {
+                log("[put] 큐가 가득 참, 생산자 대기");
+                try {
+                    producerCondition.await();
+                    log("[put] 생산자 깨어남");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            queue.offer(data);
+            log("[put] 생산자 데이터 저장, notify() 호출");
+            consumerCondition.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public String take() {
+        lock.lock();
+        try {
+            while (queue.isEmpty()) {
+                log("[take] 큐에 데이터가 없음, 소비자 대기");
+                try {
+                    consumerCondition.await();
+                    log("[take] 소비자 깨어남");
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            String data = queue.poll();
+            log("[take] 소비자 데이터 획득, notify() 호출");
+            producerCondition.signal();
+            return data;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return queue.toString();
+    }
+}
+```
+
+생산자 먼저 & 소비자 먼저
+
+```
+22:59:18:700 [     main] ==[생산자 먼저 실행] 시작, BoundedQueueV5==
+
+22:59:18:703 [     main] 생산자 시작
+22:59:18:714 [ Thread-0] [생산 시도] data1 -> []
+22:59:18:714 [ Thread-0] [put] 생산자 데이터 저장, notify() 호출
+22:59:18:714 [ Thread-0] [생산 완료] data1 -> [data1]
+22:59:18:825 [ Thread-1] [생산 시도] data2 -> [data1]
+22:59:18:825 [ Thread-1] [put] 생산자 데이터 저장, notify() 호출
+22:59:18:826 [ Thread-1] [생산 완료] data2 -> [data1, data2]
+22:59:18:930 [ Thread-2] [생산 시도] data3 -> [data1, data2]
+22:59:18:931 [ Thread-2] [put] 큐가 가득 참, 생산자 대기
+
+22:59:19:034 [     main] 현재 상태 출력, 큐 데이터: [data1, data2]
+22:59:19:035 [     main] Thread-0: TERMINATED
+22:59:19:035 [     main] Thread-1: TERMINATED
+22:59:19:035 [     main] Thread-2: WAITING
+
+22:59:19:036 [     main] 소비자 시작
+22:59:19:038 [ Thread-3] [소비 시도]     ? <- [data1, data2]
+22:59:19:038 [ Thread-3] [take] 소비자 데이터 획득, notify() 호출
+22:59:19:039 [ Thread-2] [put] 생산자 깨어남
+22:59:19:039 [ Thread-3] [소비 완료] data1 <- [data2]
+22:59:19:039 [ Thread-2] [put] 생산자 데이터 저장, notify() 호출
+22:59:19:040 [ Thread-2] [생산 완료] data3 -> [data2, data3]
+22:59:19:139 [ Thread-4] [소비 시도]     ? <- [data2, data3]
+22:59:19:139 [ Thread-4] [take] 소비자 데이터 획득, notify() 호출
+22:59:19:140 [ Thread-4] [소비 완료] data2 <- [data3]
+22:59:19:244 [ Thread-5] [소비 시도]     ? <- [data3]
+22:59:19:245 [ Thread-5] [take] 소비자 데이터 획득, notify() 호출
+22:59:19:245 [ Thread-5] [소비 완료] data3 <- []
+
+22:59:19:349 [     main] 현재 상태 출력, 큐 데이터: []
+22:59:19:349 [     main] Thread-0: TERMINATED
+22:59:19:350 [     main] Thread-1: TERMINATED
+22:59:19:350 [     main] Thread-2: TERMINATED
+22:59:19:350 [     main] Thread-3: TERMINATED
+22:59:19:351 [     main] Thread-4: TERMINATED
+22:59:19:351 [     main] Thread-5: TERMINATED
+22:59:19:351 [     main] ==[생산자 먼저 실행] 종료, BoundedQueueV5==
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ23:00:33:986 [     main] ==[소비자 먼저 실행] 시작, BoundedQueueV5==
+
+23:00:33:990 [     main] 소비자 시작
+23:00:33:993 [ Thread-0] [소비 시도]     ? <- []
+23:00:33:993 [ Thread-0] [take] 큐에 데이터가 없음, 소비자 대기
+23:00:34:100 [ Thread-1] [소비 시도]     ? <- []
+23:00:34:100 [ Thread-1] [take] 큐에 데이터가 없음, 소비자 대기
+23:00:34:205 [ Thread-2] [소비 시도]     ? <- []
+23:00:34:205 [ Thread-2] [take] 큐에 데이터가 없음, 소비자 대기
+
+23:00:34:310 [     main] 현재 상태 출력, 큐 데이터: []
+23:00:34:317 [     main] Thread-0: WAITING
+23:00:34:318 [     main] Thread-1: WAITING
+23:00:34:318 [     main] Thread-2: WAITING
+
+23:00:34:319 [     main] 생산자 시작
+23:00:34:324 [ Thread-3] [생산 시도] data1 -> []
+23:00:34:325 [ Thread-3] [put] 생산자 데이터 저장, notify() 호출
+23:00:34:326 [ Thread-0] [take] 소비자 깨어남
+23:00:34:326 [ Thread-3] [생산 완료] data1 -> [data1]
+23:00:34:326 [ Thread-0] [take] 소비자 데이터 획득, notify() 호출
+23:00:34:327 [ Thread-0] [소비 완료] data1 <- []
+23:00:34:430 [ Thread-4] [생산 시도] data2 -> []
+23:00:34:431 [ Thread-4] [put] 생산자 데이터 저장, notify() 호출
+23:00:34:431 [ Thread-1] [take] 소비자 깨어남
+23:00:34:431 [ Thread-4] [생산 완료] data2 -> [data2]
+23:00:34:431 [ Thread-1] [take] 소비자 데이터 획득, notify() 호출
+23:00:34:432 [ Thread-1] [소비 완료] data2 <- []
+23:00:34:535 [ Thread-5] [생산 시도] data3 -> []
+23:00:34:536 [ Thread-5] [put] 생산자 데이터 저장, notify() 호출
+23:00:34:536 [ Thread-2] [take] 소비자 깨어남
+23:00:34:536 [ Thread-5] [생산 완료] data3 -> [data3]
+23:00:34:536 [ Thread-2] [take] 소비자 데이터 획득, notify() 호출
+23:00:34:537 [ Thread-2] [소비 완료] data3 <- []
+
+23:00:34:640 [     main] 현재 상태 출력, 큐 데이터: []
+23:00:34:640 [     main] Thread-0: TERMINATED
+23:00:34:641 [     main] Thread-1: TERMINATED
+23:00:34:641 [     main] Thread-2: TERMINATED
+23:00:34:641 [     main] Thread-3: TERMINATED
+23:00:34:642 [     main] Thread-4: TERMINATED
+23:00:34:642 [     main] Thread-5: TERMINATED
+23:00:34:642 [     main] ==[소비자 먼저 실행] 종료, BoundedQueueV5==
+```
+
+* 기존 하나였던 대기 공간을 producerCondition과 consumerCondition으로 나눠서 관리하게 됐다.
+* 나눠진 대기 공간으로 인해, 원하는 스레드를 꺠울 수 있게됨.

@@ -125,11 +125,11 @@ public class BankAccountV1 implements BankAccount {
 
 과정:
 
-<div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure></div>
 
 t1: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
-<div align="left"><figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure></div>
 
 t2: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
@@ -640,7 +640,7 @@ public class BankAccountV4 implements BankAccount {
 * 임계 영역이 끝나면 반드시 락을 반납해야한다. lock.unlock()은 반드시 finally에 작성.
 * t2는 WAITING 상태이다. BLOCKED 상태는 synchronized에서만 사용된다.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * t2는 락을 획득하지 못해서 x002 대기큐에 들어가게 된다(이때 락은 모니터 락이 아님)
 
