@@ -557,12 +557,12 @@ public class BoundedQueueV4 implements BoundedQueue {
     }
 
     public void put(String data) {
-        lock.lock();
+        lock.lock(); // 수정부분
         try {
             while (queue.size() == max) {
                 log("[put] 큐가 가득 참, 생산자 대기");
                 try {
-                    condition.await();
+                    condition.await(); // 수정부분
                     log("[put] 생산자 깨어남");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -570,19 +570,19 @@ public class BoundedQueueV4 implements BoundedQueue {
             }
             queue.offer(data);
             log("[put] 생산자 데이터 저장, notify() 호출");
-            condition.signal();
+            condition.signal(); // 수정부분
         } finally {
-            lock.unlock();
+            lock.unlock(); // 수정부분
         }
     }
 
     public String take() {
-        lock.lock();
+        lock.lock(); // 수정부분
         try {
             while (queue.isEmpty()) {
                 log("[take] 큐에 데이터가 없음, 소비자 대기");
                 try {
-                    condition.await();
+                    condition.await(); // 수정부분
                     log("[take] 소비자 깨어남");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -590,10 +590,10 @@ public class BoundedQueueV4 implements BoundedQueue {
             }
             String data = queue.poll();
             log("[take] 소비자 데이터 획득, notify() 호출");
-            condition.signal();
+            condition.signal(); // 수정부분
             return data;
         } finally {
-            lock.unlock();
+            lock.unlock(); // 수정부분
         }
     }
 
@@ -735,8 +735,8 @@ import static util.MyLogger.log;
 
 public class BoundedQueueV5 implements BoundedQueue {
     private final Lock lock = new ReentrantLock();
-    private final Condition producerCondition = lock.newCondition();
-    private final Condition consumerCondition = lock.newCondition();
+    private final Condition producerCondition = lock.newCondition(); // 수정부분
+    private final Condition consumerCondition = lock.newCondition(); // 수정부분
     private final Queue<String> queue = new ArrayDeque<>();
     private final int max;
 
@@ -750,7 +750,7 @@ public class BoundedQueueV5 implements BoundedQueue {
             while (queue.size() == max) {
                 log("[put] 큐가 가득 참, 생산자 대기");
                 try {
-                    producerCondition.await();
+                    producerCondition.await(); // 수정부분
                     log("[put] 생산자 깨어남");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -758,7 +758,7 @@ public class BoundedQueueV5 implements BoundedQueue {
             }
             queue.offer(data);
             log("[put] 생산자 데이터 저장, notify() 호출");
-            consumerCondition.signal();
+            consumerCondition.signal(); // 수정부분
         } finally {
             lock.unlock();
         }
@@ -770,7 +770,7 @@ public class BoundedQueueV5 implements BoundedQueue {
             while (queue.isEmpty()) {
                 log("[take] 큐에 데이터가 없음, 소비자 대기");
                 try {
-                    consumerCondition.await();
+                    consumerCondition.await(); // 수정부분
                     log("[take] 소비자 깨어남");
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -778,7 +778,7 @@ public class BoundedQueueV5 implements BoundedQueue {
             }
             String data = queue.poll();
             log("[take] 소비자 데이터 획득, notify() 호출");
-            producerCondition.signal();
+            producerCondition.signal(); // 수정부분
             return data;
         } finally {
             lock.unlock();
