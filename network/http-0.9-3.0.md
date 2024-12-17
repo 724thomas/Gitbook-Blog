@@ -4,7 +4,7 @@ description: HTTP 0.9-3.0
 
 # HTTP 0.9-3.0
 
-## 1. HTTP 0.9
+## 1. HTTP 0.9 (1991)
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
@@ -13,7 +13,7 @@ description: HTTP 0.9-3.0
 * <mark style="color:red;">Status Code X</mark>
 * <mark style="color:red;">HTML파일만 전송</mark>
 
-## 2. HTTP 1.0
+## 2. HTTP 1.0 (1997)
 
 <figure><img src="../.gitbook/assets/image (262).png" alt=""><figcaption></figcaption></figure>
 
@@ -105,7 +105,7 @@ ETag: "67890efgh"
 
 * 요청에서 문제가 발생하면, 그 뒤에 요청들은 기다리는 문제
 
-## 4. HTTP 2.0
+## 4. HTTP 2.0 (2015)
 
 * <mark style="color:green;">Binary Framing Layer</mark>
 * <mark style="color:green;">Multiplexing</mark>
@@ -188,7 +188,7 @@ TCP Head Of Line Blocking
 
 
 
-## 5. HTTP 3.0
+## 5. HTTP 3.0 (2022)
 
 * QUIC
 
