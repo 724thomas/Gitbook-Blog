@@ -155,6 +155,7 @@
 * [Memory Visibility](java/memory-visibility.md)
 * [Synchronized && ReentrantLock](java/synchronized-and-and-reentrantlock.md)
 * [Producer & Consumer](java/producer-and-consumer.md)
+* [BlockingQueue](java/blockingqueue.md)
 
 ## SPRING
 
