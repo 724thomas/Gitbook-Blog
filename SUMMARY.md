@@ -310,6 +310,7 @@
   * [Week5 Network Layer - IP Protocol](network/network-questions/week5-network-layer-ip-protocol.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 * [HTTP 0.9-3.0](network/http-0.9-3.0.md)
+* [Client & Server](network/client-and-server.md)
 
 ## DATABASE
 
