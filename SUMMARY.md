@@ -115,6 +115,12 @@
   * [Ch7. Adapter and Facade Pattern](books/head-first-design-patterns/ch7.-adapter-and-facade-pattern.md)
   * [Ch8. Template Method Pattern](books/head-first-design-patterns/ch8.-template-method-pattern.md)
 
+***
+
+* [F-Lab](f-lab/README.md)
+  * [Week1](f-lab/week1/README.md)
+    * [Client & Server](f-lab/week1/client-and-server.md)
+
 ## TOY Project
 
 * [CodeMentor](toy-project/codementor/README.md)
@@ -310,7 +316,6 @@
   * [Week5 Network Layer - IP Protocol](network/network-questions/week5-network-layer-ip-protocol.md)
 * [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
 * [HTTP 0.9-3.0](network/http-0.9-3.0.md)
-* [Client & Server](network/client-and-server.md)
 
 ## DATABASE
 
