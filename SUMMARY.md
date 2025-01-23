@@ -115,11 +115,10 @@
   * [Ch7. Adapter and Facade Pattern](books/head-first-design-patterns/ch7.-adapter-and-facade-pattern.md)
   * [Ch8. Template Method Pattern](books/head-first-design-patterns/ch8.-template-method-pattern.md)
 
-***
+## F-Lab
 
-* [F-Lab](f-lab/README.md)
-  * [Week1](f-lab/week1/README.md)
-    * [Client & Server](f-lab/week1/client-and-server.md)
+* [Week1](f-lab/week1/README.md)
+  * [Client & Server](network/client-and-server.md)
 
 ## TOY Project
 
