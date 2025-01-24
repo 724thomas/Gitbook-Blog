@@ -119,6 +119,7 @@
 
 * [Week1](f-lab/week1/README.md)
   * [Client & Server](network/client-and-server.md)
+  * [HTTP](f-lab/week1/http.md)
 
 ## TOY Project
 
