@@ -90,6 +90,7 @@
 * 헤더
 * 상태 코드
 * GET외의 메서드
+* Stop and Wait Protocol
 
 ### 1.1
 
