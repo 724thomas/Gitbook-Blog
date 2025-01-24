@@ -121,6 +121,7 @@
   * [Client & Server](network/client-and-server.md)
   * [HTTP](f-lab/week1/http.md)
   * [TCP/UDP](f-lab/week1/tcp-udp.md)
+  * [REST API](f-lab/week1/rest-api.md)
 
 ## TOY Project
 
