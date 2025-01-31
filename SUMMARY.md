@@ -127,6 +127,10 @@
     * [HTTP](f-lab/week1/questions/http.md)
     * [Process & Thread](f-lab/week1/questions/process-and-thread.md)
     * [Data Structure](f-lab/week1/questions/data-structure.md)
+* [Week2](f-lab/week2/README.md)
+  * [OSI 7 layer](f-lab/week2/osi-7-layer.md)
+  * [Web vs WAS](f-lab/week2/web-vs-was.md)
+  * [RDB vs NoSQL](f-lab/week2/rdb-vs-nosql.md)
 
 ## TOY Project
 
