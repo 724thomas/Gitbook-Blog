@@ -131,8 +131,11 @@
   * [OSI 7 layer](f-lab/week2/osi-7-layer.md)
   * [Web vs WAS](f-lab/week2/web-vs-was.md)
 * [Week 3](f-lab/week-3/README.md)
-  * [RDB vs NoSQL](f-lab/week-3/rdb-vs-nosql.md)
+  * [RDB vs NoSQL](f-lab/week2/rdb-vs-nosql.md)
   * [RDB Index](f-lab/week-3/rdb-index.md)
+  * [Cache](f-lab/week-3/cache.md)
+  * [Redis](f-lab/week-3/redis.md)
+  * [Messaging Queue](f-lab/week-3/messaging-queue.md)
 
 ## TOY Project
 
