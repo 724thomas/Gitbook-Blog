@@ -139,7 +139,7 @@
 * [Week4](f-lab/week4/README.md)
   * [Project - Ecommerce](f-lab/week4/project-ecommerce.md)
 * [Week5](f-lab/week5/README.md)
-  * [ERD](f-lab/week5/erd.md)
+  * [ERD - 1](f-lab/week5/erd.md)
 
 ## TOY Project
 
