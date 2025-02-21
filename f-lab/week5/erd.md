@@ -1,4 +1,53 @@
+---
+description: admin, api, batch, common
+---
+
 # ERD - 1
+
+## Tables & Relations (j=i+1; j\<n; j++)
+
+* User - 유저정보
+  * Role - User가 어떤 권한을 가질지 Role 테이블로 관리 (N:1)
+  * ShippingAddress - User는 여러 배송지를 가질 수 있음 (1:N)
+  * Cart - 한 사용자는 하나의 장바구니를 가짐 (1:N)
+  * Order - 한 사용자는 여러 주문을 생성 (1:N)
+  * Product - 판매자일 경우, 여러 상품을 등록할 수 있음 (1:N)
+  * Review - 유저는 여러개의 리뷰를 작성할 수 있음 (1:N)
+  * EventLog - 유저의 비즈니스 로그(서버 로그X) 저장 (1:N)
+  * WishList - 유저는 여러개의 제품을 찜 목록에 둘 수 있음 (1:N)
+  * Notification - 특정 사용자에게 여러 알림이 발송될 수 있음 (1:N)
+  * Coupon - 유저가 해당 제품 또는 어떠한 제품에 대해 사용할 수 있는 쿠폰 (1:N)
+* Role - 권한
+* ShippingAddress - 배송지
+  * Order - 주문시 어떤 배송지를 사용할지 저장 (1:1)
+* Cart - 장바구니
+  * CartItem - 장바구니 안에 여러 상품이 포함됨 (1:N)
+* CartItem - 장바구니에 담긴 제품
+  * Product - 어떤 상품은 여러 장바구니에 담길 수 있음 (N:1)
+* Order - 주문
+  * OrderItem - 한 주문에는 여러 제품이 포함 될 수 있음 (1:N)
+  * Payment - 한 주문에 대한 하나의 결제 정보가 연결되어야 함(1:1)
+  * Shipping - 한 주문당 하나의 배송 정보가 연결되어야 함(1:1)
+* OrderItem - 주문과 제품 N:N&#x20;
+* Product - 제품
+  * Category - 한 제품은 하나의 카테고리를 가질 수 있음(1:1)
+  * Promotion - 한 제품은 여러개의 프로모션에 해당 될 수 있음(1:N)
+  * Review - 한 제품은 여러개의 리뷰를 가질 수 있음 (1:N)
+  * WishList - 여러 제품은 여러 유저의 찜목록에 포함될 수 있음 (N:N)
+  * Coupon - 한 제품은 여러개의 쿠폰을 가질 수 있음 (1:N)
+* Category - 제품 카테고리
+* Payment - 주문 결제 정보를 저장
+* Shipping - 배송 상태 및 송장 번호를 관리하는 테이블
+* Promotion - 할인 쿠폰 및 이벤트 적용 정보를 저장하는 테이블
+* Review - 리뷰
+* Admin - 관리자 계정
+* Statistics - 통계
+* EventLog - 로그
+* WishList - 찜 목록
+* Notification - 알림
+* Coupon - 사용자 쿠폰
+
+
 
 ## ERD
 
@@ -218,6 +267,10 @@ CREATE TABLE Notification (
 
 
 
+##
+
+
+
 ## 1. User
 
 사용자는 이커머스 플랫폼에서 상품을 구매하거나 판매하는 역할
@@ -228,6 +281,7 @@ CREATE TABLE Notification (
 * **User : Order = 1:N** (각 사용자는 여러 개의 주문을 가질 수 있음)
 * **User : Cart = 1:1** (각 사용자는 하나의 장바구니만 보유 가능)
 * **User : ShippingAddress = 1:N** (각 사용자는 여러 개의 배송지를 가질 수 있음)
+* User: WishList = 1 : N (각 사용자는 하나의 찜 목록을 가질 수 있음)
 
 ## 2. Role
 
