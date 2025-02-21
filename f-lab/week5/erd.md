@@ -463,3 +463,4 @@ CREATE TABLE Notification (
 12. Order - Shipping 좀 이상함. OrderItem마다 운송장이 있어야하지 않나?
 13. Seller를 없앤다. 3PL로 하지말고, Retail로 한다.
 14. 로그인 테이블 JWT
+15. JWT Payload - LifeCycle. JWT공부
