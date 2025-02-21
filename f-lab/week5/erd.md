@@ -4,7 +4,9 @@ description: admin, api, batch, common
 
 # ERD - 1
 
-## Tables & Relations (j=i+1; j\<n; j++)
+## Tables & Relations
+
+(j=i+1; j\<n; j++)
 
 * User - 유저정보
   * Role - User가 어떤 권한을 가질지 Role 테이블로 관리 (N:1)
@@ -49,7 +51,7 @@ description: admin, api, batch, common
 
 
 
-## ERD
+## ERD (Draft)
 
 <figure><img src="../../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
 
