@@ -440,3 +440,26 @@ CREATE TABLE Notification (
 <figure><img src="../../.gitbook/assets/image (327).png" alt=""><figcaption></figcaption></figure>
 
 * **Order : Coupon = N:M** (하나의 주문에는 여러 개의 쿠폰이 적용될 수 있음)
+
+
+
+
+
+
+
+피드백 :&#x20;
+
+1. Role은 있지만 권한이 없음. 권한 관리 체계 공부. (Enum을 HardCoding하지 않도록)
+2. User : Cart는 1:N로 여러 level 별로 만들 수 있지만, MVP에서는 1:1로만.
+3. 유저 테이블 Password 직접 관리? Password 관리 방식 Salt 공부.
+4. CreatedAt, ModifiedAt
+5. EventLog - EventType:종류(Label), Payload
+6. Admin, UserTable 분리가  맞다. Salt 추가. Admin을 따로 관리하게 되면 인증을 분리하고 다르게. 실제 기획에서는 admin 인증은 다르게 되어 있다.
+7. 3P를 하려면, User - Product 사이 Merchant-Vendor-Product(계층) 등의 계층 추가.
+8. Category: 실제로는 세금, 면세 품목 같은걸로 분류된다. 하지만 여기서는 Product기준으로
+9. Product, Review에 이미지 Url이 들어가야한다.
+10. User-Coupon연결이 안되어있다. Order랑 연결되어야한다. 만료, 중복할인 규칙 정해야한다.
+11. Promotion 제거하는게 좋을거 같음.
+12. Order - Shipping 좀 이상함. OrderItem마다 운송장이 있어야하지 않나?
+13. Seller를 없앤다. 3PL로 하지말고, Retail로 한다.
+14. 로그인 테이블 JWT
