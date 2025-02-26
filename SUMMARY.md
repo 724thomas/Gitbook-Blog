@@ -143,6 +143,8 @@
 * [Week6](f-lab/week6/README.md)
   * [Ecommerce - 2](f-lab/week6/ecommerce-2.md)
   * [Role](f-lab/week6/role.md)
+  * [pw hashing && Salt](f-lab/week6/pw-hashing-and-and-salt.md)
+  * [CreatedAt, ModifiedAt](f-lab/week6/createdat-modifiedat.md)
   * [Copy of ERD - 1](f-lab/week6/copy-of-erd-1.md)
 
 ## TOY Project
