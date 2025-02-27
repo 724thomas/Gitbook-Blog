@@ -145,6 +145,7 @@
   * [Role](f-lab/week6/role.md)
   * [pw hashing && Salt](f-lab/week6/pw-hashing-and-and-salt.md)
   * [CreatedAt, ModifiedAt](f-lab/week6/createdat-modifiedat.md)
+  * [JWT](f-lab/week6/jwt.md)
   * [Copy of ERD - 1](f-lab/week6/copy-of-erd-1.md)
 
 ## TOY Project

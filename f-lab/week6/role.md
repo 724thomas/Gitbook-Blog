@@ -554,7 +554,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 ## 하드코딩(Enum) vs 동적(테이블) 요약 비교
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 9. 주의사항
 
