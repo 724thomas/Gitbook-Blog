@@ -118,6 +118,7 @@
 ## Api Designs
 
 * [Event Ticket Reservation](api-designs/event-ticket-reservation.md)
+* [Url Shortener](api-designs/url-shortener.md)
 
 ## F-Lab
 
