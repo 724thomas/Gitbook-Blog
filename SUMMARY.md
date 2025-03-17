@@ -120,6 +120,7 @@
 * [Url Shortener API](api-designs/url-shortener-api.md)
 * [Event Ticket Reservation API](api-designs/event-ticket-reservation-api.md)
 * [Course Management API](api-designs/course-management-api.md)
+* [Search posts by tags](api-designs/search-posts-by-tags.md)
 
 ## F-Lab
 
