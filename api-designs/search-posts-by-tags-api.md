@@ -2,7 +2,7 @@
 description: 게시글 목록 조회
 ---
 
-# Search posts by tags
+# Search posts by tags API
 
 ## 개요
 
