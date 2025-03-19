@@ -25,8 +25,6 @@ JVM이 현재 실행 중인 명령의 바이트코드 주소를 저장하는 작
 * 네이티브 메서드 실행 시
   * 네이티브 메서드를 실행할 때는 프로그램 카운터를 유지할 필요X
   * 네이티브 메서드 실행중인 스레드의 프로그램 카운터 값은 Undefined.
-* 예외 처리
-  * 프로그램 카운터는 JVM 명세에서 OutOfMemoryError가 발생하지 않는 유일한 메모리 영역
 
 <details>
 
@@ -372,8 +370,6 @@ JVM의 힙 영역이 아니라 네이티브 메모리를 직접 할당하는 방
 <summary>DirectByteBuffer란?</summary>
 
 `DirectByteBuffer`는 **JVM 힙이 아닌 OS의 네이티브 메모리를 직접 사용하는 버퍼**를 관리하는 **Java NIO(ByteBuffer) 구현 클래스**
-
-
 
 </details>
 
@@ -804,3 +800,5 @@ JVM은 Bias Lock을 유지할지, 해제할지를 결정해야 하는데,\
 
 * 객체 참조 → 객체 실제 메모리
 * **객체 이동 시 참조 주소를 직접 변경해야 함**
+
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure></div>
