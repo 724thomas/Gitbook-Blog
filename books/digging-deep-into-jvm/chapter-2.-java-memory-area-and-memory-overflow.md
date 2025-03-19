@@ -39,7 +39,7 @@ JVM이 현재 실행 중인 명령의 바이트코드 주소를 저장하는 작
 
 
 
-### 자바 가상 머신 스택 (Java Virtual Machine Stack)
+### 자바 가상 머신 스택 (JVM Stack)
 
 JVM 스택은 각 스레드가 실행하는 메서드 호출 정보를 저장하는 공간이고, 스레드마다 독립적으로 생성됨. 해당 공간은 JVM이 스레드의 실행 상태를 관리하는데 사용되고, 스택 프레임 단위로 구성됨.
 
@@ -66,7 +66,7 @@ JVM 스택은 각 스레드가 실행하는 메서드 호출 정보를 저장하
 
 
 
-### 네이티브 메서드 스택
+### 네이티브 메서드 스택 (Native Method Stack)
 
 자바 코드가 아닌 네이티브 코드를 실행할 때 사용하는 스택. 스레드 별로 별도로 생성되며, JVM 명세에는 "네이티브 메서드 스택의 구조나 구현 방식에 대한 규정을 두지 않는다"
 
@@ -134,7 +134,7 @@ JVM 스택은 각 스레드가 실행하는 메서드 호출 정보를 저장하
 
 
 
-### 자바 힙
+### 자바 힙 (Heap)
 
 JVM에서 가장 큰 메모리 영역으로, 모든 객체 인스턴스가 저장되는 공간이며, JVM 시작과 함께 생성되고 모든 스레드가 공유함.
 
@@ -249,7 +249,7 @@ JVM에서 가장 큰 메모리 영역으로, 모든 객체 인스턴스가 저�
 
 
 
-### 메서드 영역
+### 메서드 영역 (jdk 7힙 -> jdk 8 메타스페이스)
 
 메서드 영역은 모든 스레드가 공유하는 메모리 공간. 클래스 관련 정보와 JIT 컴파일된 코드 캐시를 저장
 
@@ -275,7 +275,7 @@ JVM에서 가장 큰 메모리 영역으로, 모든 객체 인스턴스가 저�
 
 
 
-### 런타임 상수 풀
+### 런타임 상수 풀 ( Runtime constant pool: 메서드 영역에 포함)
 
 메서드 영역의 일부로, 클래스 로딩 시 생성되는 상수 및 심볼 정보를 저장하는 공간
 
@@ -343,16 +343,76 @@ JDK 7까지는 PermGen(Permanent Generation)에 런타임 상수 풀이 저장�
 
 
 
-### 다이렉트 메모리
+### 다이렉트 메모리 (Direct Memory: JVM 관리 영역X)
 
 JVM의 힙 영역이 아니라 네이티브 메모리를 직접 할당하는 방식으로 사용
 
 * 사용 목적
   * DirectByteBuffer를 활용한 고속 I/O 처리
   * 데이터 복사를 최소화하여 성능 향상
+* 메모리 할당 과정
+  * ByteBuffer.allocateDirect()를 호출 -> OS에서 직접 네이티브 메모리를 할당
+  * JVM 힙이 아닌 네이티브 메모리에 저장
+  * JVM 내부적으로 DirectByteBuffer 객체를 생성하여 참조
+  * 사용 후 명시적으로 해제해야함
+* 장점
+  * 빠른 성능
+    * 힙 메모리의 객체를 사용할 경우, 네이티브 코드로 데이터를 복사하는 과정이 필요.
+    * 다이렉트 메모리는 OS의 네이티브 메모리를 직접 사용하므로 즉시 접근 가능(I/O 최적화)
+  * GC 영향없음
+    * GC로 인한 성능 저하 없음
+  * 대용량 데이터 처리 최적화
+    * 네트워크 통신, 파일 입출력, 데이터베이스 연동 등 대용량 데이터를 처리할 때 효율적.
 * 제한 사항
-  * `-Xmx` 등의 설정으로 JVM의 힙 크기를 조절할 수 있지만, 다이렉트 메모리는 JVM의 관리 대상이 아니므로 별도 조절 필요
+  * `-Xmx` 등의 설정으로 JVM의 힙 크기를 조절할 수 있지만, 다이렉트 메모리는 JVM의 관리 대상이 아니므로 메모리 누수 방지를 위해 개발자가 명시적으로 해제해야함.
   * 운영 체제의 물리 메모리 한계를 초과할 경우 `OutOfMemoryError` 발생 가능
+
+<details>
+
+<summary>DirectByteBuffer란?</summary>
+
+`DirectByteBuffer`는 **JVM 힙이 아닌 OS의 네이티브 메모리를 직접 사용하는 버퍼**를 관리하는 **Java NIO(ByteBuffer) 구현 클래스**
+
+
+
+</details>
+
+```java
+// DirectByteBuffer를 이용한 파일 I/O 성능 최적화
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
+public class DirectByteBufferFileIO {
+    public static void main(String[] args) throws Exception {
+        // 파일 채널 생성
+        FileInputStream fis = new FileInputStream("input.txt");
+        FileOutputStream fos = new FileOutputStream("output.txt");
+        FileChannel inputChannel = fis.getChannel();
+        FileChannel outputChannel = fos.getChannel();
+
+        // DirectByteBuffer 할당 (네이티브 메모리 사용)
+        ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+
+        while (inputChannel.read(buffer) != -1) {
+            buffer.flip();
+            outputChannel.write(buffer);
+            buffer.clear();
+        }
+
+        inputChannel.close();
+        outputChannel.close();
+        fis.close();
+        fos.close();
+    }
+}
+
+JVM 힙을 거치지 않고 다이렉트 메모리를 사용하여 파일 데이터를 빠르게 복사
+네이티브 메모리를 활용하므로 I/O 성능이 향상됨
+```
+
+
 
 
 
