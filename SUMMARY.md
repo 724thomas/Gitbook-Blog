@@ -122,6 +122,7 @@
 * [Course Management API](api-designs/course-management-api.md)
 * [Search posts by tags API](api-designs/search-posts-by-tags-api.md)
 * [Online Code platform API](api-designs/online-code-platform-api.md)
+* [Simple Task Management API](api-designs/simple-task-management-api.md)
 
 ## F-Lab
 
