@@ -6,6 +6,14 @@ description: I decode the enigma of technology, one blog post at a time.
 
 ## Recent Posts
 
+{% content-ref url="books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md" %}
+[chapter-2.-java-memory-area-and-memory-overflow.md](books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md)
+{% endcontent-ref %}
+
+{% content-ref url="f-lab/week6/role.md" %}
+[role.md](f-lab/week6/role.md)
+{% endcontent-ref %}
+
 {% content-ref url="java/producer-and-consumer.md" %}
 [producer-and-consumer.md](java/producer-and-consumer.md)
 {% endcontent-ref %}
@@ -24,10 +32,6 @@ description: I decode the enigma of technology, one blog post at a time.
 
 {% content-ref url="network/http-0.9-3.0.md" %}
 [http-0.9-3.0.md](network/http-0.9-3.0.md)
-{% endcontent-ref %}
-
-{% content-ref url="database/redis-remote-dictionary-server.md" %}
-[redis-remote-dictionary-server.md](database/redis-remote-dictionary-server.md)
 {% endcontent-ref %}
 
 
