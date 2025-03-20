@@ -36,10 +36,6 @@ class Logger {
 Main.java
 
 ```java
-
-
-// HINT: DIContainer 클래스를 만들어서 의존성을 관리하고, 해결하는 기능을 구현하세요.
-// HINT: 클래스(ex. Class<?>)는 인스턴스가 아닙니다.
 public class Main {
     public static void main(String[] args) {
         DIContainer container = new DIContainer();
@@ -61,44 +57,12 @@ public class Main {
 
 
 
-```java
-package nudge;
-
-import java.util.HashMap;
-
-public class DIContainer {
-    Map<String, Class<T>> classMapper;
-
-    public DIContainer() {
-        classMapper = new HashMap<>();
-    }
-
-    public void register(String name, Class<T> targetClass) {
-        Class<T> targetInstance;
-        if (targetClass == Logger.class) {
-            targetInstance = new Logger();
-
-        } else if (targetClass == UserService.class) {
-            var logger = (Logger) this.resolve("Logger");
-            targetInstance = new targetClass(logger);
-        }
-
-        classMapper.put(name, targetInstance);
-    }
-
-    public Class<T> resolve(String name) {
-        return classMapper.getOrDefault(name, null);
-    }
-
-}
-
-```
-
-
-
-
+DIContainer.java
 
 * 실제 객체를 저장하기 위해서는 Map\<String, Object>를 사용해야합니다.
+* 클래스 등록을 저장하는 맵과, 생성된 객체를 저장하는 맵이 필요합니다.
+* 싱글턴 개념을 적용하여 인스턴스를 재사용해야합니다.
+* 리플랙션을 사용해야합니다.
 
 ```java
 import java.lang.reflect.Constructor;
