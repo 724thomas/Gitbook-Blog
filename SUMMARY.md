@@ -217,6 +217,7 @@
 * [Strategy Pattern](spring/strategy-pattern.md)
 * [Proxy Pattern](spring/proxy-pattern.md)
 * [@Transactional](spring/transactional.md)
+* [Ioc container, di practice](spring/ioc-container-di-practice.md)
 
 ## Programming Paradigm
 
