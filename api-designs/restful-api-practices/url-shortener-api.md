@@ -2,7 +2,7 @@
 description: URL 단축 서비스
 ---
 
-# Url Shortener
+# Url Shortener API
 
 ## 문제
 

@@ -2,7 +2,7 @@
 description: 이벤트 티켓 예약 API 설계
 ---
 
-# Event Ticket Reservation
+# Event Ticket Reservation API
 
 ## 문제
 
