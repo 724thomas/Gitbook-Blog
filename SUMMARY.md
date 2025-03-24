@@ -117,14 +117,14 @@
 * [Digging Deep into JVM](books/digging-deep-into-jvm/README.md)
   * [Chapter 2. Java Memory Area & Memory Overflow](books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md)
 
-## Api Designs
+## Rest Api practice
 
-* [Url Shortener API](api-designs/url-shortener-api.md)
-* [Event Ticket Reservation API](api-designs/event-ticket-reservation-api.md)
-* [Course Management API](api-designs/course-management-api.md)
-* [Search posts by tags API](api-designs/search-posts-by-tags-api.md)
-* [Online Code platform API](api-designs/online-code-platform-api.md)
-* [Simple Task Management API](api-designs/simple-task-management-api.md)
+* [Url Shortener API](rest-api-practice/url-shortener-api.md)
+* [Event Ticket Reservation API](rest-api-practice/event-ticket-reservation-api.md)
+* [Course Management API](rest-api-practice/course-management-api.md)
+* [Search posts by tags API](rest-api-practice/search-posts-by-tags-api.md)
+* [Online Code platform API](rest-api-practice/online-code-platform-api.md)
+* [Simple Task Management API](rest-api-practice/simple-task-management-api.md)
 
 ## F-Lab
 
