@@ -161,6 +161,8 @@
   * [CreatedAt, ModifiedAt](f-lab/week6/createdat-modifiedat.md)
   * [JWT](f-lab/week6/jwt.md)
   * [Copy of ERD - 1](f-lab/week6/copy-of-erd-1.md)
+* [Week7](f-lab/week7/README.md)
+  * [Vault (HashiCorp Vault)](f-lab/week7/vault-hashicorp-vault.md)
 
 ## TOY Project
 
