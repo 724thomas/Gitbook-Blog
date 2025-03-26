@@ -129,17 +129,17 @@ public class BankAccountV1 implements BankAccount {
 
 t1: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
-<div align="left"><figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (2) (2) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 t2: 잔액(1000)이 출금액(800)보다 많으므로 검증 로직 통과
 
-<div align="left"><figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure></div>
 
-<div align="left"><figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure></div>
 
 t1: balance(1000) - amount(800) = 200
 
-<div align="left"><figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (5) (2).png" alt=""><figcaption></figcaption></figure></div>
 
 t2: balance(200) - amount(800) = -600
 
@@ -242,9 +242,9 @@ public class BankAccountV2 implements BankAccount {
 13:58:40:650 [     main] 최종 잔액: 200
 ```
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
 
 * t1이 모두 수행될떄까지 t2는 메서드를 시작할 수 없게 된다.
 * t1이 실행될동안 t2는 **BLOCKED** 상태이다.
@@ -640,7 +640,7 @@ public class BankAccountV4 implements BankAccount {
 * 임계 영역이 끝나면 반드시 락을 반납해야한다. lock.unlock()은 반드시 finally에 작성.
 * t2는 WAITING 상태이다. BLOCKED 상태는 synchronized에서만 사용된다.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 
 * t2는 락을 획득하지 못해서 x002 대기큐에 들어가게 된다(이때 락은 모니터 락이 아님)
 

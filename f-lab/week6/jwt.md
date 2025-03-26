@@ -277,7 +277,7 @@ public class JwtAuthAspect {
 
 ## 14. 시나리오 비교
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 ### 시나리오 1. **User가 정상적으로 로그아웃**
 

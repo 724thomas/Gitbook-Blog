@@ -522,7 +522,7 @@ Process finished with exit code 0
 
 위 예시에서는 wait()을 통해 스레드를 WAITING 상태로 대기 집합에 넣을 수 있었다.  몇가지 단점이 있다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * notify() / notifyAll() 을 통해서 스레드를 깨우게 되는데, 랜덤으로 스레드를 깨우게 된다.&#x20;
 * 이때, 상황에 따라 Thread Starvation이 발생할 수 있다. 왜냐하면 랜덤으로 스레드가 깨어나서 락을 획득하기 떄문에, 락을 획득 못하는 스레드가 발생할 수 있다.
@@ -937,7 +937,7 @@ Lock(ReentrantLock)도 2가지 단계의 대기 상태 존재하며 3가지 기�
 
 제공 메서드
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### **Throws Exception - 대기 시 예외 발생**
 
