@@ -116,6 +116,7 @@
   * [Ch8. Template Method Pattern](books/head-first-design-patterns/ch8.-template-method-pattern.md)
 * [Digging Deep into JVM](books/digging-deep-into-jvm/README.md)
   * [Chapter 2. Java Memory Area & Memory Overflow](books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md)
+  * [Chapter 3. Garbage Collector & Memory Allocation Strategy](books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy.md)
 
 ## Api Designs
 
