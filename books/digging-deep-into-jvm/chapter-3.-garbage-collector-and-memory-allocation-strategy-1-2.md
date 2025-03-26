@@ -2,7 +2,7 @@
 description: 가비지 컬렉터와 메모리 할당 전략
 ---
 
-# Chapter 3. Garbage Collector & Memory Allocation Strategy
+# Chapter 3. Garbage Collector & Memory Allocation Strategy (1/2)
 
 ## 1. 들어가며
 
