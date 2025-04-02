@@ -6,7 +6,7 @@ description: HTTP 0.9-3.0
 
 ## 1. HTTP 0.9 (1991)
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:red;">GET 요청만 존재</mark>
 * <mark style="color:red;">Header X</mark>
@@ -169,7 +169,7 @@ TCP Head Of Line Blocking
 
 ### 4.3. Stream Prioritization
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 요청에 대한 우선순위 부여
 * 서버측에서는 우선순위가 높은 요청 먼저 처리
