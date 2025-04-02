@@ -618,6 +618,17 @@ ZGC에서는 객체가 다음 **세 가지 상태** 중 어디에 있는지를 �
 * 신세대에서 객체를 재배치할 때 살아 있는 객체 수는, 최근에 할당된 리전이라면 더 많이 살아 있을 가능성이 큼.\
   -> 리전에 더 많은 객체가 있을 수록, 해당 리전내에 객체가 살아있다 표시할 가능성이 높아짐.
 * 밀도가 낮은 리전은 살아있는 객체가 있을 확률이 더 적으므로, 먼저 마킹.
+* 살아있는 객체가 많으면 복사 과정이 더 오래 걸림
+
+#### Dense heap regions <a href="#dense-heap-regions" id="dense-heap-regions"></a>
+
+When relocating objects out of the young generation, the number of live objects and the amount of memory they occupy will differ across regions. For example, more-recently allocated regions will likely contain more live objects.
+
+<mark style="color:red;">**ZGC analyzes the density of young-generation regions in order to determine which regions are worth evacuating and which regions are either too full or too expensive to evacuate**</mark>**.** The regions that are not selected for evacuation are aged in place: Their objects remain at their locations and the regions are either kept in the young generation as survivor regions or promoted into the old generation. The objects in the surviving regions get a second chance to die in the hope that, by the time the next young-generation collection starts, enough objects will have died to make more of these regions eligible for evacuation.
+
+This method of aging dense regions in place decreases the effort required to collect the young generation.
+
+[https://openjdk.org/jeps/439](https://openjdk.org/jeps/439)
 
 
 
