@@ -166,6 +166,8 @@
   * [Copy of ERD - 1](f-lab/week6/copy-of-erd-1.md)
 * [Week7](f-lab/week7/README.md)
   * [Vault (HashiCorp Vault)](f-lab/week7/vault-hashicorp-vault.md)
+* [Week 8](f-lab/week-8/README.md)
+  * [Api Endpoints](f-lab/week-8/api-endpoints.md)
 
 ## TOY Project
 
