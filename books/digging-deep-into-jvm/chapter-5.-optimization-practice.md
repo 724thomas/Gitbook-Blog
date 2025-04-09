@@ -430,7 +430,33 @@ JGroup의 전송 대기열의 사이즈를 제한할 수 있음.&#x20;
 * 파뉴 + CMS 컬렉터 조합 이용
 * 마이너 GC 시간은 30ms 이하.
 
+<details>
 
+<summary>-Xms4g -Xms8g, Xmn1g</summary>
+
+#### ✅ `-Xms4g`
+
+* **초기 힙(Heap) 크기**를 의미합니다.
+* JVM이 시작할 때 확보하는 힙 메모리 크기를 4GB로 지정한 거예요.
+* 예: `-Xms4g` → JVM 시작 시 힙 크기를 4GB로 잡음.
+
+***
+
+#### ✅ `-Xmx8g`
+
+* **최대 힙(Heap) 크기**를 의미합니다.
+* JVM이 사용할 수 있는 힙 메모리의 **최대치**를 8GB로 제한한 거예요.
+* 예: `-Xmx8g` → 힙이 점점 커질 수는 있지만, 8GB를 넘을 수 없음.
+
+***
+
+#### ✅ `-Xmn1g`
+
+* **Young Generation 크기**를 의미합니다. (`New Generation`이라고도 함)
+* 힙 메모리는 크게 Young / Old 로 나뉘고, Young은 Garbage Collection이 자주 일어나는 공간입니다.
+* `-Xmn1g` → Young 영역 크기를 1GB로 설정.
+
+</details>
 
 ### 문제
 
