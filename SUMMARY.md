@@ -118,6 +118,7 @@
   * [Chapter 2. Java Memory Area & Memory Overflow](books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md)
   * [Chapter 3. Garbage Collector & Memory Allocation Strategy (1/2)](books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-1-2.md)
   * [Chapter 3. Garbage Collector & Memory Allocation Strategy (2/2)](books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-2-2.md)
+  * [Chapter 5. Optimization Practice](books/digging-deep-into-jvm/chapter-5.-optimization-practice.md)
 
 ## Api Designs
 
