@@ -38,10 +38,13 @@ Http/1.1 200 OK
             "price": 129000,
             "stockQuantity": 95,
             "categoryId": 1,
-            "thumbnailImageUrl": "https://example.com/thumbnailImages/1.jpg"
-            "imageUrls": [
-                "https://example.com/images/1.jpg",
-                "https://example.com/images/2.jpg"
+            "productImage": [
+                {
+                    "id": 1,
+                    "imageUrl": "https://example.com/images/1.jpg",
+                    "order": 1,
+                    "isThumbnail": true
+                }, ...
             ]
         }, ...
     ]
