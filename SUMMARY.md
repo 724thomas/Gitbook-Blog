@@ -120,18 +120,21 @@
   * [Chapter 3. Garbage Collector & Memory Allocation Strategy (2/2)](books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-2-2.md)
   * [Chapter 5. Optimization Practice](books/digging-deep-into-jvm/chapter-5.-optimization-practice.md)
 
-## Api Designs
+## Interview Practices
 
-* [Restful API Practices](api-designs/restful-api-practices/README.md)
-  * [Url Shortener API](api-designs/url-shortener-api.md)
-  * [Event Ticket Reservation API](api-designs/event-ticket-reservation-api.md)
-  * [Course Management API](api-designs/course-management-api.md)
-  * [Search posts by tags API](api-designs/search-posts-by-tags-api.md)
-  * [Online Code platform API](api-designs/online-code-platform-api.md)
-  * [Simple Task Management API](api-designs/simple-task-management-api.md)
-  * [Event Participation API](api-designs/restful-api-practices/event-participation-api.md)
-  * [Review System API](api-designs/restful-api-practices/review-system-api.md)
-  * [Car management API](api-designs/restful-api-practices/car-management-api.md)
+* [Restful API Practices](interview-practices/restful-api-practices/README.md)
+  * [Url Shortener API](interview-practices/restful-api-practices/url-shortener-api.md)
+  * [Event Ticket Reservation API](interview-practices/restful-api-practices/event-ticket-reservation-api.md)
+  * [Course Management API](interview-practices/restful-api-practices/course-management-api.md)
+  * [Search posts by tags API](interview-practices/restful-api-practices/search-posts-by-tags-api.md)
+  * [Online Code platform API](interview-practices/restful-api-practices/online-code-platform-api.md)
+  * [Simple Task Management API](interview-practices/restful-api-practices/simple-task-management-api.md)
+  * [Event Participation API](interview-practices/restful-api-practices/event-participation-api.md)
+  * [Review System API](interview-practices/restful-api-practices/review-system-api.md)
+  * [Car management API](interview-practices/restful-api-practices/car-management-api.md)
+* [Naver Computer Science](interview-practices/naver-computer-science/README.md)
+  * [Process & Thread](interview-practices/naver-computer-science/process-and-thread.md)
+  * [TCP & UDP](interview-practices/naver-computer-science/tcp-and-udp.md)
 
 ## F-Lab
 
