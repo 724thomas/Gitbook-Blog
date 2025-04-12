@@ -138,6 +138,7 @@
   * [Spring & Servlet](interview-practices/naver-computer-science/spring-and-servlet.md)
   * [Filter & Interceptor & AOP](interview-practices/naver-computer-science/filter-and-interceptor-and-aop.md)
   * [Equals() & ==](interview-practices/naver-computer-science/equals-and.md)
+  * [Dependency Injection](interview-practices/naver-computer-science/dependency-injection.md)
 
 ## F-Lab
 
