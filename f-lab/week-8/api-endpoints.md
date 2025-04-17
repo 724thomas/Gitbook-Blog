@@ -16,6 +16,28 @@ description: API 엔드포인트
 
 ## 상품 관리
 
+* 상품 이미지 등록 - POST /api/v1/product-image
+
+```json
+Req
+POST /api/v1/product-image
+Content-type: multipart/form-data
+Authorization: Bearer {Token}
+{
+    "fileName": "image1.jpg",
+    "contentType": "image/jpeg"
+}
+
+Res
+HTTP/1.1 201 Created
+{
+    "id": "randumUUID",
+    "imageUrl": "https://image.s3/product/randomUUID"
+}
+```
+
+
+
 * 상품 조회 - GET /api/v1/products?categoryId={categoryId}\&minPrice={minprice}\&maxPrice={maxprice}\&sort={sortType},{sortBy}\&page={page}\&size={size}
 
 {% code fullWidth="true" %}
