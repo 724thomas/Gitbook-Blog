@@ -179,6 +179,11 @@
 * [Week 8](f-lab/week-8/README.md)
   * [Api Endpoints](f-lab/week-8/api-endpoints.md)
 
+***
+
+* [Week10](week10/README.md)
+  * [Product Create Workflow](week10/product-create-workflow.md)
+
 ## TOY Project
 
 * [CodeMentor](toy-project/codementor/README.md)
