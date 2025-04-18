@@ -22,7 +22,6 @@ description: API 엔드포인트
 Req
 POST /api/v1/product-image
 Content-type: multipart/form-data
-Authorization: Bearer {Token}
 {
     "fileName": "image1.jpg",
     "contentType": "image/jpeg"
@@ -31,7 +30,8 @@ Authorization: Bearer {Token}
 Res
 HTTP/1.1 201 Created
 {
-    "id": "randumUUID",
+    "imageId": "randumUUID",
+    "imageKey": "key",
     "imageUrl": "https://image.s3/product/randomUUID"
 }
 ```
@@ -52,22 +52,13 @@ Http/1.1 200 OK
     "currentPage": 0,
     "totalElements" 42,
     "currentSize": 10,
-    "products": [
+    "productSearchResponse": [
         {
             "id": 1,
-            "name": "무선 이어폰",
-            "description": "고품질 블루투스 이어폰",
+            "productName": "무선 이어폰",
             "price": 129000,
-            "stockQuantity": 95,
-            "categoryId": 1,
-            "productImage": [
-                {
-                    "id": 1,
-                    "imageUrl": "https://example.com/images/1.jpg",
-                    "order": 1,
-                    "isThumbnail": true
-                }, ...
-            ]
+            "thumbnailUrl": "https://example.com/images/1.jpg",
+            "categoryName": "electronics"
         }, ...
     ]
 }
@@ -88,11 +79,11 @@ Content-type: application/json
     "price": 129000,
     "stockQuantity": 100,
     "categoryId":1,
-    "thumbnailImageUrl": "https://example.com/thumbnailImages/1.jpg"
-    "imageUrls": [
-        "https://example.com/images/1.jpg",
-        "https://example.com/images/2.jpg"
-    ]
+    "imageIds": ["UUID", "UUID2",..],
+    "imageUrls": ["url", "url2",...],
+    "imageKeys": ["key", "key2",...],
+    "isThumbnail": ["true", "false",...],
+    "imageSortOrder": [-1, 1,...]
 }
 
 Res
@@ -110,16 +101,11 @@ Req
 PUT /api/v1/products/1
 Content-type: application/json
 {
-    "name": "무선 이어폰 Pro",
-    "description": "노이즈 캔슬링 추가된 블루투스 이어폰",
-    "price": 159000,
-    "stockQuantity": 80,
-    "categoryId": 3,
-    "thumbnailImageUrl": "https://example.com/thumbnailImages/2.jpg"
-    "imageUrls": [
-        "https://example.com/images/3.jpg",
-        "https://example.com/images/4.jpg"
-    ]
+    "name": "무선 이어폰",
+    "description": "고품질 블루투스 아이폰",
+    "price": 129000,
+    "stockQuantity": 100,
+    "categoryId":1
 }
 
 Res
