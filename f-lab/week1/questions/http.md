@@ -35,7 +35,7 @@ HTTP 요청을 서버에 전송하고 응답을 받습니다.
 * HTTP/1.1: Keep-alive, 파이프라이닝, chunk transfer, caching(etag)
 * HTTP/2.0: Binary Framing Layer, 멀티플랙싱, Stream Prioritization, Server Push, HPack compression
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 2. HTTP 요청과 응답의 헤더 필드 중 중요한 항목을 설명하세요.
 

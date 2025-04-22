@@ -238,6 +238,7 @@
   * [ORM & Data Access](spring/spring-questions/orm-and-data-access.md)
   * [Security](spring/spring-questions/security.md)
   * [ETC](spring/spring-questions/etc.md)
+* [DIP. Dependency Inversion Principal](spring/dip.-dependency-inversion-principal.md)
 * [using profile name as variable](spring/using-profile-name-as-variable.md)
 * [Template Method Pattern](spring/template-method-pattern.md)
 * [Strategy Pattern](spring/strategy-pattern.md)
