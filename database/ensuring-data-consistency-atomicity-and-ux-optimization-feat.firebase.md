@@ -69,14 +69,12 @@ public void deleteSubscription(long userId, String topicName) {
 (실패한 요청들을 테이블에 저장하고, 스케줄러를 통해 실패 요청들을 재시도한다.)
 
 ```java
+@RequiredArgsConstructor
 @Service
 public class RetryService {
 
-    @Autowired
-    private SubscriptionFailureRepository subscriptionFailureRepository;
-
-    @Autowired
-    private UnsubscriptionFailureRepository unsubscriptionFailureRepository;
+    private final SubscriptionFailureRepository subscriptionFailureRepository;
+    private final UnsubscriptionFailureRepository unsubscriptionFailureRepository;
 
     @Scheduled(fixedDelay = 60000) // 1분마다 실행
     public void retrySubscriptionFailures() {
