@@ -8,22 +8,34 @@ description: 조회 쿼리 성능 향상 - 유저 목록
 
 <figure><img src="../.gitbook/assets/image (257).png" alt="" width="360"><figcaption></figcaption></figure>
 
-* 유저 검색시 User, UserStats, BlockUser 테이블을 조인하고, 팔로워에 따른 정렬을 하게 됩니다.
-* 매번 조인을 하고, 정렬함에 있어서 문제가 발생할 수 있다고 판단했습니다.
+기존 요구사항:
+
+* 유저 조회 API를 통해 유저 목록을 가져옵니다.
+* 삭제된 유저, 차단한 유저는 제외합니다.
+* 팔로워 수를 기준으로 정렬하여, 20개씩 불러옵니다.
+* 유저 검색시 `User`, `UserStats`, `BlockUser` 테이블을 조인하고, 팔로워에 따른 정렬을 하게 됩니다.
+  * `User`: 유저 정보
+  * `UserStats`: 유저 메타정보 (`User`와 1:1 관계)
+  * `BlockUser`: 유저의 차단 유저 정보 (`User`와 1:N 관계)
 
 
+
+문제점:
+
+* 출시한지 1달채 안됬지만, 유저 수가 빠르게 증가하고 있었습니다(DAU: 800, peak RPS: 1-4, peek QPS: 1-3).&#x20;
+* 인덱스를 걸지 않은 상태이며, 현재 매번 조인, 정렬함에 있어서 성능저하가 발생할 수 있다고 판단했습니다.
+
+***
 
 ## 2. 아키텍처
 
 <figure><img src="../.gitbook/assets/image (258).png" alt=""><figcaption></figcaption></figure>
 
-* User와 Stats: 1대1 관계, User와 Block: 1대 N관계입니다.
-* API 호출시, 유저ID를 받습니다. 유저 ID는 차단한 유저들을 제외시키기 위함입니다.
-* 차단되지 않고 삭제되지 않은 유저들의 목록중 20개를 가져오게 됩니다.
-
-
+***
 
 ## 3. 테스트 환경 세팅
+
+실제로 얼만큼의 성능 저하가 발생할지 파악하기 위해 로컬 테스트 환경을 구축했습니다. 테이블을 생성하고, 10만개의 랜덤 데이터를 삽입하였습니다.
 
 <details>
 
@@ -129,7 +141,7 @@ FROM cte;
 
 </details>
 
-
+***
 
 ## 4. 실행 계획 분석을 위한 SQL 쿼리
 
@@ -160,98 +172,107 @@ LIMIT 20 OFFSET 0;
 {% endcode %}
 
 * **SELECT**: User와 UserSocialStats 테이블에서 유저 정보(닉네임, 서비스 이름, 팔로워 수 등)를 가져옴.
-* **FROM 및 JOIN**:
-  * User와 UserSocialStats를 조인하여 유저 정보와 통계를 결합.
-  * BlockUser와의 조인을 통해 특정 유저(`12345`)가 차단한 유저를 식별.
+* **INNER JOIN:** User와 UserSocialStats는 항상 1:1 관계.
+* **LEFT JOIN**: BlockUser와의 조인을 통해 특정 유저(`12345`)가 차단한 유저를 식별.
 * **WHERE**: 삭제된 유저와 차단된 유저를 제외.
 * **ORDER BY**: 팔로워 수(followerCount) 기준 내림차순으로 정렬.
 * **LIMIT**: 상위 20개의 결과를 반환.
 
-
+***
 
 ## 5. 현재 상태
 
-### 5.1. EXPLAIN
+EXPLAIN, EXPLAIN ANALZY 키워드를 통해, 쿼리가 어떻게 실행이 되고 있는지 확인해봤습니다.
+
+아래는 EXPLAIN, EXPLAIN ANALYZE, 시각화한 흐름도입니다.
 
 <div data-full-width="true"><figure><img src="../.gitbook/assets/image (259).png" alt=""><figcaption></figcaption></figure></div>
 
-* User 테이블의 전체 스캔이 발생하고 있습니다.
-* 조인 키를 통해 UserSocialStats, BlockUser 테이블에서는 각 조인마다 1개의 Row가 읽히고 있습니다.
-
-### 5.2. EXPLAIN ANALYZE
-
 {% code fullWidth="true" %}
 ```
--> Limit: 20 row(s)  (actual time=364..364 rows=20 loops=1)
-    -> Sort: uss.followerCount DESC, limit input to 20 row(s) per chunk  (actual time=364..364 rows=20 loops=1)
-        -> Stream results  (cost=17000 rows=10000) (actual time=0.0708..343 rows=100000 loops=1)
-            -> Filter: (bu.userId is null)  (cost=17000 rows=10000) (actual time=0.0679..290 rows=100000 loops=1)
-                -> Nested loop antijoin  (cost=17000 rows=10000) (actual time=0.0675..281 rows=100000 loops=1)
-                    -> Nested loop inner join  (cost=13500 rows=10000) (actual time=0.0639..163 rows=100000 loops=1)
-                        -> Filter: (u.deleted = false)  (cost=10000 rows=10000) (actual time=0.0193..60.1 rows=100000 loops=1)
-                            -> Table scan on u  (cost=10000 rows=99999) (actual time=0.0183..46.2 rows=100000 loops=1)
-                        -> Single-row index lookup on uss using PRIMARY (userId=u.id)  (cost=0.25 rows=1) (actual time=831e-6..856e-6 rows=1 loops=100000)
-                    -> Filter: (bu.blocked = true)  (cost=0.25 rows=1) (actual time=0.00101..0.00101 rows=0 loops=100000)
-                        -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=u.id)  (cost=0.25 rows=1) (actual time=894e-6..894e-6 rows=0 loops=100000)
+-> Limit: 20 row(s)  (actual time=596..596 rows=20 loops=1)
+    -> Sort: uss.followerCount DESC, limit input to 20 row(s) per chunk  (actual time=596..596 rows=20 loops=1)
+        -> Stream results  (cost=17181 rows=9857) (actual time=0.0347..573 rows=100000 loops=1)
+            -> Filter: (bu.userId is null)  (cost=17181 rows=9857) (actual time=0.0325..518 rows=100000 loops=1)
+                -> Nested loop antijoin  (cost=17181 rows=9857) (actual time=0.0322..509 rows=100000 loops=1)
+                    -> Nested loop inner join  (cost=13732 rows=9857) (actual time=0.0248..183 rows=100000 loops=1)
+                        -> Filter: (u.deleted = false)  (cost=10282 rows=9857) (actual time=0.0194..63.5 rows=100000 loops=1)
+                            -> Table scan on u  (cost=10282 rows=98569) (actual time=0.0185..49 rows=100000 loops=1)
+                        -> Single-row index lookup on uss using PRIMARY (userId=u.id)  (cost=0.25 rows=1) (actual time=979e-6..0.001 rows=1 loops=100000)
+                    -> Filter: (bu.blocked = true)  (cost=0.25 rows=1) (actual time=0.00309..0.00309 rows=0 loops=100000)
+                        -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=u.id)  (cost=0.25 rows=1) (actual time=0.00297..0.00297 rows=0 loops=100000)
 
 ```
 {% endcode %}
 
-* **실행 시간**: 총 **364ms**가 걸렸습니다.&#x20;
+```
+흐름도
+1. Limit: 20 rows
+    └─ 2. Sort: uss.followerCount DESC
+        └─ 3. Filter: bu.userId is null
+            └─ 4. Nested loop anti join
+                ├─ 5. Nested loop inner join
+                │   ├─ 6. Filter: u.deleted = false
+                │   │   └─ 7. Table scan on User (10만 건)
+                │   └─ 8. Index lookup on UserSocialStats (userId)
+                └─ 9. Index lookup on BlockUser (userId=12345, targetUserId=u.id)
+
+```
+
+* **실행 시간**: 총 596**ms**가 걸렸습니다.&#x20;
 * 문제 되는 병목 구간은 아래와 같습니다:
-  * **User 테이블의 전체 스캔 (8쨰줄)**
-  * **followerCount DESC 정렬 (2째줄)**
-  * **BlockUser 필터링 (4쨰줄)**
-  * **InnerJoin (5번째, 5번째)**
+  * **User 테이블의 전체 스캔 (7)**
+  * **UserSocialStats 테이블의 조인 10만번 (8)**
+  * **BlockUser 테이블의 조인 10만번 (9)**
+  * **OrderBy 후 Limit으로 조인 결과를 생성한 후 LIMIT 적용**
 
-
+***
 
 ## 6. 첫번째 해결 방안
 
 ### 6.1. 인덱스 추가
 
-* 정렬에 걸리는 비용을 줄이기 위해 followerCount DESC 인덱스를 추가.
-  * CREATE INDEX idx\_followerCount\_desc ON UserSocialStats (followerCount DESC);
-* BlockUser(userId, targetUserId, blocked)에 복합 인덱스를 추가.
-  * CREATE INDEX idx\_block\_user ON BlockUser (userId, targetUserId, blocked);
-* UserSocialStats(userId)에 인덱스 추가.
-  * CREATE INDEX idx\_userId ON UserSocialStats (userId);
-* deleted 필드에 인덱스를 추가
-  * CREATE INDEX idx\_deleted ON User (deleted);
+* 정렬 비용 감소
+  * 정렬에 걸리는 비용을 줄이기 위해 followerCount DESC 인덱스를 추가.
+  * CREATE INDEX idx\_followerCount\_desc ON `UserSocialStats` (followerCount DESC);
+* 안티조인 최적화
+  * BlockUser(userId, targetUserId, blocked)에 복합 인덱스를 추가.
+  * CREATE INDEX idx\_block\_user ON `BlockUser` (userId, targetUserId, blocked);
+* INNER JOIN 최적화
+  * UserSocialStats(userId)에 인덱스 추가.
+  * CREATE INDEX idx\_userId ON `UserSocialStats` (userId);
+* 조건 필터 최적화
+  * deleted 필드에 인덱스를 추가
+  * CREATE INDEX idx\_deleted ON `User` (deleted);
+
+<div data-full-width="true"><figure><img src="../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure></div>
 
 {% code fullWidth="true" %}
 ```
--> Limit: 20 row(s)  (actual time=425..425 rows=20 loops=1)
-    -> Sort: uss.followerCount DESC, limit input to 20 row(s) per chunk  (actual time=425..425 rows=20 loops=1)
-        -> Stream results  (cost=44522 rows=49284) (actual time=0.0444..404 rows=100000 loops=1)
-            -> Filter: (bu.userId is null)  (cost=44522 rows=49284) (actual time=0.0416..354 rows=100000 loops=1)
-                -> Nested loop antijoin  (cost=44522 rows=49284) (actual time=0.041..346 rows=100000 loops=1)
-                    -> Nested loop inner join  (cost=27272 rows=49284) (actual time=0.0373..228 rows=100000 loops=1)
-                        -> Index lookup on u using idx_deleted (deleted=false)  (cost=10023 rows=49284) (actual time=0.0316..124 rows=100000 loops=1)
-                        -> Single-row index lookup on uss using PRIMARY (userId=u.id)  (cost=0.25 rows=1) (actual time=846e-6..871e-6 rows=1 loops=100000)
-                    -> Filter: (bu.blocked = true)  (cost=0.25 rows=1) (actual time=0.00101..0.00101 rows=0 loops=100000)
-                        -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=u.id)  (cost=0.25 rows=1) (actual time=895e-6..895e-6 rows=0 loops=100000)
-
+-> Limit: 20 row(s)  (cost=37334 rows=10) (actual time=0.0558..0.325 rows=20 loops=1)
+    -> Filter: (bu.userId is null)  (cost=37334 rows=10) (actual time=0.0551..0.322 rows=20 loops=1)
+        -> Nested loop antijoin  (cost=37334 rows=10) (actual time=0.0544..0.317 rows=20 loops=1)
+            -> Nested loop inner join  (cost=24890 rows=10) (actual time=0.0407..0.14 rows=20 loops=1)
+                -> Covering index scan on uss using idx_followerCount_desc  (cost=0.031 rows=20) (actual time=0.0217..0.0288 rows=20 loops=1)
+                -> Filter: (u.deleted = false)  (cost=0.25 rows=0.5) (actual time=0.00506..0.0052 rows=1 loops=20)
+                    -> Single-row index lookup on u using PRIMARY (id=uss.userId)  (cost=0.25 rows=1) (actual time=0.00461..0.00466 rows=1 loops=20)
+            -> Filter: (bu.blocked = true)  (cost=0.25 rows=1) (actual time=0.00849..0.00849 rows=0 loops=20)
+                -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=uss.userId)  (cost=0.25 rows=1) (actual time=0.0083..0.0083 rows=0 loops=20)
 ```
 {% endcode %}
 
-**실행 시간**: 총 425**ms**가 걸렸습니다.  더 오래걸렸습니다.
+* **실행 시간**: 총 0.325**ms**가 걸렸습니다.
+* 개선된 내용은 아래와 같습니다.
+  * **ORDER BY 비용 제거:`UserSocialStats` 테이블에서 정렬된 인덱스를 사용됨.**&#x20;
+    * **정렬 비용없이 상위 20개를 바로 읽음으로, Using filesort가 제거됐습니다.**
+  * **조인 범위 축소: LIMIT이 먼저 적용됨**
+    * **정렬된 테이블에서 LIMIT 20을 가져온 뒤 조인을 하게 됩니다.**
+  * **JOIN 순서 최적화: 테이블 접근 횟수를 줄임**
+    * **`UserSocialStats` -> `User` -> `BlockUser` 순으로 시작되며, User와 BlockUser는 인덱스가 사용됬습니다.**
 
 
 
-### 6.2. 원인 분석
-
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image (261).png" alt=""><figcaption></figcaption></figure></div>
-
-위 실행 계획 이미지를 보면 MySQL 옵티마이저가 인덱스를 추가했음에도 불구하고 효율적인 실행 계획을 선택하지 못하고 있습니다.
-
-User 테이블: 실행 계획의 추가 정보에 using temporary; using filesort 를 통해 임시 테이블 작업을 하고 있습니다. 인덱스를 제대로 활용하지 않고있습니다.
-
-UserSocialStarts 테이블:    ORDER BY에서 인덱스를 활용하지 않고 있습니다.
-
-BlockUser 테이블: idx\_block\_user를 사용하고 있지만 반복 작업이 많습니다.
-
-
+***
 
 ## 7. 두번째 해결 방안
 
@@ -259,7 +280,7 @@ BlockUser 테이블: idx\_block\_user를 사용하고 있지만 반복 작업이
 
 Materialized View는 쿼리 데이터를 물리적으로 저장하는 View의 종류입니다. (일반적인 view는 캡슐화와 모듈화의 장점을 가지지만 실행시 실시간으로 계산하게 됩니다.)
 
-MySQL에서는 아쉽게도 MV가 없기때문에, 마치 역 정규화된 것 같은 테이블을 하나 생성합니다.
+MySQL에서는 아쉽게도 Mview가 없기때문에, 역정규화된 것 같은 테이블을 추가로 따로 생성합니다.
 
 {% code fullWidth="false" %}
 ```sql
@@ -298,7 +319,7 @@ WHERE u.deleted=FALSE;
 ```
 {% endcode %}
 
-MV를 만든 후에 동일한 결과를 가져오는 쿼리를 실행해보겠습니다
+Mview를 만든 후에 동일한 결과를 가져오는 쿼리를 실행해보았습니다.
 
 {% code fullWidth="false" %}
 ```sql
@@ -325,52 +346,50 @@ LIMIT 20 OFFSET 0;
 
 {% code fullWidth="true" %}
 ```
--> Limit: 20 row(s)  (cost=44915 rows=20) (actual time=96.5..96.6 rows=20 loops=1)
-    -> Filter: (bu.userId is null)  (cost=44915 rows=99294) (actual time=96.5..96.6 rows=20 loops=1)
-        -> Nested loop antijoin  (cost=44915 rows=99294) (actual time=96.5..96.6 rows=20 loops=1)
-            -> Sort: mv.followerCount DESC  (cost=10162 rows=99294) (actual time=96.5..96.5 rows=20 loops=1)
-                -> Table scan on mv  (cost=10162 rows=99294) (actual time=0.0237..36.8 rows=100000 loops=1)
-            -> Filter: ((bu.blocked = true) and (bu.targetUserId = mv.id))  (cost=0.25 rows=1) (actual time=0.00203..0.00203 rows=0 loops=20)
-                -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=mv.id)  (cost=0.25 rows=1) (actual time=0.0019..0.0019 rows=0 loops=20)
-```
-{% endcode %}
-
-* **실행 시간**: 총 **96ms**가 걸렸습니다.&#x20;
-* 문제 되는 병목 구간은 아래와 같습니다:
-  * **UserStatsMV 테이블의 전체 스캔 (5쨰줄)**
-  * **followerCount DESC 정렬 (4째줄)**
-
-### 7.2. 추가 최적화
-
-정렬에 걸리는 비용을 줄이기 위해 followerCount DESC 인덱스를 추가.
-
-* CREATE INDEX idx\_followerCount\_desc ON UserStatsMV (followerCount DESC);
-
-{% code fullWidth="true" %}
-```
 -> Limit: 20 row(s)  (cost=24826 rows=20) (actual time=0.071..0.11 rows=20 loops=1)
     -> Filter: (bu.userId is null)  (cost=24826 rows=20) (actual time=0.0706..0.109 rows=20 loops=1)
         -> Nested loop antijoin  (cost=24826 rows=20) (actual time=0.0699..0.107 rows=20 loops=1)
             -> Index scan on mv using idx_followerCount_desc  (cost=0.0472 rows=20) (actual time=0.064..0.0681 rows=20 loops=1)
             -> Filter: ((bu.blocked = true) and (bu.targetUserId = mv.id))  (cost=0.25 rows=1) (actual time=0.00173..0.00173 rows=0 loops=20)
                 -> Single-row index lookup on bu using PRIMARY (userId=12345, targetUserId=mv.id)  (cost=0.25 rows=1) (actual time=0.00162..0.00162 rows=0 loops=20)
-
 ```
 {% endcode %}
 
-* 실행시간이 0.071ms로 줄었습니다. 기존 364ms에 비교했을때 99%의 시간을 단축할 수 있었습니다.
+* **실행 시간**: 총 **0.11ms**가 걸렸습니다.&#x20;
+* 추가 개선된 내용은 아래와 같습니다.
+  * **조인 제거**
+    * **`User`와 `UserSocialStats` 테이블을 미리 병합함으로써, 조인 연산이 완전히 사라졌습니다.**
+  * **ORDER BY 비용 제거**
+    * **`UserStatsMV`에 followerCount DESC 인덱스를 추가함으로써, using filesort 또한 사용되지 않습니다.**
+  * **테이블 접근 최소화**
+    * `UserStatsMV`에 필요한 데이터가 포함되고 있어서, 단일 테이블 조회 + 1회 안티 조인만 수행됩니다.
 
+다만, MV를 사용하면 속도가 획기적으로 빨라지지만, 단점들이 존재하여, 적당한 trade-off를 고려해야했습니다.
 
+***
 
 ## 8. MV의 문제점
 
-현재 생성한 MV 테이블은 읽기 성능은 빠를지언정, 쓰기 성능에서 문제가 발생할 수 있습니다. 하나의 테이블을 갱신하면, MV 테이블도 같이 갱신해야하기 떄문입니다.
+현재 생성한 MV 테이블은 읽기 성능은 빠를지언정, 쓰기 성능에서 문제가 발생할 수 있습니다. 하나의 테이블을 갱신하면, MV 테이블도 같이 갱신해합니다. 그리고 갱신하는 과정에서 실시간 일관성이 깨질 수 있습니다.
 
-현 상황에서 데이터가 실시간으로 변경되지 않아도 사용자 신뢰성에 크게 영향을 미치지 않는다고 판단했습니다. 데이터 정확성을 조금 포기하는 방향으로, 3시간마다 동기화를 시켰습니다.
+현 상황에서는 데이터가 실시간으로 반영되지 않아도 사용자 신뢰성에 크게 영향을 미치지 않는다고 판단했습니다. 데이터 정확성을 조금 포기하는 방향으로, 3시간마다 동기화를 시켰습니다.
 
 
 
-### 8.1. 초기동기화 이벤트와 문제점
+### 8.1. 동기화의 방법
+
+Mview 테이블을 동기화하는 방법은 크게 2가지가 있고, 장단점이 또렷합니다.
+
+* **Update**
+  * 변경된 필드만 갱신하기 때문에 I/O 최소화.
+  * 다만, <mark style="color:red;">데이터가 누락될 가능성</mark> 존재.
+* **Delete -> Insert**
+  * 정합성을 보장
+  * 다만, <mark style="color:red;">가용성이 떨어짐.</mark>
+
+
+
+### 8.2. 초기동기화 이벤트와 문제점(Delete -> Insert)
 
 ```sql
 CREATE EVENT sync_user_stats_mv
@@ -402,11 +421,13 @@ BEGIN
 END;
 ```
 
-위 이벤트는 기존 MV테이블의 데이터만 삭제한 후에, 다시 삽입하게 됩니다. 다만, 다시 삽입을 하는 과정에서 테이블이 비어 있는 상태가 발생할 수 있습니다. 이를 해결하기 위해 실시간 데이터 가용성을 보장하도록 로직을 변경했습니다.
+Delete->Insert 방식은 간단하게 구현이 가능했습니다. 다만, 다시 삽입을 하는 과정에서 테이블이 비어 있는 상태가 발생할 수 있습니다.&#x20;
+
+이를 해결하기 위해 실시간 데이터 가용성을 보장하도록 로직을 변경했습니다.
 
 
 
-### 8.2. 실시간 데이터 가용성 보장
+### 8.2. Staging 테이블 교체
 
 ```sql
 SET GLOBAL event_scheduler = ON;
@@ -455,14 +476,24 @@ END;
 
 1. 임시 테이블을 생성하게 됩니다. (UserStatsMV\_temp)
 2. 임시 데이블에 데이터를 삽입합니다.
-3. RENAME을 통해 기존 MV와 새로운 MV를 교체합니다. ( UserStatsMV <--> UserStatsMV\_temp)
+3. RENAME을 통해 Staging 테이블을 교체합니다. 교체하는 과정은 내부적으로 원자적으로 처리됩니다.
 4. 기존 테이블을 삭제합니다.
+
+
+
+해당 방식의 고려할 점들은 크게 2가지입니다.
+
+* 쓰기 작업이 상대적으로 많아짐
+  * 매번 새로운 데이터를 써야하기 때문에 다른 상황에서는 문제가 될 수 있습니다.
+  * 다만, 3시간마다 10만개의 데이터를 쓰는 비용이 크지 않다고 판단하였습니다.
+* 추가적인 디스크 공간 필요
+  * 새로운 테이블을 생성하기때문에 추가적인 공간이 필요합니다.
+  * 데이터 크기를 봤을때 상대적으로 적은 공간이기 때문에 수용 가능하다고 판단하였습니다.
 
 
 
 ## 9. 결과
 
-* 미리 조인된 MV 테이블을 통해 기존 조회 속도 향상.  (364ms -> 0.071ms)
-* MV 동기화를 위해 3시간 단위로 실행되는 트리거 생성. (실시간 데이터 가용성 보장)
-* 다만, 데이터 가용성을 보장하는 과정에서 추가적인 디스크 공간 필요.
+* 미리 조인된 MV 테이블을 통해 기존 조회 속도 향상.  (364ms -> 0.011ms)
+* Staging table 교체 방법으로 3시간마다 MV 동기화. (실시간 데이터 가용성 보장)
 
