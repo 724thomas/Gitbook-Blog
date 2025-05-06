@@ -1,8 +1,8 @@
 ---
-description: 조회 쿼리 성능 향상 - 유저 목록
+description: 조회 쿼리 성능 및 안정성 향상 - 유저 목록
 ---
 
-# Enhancing Query Performance - User list
+# Enhancing Query Performance & Stability - User list
 
 ## 1. 개요:
 
