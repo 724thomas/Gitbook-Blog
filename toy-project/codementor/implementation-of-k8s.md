@@ -2,7 +2,7 @@
 description: CodeMentor 프로젝트 개선 과정
 ---
 
-# Project Improvement(Architectural Enhancements)
+# Project Improvement (Architectural Enhancements)
 
 ### CodeMentor 프로젝트의 초기 단계
 
