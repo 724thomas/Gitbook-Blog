@@ -1,8 +1,8 @@
 ---
-description: CodeMentoor 프로젝트 개선 과정
+description: CodeMentor 프로젝트 개선 과정
 ---
 
-# Implementation of K8s
+# Project Improvement(Architectural Enhancements)
 
 ### CodeMentor 프로젝트의 초기 단계
 
