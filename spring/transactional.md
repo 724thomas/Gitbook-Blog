@@ -75,7 +75,7 @@ public void child(UserStats userStats) {
   부모 트랜잭션이 존재하면 안됩니다.\
   트랜잭션이 아예 적용이 안됩니다.
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
