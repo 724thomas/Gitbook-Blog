@@ -11,6 +11,10 @@
 * [Sorting Array](algorithm/sorting-array.md)
 * [Lcm, Gcd](algorithm/lcm-gcd.md)
 
+## TechTalk Review
+
+* [Template](techtalk-review/template.md)
+
 ## Books
 
 * [CS Note for Interview](books/cs-note-for-interview/README.md)
