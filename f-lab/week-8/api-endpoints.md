@@ -137,7 +137,6 @@ HTTP/1.1 204 No Content / 404 Not Found
 
 ## 상품 주문
 
-* 장바구니에 넣기
 * 주문하기
 
 
@@ -145,9 +144,138 @@ HTTP/1.1 204 No Content / 404 Not Found
 ## 장바구니
 
 * 장바구니 조회
+
+```json
+REQ
+GET /api/v1/cart
+
+RES
+HTTP/1.1 200 OK
+{
+  "dateTime": "2025-05-09",
+  "status": {
+    "code": "0000",
+    "message": "정상 처리되었습니다."
+  },
+  "data": {
+    "cartProductList": [
+      {
+        "productSummary": {
+          "id": 1,
+          "productName": "testName",
+          "price": 50000,
+          "thumbnailUrl": "http://localhost:9000/images/products/9b1a2ca7-b978-4ced-a11a-b86cc4386772.png",
+          "soldOut": false
+        },
+        "quantity": 5,
+        "status": "AVAILABLE",
+        "productTotalPrice": 250000
+      }
+    ],
+    "cartTotalPrice": 250000
+  }
+}
+```
+
 * 상품 추가
+
+```json
+Req
+POST /api/v1/cart/products
+Content-type: application/json
+{
+  "productId": 1,
+  "addQuantity": 1
+}
+
+
+Res
+HTTP/1.1 200 OK
+{
+  "dateTime": "2025-05-09",
+  "status": {
+    "code": "0000",
+    "message": "정상 처리되었습니다."
+  },
+  "data": {
+    "cartProductList": [
+      {
+        "productSummary": {
+          "id": 1,
+          "productName": "testName",
+          "price": 50000,
+          "thumbnailUrl": "http://localhost:9000/images/products/9b1a2ca7-b978-4ced-a11a-b86cc4386772.png",
+          "soldOut": false
+        },
+        "quantity": 7,
+        "status": "AVAILABLE",
+        "productTotalPrice": 350000
+      }
+    ],
+    "cartTotalPrice": 350000
+  }
+}
+```
+
 * 상품 수량 수정
+
+```json
+Req
+PUT /api/v1/cart/products/1
+Content-type: application/json
+{
+  "quantity": 1
+}
+
+
+Res
+HTTP/1.1 200 OK
+{
+  "dateTime": "2025-05-09",
+  "status": {
+    "code": "0000",
+    "message": "정상 처리되었습니다."
+  },
+  "data": {
+    "cartProductList": [
+      {
+        "productSummary": {
+          "id": 1,
+          "productName": "testName",
+          "price": 50000,
+          "thumbnailUrl": "http://localhost:9000/images/products/9b1a2ca7-b978-4ced-a11a-b86cc4386772.png",
+          "soldOut": false
+        },
+        "quantity": 1,
+        "status": "AVAILABLE",
+        "productTotalPrice": 50000
+      }
+    ],
+    "cartTotalPrice": 50000
+  }
+}
+```
+
 * 상품 제거
+
+```
+Req
+DELETE /api/v1/cart/products/1
+
+Res
+HTTP/1.1 200 OK
+{
+    "dateTime": "2025-05-09",
+    "status": {
+        "code": "0000",
+        "message": "정상 처리되었습니다."
+    },
+    "data": {
+        "cartProductList": [],
+        "cartTotalPrice": 0
+    }
+}
+```
 
 
 
