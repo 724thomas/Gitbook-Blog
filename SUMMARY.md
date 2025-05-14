@@ -247,52 +247,43 @@
   * [Security](spring/spring-questions/security.md)
   * [ETC](spring/spring-questions/etc.md)
 
-## Programming Paradigm
+## DATABASE
 
-* [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
+* [Enhancing Query Performance & Stability - User list](database/enhancing-query-performance-and-stability-user-list.md)
+* [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
+* [Redis: Remote Dictionary Server](database/redis-remote-dictionary-server.md)
+* [Database Questions](database/database-questions/README.md)
+  * [Week1 DBMS, RDBMS basics](database/database-questions/week1-dbms-rdbms-basics.md)
+  * [Week2 SQL](database/database-questions/week2-sql.md)
+  * [Week3 Index](database/database-questions/week3-index.md)
+  * [Week4 Anomaly, Functional Dependency, Normalization](database/database-questions/week4-anomaly-functional-dependency-normalization.md)
+  * [Week5 DB Transaction, Recovery](database/database-questions/week5-db-transaction-recovery.md)
+* [Normalization](database/normalization/README.md)
+  * [1st Normal Form](database/normalization/1st-normal-form.md)
+  * [2nd Normal Form](database/normalization/2nd-normal-form.md)
+  * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 
-## JPA
+## NETWORK
 
-* [Template Page](jpa/template-page.md)
-
-## PYTHON
-
-* [Icecream](python/icecream.md)
-
-## FASTAPI
-
-* [Template Page](fastapi/template-page.md)
-
-## COMPUTER SCIENCE
-
-* [Computer Architecture 101](computer-science/computer-architecture-101/README.md)
-  * [3 components of a computer](computer-science/computer-architecture-101/3-components-of-a-computer.md)
-  * [RAM vs ROM](computer-science/computer-architecture-101/ram-vs-rom.md)
-  * [CPU vs GPU](computer-science/computer-architecture-101/cpu-vs-gpu.md)
-  * [SIMD](computer-science/computer-architecture-101/simd.md)
-  * [Two's complement](computer-science/computer-architecture-101/twos-complement.md)
-  * [Harvard Architecture vs. von Neumann Architecture](computer-science/computer-architecture-101/harvard-architecture-vs.-von-neumann-architecture.md)
-  * [The structure of a CPU.](computer-science/computer-architecture-101/the-structure-of-a-cpu..md)
-  * [Instruction cycle (CPU operation method)](computer-science/computer-architecture-101/instruction-cycle-cpu-operation-method.md)
-  * [Instruction pipelining](computer-science/computer-architecture-101/instruction-pipelining.md)
-  * [Bus](computer-science/computer-architecture-101/bus.md)
-  * [Memory area](computer-science/computer-architecture-101/memory-area.md)
-  * [Memory hierarchy structure](computer-science/computer-architecture-101/memory-hierarchy-structure/README.md)
-    * [Reason for using memory hierarchy structure](computer-science/computer-architecture-101/memory-hierarchy-structure/reason-for-using-memory-hierarchy-structure.md)
-  * [Cache memory](computer-science/computer-architecture-101/cache-memory.md)
-  * [L1, L2, L3 Cache](computer-science/computer-architecture-101/l1-l2-l3-cache.md)
-  * [Locality of reference (cache)](computer-science/computer-architecture-101/locality-of-reference-cache.md)
-  * [Fixed-point vs Floating-point](computer-science/computer-architecture-101/fixed-point-vs-floating-point/README.md)
-    * [epresentation of infinity and NaN (Not a Number) in floating-point](computer-science/computer-architecture-101/fixed-point-vs-floating-point/epresentation-of-infinity-and-nan-not-a-number-in-floating-point.md)
-  * [RISC vs CISC](computer-science/computer-architecture-101/risc-vs-cisc.md)
-  * [Hamming code](computer-science/computer-architecture-101/hamming-code.md)
-  * [Compiler](computer-science/computer-architecture-101/compiler.md)
-  * [Linking](computer-science/computer-architecture-101/linking.md)
-  * [Compiler vs Interpreter](computer-science/computer-architecture-101/compiler-vs-interpreter.md)
-  * [Mutex vs Semaphore](computer-science/computer-architecture-101/mutex-vs-semaphore.md)
-  * [32bit  CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
-  * [Local vs Static Variable](computer-science/computer-architecture-101/local-vs-static-variable.md)
-  * [Page](computer-science/computer-architecture-101/page.md)
+* [HTTP & TCP head of line blocking](network/http-and-tcp-head-of-line-blocking.md)
+* [HTTP 0.9-3.0](network/http-0.9-3.0.md)
+* [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
+* [Network Questions](network/network-questions/README.md)
+  * [Week1 Computer Network Basic](network/network-questions/week1-computer-network-basic.md)
+  * [Week2(1/3) Application Layer Protocol - HTTP](network/network-questions/week2-1-3-application-layer-protocol-http.md)
+  * [Week2(2/3) Application Layer Protocol - HTTPS](network/network-questions/week2-2-3-application-layer-protocol-https.md)
+  * [Week2(3/3) Application Layer Protocol - DNS](network/network-questions/week2-3-3-application-layer-protocol-dns.md)
+  * [Week3 Application Layer](network/network-questions/week3-application-layer.md)
+  * [Week4 Transport Layer - UDP, TCP](network/network-questions/week4-transport-layer-udp-tcp.md)
+  * [Week5 Network Layer - IP Protocol](network/network-questions/week5-network-layer-ip-protocol.md)
+* [Network 101](network/network-101/README.md)
+  * [https://www.google.com](network/network-101/https-www.google.com.md)
+  * [TCP vs UDP](network/network-101/tcp-vs-udp.md)
+  * [Http vs Https](network/network-101/http-vs-https.md)
+  * [TLS Handshake 1.2](network/network-101/tls-handshake-1.2.md)
+  * [HTTP Method](network/network-101/http-method.md)
+  * [CORS & SOP](network/network-101/cors-and-sop.md)
+  * [Web Server Software](network/network-101/web-server-software.md)
 
 ## OS
 
@@ -355,50 +346,56 @@
     * [Process address space in IPC Shared Memory technique](os/operating-system-101/interprocess-communication-ipc/process-address-space-in-ipc-shared-memory-technique.md)
     * [Types of IPC](os/operating-system-101/interprocess-communication-ipc/types-of-ipc.md)
 
+## COMPUTER SCIENCE
+
+* [Computer Architecture 101](computer-science/computer-architecture-101/README.md)
+  * [3 components of a computer](computer-science/computer-architecture-101/3-components-of-a-computer.md)
+  * [RAM vs ROM](computer-science/computer-architecture-101/ram-vs-rom.md)
+  * [CPU vs GPU](computer-science/computer-architecture-101/cpu-vs-gpu.md)
+  * [SIMD](computer-science/computer-architecture-101/simd.md)
+  * [Two's complement](computer-science/computer-architecture-101/twos-complement.md)
+  * [Harvard Architecture vs. von Neumann Architecture](computer-science/computer-architecture-101/harvard-architecture-vs.-von-neumann-architecture.md)
+  * [The structure of a CPU.](computer-science/computer-architecture-101/the-structure-of-a-cpu..md)
+  * [Instruction cycle (CPU operation method)](computer-science/computer-architecture-101/instruction-cycle-cpu-operation-method.md)
+  * [Instruction pipelining](computer-science/computer-architecture-101/instruction-pipelining.md)
+  * [Bus](computer-science/computer-architecture-101/bus.md)
+  * [Memory area](computer-science/computer-architecture-101/memory-area.md)
+  * [Memory hierarchy structure](computer-science/computer-architecture-101/memory-hierarchy-structure/README.md)
+    * [Reason for using memory hierarchy structure](computer-science/computer-architecture-101/memory-hierarchy-structure/reason-for-using-memory-hierarchy-structure.md)
+  * [Cache memory](computer-science/computer-architecture-101/cache-memory.md)
+  * [L1, L2, L3 Cache](computer-science/computer-architecture-101/l1-l2-l3-cache.md)
+  * [Locality of reference (cache)](computer-science/computer-architecture-101/locality-of-reference-cache.md)
+  * [Fixed-point vs Floating-point](computer-science/computer-architecture-101/fixed-point-vs-floating-point/README.md)
+    * [epresentation of infinity and NaN (Not a Number) in floating-point](computer-science/computer-architecture-101/fixed-point-vs-floating-point/epresentation-of-infinity-and-nan-not-a-number-in-floating-point.md)
+  * [RISC vs CISC](computer-science/computer-architecture-101/risc-vs-cisc.md)
+  * [Hamming code](computer-science/computer-architecture-101/hamming-code.md)
+  * [Compiler](computer-science/computer-architecture-101/compiler.md)
+  * [Linking](computer-science/computer-architecture-101/linking.md)
+  * [Compiler vs Interpreter](computer-science/computer-architecture-101/compiler-vs-interpreter.md)
+  * [Mutex vs Semaphore](computer-science/computer-architecture-101/mutex-vs-semaphore.md)
+  * [32bit  CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
+  * [Local vs Static Variable](computer-science/computer-architecture-101/local-vs-static-variable.md)
+  * [Page](computer-science/computer-architecture-101/page.md)
+
+## Programming Paradigm
+
+* [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
+
+## JPA
+
+* [Template Page](jpa/template-page.md)
+
+## PYTHON
+
+* [Icecream](python/icecream.md)
+
+## FASTAPI
+
+* [Template Page](fastapi/template-page.md)
+
 ## LINUX
 
 * [Template Page](linux/template-page.md)
-
-## SERVER
-
-* [Template Page](server/template-page.md)
-
-## NETWORK
-
-* [HTTP 0.9-3.0](network/http-0.9-3.0.md)
-* [Blocking, NonBlocking and Sync, Async](network/blocking-nonblocking-and-sync-async.md)
-* [Network Questions](network/network-questions/README.md)
-  * [Week1 Computer Network Basic](network/network-questions/week1-computer-network-basic.md)
-  * [Week2(1/3) Application Layer Protocol - HTTP](network/network-questions/week2-1-3-application-layer-protocol-http.md)
-  * [Week2(2/3) Application Layer Protocol - HTTPS](network/network-questions/week2-2-3-application-layer-protocol-https.md)
-  * [Week2(3/3) Application Layer Protocol - DNS](network/network-questions/week2-3-3-application-layer-protocol-dns.md)
-  * [Week3 Application Layer](network/network-questions/week3-application-layer.md)
-  * [Week4 Transport Layer - UDP, TCP](network/network-questions/week4-transport-layer-udp-tcp.md)
-  * [Week5 Network Layer - IP Protocol](network/network-questions/week5-network-layer-ip-protocol.md)
-* [Network 101](network/network-101/README.md)
-  * [https://www.google.com](network/network-101/https-www.google.com.md)
-  * [TCP vs UDP](network/network-101/tcp-vs-udp.md)
-  * [Http vs Https](network/network-101/http-vs-https.md)
-  * [TLS Handshake 1.2](network/network-101/tls-handshake-1.2.md)
-  * [HTTP Method](network/network-101/http-method.md)
-  * [CORS & SOP](network/network-101/cors-and-sop.md)
-  * [Web Server Software](network/network-101/web-server-software.md)
-
-## DATABASE
-
-* [Enhancing Query Performance & Stability - User list](database/enhancing-query-performance-and-stability-user-list.md)
-* [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
-* [Redis: Remote Dictionary Server](database/redis-remote-dictionary-server.md)
-* [Database Questions](database/database-questions/README.md)
-  * [Week1 DBMS, RDBMS basics](database/database-questions/week1-dbms-rdbms-basics.md)
-  * [Week2 SQL](database/database-questions/week2-sql.md)
-  * [Week3 Index](database/database-questions/week3-index.md)
-  * [Week4 Anomaly, Functional Dependency, Normalization](database/database-questions/week4-anomaly-functional-dependency-normalization.md)
-  * [Week5 DB Transaction, Recovery](database/database-questions/week5-db-transaction-recovery.md)
-* [Normalization](database/normalization/README.md)
-  * [1st Normal Form](database/normalization/1st-normal-form.md)
-  * [2nd Normal Form](database/normalization/2nd-normal-form.md)
-  * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 
 ## DATA STRUCTURE
 
