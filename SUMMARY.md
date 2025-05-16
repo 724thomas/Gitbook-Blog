@@ -381,9 +381,9 @@
 
 * [Declarative vs Imperative](programming-paradigm/declarative-vs-imperative.md)
 
-## JPA
+## JPA, QueryDsl
 
-* [Template Page](jpa/template-page.md)
+* [why fetchResults() is deprecated](jpa-querydsl/why-fetchresults-is-deprecated.md)
 
 ## PYTHON
 
