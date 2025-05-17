@@ -123,9 +123,9 @@ TCP/IP 모델의 4계층:&#x20;
 
 ## NIC와 리피터에 대해서 설명해주세요
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **NIC**는 **네트워크 인터페이스 카드**로, 컴퓨터나 다른 장치가 **네트워크에 연결**될 수 있도록 해주는 하드웨어 장치입니다. 이 NIC는 컴퓨터 내부의 **데이터를 네트워크로 전송하기 위한 신호로 변환**하고, 반대로 네트워크로부터 받은 신호를 컴퓨터가 처리할 수 있는 데이터로 변환합니다. (**데이터 링크 계층**에서 주로 동작하는 네트워크 장치)
 
@@ -135,7 +135,7 @@ TCP/IP 모델의 4계층:&#x20;
 
 ## 브리지(bridge)에 대해서 설명해주세요
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 데이터 링크 계층(2계층)에서 동작하는 네트워크 장치
 * **여러 네트워크 세그먼트**를 연결하여 **하나의 네트워크처럼 동작**하게 해줍니다.&#x20;
