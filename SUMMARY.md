@@ -195,6 +195,7 @@
 
 ## JAVA
 
+* [MESI protocol in CAS](java/mesi-protocol-in-cas.md)
 * [CAS (Compare and Set)](java/cas-compare-and-set.md)
 * [BlockingQueue](java/blockingqueue.md)
 * [Producer & Consumer](java/producer-and-consumer.md)
