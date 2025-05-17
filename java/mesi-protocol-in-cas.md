@@ -103,3 +103,12 @@ CPU1 CAS가 완료되고 쓰레드1은 메모리에 연산 결과를 업데이�
 * RAM 컨트롤러나 중앙 디렉토리에서 **“어떤 캐시가 이 주소 갖고 있는지”** 관리함
 * CPU2가 요청하면, 디렉토리에서 CPU1이 Modified 상태임을 확인하고 조율합니다.
 
+
+
+
+
+참고:&#x20;
+
+* [https://stackoverflow.com/questions/39393850/is-incrementing-an-int-effectively-atomic-in-specific-cases](https://stackoverflow.com/questions/39393850/is-incrementing-an-int-effectively-atomic-in-specific-cases)
+* [https://stackoverflow.com/questions/59020823/how-does-lock-cmpxchg-work-in-assembly](https://stackoverflow.com/questions/59020823/how-does-lock-cmpxchg-work-in-assembly)
+* [https://www.felixcloutier.com/x86/lock](https://www.felixcloutier.com/x86/lock)
