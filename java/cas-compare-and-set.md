@@ -310,9 +310,9 @@ while (lock.compareAndSet(false, true)) {}
 
 ## 4. CAS 단점
 
-* 락을 기다리는 스레드가 BLOCKED, WAITING 상태로 빠지지는 않지만, RUNNABLE 상태로 락을 획득할때 까지 스핀락이 발생.
-* 결론적으로 스핀락이 발생해도 내부 코드가 빠르게 동작하게 되면 락 획득을 자주 확인하기 때문에 효율적이라는 이론이지만, 아무래도 직접 테스트를 하는게 베스트.
-* 데이터베이스의 요청을 기다리는 상황 같은 경우, CAS 요청이 적절하지 않을 가능성이 매우 높다.
+* 스핀락으로 성능 저하 발생.
+  * 데이터의 캐시라인 독점(MESI프로토콜의 Modified)이 해제될떄까지 bus snooping을 하는 스핀으로 인한 성능 저하.
+  * Modified가 해제되고, 스핀중이던 모든 스레드들이 동시에 연산을 하면서 발생하는 성능 저하. 하나를 제외한 나머지 연산들은 의미가 없는 연산임.
 
-
+자세한건 원자적으로 동작하는 방식을 참고: [https://wonjoon.gitbook.io/joons-til/java/cas-compare-and-set](https://wonjoon.gitbook.io/joons-til/java/cas-compare-and-set)
 
