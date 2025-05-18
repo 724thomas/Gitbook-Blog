@@ -1,6 +1,6 @@
 # MESI protocol in CAS
 
-CAS연산은 스냅샷과 연산된 결과값을 비교한 뒤에 메모리에 업데이트 하는 작업을 원자적으로 수행합니다.
+CAS연산은 스냅샷과 연산된 결과값을 비교한 뒤에 메모리에 업데이트 하는 작업을 원자적으로 수행합니다. 이게 가능한 이유는, lock prefix(lock cmpxchg, lock xadd, lock add 등) 명령어 때문에 가능합니다.
 
 MESI는 캐시라인(64B block)에 현재 데이터가 어떤 상태인지 나타내게됩니다.
 
@@ -16,8 +16,6 @@ MESI는 캐시라인(64B block)에 현재 데이터가 어떤 상태인지 나�
 ```
 
 
-
-이게 가능한 이유는, lock prefix(lock cmpxchg, lock xadd, lock add 등) 명령어 때문에 가능합니다.
 
 lock prefix가 붙으면 발생하는 상황:
 

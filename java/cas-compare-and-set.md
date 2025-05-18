@@ -311,7 +311,7 @@ while (lock.compareAndSet(false, true)) {}
 ## 4. CAS 단점
 
 * 스핀락으로 성능 저하 발생.
-  * 데이터의 캐시라인 독점(MESI프로토콜의 Modified)이 해제될떄까지 bus snooping을 하는 스핀으로 인한 성능 저하.
+  * 데이터의 캐시라인 독점(MESI프로토콜의 Modified)이 해제될때까지 bus snooping을 하는 스핀으로 인한 성능 저하.
   * Modified가 해제되고, 스핀중이던 모든 스레드들이 동시에 연산을 하면서 발생하는 성능 저하. 하나를 제외한 나머지 연산들은 의미가 없는 연산임.
 
 자세한건 원자적으로 동작하는 방식을 참고: [https://wonjoon.gitbook.io/joons-til/java/mesi-protocol-in-cas](https://wonjoon.gitbook.io/joons-til/java/mesi-protocol-in-cas)
