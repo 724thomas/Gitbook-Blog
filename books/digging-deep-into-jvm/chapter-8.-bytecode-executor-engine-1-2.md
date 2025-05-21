@@ -1,4 +1,4 @@
-# Chapter 8. Bytecode Executor Engine
+# Chapter 8. Bytecode Executor Engine (1/2)
 
 ## 런타임 스택 프레임 구조
 
