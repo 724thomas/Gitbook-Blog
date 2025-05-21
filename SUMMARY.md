@@ -124,6 +124,7 @@
   * [Chapter 3. Garbage Collector & Memory Allocation Strategy (2/2)](books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-2-2.md)
   * [Chapter 5. Optimization Practice](books/digging-deep-into-jvm/chapter-5.-optimization-practice.md)
   * [Chapter 6. Class file structure](books/digging-deep-into-jvm/chapter-6.-class-file-structure.md)
+  * [Chapter 8. Bytecode Executor Engine](books/digging-deep-into-jvm/chapter-8.-bytecode-executor-engine.md)
 
 ## Interview Practices
 
