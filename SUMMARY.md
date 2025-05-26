@@ -143,6 +143,7 @@
   * [if(kakao)](interview-practices/tech-review/if-kakao/README.md)
     * [카카오 계정 캐시 전환기 / if(kakao)2022](interview-practices/tech-review/if-kakao/if-kakao-2022.md)
     * [카카오톡 메시징 지표 이상감지 시스템의 개선사례 / if(kakao) 2022](interview-practices/tech-review/if-kakao/if-kakao-2022-1.md)
+    * [추가 배포 없이 API의 case 통일시키기 / if(kakaoAI)2024](interview-practices/tech-review/if-kakao/api-case-if-kakaoai-2024.md)
 * [Naver Computer Science](interview-practices/naver-computer-science/README.md)
   * [Process & Thread](interview-practices/naver-computer-science/process-and-thread.md)
   * [TCP & UDP](interview-practices/naver-computer-science/tcp-and-udp.md)
