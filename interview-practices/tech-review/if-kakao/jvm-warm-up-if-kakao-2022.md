@@ -1,4 +1,8 @@
-# Page 1
+---
+description: JVM warm up / if(kakao)2022
+---
+
+# JVM warm up / if(kakao)2022
 
 https://www.youtube.com/watch?v=CQi3SS2YspY\&list=PLwe9WEhzDhwHLNl0f39E1lAyT8dxdTUGY\&index=6\&ab\_channel=kakaotech
 
