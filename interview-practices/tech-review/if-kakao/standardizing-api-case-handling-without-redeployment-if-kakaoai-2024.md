@@ -1,4 +1,8 @@
-# 추가 배포 없이 API의 case 통일시키기 / if(kakaoAI)2024
+---
+description: 추가 배포 없이 API의 case 통일시키기 / if(kakaoAI)2024
+---
+
+# Standardizing API Case Handling Without Redeployment / if(kakaoAI)2024
 
 https://www.youtube.com/watch?v=ZE5xgQuvHFQ\&list=PLwe9WEhzDhwGXZ0REjCOYosGkrDkkHZKk\&index=7\&ab\_channel=kakaotech
 
