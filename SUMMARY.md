@@ -145,6 +145,7 @@
     * [Improving the Anomaly Detection System for KakaoTalk Messaging Metrics / if(kakao) 2022](interview-practices/tech-review/if-kakao/if-kakao-2022-1.md)
     * [Standardizing API Case Handling Without Redeployment / if(kakaoAI)2024](interview-practices/tech-review/if-kakao/api-case-if-kakaoai-2024.md)
     * [JVM warm up / if(kakao)2022](interview-practices/tech-review/if-kakao/jvm-warm-up-if-kakao-2022.md)
+    * [Alarm Service in Server / if(kakao)2022](interview-practices/tech-review/if-kakao/alarm-service-in-server-if-kakao-2022.md)
 * [Naver Computer Science](interview-practices/naver-computer-science/README.md)
   * [Process & Thread](interview-practices/naver-computer-science/process-and-thread.md)
   * [TCP & UDP](interview-practices/naver-computer-science/tcp-and-udp.md)
