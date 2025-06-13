@@ -155,13 +155,7 @@
 
 ## Performance Test Study
 
-* [Leetcode Project](performance-test-study/leetcode-project/README.md)
-  * [MVP Structure](performance-test-study/leetcode-project/mvp-structure.md)
-  * [Api Endpoints](performance-test-study/leetcode-project/api-endpoints.md)
-
-***
-
-* [Page 1](page-1.md)
+* [Leetcode Project](performance-test-study/leetcode-project.md)
 
 ## F-Lab
 
