@@ -2,7 +2,7 @@
 description: 카카오톡 메시징 지표 이상감지 시스템의 개선사례 / if(kakao) 2022
 ---
 
-# Improving the Anomaly Detection System for KakaoTalk Messaging Metrics / if(kakao) 2022
+# Improving the Anomaly Detection System for KakaoTalk Messaging Metrics
 
 https://www.youtube.com/watch?v=j5xsDv35Nd4\&ab\_channel=kakaotech
 

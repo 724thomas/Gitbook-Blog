@@ -2,7 +2,7 @@
 description: 알림 서비스로 시작하는 서버 개발 / if(kakao)2022
 ---
 
-# Alarm Service in Server / if(kakao)2022
+# Alarm Service in Server
 
 ## 카카오 뱅크가 만든 알림서비스
 

@@ -13,12 +13,12 @@
 
 ## TechTalk Review
 
-* [if(kakao)](techtalk-review/if-kakao/README.md)
-  * [Kakao Account Cache Migration](techtalk-review/if-kakao/kakao-account-cache-migration.md)
-  * [Improving the Anomaly Detection System for KakaoTalk Messaging Metrics](techtalk-review/if-kakao/improving-the-anomaly-detection-system-for-kakaotalk-messaging-metrics.md)
-  * [Standardizing API Case Handling Without Redeployment](techtalk-review/if-kakao/standardizing-api-case-handling-without-redeployment.md)
-  * [JVM warm up](techtalk-review/if-kakao/jvm-warm-up.md)
-  * [Alarm Service in Server](techtalk-review/if-kakao/alarm-service-in-server.md)
+* [if(kakao)](interview-practices/tech-review/if-kakao/README.md)
+  * [Kakao Account Cache Migration](interview-practices/tech-review/if-kakao/if-kakao-2022.md)
+  * [Improving the Anomaly Detection System for KakaoTalk Messaging Metrics](interview-practices/tech-review/if-kakao/if-kakao-2022-1.md)
+  * [Standardizing API Case Handling Without Redeployment](interview-practices/tech-review/if-kakao/api-case-if-kakaoai-2024.md)
+  * [JVM warm up](interview-practices/tech-review/if-kakao/jvm-warm-up-if-kakao-2022.md)
+  * [Alarm Service in Server](interview-practices/tech-review/if-kakao/alarm-service-in-server-if-kakao-2022.md)
 
 ## Books
 
@@ -152,6 +152,16 @@
   * [Equals() & ==](interview-practices/naver-computer-science/equals-and.md)
   * [Dependency Injection](interview-practices/naver-computer-science/dependency-injection.md)
   * [Object Oriented Programming](interview-practices/naver-computer-science/object-oriented-programming.md)
+
+## Performance Test Study
+
+* [Leetcode Project](performance-test-study/leetcode-project/README.md)
+  * [MVP Structure](performance-test-study/leetcode-project/mvp-structure.md)
+  * [Api Endpoints](performance-test-study/leetcode-project/api-endpoints.md)
+
+***
+
+* [Page 1](page-1.md)
 
 ## F-Lab
 
