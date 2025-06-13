@@ -13,7 +13,12 @@
 
 ## TechTalk Review
 
-* [Template](techtalk-review/template.md)
+* [if(kakao)](techtalk-review/if-kakao/README.md)
+  * [Kakao Account Cache Migration](techtalk-review/if-kakao/kakao-account-cache-migration.md)
+  * [Improving the Anomaly Detection System for KakaoTalk Messaging Metrics](techtalk-review/if-kakao/improving-the-anomaly-detection-system-for-kakaotalk-messaging-metrics.md)
+  * [Standardizing API Case Handling Without Redeployment](techtalk-review/if-kakao/standardizing-api-case-handling-without-redeployment.md)
+  * [JVM warm up](techtalk-review/if-kakao/jvm-warm-up.md)
+  * [Alarm Service in Server](techtalk-review/if-kakao/alarm-service-in-server.md)
 
 ## Books
 
@@ -139,13 +144,6 @@
   * [Review System API](api-designs/restful-api-practices/review-system-api.md)
   * [Car management API](api-designs/restful-api-practices/car-management-api.md)
   * [Online Library](interview-practices/restful-api-practices/online-library.md)
-* [Tech Review](interview-practices/tech-review/README.md)
-  * [if(kakao)](interview-practices/tech-review/if-kakao/README.md)
-    * [Kakao Account Cache Migration / if(kakao)2022](interview-practices/tech-review/if-kakao/if-kakao-2022.md)
-    * [Improving the Anomaly Detection System for KakaoTalk Messaging Metrics / if(kakao) 2022](interview-practices/tech-review/if-kakao/if-kakao-2022-1.md)
-    * [Standardizing API Case Handling Without Redeployment / if(kakaoAI)2024](interview-practices/tech-review/if-kakao/api-case-if-kakaoai-2024.md)
-    * [JVM warm up / if(kakao)2022](interview-practices/tech-review/if-kakao/jvm-warm-up-if-kakao-2022.md)
-    * [Alarm Service in Server / if(kakao)2022](interview-practices/tech-review/if-kakao/alarm-service-in-server-if-kakao-2022.md)
 * [Naver Computer Science](interview-practices/naver-computer-science/README.md)
   * [Process & Thread](interview-practices/naver-computer-science/process-and-thread.md)
   * [TCP & UDP](interview-practices/naver-computer-science/tcp-and-udp.md)
