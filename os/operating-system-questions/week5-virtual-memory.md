@@ -28,7 +28,7 @@ description: 가상 메모리
 * 세그멘테이션:\
   의미있는 단위로 프로그램을 나누어 메모리에 적재하는 방식
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
