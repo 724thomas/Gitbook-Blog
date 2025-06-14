@@ -259,11 +259,11 @@ Content-Type: application/json
 
 #### DB 스키마
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
 
 #### MVP 로컬환경 인프라
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Java Application: 자바 프로젝트입니다
 * MySQL: 데이터베이스입니다.
@@ -402,7 +402,7 @@ start와 end를 사용하지 않았을 때 즉, 전체 문제리스트 조회시
 
 
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>결과</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>결과</p></figcaption></figure>
 
 * 캐싱 적용 결과, 문제 상세 정보 조회 API의 응답 속도가 50% 이상 개선되었습니다.
 * 캐시 히트가 100%라면 자주 조회되는 문제에 대해서는 DB 접근 빈도가 줄어 서버 부하가 감소함을 예상할 수 있습니다.
@@ -599,11 +599,11 @@ SQL Plan 확인
 
 * FK(`contest_id`) 인덱스를 사용하여 데이터를 필터링한 뒤 정렬 처리를 하고 있습니다.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 
 * DB 조회 시간: 약 **100ms**
 * 총 서비스 호출 시간: **286ms (DB 조회, 네트워크 통신, 애플리케이션 처리시간을 모두 포함)**
@@ -612,11 +612,11 @@ SQL Plan 확인
 
 **개선 후:**
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>SQL Plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption><p>SQL Plan</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 
 * Plan 상에서는 FK 인덱스와 유사해 보이나 실제 실행 시 정렬 처리가 인덱스를 통해 최적화됨.
   * FK 인덱스만으로도 Plan은 비슷하게 출력되지만, **복합 인덱스**로 인해 `ORDER BY` 최적화가 이루어져 정렬 비용이 크게 줄어듦.

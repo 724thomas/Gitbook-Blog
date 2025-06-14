@@ -155,7 +155,8 @@
 
 ## Performance Test Study
 
-* [Leetcode Project](performance-test-study/leetcode-project.md)
+* [Leetcode Project](performance-test-study/leetcode-project/README.md)
+  * [JPA - OSIV](performance-test-study/leetcode-project/jpa-osiv.md)
 
 ## F-Lab
 
