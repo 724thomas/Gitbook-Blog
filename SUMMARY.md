@@ -144,19 +144,29 @@
   * [Review System API](api-designs/restful-api-practices/review-system-api.md)
   * [Car management API](api-designs/restful-api-practices/car-management-api.md)
   * [Online Library](interview-practices/restful-api-practices/online-library.md)
-* [Naver Computer Science](interview-practices/naver-computer-science/README.md)
-  * [Process & Thread](interview-practices/naver-computer-science/process-and-thread.md)
-  * [TCP & UDP](interview-practices/naver-computer-science/tcp-and-udp.md)
-  * [Spring & Servlet](interview-practices/naver-computer-science/spring-and-servlet.md)
-  * [Filter & Interceptor & AOP](interview-practices/naver-computer-science/filter-and-interceptor-and-aop.md)
-  * [Equals() & ==](interview-practices/naver-computer-science/equals-and.md)
-  * [Dependency Injection](interview-practices/naver-computer-science/dependency-injection.md)
-  * [Object Oriented Programming](interview-practices/naver-computer-science/object-oriented-programming.md)
+* [Naver Interview Prep](interview-practices/naver-interview-prep/README.md)
+  * [Process & Thread](interview-practices/naver-interview-prep/process-and-thread.md)
+  * [TCP & UDP](interview-practices/naver-interview-prep/tcp-and-udp.md)
+  * [Spring & Servlet](interview-practices/naver-interview-prep/spring-and-servlet.md)
+  * [Filter & Interceptor & AOP](interview-practices/naver-interview-prep/filter-and-interceptor-and-aop.md)
+  * [Equals() & ==](interview-practices/naver-interview-prep/equals-and.md)
+  * [Dependency Injection](interview-practices/naver-interview-prep/dependency-injection.md)
+  * [Object Oriented Programming](interview-practices/naver-interview-prep/object-oriented-programming.md)
 
 ## Performance Test Study
 
 * [Leetcode Project](performance-test-study/leetcode-project/README.md)
-  * [JPA - OSIV](performance-test-study/leetcode-project/jpa-osiv.md)
+  * [Implementation](performance-test-study/leetcode-project/implementation/README.md)
+    * [Requirements](performance-test-study/leetcode-project/implementation/requirements.md)
+    * [API endpoints](performance-test-study/leetcode-project/implementation/api-endpoints.md)
+    * [DB schema, Infra diagram](performance-test-study/leetcode-project/implementation/db-schema-infra-diagram.md)
+  * [Optimization1 - Java application](performance-test-study/leetcode-project/optimization1-java-application/README.md)
+    * [GET ProblemList](performance-test-study/leetcode-project/optimization1-java-application/get-problemlist.md)
+    * [GET ProblemDetail](performance-test-study/leetcode-project/optimization1-java-application/get-problemdetail.md)
+    * [POST Submit Problem](performance-test-study/leetcode-project/optimization1-java-application/post-submit-problem.md)
+    * [GET Leaderboard](performance-test-study/leetcode-project/optimization1-java-application/get-leaderboard.md)
+  * [TroubleShooting](performance-test-study/leetcode-project/troubleshooting/README.md)
+    * [JPA - OSIV](performance-test-study/leetcode-project/troubleshooting/jpa-osiv.md)
 
 ## F-Lab
 
