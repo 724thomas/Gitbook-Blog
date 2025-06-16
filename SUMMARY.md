@@ -19,6 +19,7 @@
   * [Standardizing API Case Handling Without Redeployment](interview-practices/tech-review/if-kakao/api-case-if-kakaoai-2024.md)
   * [JVM warm up](interview-practices/tech-review/if-kakao/jvm-warm-up-if-kakao-2022.md)
   * [Alarm Service in Server](interview-practices/tech-review/if-kakao/alarm-service-in-server-if-kakao-2022.md)
+  * [Domain Driven Design](techtalk-review/if-kakao/domain-driven-design.md)
 
 ## Books
 
