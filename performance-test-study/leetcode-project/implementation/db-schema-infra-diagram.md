@@ -4,11 +4,11 @@
 
 #### DB 스키마
 
-<div data-full-width="true"><figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure></div>
 
 #### MVP 로컬환경 인프라
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Java Application: 자바 프로젝트입니다
 * MySQL: 데이터베이스입니다.

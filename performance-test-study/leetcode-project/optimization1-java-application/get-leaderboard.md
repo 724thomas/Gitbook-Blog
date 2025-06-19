@@ -40,11 +40,11 @@ SQL Plan 확인
 
 * FK(`contest_id`) 인덱스를 사용하여 데이터를 필터링한 뒤 정렬 처리를 하고 있습니다.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 
 * DB 조회 시간: 약 **100ms**
 * 총 서비스 호출 시간: **286ms (DB 조회, 네트워크 통신, 애플리케이션 처리시간을 모두 포함)**
@@ -53,11 +53,11 @@ SQL Plan 확인
 
 **개선 후:**
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>SQL Plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>SQL Plan</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 
 * Plan 상에서는 FK 인덱스와 유사해 보이나 실제 실행 시 정렬 처리가 인덱스를 통해 최적화됨.
   * FK 인덱스만으로도 Plan은 비슷하게 출력되지만, **복합 인덱스**로 인해 `ORDER BY` 최적화가 이루어져 정렬 비용이 크게 줄어듦.
