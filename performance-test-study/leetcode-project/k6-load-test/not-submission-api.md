@@ -214,9 +214,9 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 <figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">**Java 프로세스 CPU 100% 도달**</mark>
-* <mark style="color:yellow;">시스템 Load 급증</mark>
-* <mark style="color:yellow;">**Runnable 스레드 수 과자**</mark>
-* <mark style="color:yellow;">**전체 스레드 수가 너무 많음**</mark>
+* <mark style="color:yellow;">**시스템 Load 급증: Max 8.8**</mark>
+* Thread 수: 동시 처리는 많지만 정상 범위
+* <mark style="color:yellow;">**Runnable 스레드 수 과다: CPU를 기다리는 스레드 많음**</mark>
 
 #### Garbage Collection
 
@@ -224,7 +224,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 * Minor GC 횟수 적절
 * GC Pause 시간 짧음
-* **객체 생성량 많음**
+* <mark style="color:yellow;">**객체 생성량 많음**</mark>
 
 #### **JVM Memory Pools (Heap)**
 
@@ -247,4 +247,5 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
    2. 하지만 GC Pause 자체가 이미 짧고 안정적
 2. Heap 사이즈 조정X -> Heap/Old Gen 여유 있음
    1. -Xms, Xmx 조정하여 Full GC를 회피
+      1. [chapter-2.-java-memory-area-and-memory-overflow.md](../../../books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md "mention")
    2. 현재 Heap 사용량도 안정적이라서 크게 의미가 없습니다.
