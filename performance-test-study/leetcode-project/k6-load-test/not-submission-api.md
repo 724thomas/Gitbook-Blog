@@ -38,13 +38,14 @@ let errorCount    = new Counter('errors_total');
 // ─── stages 설정 ───
 export let options = {
   scenarios: {
-    burst_0m:  { executor: 'per-vu-iterations', vus: 4000, iterations: 1, startTime: '0s' },
-    burst_1m:  { executor: 'per-vu-iterations', vus: 4000, iterations: 1, startTime: '60s' },
-    burst_2m:  { executor: 'per-vu-iterations', vus: 4000, iterations: 1, startTime: '120s' },
+    burst_0m:  { executor: 'per-vu-iterations', vus: 5000, iterations: 1, startTime: '0s' },
+    burst_1m:  { executor: 'per-vu-iterations', vus: 5000, iterations: 1, startTime: '60s' },
+    burst_2m:  { executor: 'per-vu-iterations', vus: 5000, iterations: 1, startTime: '120s' },
   },
 };
 
-const BASE_URL = '<http://172.31.6.93:8080>';
+
+const BASE_URL = 'http://172.31.6.93:8080';
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -55,9 +56,9 @@ function logAndMetric(res, trend, label) {
   const ok = check(res, { [`${label} is 200`]: r => r.status === 200 });
   if (!ok) {
     console.error(
-      `❌  [${label}] status ${res.status}\\n` +
-      `URL: ${res.url}\\n` +
-      `Body:\\n${res.body}\\n`
+      `❌  [${label}] status ${res.status}\n` +
+      `URL: ${res.url}\n` +
+      `Body:\n${res.body}\n`
     );
     errorCount.add(1);
   }
@@ -66,7 +67,7 @@ function logAndMetric(res, trend, label) {
 
 export default function () {
   group('RDB Leaderboard', () => {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
       let id  = getRandomInt(1, 10);
       let res = http.get(`${BASE_URL}/v1/contests/${id}/leaderboard`);
       logAndMetric(res, rdbTrend, `RDB Leaderboard ${id}`);
@@ -74,7 +75,7 @@ export default function () {
   });
 
   group('Problem List', () => {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
       let start = getRandomInt(1, 40);
       let end   = start + getRandomInt(1, 10);
       let res   = http.get(`${BASE_URL}/problems?start=${start}&end=${end}`);
@@ -83,7 +84,7 @@ export default function () {
   });
 
   group('Problem Detail', () => {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
       let pid = getRandomInt(1, 50);
       let res = http.get(`${BASE_URL}/problems/${pid}`);
       logAndMetric(res, detailTrend, `Problem detail ${pid}`);
@@ -94,9 +95,11 @@ export default function () {
 
 </details>
 
-각 VU는 문제 리스트 2회, 문제 상세 2회, 리더보드 2회 호출 → 총 6회 요청
+각 VU는 문제 리스트 1회, 문제 상세 1회, 리더보드 1회 호출
 
-→**총 HTTP 요청 수: 15,000 x 6 = 90,000건**
+→ **매분, 5000VU마다 총 3회 요청 = 15,000건**
+
+→ **3분간 총 HTTP 요청 수: 15,000 x 3 = 45,000건**
 
 
 
