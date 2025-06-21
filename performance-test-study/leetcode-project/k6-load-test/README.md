@@ -76,7 +76,7 @@
 향후 계획은:
 
 * Submission API를 제외한, 나머지 API에 대한 부하테스트
-  * [not-submission-api.md](not-submission-api.md "mention")
+  * [load-test-apis.md](load-test-apis.md "mention")
 * Submission API 병목 원인 분석 및 구조 개선
-  * [submission-api.md](submission-api.md "mention")
+  * [load-test-submission-api.md](load-test-submission-api.md "mention")
 

@@ -167,8 +167,8 @@
     * [POST Submit Problem](performance-test-study/leetcode-project/optimization1-java-application/post-submit-problem.md)
     * [GET Leaderboard](performance-test-study/leetcode-project/optimization1-java-application/get-leaderboard.md)
   * [K6 load test](performance-test-study/leetcode-project/k6-load-test/README.md)
-    * [NOT Submission API](performance-test-study/leetcode-project/k6-load-test/not-submission-api.md)
-    * [Submission API](performance-test-study/leetcode-project/k6-load-test/submission-api.md)
+    * [Load Test: APIs](performance-test-study/leetcode-project/k6-load-test/load-test-apis.md)
+    * [Load Test: Submission API](performance-test-study/leetcode-project/k6-load-test/load-test-submission-api.md)
   * [TroubleShooting](performance-test-study/leetcode-project/troubleshooting/README.md)
     * [JPA - OSIV](performance-test-study/leetcode-project/troubleshooting/jpa-osiv.md)
 
