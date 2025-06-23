@@ -20,6 +20,8 @@
   * [JVM warm up](interview-practices/tech-review/if-kakao/jvm-warm-up-if-kakao-2022.md)
   * [Alarm Service in Server](interview-practices/tech-review/if-kakao/alarm-service-in-server-if-kakao-2022.md)
   * [Domain Driven Design](techtalk-review/if-kakao/domain-driven-design.md)
+* [Woowacon](techtalk-review/woowacon/README.md)
+  * [2024](techtalk-review/woowacon/2024.md)
 
 ## Books
 
