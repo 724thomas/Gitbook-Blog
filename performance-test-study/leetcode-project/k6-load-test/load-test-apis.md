@@ -12,9 +12,7 @@ description: 고부하 상황에서 API 병목 진단 및 대응 전략
 
 
 
-## Submit API 제외
-
-### 유저 5,000명 동시 요청 시나리오
+## Submit API 제외 - 유저 5,000명 동시 요청 시나리오
 
 * 문제 리스트 조회 API
 * 문제 조회 API
@@ -107,7 +105,7 @@ export default function () {
 
 
 
-### 결과 지표
+## 결과 지표
 
 * k6 실행 결과
 
@@ -166,7 +164,7 @@ export default function () {
 
 
 
-### 결과 요약
+## 결과 요약
 
 부하 테스트는 총 15,000명의 가상 사용자(VU)가 0분, 1분, 2분에 각각 5,000명씩 동시에 접속하여 문제 리스트, 문제 상세, 리더보드 API를 각 2회씩 호출하는 방식으로 수행되었으며, 총 90,000건의 HTTP 요청이 발생했습니다.
 
@@ -182,17 +180,9 @@ export default function () {
 
 
 
-### 해결 방안
+## 해결 방안
 
-#### 1. **수평 확장 (Scale Out)**
-
-동일한 Java 애플리케이션 서버 인스턴스를 여러 대로 늘리는 것
-
-* AWS EC2 Auto Scaling Group, ELB 적용
-* API Gateway or Load Balancer(L7) 앞단 구성
-* 사용자 요청을 여러 인스턴스로 분산 → CPU 부하 완화
-
-#### 2. **JVM 튜닝**
+#### 1. **JVM 튜닝**
 
 CPU를 많이 사용하는 Java 앱이라면 JVM 옵션도 중요
 
@@ -202,9 +192,17 @@ CPU를 많이 사용하는 Java 앱이라면 JVM 옵션도 중요
 
 수평적 확장이 가장 확실하고 기본적인 해결책이고, 현재 캐시/DB 병목이 없으므로 바로 확장 효과가 있을 것으로 기대합니다. 다만, 비용이 들기때문에, 내부적으로 최적화를 할 수 있는지 확인해봅니다.
 
+#### 2. **수평 확장 (Scale Out)**
+
+동일한 Java 애플리케이션 서버 인스턴스를 여러 대로 늘리는 것
+
+* AWS EC2 Auto Scaling Group, ELB 적용
+* API Gateway or Load Balancer(L7) 앞단 구성
+* 사용자 요청을 여러 인스턴스로 분산 → CPU 부하 완화
 
 
-### JVM (Micrometer)
+
+### 1. JVM 튜닝
 
 Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석해보겠습니다.
 
@@ -251,8 +249,18 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
    1. G1GC에서 저지연 GC 등으로 변경하여 GC Pause 감소와 Throughput 증가를 기대&#x20;
       1. [chapter-3.-garbage-collector-and-memory-allocation-strategy-1-2.md](../../../books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-1-2.md "mention")
       2. [chapter-3.-garbage-collector-and-memory-allocation-strategy-2-2.md](../../../books/digging-deep-into-jvm/chapter-3.-garbage-collector-and-memory-allocation-strategy-2-2.md "mention")
-   2. 하지만 GC Pause 자체가 이미 짧고 안정적
+   2. <mark style="color:green;">**하지만 GC Pause 자체가 이미 짧고 안정적**</mark>
 2. Heap 사이즈 조정X -> Heap/Old Gen 여유 있음
    1. -Xms, Xmx 조정하여 Full GC를 회피
       1. [chapter-2.-java-memory-area-and-memory-overflow.md](../../../books/digging-deep-into-jvm/chapter-2.-java-memory-area-and-memory-overflow.md "mention")
-   2. 현재 Heap 사용량도 안정적이라서 크게 의미가 없습니다.
+   2. <mark style="color:green;">**현재 Heap 사용량도 안정적이라서 크게 의미가 없습니다.**</mark>
+
+
+
+### 2. 수평적 확장
+
+확장은 또다른 해결책이 될 수 있습니다. 수평적 확장과 수직적 확장이 있는데 수평적 확장을 선택했습니다.
+
+* 복잡도가 더 높아지는 단점
+* 비용이 적은 장점
+
