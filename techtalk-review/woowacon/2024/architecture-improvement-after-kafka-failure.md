@@ -1,4 +1,8 @@
-# 2024
+---
+description: Kafka를 이용하는 메시지 플랫폼에서 장애를 겪으며 아키텍처를 개선한 이야기
+---
+
+# Architecture Improvement After Kafka Failure
 
 https://youtu.be/dG2Dr3jhSZg?si=wz9YWJ2Ny65SbsVx
 
