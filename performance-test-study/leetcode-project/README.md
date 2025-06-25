@@ -12,3 +12,11 @@ description: 리트코드 프로젝트 성능 & 부하 테스트 학습
 
 실무에서도, 인터뷰에서도 자신 있게 설명할 수 있도록 만들기 위한 일종의 **자체 시뮬레이션 기반 학습입니다.**
 
+
+
+## **Contents**
+
+* [implementation](implementation/ "mention")**: 초기 프로젝트 구현**
+* [optimization1-java-application](optimization1-java-application/ "mention")**: 애플리케이션 내부 성능 측정 및 최적화**
+* [k6-load-test](k6-load-test/ "mention")**: 프로젝트 부하 테스트 및 최적화**
+* [troubleshooting](troubleshooting/ "mention")**: 프로젝트 트라블 슈팅**&#x20;
