@@ -1,5 +1,5 @@
 ---
-description: Cursor와 MCP로 AI 프로젝트 개발하기
+description: Cursor와 MCP로 프로젝트 개발하기
 ---
 
 # Project development using cursor & mcp
