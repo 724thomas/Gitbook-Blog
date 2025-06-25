@@ -34,7 +34,7 @@ lock prefix가 붙으면 발생하는 상황:
 
 ### 2단계: 스레드1이 CAS 수행
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 스레드1이 연산을 끝내고, lock cmpxchng \[0x1000], eax를 실행함.
 * Bus Snooping을 통해, 다른 모든 L1캐시들의 해당 값의 상태를 Invalid로 변경.

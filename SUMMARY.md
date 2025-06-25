@@ -221,6 +221,11 @@
   * [Project Improvement (Architectural Enhancements)](toy-project/codementor/implementation-of-k8s.md)
   * [Communication between servers in msa](toy-project/codementor/communication-between-servers-in-msa.md)
 
+## AI
+
+* [VibeCoding](ai/vibecoding/README.md)
+  * [Project development using cursor & mcp](ai/vibecoding/project-development-using-cursor-and-mcp.md)
+
 ## JAVA
 
 * [MESI protocol in CAS](java/mesi-protocol-in-cas.md)

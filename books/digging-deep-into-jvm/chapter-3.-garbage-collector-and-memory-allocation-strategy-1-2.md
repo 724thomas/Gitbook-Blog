@@ -30,7 +30,7 @@ A와 B객체에는 모두 instance 라는 필드가 있고, A.instance = B, B.in
 
 ### 도달 가능성 분석 알고리즘
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 루트라고 하는 루트 객체들을 시작으로 출발하여, 참조하는 다른 객체들로 탐색해 들어가는 알고리즘입니다. 탐색 과정에서 만들어지는 경로를 `참조 체인(reference chain)`  이라고 합니다. 루트로부터 시작하여 도달할 수 없는 객체는 더 이상 사용할 수 없는게 확실해집니다.
 
@@ -148,7 +148,7 @@ GC는 GC Root에서부터 도달 가능성 분석을 수행합니다.\
 
 ### 2. 마크-스윕 알고리즘 (최초의 GC 알고리즘)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. 마크-카피 알고리즘(신세대)
 
