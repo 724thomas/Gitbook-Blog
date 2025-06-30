@@ -1,4 +1,8 @@
-# JPA - OSIV
+---
+description: '트러블슈팅: JPA - OSIV'
+---
+
+# JPA: OSIV
 
 ## 개요
 

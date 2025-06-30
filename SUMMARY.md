@@ -173,7 +173,9 @@
     * [Load Test: APIs](performance-test-study/leetcode-project/k6-load-test/load-test-apis.md)
     * [Load Test: Submission API](performance-test-study/leetcode-project/k6-load-test/load-test-submission-api.md)
   * [TroubleShooting](performance-test-study/leetcode-project/troubleshooting/README.md)
-    * [JPA - OSIV](performance-test-study/leetcode-project/troubleshooting/jpa-osiv.md)
+    * [JPA: OSIV](performance-test-study/leetcode-project/troubleshooting/jpa-osiv.md)
+    * [RabbitMq: ackMode = None](performance-test-study/leetcode-project/troubleshooting/rabbitmq-ackmode-none.md)
+    * [Throughput beyond # vCPU](performance-test-study/leetcode-project/troubleshooting/throughput-beyond-vcpu.md)
 
 ## F-Lab
 
