@@ -4,7 +4,7 @@ description: 풀이 제출 API 최적화
 
 # POST Submit Problem
 
-### 📕 풀이 제출 API
+## 최적화 시도: 캐싱 & 멱등키 도입
 
 **`POST /problems/{problem_id}/submission`**
 
