@@ -6,6 +6,8 @@ description: Cursor와 MCP로 프로젝트 개발하기
 
 Cursor의 AI Agent 기능과 MCP(Multi-modal Communication Protocol)의 연동 능력을 활용하여 프로젝트 기획, 설계, 개발, 그리고 Notion 및 GitHub를 통한 협업 관리까지의 전 과정을 예시 프롬프트를 통해 보여주기위한 목적이 있습니다.
 
+[https://github.com/724thomas/vibe\_coding\_cursor-mcp](https://github.com/724thomas/vibe_coding_cursor-mcp)
+
 
 
 ## Step1. 프로젝트 목표 및 범위 정의
