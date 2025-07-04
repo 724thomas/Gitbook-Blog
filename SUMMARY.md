@@ -157,25 +157,25 @@
   * [Dependency Injection](interview-practices/naver-interview-prep/dependency-injection.md)
   * [Object Oriented Programming](interview-practices/naver-interview-prep/object-oriented-programming.md)
 
-## Performance Test Study
+## K6 Optimization Project
 
-* [Leetcode Project](performance-test-study/leetcode-project/README.md)
-  * [Implementation](performance-test-study/leetcode-project/implementation/README.md)
-    * [Requirements](performance-test-study/leetcode-project/implementation/requirements.md)
-    * [API endpoints](performance-test-study/leetcode-project/implementation/api-endpoints.md)
-    * [DB schema, Infra diagram](performance-test-study/leetcode-project/implementation/db-schema-infra-diagram.md)
-  * [Optimization1 - Java application](performance-test-study/leetcode-project/optimization1-java-application/README.md)
-    * [GET ProblemList](performance-test-study/leetcode-project/optimization1-java-application/get-problemlist.md)
-    * [GET ProblemDetail](performance-test-study/leetcode-project/optimization1-java-application/get-problemdetail.md)
-    * [POST Submit Problem](performance-test-study/leetcode-project/optimization1-java-application/post-submit-problem.md)
-    * [GET Leaderboard](performance-test-study/leetcode-project/optimization1-java-application/get-leaderboard.md)
-  * [K6 load test](performance-test-study/leetcode-project/k6-load-test/README.md)
-    * [Load Test: APIs](performance-test-study/leetcode-project/k6-load-test/load-test-apis.md)
-    * [Load Test: Submission API](performance-test-study/leetcode-project/k6-load-test/load-test-submission-api.md)
-  * [TroubleShooting](performance-test-study/leetcode-project/troubleshooting/README.md)
-    * [JPA: OSIV](performance-test-study/leetcode-project/troubleshooting/jpa-osiv.md)
-    * [RabbitMq: ackMode = None](performance-test-study/leetcode-project/troubleshooting/rabbitmq-ackmode-none.md)
-    * [Throughput beyond # vCPU](performance-test-study/leetcode-project/troubleshooting/throughput-beyond-vcpu.md)
+* [Leetcode Project](k6-optimization-project/leetcode-project/README.md)
+  * [Implementation](k6-optimization-project/leetcode-project/implementation/README.md)
+    * [Requirements](k6-optimization-project/leetcode-project/implementation/requirements.md)
+    * [API endpoints](k6-optimization-project/leetcode-project/implementation/api-endpoints.md)
+    * [DB schema, Infra diagram](k6-optimization-project/leetcode-project/implementation/db-schema-infra-diagram.md)
+  * [Optimization1 - Java application](k6-optimization-project/leetcode-project/optimization1-java-application/README.md)
+    * [GET ProblemList](k6-optimization-project/leetcode-project/optimization1-java-application/get-problemlist.md)
+    * [GET ProblemDetail](k6-optimization-project/leetcode-project/optimization1-java-application/get-problemdetail.md)
+    * [POST Submit Problem](k6-optimization-project/leetcode-project/optimization1-java-application/post-submit-problem.md)
+    * [GET Leaderboard](k6-optimization-project/leetcode-project/optimization1-java-application/get-leaderboard.md)
+  * [K6 load test](k6-optimization-project/leetcode-project/k6-load-test/README.md)
+    * [Load Test: APIs](k6-optimization-project/leetcode-project/k6-load-test/load-test-apis.md)
+    * [Load Test: Submission API](k6-optimization-project/leetcode-project/k6-load-test/load-test-submission-api.md)
+  * [TroubleShooting](k6-optimization-project/leetcode-project/troubleshooting/README.md)
+    * [JPA: OSIV](k6-optimization-project/leetcode-project/troubleshooting/jpa-osiv.md)
+    * [RabbitMq: ackMode = None](k6-optimization-project/leetcode-project/troubleshooting/rabbitmq-ackmode-none.md)
+    * [Throughput beyond # vCPU](k6-optimization-project/leetcode-project/troubleshooting/throughput-beyond-vcpu.md)
 
 ## F-Lab
 
