@@ -1,3 +1,7 @@
+---
+description: k6 부하테스트 요구사항 및 초기 테스트
+---
+
 # K6 load test
 
 * Submission API를 제외한, 나머지 API에 대한 부하테스트[load-test-apis.md](load-test-apis.md "mention")
@@ -25,7 +29,7 @@
 
 
 
-### 클라우드 인프라
+### 클라우드 인프라(초기)
 
 부하 테스트를 위한 기초 클라우드 환경입니다.
 
@@ -74,4 +78,7 @@
 
 * `submit_duration_ms`의 **중앙값이 1.02초**로, 다른 API보다 현저히 느림.
 * `list`, `detail`, `rdb`는 median이 15\~77ms 수준이지만, `submit`은 기본적으로 느린 작업임을 나타냅니다.
-* 여기서 **submit API가 병목의 원임**임 가능성이 높습니다.
+* 여기서 **submit API가 병목의 원임**임 가능성이 높다고 생각하였습니다.
+
+
+
