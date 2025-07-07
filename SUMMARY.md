@@ -23,6 +23,7 @@
 * [Woowacon](techtalk-review/woowacon/README.md)
   * [2024](techtalk-review/woowacon/2024/README.md)
     * [Architecture Improvement After Kafka Failure](techtalk-review/woowacon/2024/architecture-improvement-after-kafka-failure.md)
+    * [API Gateway Pattern](techtalk-review/woowacon/2024/api-gateway-pattern.md)
 
 ## Books
 
