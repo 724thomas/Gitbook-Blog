@@ -445,7 +445,7 @@
 
 ## INFRA
 
-* [Template Page](infra/template-page.md)
+* [BFF & Front Server](infra/bff-and-front-server.md)
 
 ## AWS
 
