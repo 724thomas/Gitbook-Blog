@@ -303,7 +303,6 @@
 ***
 
 * [Twitter - Cassandra, Fan out on Write](twitter-cassandra-fan-out-on-write.md)
-* [Fan-out on Write](fan-out-on-write.md)
 
 ## NETWORK
 
