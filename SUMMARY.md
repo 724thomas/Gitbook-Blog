@@ -300,6 +300,11 @@
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
 
+***
+
+* [Twitter - Cassandra, Fan out on Write](twitter-cassandra-fan-out-on-write.md)
+* [Fan-out on Write](fan-out-on-write.md)
+
 ## NETWORK
 
 * [HTTP & TCP head of line blocking](network/http-and-tcp-head-of-line-blocking.md)
