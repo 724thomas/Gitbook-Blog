@@ -24,6 +24,7 @@
   * [2024](techtalk-review/woowacon/2024/README.md)
     * [Architecture Improvement After Kafka Failure](techtalk-review/woowacon/2024/architecture-improvement-after-kafka-failure.md)
     * [API Gateway Pattern](techtalk-review/woowacon/2024/api-gateway-pattern.md)
+    * [DDD. That's not how you do it](techtalk-review/woowacon/2024/ddd.-thats-not-how-you-do-it.md)
 
 ## Books
 
