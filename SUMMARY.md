@@ -304,6 +304,7 @@
 ***
 
 * [Twitter - Cassandra, Fan out on Write](twitter-cassandra-fan-out-on-write.md)
+* [Twitter Table Structure Guide](twitter-table-structure-guide.md)
 
 ## NETWORK
 
