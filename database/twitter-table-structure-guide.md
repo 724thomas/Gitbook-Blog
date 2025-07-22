@@ -565,47 +565,6 @@ public class TimelineService {
 
 ***
 
-### 📊 성능 예상치
-
-#### 트래픽 규모별 성능
-
-**소규모 서비스 (일일 활성 사용자 10만 명)**:
-
-```
-- 평균 팔로워 수: 100명
-- 일일 트윗 수: 50만 개
-- Fan-out 쓰기: 5,000만 회/일 (관리 가능)
-- 타임라인 조회: 1,000만 회/일 (빠름)
-
-추천: Fan-out on Write 위주 전략
-```
-
-**대규모 서비스 (일일 활성 사용자 1억 명)**:
-
-```
-- 평균 팔로워 수: 200명  
-- 일일 트윗 수: 5억 개
-- Fan-out 쓰기: 1,000억 회/일 (비용 부담)
-- 인플루언서 비율: 1% (100만 명)
-
-추천: 하이브리드 전략 (일반 사용자 Fan-out on Write + 인플루언서 Fan-out on Read)
-```
-
-#### 하드웨어 요구사항
-
-**Cassandra 클러스터 구성 예시**:
-
-```
-소규모: 3노드 (각 16GB RAM, 1TB SSD)
-중규모: 9노드 (각 32GB RAM, 2TB SSD)  
-대규모: 27노드 (각 64GB RAM, 4TB SSD)
-
-복제 팩터: 3 (고가용성 보장)
-일관성 레벨: LOCAL_QUORUM (성능과 일관성 균형)
-```
-
-***
-
 ### 🔧 실제 구현 코드 예시
 
 #### Repository 계층
@@ -714,51 +673,6 @@ public class TimelineService {
 
 ***
 
-### 🎯 다음 단계 확장 방안
-
-#### 1. 멀티미디어 지원
-
-```java
-// 이미지/비디오가 포함된 트윗 처리
-@Column("media_urls")
-private List<String> mediaUrls;
-
-@Column("media_type") 
-private String mediaType; // IMAGE, VIDEO, GIF
-```
-
-#### 2. 실시간 알림
-
-```java
-// WebSocket + 메시지 브로커로 실시간 타임라인 업데이트
-@EventListener
-public void onTweetCreated(TweetCreatedEvent event) {
-    // Fan-out과 동시에 실시간 알림 발송
-    notificationService.notifyFollowers(event.getTweet());
-}
-```
-
-#### 3. 추천 알고리즘
-
-```java
-// 머신러닝 기반 트윗 순서 조정
-public List<TweetResponse> applyRecommendationAlgorithm(List<TweetResponse> tweets) {
-    // 사용자 관심사, 상호작용 기록 등을 고려한 순서 조정
-    return mlService.rankTweets(tweets, userPreferences);
-}
-```
-
-#### 4. 지역별 분산
-
-```java
-// 지역별 데이터센터 분산으로 레이턴시 최적화
-@Table("user_timeline_asia")
-@Table("user_timeline_americas") 
-@Table("user_timeline_europe")
-```
-
-***
-
 ### 📚 참고 자료
 
 * [Apache Cassandra 공식 문서](https://cassandra.apache.org/doc/)
@@ -770,9 +684,8 @@ public List<TweetResponse> applyRecommendationAlgorithm(List<TweetResponse> twee
 
 대규모 소셜 미디어 플랫폼의 데이터베이스 설계 원칙의 핵심은 **사용 패턴에 맞는 최적화**와 **트레이드오프의 균형.**
 
-**기억해야 할 핵심 포인트**:
+**핵심 포인트**:
 
 1. **읽기 최적화**: 자주 조회되는 데이터는 미리 계산하여 저장
 2. **쓰기 분산**: 비용과 성능을 고려한 하이브리드 전략
 3. **확장성**: 사용자 증가에 따른 유연한 아키텍처
-4. **모니터링**: 지속적인 성능 측정과 최적화

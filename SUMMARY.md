@@ -288,6 +288,8 @@
 
 ## DATABASE
 
+* [Twitter Table Structure Guide](database/twitter-table-structure-guide.md)
+* [Twitter - Cassandra, Fan out on Write](database/twitter-cassandra-fan-out-on-write.md)
 * [Enhancing Query Performance & Stability - User list](database/enhancing-query-performance-and-stability-user-list.md)
 * [Ensuring Data Consistency, Atomicity and UX Optimization (feat.Firebase)](database/ensuring-data-consistency-atomicity-and-ux-optimization-feat.firebase.md)
 * [Redis: Remote Dictionary Server](database/redis-remote-dictionary-server.md)
@@ -301,11 +303,6 @@
   * [1st Normal Form](database/normalization/1st-normal-form.md)
   * [2nd Normal Form](database/normalization/2nd-normal-form.md)
   * [3rd Normal Form](database/normalization/3rd-normal-form.md)
-
-***
-
-* [Twitter - Cassandra, Fan out on Write](twitter-cassandra-fan-out-on-write.md)
-* [Twitter Table Structure Guide](twitter-table-structure-guide.md)
 
 ## NETWORK
 
