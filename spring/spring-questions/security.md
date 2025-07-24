@@ -43,17 +43,18 @@ HTTP의 **stateless** 환경에서 **사용자 인증**과 **인가**를 처리�
 ## OAuth2란 무엇이며, 어떤 인증 방식을 제공하나요?
 
 * **제3자 서비스**가 사용자 정보를 접근할 수 있도록 허가하는 **인증 및 인가 프레임워크**
+* 백엔드 중심 구조 기준으로
 
-<mark style="color:purple;">**유저(사용자)**</mark>가 <mark style="color:green;">**클라이언트(애플리케이션)**</mark>를 통해, <mark style="color:blue;">**백엔드 서버**</mark><mark style="color:blue;">(자바 서버)</mark>, <mark style="color:red;">**서버(제3의 인증 서버, Google)**</mark>에 인증 요청을 보내는 시나리오
 
-1. <mark style="color:purple;">**유저**</mark>가 <mark style="color:green;">**클라이언트**</mark>에 로그인 요청(Google로 로그인 선택)
-2. 애플리케이션이 <mark style="color:purple;">**유저**</mark>를 제3의 <mark style="color:red;">**서버**</mark>로 리디렉션
-3. <mark style="color:purple;">**유저**</mark>가 제3의 <mark style="color:red;">**서버**</mark>에서 로그인
-4. <mark style="color:red;">**서버**</mark>는 Authorization Code를 발급후 <mark style="color:green;">**클라이언트**</mark>으로 리디렉션
-5. &#x20;<mark style="color:green;">**클라이언트**</mark>가 Authorization Code를 <mark style="color:blue;">**백엔드 서버**</mark>로 전달
-6. <mark style="color:green;">**클라이언트**</mark>가 <mark style="color:red;">**서버**</mark>로부터 AccessToken요청.
-7. <mark style="color:red;">**서버**</mark>가 <mark style="color:blue;">**백엔드 서버**</mark>에 액세스, 리프레시 토큰 전달
-8. <mark style="color:blue;">**백엔드 서버**</mark>가 AccessToken을 통해 <mark style="color:red;">**서버**</mark>에게 <mark style="color:purple;">**유저**</mark> 데이터 요청
-9. <mark style="color:blue;">**백엔드 서버**</mark>가 <mark style="color:purple;">**유저**</mark>에게 엑세스, 리프레시 토큰 전달.
-10. **이후 클라이언트는 요청을 보낼떄마다 HTTP헤더의 Authorization 필드에 포함시켜 서버로 전송**
+
+1. <mark style="color:purple;">**유저**</mark>가 애플리케이션에서 "Google로 로그인" 버튼을 클릭함
+2. <mark style="color:purple;">**유저**</mark>의 브라우저는 <mark style="color:green;">**클라이언트**</mark>에 로그인 요청을 보냄
+3. <mark style="color:green;">**클라이언트**</mark>는 <mark style="color:purple;">**유저**</mark>에게 `302 Redirect` 응답을 보내며 <mark style="color:red;">**인증서버**</mark>**로 리디렉션**
+4. <mark style="color:purple;">**유저**</mark>는 <mark style="color:red;">**인증서버**</mark>에서 로그인 및 권한 동의를 진행함
+5. <mark style="color:red;">**인증서버**</mark>는 **Authorization Code**를 <mark style="color:green;">**클라이언트**</mark>의 **redirect URI**로 리디렉션함
+6. <mark style="color:green;">**클라이언트**</mark>는 Authorization Code를 수신함
+7. <mark style="color:green;">**클라이언트**</mark>는 Authorization Code를 이용해 Google <mark style="color:red;">**인증서버**</mark>에 **Access Token, Refresh Token 요청**
+8. <mark style="color:red;">**인증서버**</mark>는 **Access Token, Refresh Token**을 <mark style="color:green;">**클라이언트**</mark>에 응답
+9. <mark style="color:green;">**클라이언트**</mark>는 Access Token을 사용해 Google API로부터 **사용자 정보를 조회**
+10. 이후 <mark style="color:purple;">**유저**</mark>는 로그인된 상태로 <mark style="color:green;">**클라이언트**</mark>와 통신함. 필요한 경우 <mark style="color:green;">**클라이언트**</mark>가 토큰을 이용해 다시 사용자 정보에 접근
 
