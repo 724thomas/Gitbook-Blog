@@ -186,6 +186,8 @@
 
 ## F-Lab
 
+* [Ecom - Ecommerce Project](f-lab/ecom-ecommerce-project/README.md)
+  * [Design and Implementation of a Dual-Lock Concurrency Control System Using Redisson and JPA Pessimist](f-lab/ecom-ecommerce-project/design-and-implementation-of-a-dual-lock-concurrency-control-system-using-redisson-and-jpa-pessimist.md)
 * [Week1](f-lab/week1/README.md)
   * [Client & Server](network/client-and-server.md)
   * [HTTP](f-lab/week1/http.md)
