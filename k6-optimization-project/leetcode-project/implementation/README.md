@@ -247,7 +247,7 @@ Content-Type: application/json
 
 #### MVP 로컬환경 인프라
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Java Application: 자바 프로젝트입니다
 * MySQL: 데이터베이스입니다.
