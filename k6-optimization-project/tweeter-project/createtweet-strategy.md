@@ -400,3 +400,9 @@ Tweet-User-Id: {userId}
 #### 비즈니스 가치
 
 * **사용자 경험 개선**: 즉시 반영되는 실시간 타임라인
+
+
+
+### 테스트코드
+
+[https://github.com/Collaborative-AI-SystemDesign/twitter-clone/pull/21](https://github.com/Collaborative-AI-SystemDesign/twitter-clone/pull/21)
