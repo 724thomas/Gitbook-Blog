@@ -165,6 +165,7 @@
 
 * [Tweeter Project](k6-optimization-project/tweeter-project/README.md)
   * [Twitter Clone System Performance Analysis Report](k6-optimization-project/tweeter-project/twitter-clone-system-performance-analysis-report.md)
+  * [CreateTweet Strategy](k6-optimization-project/tweeter-project/createtweet-strategy.md)
 * [Leetcode Project](k6-optimization-project/leetcode-project/README.md)
   * [Implementation](k6-optimization-project/leetcode-project/implementation/README.md)
     * [Requirements](k6-optimization-project/leetcode-project/implementation/requirements.md)
