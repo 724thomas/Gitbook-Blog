@@ -27,6 +27,7 @@
     * [DDD. That's not how you do it](techtalk-review/woowacon/2024/ddd.-thats-not-how-you-do-it.md)
     * [Data Concurrency Optimization with Kafka – Request-Reply Pattern](techtalk-review/woowacon/2024/data-concurrency-optimization-with-kafka-request-reply-pattern.md)
     * [Region Clustering using delvery data](techtalk-review/woowacon/2024/region-clustering-using-delvery-data.md)
+    * [Using Distributed Locks for Inventory Transfers in WMS](techtalk-review/woowacon/2024/using-distributed-locks-for-inventory-transfers-in-wms.md)
 
 ## Books
 
