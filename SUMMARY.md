@@ -295,6 +295,7 @@
 
 ## DATABASE
 
+* [Inner Join](database/inner-join.md)
 * [Twitter Table Structure Guide](database/twitter-table-structure-guide.md)
 * [Twitter - Cassandra, Fan out on Write](database/twitter-cassandra-fan-out-on-write.md)
 * [Enhancing Query Performance & Stability - User list](database/enhancing-query-performance-and-stability-user-list.md)
