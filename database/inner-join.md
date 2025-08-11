@@ -1,5 +1,17 @@
 # Inner Join
 
+## 요약
+
+* 내부 조인은 두 테이블에 공통으로 존재하는 데이터만 결과로 보여줌
+* ON 절에 명시된 연결 조건이 참이 되는 행들만 결과에 포함
+* 조인의 논리적 처리 순서는 FROM/JOIN으로 테이블을 결합하고 WHERE로 조건을 필터링한 후 SELECT로 원하는 컬럼을 선택하는 순서로 진행
+* 내부 조인에서 INNER 키워든느 생략하고 JOIN만 사용해도 된다.
+* 두 테이블 양쪽에 모두 연결고리가 있는 데이터만 결과에 포함된다
+* 한쪽 테이블만 존재하는 데이터는 조인 결과에서 제외된다.
+* 내부 조인은 테이블의 순서를 바꿔도 같은 결과를 반환한다.
+
+
+
 ## 1. 논리적 개념
 
 * INNER JOIN은 ON 조건을 만족하는 두 테이블의 행만 반환.
@@ -20,50 +32,7 @@ where o.status = 'COMPLETED';
 
 
 
-## 2. 쿼리 옵티마이저 단계
-
-1. 파싱 (Parsing)
-
-SQL 문을 구문 분석해 추상 구문 트리(AST)를 만듭니다.
-
-<details>
-
-<summary>AST(Abstract Syntax Tree. 추상 구문 트리)</summary>
-
-코드 -> 파서가 읽어서 구문적 요소를 계층 구조로 표현한 것.&#x20;
-
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-</details>
-
-2. 논리적 최적화
-   1. 조인 순서 변경
-   2. 푸시 다운: WHERE 조건이나 조인 조건을 가능한 한 빨리 적용해 데이터 양을 줄임
-3. 물리적 최적화
-   1. 어떤 조인 알고리즘을 쓸지 결정 (Nested Loop, Hash Join, Merge Join 등)
-   2. 어떤 인덱스를 사용할지 결정
-4. 실행 계획 생성 (EXPLAIN 키워드)
-
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
-
-* id: 서브쿼리 없이 하나의 SELECT 블록에서 실행
-* select\_type: 단일 SELECT 실행 계획(서브쿼리나 UNION 없이 단순 SELECT)
-* type:
-  * ALL: 풀 테이블 스캔
-  * eq\_ref: PK나 UNIQUE 인덱스를 사용해서 정확히 1건 매칭.
-* possible keys: 인덱스 후보, fk\_orders\_users, fk\_orders\_products 라는 외래키 인덱스 후보는 있지만, WHERE 조건에는 맞지 않아 사용 안됨
-* key: 현재 사용된 인덱스
-* rows:&#x20;
-  * order는 전체 스캔.
-  * users, products는 PK 검색이라 1건
-*  filtered: 필터링 후 남는 행의 비율
-* extra:
-  * Using where: where 조건 필터링 수행
-  * NULL: 추가 작업 없음
-
-
-
-## 3. 물리적 실행 방식 (조인 알고리즘)
+## 2. 물리적 실행 방식 (조인 알고리즘)
 
 1. Nested Loop Join (중첩 루프 조인)
    1. 작동 방식
@@ -96,11 +65,54 @@ SQL 문을 구문 분석해 추상 구문 트리(AST)를 만듭니다.
 
 
 
-## 4. 실행 흐름
+## 3. 실행 흐름
 
 1. orders 테이블 풀스캔: 7행 전체에서 각행에 대해 'COMPLETED' 조건 확인 후, 통과된 행만 다음 단계로 진행
 2. users 조인: o.user\_id 값으로 users 테이블을 PK 검색 (eq\_ref)
 3. products 조인: o.product\_id 값으로 products 테이블을 PK 검색 (eq\_ref)
+
+
+
+## 4. 쿼리 옵티마이저 단계
+
+1. 파싱 (Parsing)
+
+SQL 문을 구문 분석해 추상 구문 트리(AST)를 만듭니다.
+
+<details>
+
+<summary>AST(Abstract Syntax Tree. 추상 구문 트리)</summary>
+
+코드 -> 파서가 읽어서 구문적 요소를 계층 구조로 표현한 것.&#x20;
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+</details>
+
+2. 논리적 최적화
+   1. 조인 순서 변경
+   2. 푸시다운: WHERE 조건이나 조인 조건을 가능한 한 빨리 적용해 데이터 양을 줄임
+3. 물리적 최적화
+   1. 어떤 조인 알고리즘을 쓸지 결정 (Nested Loop, Hash Join, Merge Join 등)
+   2. 어떤 인덱스를 사용할지 결정
+4. 실행 계획 생성 (EXPLAIN 키워드)
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+* id: 서브쿼리 없이 하나의 SELECT 블록에서 실행
+* select\_type: 단일 SELECT 실행 계획(서브쿼리나 UNION 없이 단순 SELECT)
+* type:
+  * ALL: 풀 테이블 스캔
+  * eq\_ref: PK나 UNIQUE 인덱스를 사용해서 정확히 1건 매칭.
+* possible keys: 인덱스 후보, fk\_orders\_users, fk\_orders\_products 라는 외래키 인덱스 후보는 있지만, WHERE 조건에는 맞지 않아 사용 안됨
+* key: 현재 사용된 인덱스
+* rows:&#x20;
+  * order는 전체 스캔.
+  * users, products는 PK 검색이라 1건
+*  filtered: 필터링 후 남는 행의 비율
+* extra:
+  * Using where: where 조건 필터링 수행
+  * NULL: 추가 작업 없음
 
 
 
@@ -147,3 +159,31 @@ CREATE INDEX idx_orders_status ON orders(status);
 * **Before**: `orders` **Table scan + Filter** → 남은 4행에 대해 `users/products` **PK lookup**
 * **After**: `orders` **Index lookup(status)** → 바로 4행만 읽고 **PK lookup**\
   실제 시간 **0.05ms → 0.03ms대**로 줄었음
+
+
+
+## 7. Problems
+
+```sql
+-- problem 1
+select o.order_id, u.name as user_name, p.name as product_name, o.order_date
+from orders o
+inner join products p on o.product_id = p.product_id
+inner join users u on o.user_id = u.user_id
+where o.status = 'SHIPPED';
+
+-- problem2
+explain analyze select u.name AS user_name, p.name AS product_name, o.order_date
+from orders o
+inner join users u on o.user_id = u.user_id
+inner join products p on o.product_id = p.product_id
+where o.status = 'COMPLETED';
+
+-- problem3
+select u.name as user_name, sum(p.price * o.quantity) as total_purchase_amount
+from orders o
+inner join products p on o.product_id = p.product_id
+inner join users u on o.user_id = u.user_id
+group by u.name
+order by total_purchase_amount desc;
+```
