@@ -28,6 +28,8 @@
     * [Data Concurrency Optimization with Kafka – Request-Reply Pattern](techtalk-review/woowacon/2024/data-concurrency-optimization-with-kafka-request-reply-pattern.md)
     * [Region Clustering using delvery data](techtalk-review/woowacon/2024/region-clustering-using-delvery-data.md)
     * [Using Distributed Locks for Inventory Transfers in WMS](techtalk-review/woowacon/2024/using-distributed-locks-for-inventory-transfers-in-wms.md)
+* [Slash 24](techtalk-review/slash-24/README.md)
+  * [Stable Operation of Large-Scale User-Based MyData Service](techtalk-review/slash-24/stable-operation-of-large-scale-user-based-mydata-service.md)
 
 ## Books
 
