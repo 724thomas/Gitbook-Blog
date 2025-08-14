@@ -2,7 +2,7 @@
 description: Outer Join & 기타 Join
 ---
 
-# Outer Join & other join
+# Outer Join , other join & Experiments
 
 ## 요약
 
