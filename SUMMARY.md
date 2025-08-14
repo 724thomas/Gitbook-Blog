@@ -297,7 +297,7 @@
 
 ## DATABASE
 
-* [Outer Join & other join](database/outer-join-and-other-join.md)
+* [Outer Join , other join & Experiments](database/outer-join-other-join-and-experiments.md)
 * [Inner Join](database/inner-join.md)
 * [Twitter Table Structure Guide](database/twitter-table-structure-guide.md)
 * [Twitter - Cassandra, Fan out on Write](database/twitter-cassandra-fan-out-on-write.md)
