@@ -66,7 +66,7 @@ description: 서브 쿼리
 
 **예시 — 평균보다 비싼 상품**
 
-```
+```sql
 SELECT name, price
 FROM products
 WHERE price > (SELECT AVG(price) FROM products);
@@ -74,7 +74,7 @@ WHERE price > (SELECT AVG(price) FROM products);
 
 **예시 — 전자기기 카테고리 상품이 포함된 주문**
 
-```
+```sql
 SELECT *
 FROM orders
 WHERE product_id IN (
@@ -84,7 +84,7 @@ WHERE product_id IN (
 
 **예시 — 한 번이라도 주문된 상품만** (EXISTS, 상관)
 
-```
+```sql
 SELECT p.product_id, p.name, p.price
 FROM products p
 WHERE EXISTS (
@@ -96,7 +96,7 @@ WHERE EXISTS (
 
 **예시 — 한 번도 주문되지 않은 상품** (NOT EXISTS, 안티세미조인)
 
-```
+```sql
 SELECT p.product_id, p.name, p.price, p.stock_quantity
 FROM products p
 WHERE NOT EXISTS (
@@ -115,7 +115,7 @@ WHERE NOT EXISTS (
 
 **예시 — 모든 행에 전체 평균 열 추가(비상관)**
 
-```
+```sql
 SELECT name, price,
        (SELECT AVG(price) FROM products) AS avg_price
 FROM products;
@@ -123,7 +123,7 @@ FROM products;
 
 **예시 — 각 상품별 주문 수(상관)**
 
-```
+```sql
 SELECT p.product_id, p.name, p.price,
        (SELECT COUNT(*) FROM orders o WHERE o.product_id = p.product_id) AS order_count
 FROM products p;
@@ -138,7 +138,7 @@ FROM products p;
 
 **예시 — 부서별 평균 급여>5000 부서**
 
-```
+```sql
 SELECT t.dept_id, t.avg_sal
 FROM (
   SELECT dept_id, AVG(salary) AS avg_sal
@@ -154,7 +154,7 @@ WHERE t.avg_sal > 5000;
 
 * 그룹 집계 이후의 **그룹 필터**에 사용.
 
-```
+```sql
 SELECT dept_id, AVG(salary) AS avg_sal
 FROM employees
 GROUP BY dept_id
@@ -194,7 +194,7 @@ HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
 
 #### 4.2 대표 예시 — 카테고리 평균 이상인 상품
 
-```
+```sql
 SELECT p1.product_id, p1.name, p1.category, p1.price
 FROM products p1
 WHERE p1.price >= (
@@ -217,7 +217,7 @@ WHERE p1.price >= (
 * 상관 서브쿼리는 종종 **JOIN + GROUP BY/QUALIFY**로 치환 가능.
 * 예: “각 카테고리 평균 이상”은 윈도우 `AVG() OVER (PARTITION BY category)`로 1패스 계산.
 
-```
+```sql
 SELECT product_id, name, category, price
 FROM (
   SELECT p.*, AVG(price) OVER (PARTITION BY category) AS avg_in_cat
@@ -238,7 +238,7 @@ WHERE price >= avg_in_cat;
 
 **예시 — (user\_id, status) 1:1 비교 (단일 행)**
 
-```
+```sql
 SELECT order_id, user_id, status, order_date
 FROM orders
 WHERE (user_id, status) = (
@@ -250,7 +250,7 @@ WHERE (user_id, status) = (
 
 **예시 — (user\_id, order\_date) 다중 행 비교(IN)**
 
-```
+```sql
 SELECT o.order_id, o.user_id, o.order_date
 FROM orders o
 WHERE (o.user_id, o.order_date) IN (
@@ -262,7 +262,7 @@ WHERE (o.user_id, o.order_date) IN (
 
 **확장 — 상세 조인**
 
-```
+```sql
 SELECT o.order_id, o.user_id, u.name, p.name AS product_name, o.order_date
 FROM orders o
 JOIN users u ON u.user_id = o.user_id
@@ -343,7 +343,7 @@ WHERE (o.user_id, o.order_date) IN (
 
 #### 10.1 각 상품별 주문 수 (SELECT-상관 → JOIN 집계)
 
-```
+```sql
 SELECT p.product_id, p.name, p.price, COALESCE(cnt.order_count, 0) AS order_count
 FROM products p
 LEFT JOIN (
@@ -355,7 +355,7 @@ LEFT JOIN (
 
 #### 10.2 카테고리 평균 이상 (상관 → 윈도우)
 
-```
+```sql
 SELECT product_id, name, category, price
 FROM (
   SELECT p.*, AVG(price) OVER (PARTITION BY category) AS avg_in_cat
@@ -366,7 +366,7 @@ WHERE price >= avg_in_cat;
 
 #### 10.3 “주문된 적이 없는 상품” (NOT EXISTS → LEFT JOIN IS NULL)
 
-```
+```sql
 SELECT p.product_id, p.name, p.price
 FROM products p
 LEFT JOIN orders o ON o.product_id = p.product_id
