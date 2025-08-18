@@ -30,6 +30,7 @@
     * [Using Distributed Locks for Inventory Transfers in WMS](techtalk-review/woowacon/2024/using-distributed-locks-for-inventory-transfers-in-wms.md)
 * [Slash 24](techtalk-review/slash-24/README.md)
   * [Stable Operation of Large-Scale User-Based MyData Service](techtalk-review/slash-24/stable-operation-of-large-scale-user-based-mydata-service.md)
+  * [Safe Currency Exchange in Distributed Environments with Compensating Transactions](techtalk-review/slash-24/safe-currency-exchange-in-distributed-environments-with-compensating-transactions.md)
 
 ## Books
 
