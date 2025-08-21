@@ -280,6 +280,7 @@
 
 ## SPRING
 
+* [AOP](spring/aop.md)
 * [DIP. Dependency Inversion Principal](spring/dip.-dependency-inversion-principal.md)
 * [Ioc container, di practice](spring/ioc-container-di-practice.md)
 * [@Transactional](spring/transactional.md)
