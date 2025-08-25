@@ -31,6 +31,7 @@
 * [Slash 24](techtalk-review/slash-24/README.md)
   * [Stable Operation of Large-Scale User-Based MyData Service](techtalk-review/slash-24/stable-operation-of-large-scale-user-based-mydata-service.md)
   * [Safe Currency Exchange in Distributed Environments with Compensating Transactions](techtalk-review/slash-24/safe-currency-exchange-in-distributed-environments-with-compensating-transactions.md)
+  * [Improving Toss Securities Ranking Service Architecture with ClickHouse](techtalk-review/slash-24/improving-toss-securities-ranking-service-architecture-with-clickhouse.md)
 
 ## Books
 
