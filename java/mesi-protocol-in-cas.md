@@ -21,7 +21,7 @@ lock prefix가 붙으면 발생하는 상황:
 
 ### 1단계: CAS 시작 전 캐시 로딩
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 스레드1과 스레드2는 CAS 시작 전 캐시 로딩.
   * 캐시 메모리에 값을 올리기 전에, Bus Request라는게 발생(이는 아래서 설명)
@@ -34,7 +34,7 @@ lock prefix가 붙으면 발생하는 상황:
 
 ### 2단계: 스레드1이 CAS 수행
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 스레드1이 연산을 끝내고, lock cmpxchng \[0x1000], eax를 실행함.
 * Bus Snooping을 통해, 다른 모든 L1캐시들의 해당 값의 상태를 Invalid로 변경.
@@ -45,7 +45,7 @@ lock prefix가 붙으면 발생하는 상황:
 
 ### 3단계: 스레드2가 CAS 시도
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * CPU2는 해당 캐시라인이 없음. (쓰레드2는 CAS를 하기 위해 다시 CPU2-L1캐시에 값을 올리려고 함)
   * 캐시에 해당 주소가 없으므로, 이때, Bus Request가 발생.
@@ -59,7 +59,7 @@ lock prefix가 붙으면 발생하는 상황:
 
 ### 4단계: CPU2가 캐시라인 획득
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 CPU1 CAS가 완료되고 쓰레드1은 메모리에 연산 결과를 업데이트한 뒤, (CPU1이 Write-back 수행)
 
@@ -70,7 +70,7 @@ CPU1 CAS가 완료되고 쓰레드1은 메모리에 연산 결과를 업데이�
 
 ### 5단계: CPU2가 CAS 시도
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * CPU2에서 lock cmpxchg를 수행합니다.
 * Bus snooping 발생.

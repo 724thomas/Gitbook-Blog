@@ -109,7 +109,7 @@ export default function () {
 
 * k6 실행 결과
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 전체적으로 **지연이 다소 긴 편** (2초 내외), 일부 요청은 **10초 이상**
 
@@ -136,7 +136,7 @@ export default function () {
 
 <summary>Java Application</summary>
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -144,7 +144,7 @@ export default function () {
 
 <summary>RDS</summary>
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -152,7 +152,7 @@ export default function () {
 
 <summary>Redis, MQ</summary>
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -208,7 +208,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 #### JVM Memory
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 * Heap 메모리 여유 있음.
 * Non-Heap 안정적
