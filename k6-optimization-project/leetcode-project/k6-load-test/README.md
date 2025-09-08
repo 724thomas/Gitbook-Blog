@@ -33,9 +33,9 @@ description: k6 부하테스트 요구사항 및 초기 테스트
 
 부하 테스트를 위한 기초 클라우드 환경입니다.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * K6
   * 성능 부하 테스트를 수행.&#x20;

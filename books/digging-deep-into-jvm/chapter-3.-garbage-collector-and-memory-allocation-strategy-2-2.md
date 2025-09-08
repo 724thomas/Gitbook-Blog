@@ -2,7 +2,7 @@
 
 ## 오늘 날의 가비지 컬렉터들
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 클래식 컬렉터들과 오늘날의 컬렉터들의 가장 큰 특징은, 신세대용, 구세대용 구분이 사라졌다는 점입니다. 즉, 어떤 조합이 최선일까 하는 고민을 하지 않아도 됩니다.
 
@@ -30,7 +30,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 셰넌도어와 ZGC는 거의 모든 과정이 동시에 수행됩니다. 최초, 최종 표시에만 정지가 짧게 일어나고, 이 시간은 고정적입니다. (힙 크기와 객체 수가 많아지더라도 영향을 주지 않음)
 
@@ -48,7 +48,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 연결 행렬은 2차원 표로 이해할 수 있습니다.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 객체 A가 B를 참조하고 있으면, (5,3)에 표시를 하고, B가 C를 참조 하고 있으면 (3,1)에 표시를 합니다. 이걸 활용하여 리전 간 참조를 포함하는 리전들을 알아내게 됩니다.
 
@@ -133,9 +133,9 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 정리:
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -192,11 +192,11 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 이 부분은 CAS 기법(낙관적 락)을 사용하여 해결
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가복사 중에 사용자가 스레드가 쓰기를 시도할때,
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가 복사 중일때
 
@@ -244,7 +244,7 @@ GC 스레드가 복사 중일때
   * Mark Word에 `0b11`을 설정하고, 나머지 비트에는 **새로운 주소(New Location)** 를 저장함
   * 참조 형일때만(로드 참조 장벽으로 인해) 읽기 장벽 도입
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 이로 인해, 포인터가 사용하던 5\~10% 메모리를 활용할 수 있음. 결론적으로 10\~15% 성능 개
 
@@ -262,7 +262,7 @@ GC 스레드가 복사 중일때
 
 이때, 위 과정에서 변화하는 부분은 최상위 스택 프레임뿐 (다른 프레임들은 이미 호출이 끝났거나 다음 호출을 기다리는 중이기 때문). "위"는 **동시 실행 중인, 즉 변화 중인 구간**이라 워터마크 아래부분만 GC가 건드리게 됩니다. "아래"는 참조가 고정되어 안전하게 스캔 가능.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -277,7 +277,7 @@ GC 스레드가 복사 중일때
 * 동적으로 생성 파괴를 반복.
 * 리전의 크기도 동적으로 달라짐
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 병렬 모으기와 컬러 포인터
 
@@ -292,7 +292,7 @@ GC 스레드가 복사 중일때
 
 이때 두번째, 컬러 포인터는 객체 데이터가 필요할때를 위해 포인터 자체에 소량의 추가 정보를 직접 저장합니다.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 컬러 포인터 기술은:
 
@@ -375,7 +375,7 @@ plaintext복사편집0x0000_7FFF_FF00  ← 원래 객체 주소
 
 ### 동작 방식
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 1. 동시 표시
 

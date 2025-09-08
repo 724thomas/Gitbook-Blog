@@ -35,7 +35,7 @@ Fan-out-on-write 전략 + 배치 최적화 + 비동기 병렬 처리
 
 ### 전체 시스템 아키텍처 설계
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
