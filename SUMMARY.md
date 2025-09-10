@@ -243,6 +243,11 @@
 * [VibeCoding](ai/vibecoding/README.md)
   * [Project development using cursor & mcp](ai/vibecoding/project-development-using-cursor-and-mcp.md)
 
+## Kotlin
+
+* [Beginner Kotlin for Java Developer](kotlin/beginner-kotlin-for-java-developer/README.md)
+  * [1. Variable & Type System](kotlin/beginner-kotlin-for-java-developer/1.-variable-and-type-system.md)
+
 ## JAVA
 
 * [MESI protocol in CAS](java/mesi-protocol-in-cas.md)
