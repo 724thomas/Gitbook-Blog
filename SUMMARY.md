@@ -248,6 +248,11 @@
 * [Beginner Kotlin for Java Developer](kotlin/beginner-kotlin-for-java-developer/README.md)
   * [1. Variable & Type System](kotlin/beginner-kotlin-for-java-developer/1.-variable-and-type-system.md)
   * [2. Null-safety](kotlin/beginner-kotlin-for-java-developer/2.-null-safety.md)
+  * [3. Operators & expressions](kotlin/beginner-kotlin-for-java-developer/3.-operators-and-expressions.md)
+  * [4. if & for loop](kotlin/beginner-kotlin-for-java-developer/4.-if-and-for-loop.md)
+  * [5. Function Syntax and Usage](kotlin/beginner-kotlin-for-java-developer/5.-function-syntax-and-usage.md)
+  * [6. Classes & Inheritance](kotlin/beginner-kotlin-for-java-developer/6.-classes-and-inheritance.md)
+  * [7. Visibility & Access Modifiers](kotlin/beginner-kotlin-for-java-developer/7.-visibility-and-access-modifiers.md)
 
 ## JAVA
 
