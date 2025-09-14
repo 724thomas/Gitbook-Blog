@@ -251,8 +251,12 @@
   * [3. Operators & expressions](kotlin/beginner-kotlin-for-java-developer/3.-operators-and-expressions.md)
   * [4. if & for loop](kotlin/beginner-kotlin-for-java-developer/4.-if-and-for-loop.md)
   * [5. Function Syntax and Usage](kotlin/beginner-kotlin-for-java-developer/5.-function-syntax-and-usage.md)
-  * [6. Classes & Inheritance](kotlin/beginner-kotlin-for-java-developer/6.-classes-and-inheritance.md)
+  * [6. Classes & Ingeritance](kotlin/beginner-kotlin-for-java-developer/6.-classes-and-ingeritance.md)
   * [7. Visibility & Access Modifiers](kotlin/beginner-kotlin-for-java-developer/7.-visibility-and-access-modifiers.md)
+  * [8. Object & Singleton](kotlin/beginner-kotlin-for-java-developer/8.-object-and-singleton.md)
+  * [9. Nested & Inner Classes](kotlin/beginner-kotlin-for-java-developer/9.-nested-and-inner-classes.md)
+  * [10. Data, Enum, Sealed Classes](kotlin/beginner-kotlin-for-java-developer/10.-data-enum-sealed-classes.md)
+  * [11. Arrays & Collections](kotlin/beginner-kotlin-for-java-developer/11.-arrays-and-collections.md)
 
 ## JAVA
 
