@@ -258,6 +258,11 @@
   * [9. Nested & Inner Classes](kotlin/beginner-kotlin-for-java-developer/9.-nested-and-inner-classes.md)
   * [10. Data, Enum, Sealed Classes](kotlin/beginner-kotlin-for-java-developer/10.-data-enum-sealed-classes.md)
   * [11. Arrays & Collections](kotlin/beginner-kotlin-for-java-developer/11.-arrays-and-collections.md)
+  * [12. Lambdas & Functional Programming](kotlin/beginner-kotlin-for-java-developer/12.-lambdas-and-functional-programming.md)
+  * [13. Extension Functions & Properties](kotlin/beginner-kotlin-for-java-developer/13.-extension-functions-and-properties.md)
+  * [14. Infix, Inline, Local Functions](kotlin/beginner-kotlin-for-java-developer/14.-infix-inline-local-functions.md)
+  * [15. Generics](kotlin/beginner-kotlin-for-java-developer/15.-generics.md)
+  * [16. Exception Handling](kotlin/beginner-kotlin-for-java-developer/16.-exception-handling.md)
 
 ## JAVA
 
