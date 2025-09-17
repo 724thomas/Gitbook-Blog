@@ -180,7 +180,7 @@ description: 코틀린 치트시트
 
 
 
-## 변수를 다루는 방법
+## 변수
 
 개요
 
@@ -255,7 +255,7 @@ class CacheConfig(
 
 ***
 
-## Null을 다루는 방법
+## Null
 
 개요
 
@@ -335,7 +335,7 @@ fun toEntity(req: CreateUserRequest): User {
 
 
 
-## Type을 다루는 방법
+## Type
 
 개요
 
@@ -416,7 +416,7 @@ fun getUser(id: Long): User =
 
 
 
-## 연산자를 다루는 방법
+## 연산자
 
 개요
 
@@ -496,7 +496,7 @@ if ("b@test.com" in emails) {
 
 
 
-## 조건문을 다루는 방법
+## 조건문
 
 개요
 
@@ -582,7 +582,7 @@ fun validateAge(age: Int) {
 
 
 
-## 반복문을 다루는 방법
+## 반복문
 
 핵심 요약
 
@@ -660,7 +660,7 @@ for (order in orders) {
 
 
 
-## 예외를 다루는 방법
+## 예외
 
 개요
 
@@ -753,7 +753,7 @@ fun saveUser(user: User): Result<User> =
 
 
 
-## 함수를 다루는 방법
+## 함수
 
 개요
 
@@ -844,7 +844,7 @@ val timestamp = now()
 
 
 
-## 클래스를 다루는 방법
+## 클래스
 
 개요 & 핵심 요약
 
@@ -937,7 +937,7 @@ fun User.toDto() = UserDto(id!!, name)
 
 
 
-## 상속을 다루는 방법
+## 상속
 
 개요 & 핵심 요약
 
@@ -1030,7 +1030,7 @@ enum class Role: Privilege {
 
 
 
-## 접근 제어를 다루는 방법
+## 접근 제어
 
 개요 & 핵심 요약
 
@@ -1108,7 +1108,7 @@ class User private constructor(val id: Long) {
 
 
 
-## object 키워드를 다루는 방법
+## object 키워드
 
 개요 & 핵심 요약
 
@@ -1190,7 +1190,7 @@ class JwtTokenProvider private constructor(val secret: String) {
 
 
 
-## 중첩 클래스를 다루는 방법
+## 중첩 클래스
 
 개요 & 핵심 요약
 
@@ -1275,7 +1275,7 @@ Order(1, listOf()).Validator().validate()
 
 
 
-## 다양한 클래스를 다루는 방법 (Data, Enum, Sealed)
+## 다양한 클래스 (Data, Enum, Sealed)
 
 개요 & 핵심 요약
 
@@ -1356,7 +1356,7 @@ fun findUser(id: Long): ServiceResult<UserDto> =
 
 
 
-## 배열과 컬렉션을 다루는 방법
+## 배열과 컬렉션
 
 개요 & 핵심 요약
 
@@ -1497,7 +1497,7 @@ fun createOrder(req: OrderRequest) {
 
 
 
-## 람다를 다루는 방법
+## 람다
 
 개요 & 핵심 요약
 
@@ -1577,7 +1577,7 @@ route("/health") { req -> Response(200, "OK") }
 
 
 
-## 컬렉션을 함수형으로 다루는 방법
+## 컬렉션을 함수형으로
 
 개요 & 핵심 요약
 
