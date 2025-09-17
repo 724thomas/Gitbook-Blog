@@ -2575,7 +2575,7 @@ val user = User("Joon").also { auditService.recordCreation(it) }
 
 ***
 
-### 5) with
+5\) with
 
 #### 기본 문법 예시
 
