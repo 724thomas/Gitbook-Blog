@@ -1296,38 +1296,33 @@ Order(1, listOf()).Validator().validate()
 
 ***
 
-예시1 (기본 문법)
+📌 Data Class
 
-#### (1) Data class
+#### 🔹 기본 문법 예시
 
-```java
-// Java (record or Lombok 필요)
-public record UserDto(Long id, String name) {}
-```
+**(1) DTO 정의**
 
 ```kotlin
-// Kotlin
 data class UserDto(val id: Long, val name: String)
 ```
 
-***
-
-#### (2) Enum & Sealed
+**(2) copy & toString**
 
 ```kotlin
-enum class Role { ADMIN, USER, GUEST }
+data class Product(val id: Long, val name: String, val price: Int)
 
-sealed class ApiResult {
-    data class Success(val data: Any): ApiResult()
-    data class Error(val msg: String): ApiResult()
-}
+val p1 = Product(1, "Keyboard", 20000)
+val p2 = p1.copy(price = 25000)
+
+println(p1) // Product(id=1, name=Keyboard, price=20000)
+println(p2) // Product(id=1, name=Keyboard, price=25000)
 ```
 
 ***
 
-예시2 (실무 활용)
+#### 🔹 실무 활용 예시
 
-#### (1) DTO 변환
+**(1) 엔티티 → DTO 변환**
 
 ```kotlin
 data class UserResponse(val id: Long, val name: String)
@@ -1335,11 +1330,90 @@ data class UserResponse(val id: Long, val name: String)
 fun User.toResponse() = UserResponse(id!!, name)
 ```
 
-→ Controller에서 Entity → DTO 변환 간결화.
+→ 컨트롤러에서 Entity → DTO 변환을 간결하게 처리.
+
+**(2) API 요청/응답 직렬화**
+
+```kotlin
+data class LoginRequest(val username: String, val password: String)
+data class LoginResponse(val token: String, val expiresAt: Long)
+```
+
+→ REST API 요청/응답 모델을 직렬화/역직렬화에 활용.
 
 ***
 
-#### (2) API 응답 Wrapping
+📌 Enum Class
+
+#### 🔹 기본 문법 예시
+
+**(1) 상수 집합**
+
+```kotlin
+enum class Role { ADMIN, USER, GUEST }
+```
+
+**(2) 값 포함**
+
+```kotlin
+enum class Direction(val symbol: String) {
+    NORTH("↑"), SOUTH("↓"), EAST("→"), WEST("←")
+}
+```
+
+***
+
+#### 🔹 실무 활용 예시
+
+**(1) 권한 체크**
+
+```kotlin
+enum class Role { ADMIN, USER, GUEST }
+
+fun hasAccess(role: Role) = role == Role.ADMIN
+```
+
+**(2) 주문 상태 관리**
+
+```kotlin
+enum class OrderStatus(val isFinal: Boolean) {
+    PENDING(false), SHIPPED(false), DELIVERED(true), CANCELED(true);
+
+    fun canTransitionTo(next: OrderStatus): Boolean =
+        !this.isFinal && this != next
+}
+```
+
+***
+
+📌 Sealed Class
+
+#### 🔹 기본 문법 예시
+
+**(1) 결과 표현**
+
+```kotlin
+sealed class Result {
+    data class Success(val data: String): Result()
+    data class Error(val message: String): Result()
+}
+```
+
+**(2) 상태 표현**
+
+```kotlin
+sealed class UiState {
+    object Loading : UiState()
+    data class Content(val items: List<String>) : UiState()
+    data class Error(val cause: Throwable) : UiState()
+}
+```
+
+***
+
+#### 🔹 실무 활용 예시
+
+**(1) API 응답 Wrapping**
 
 ```kotlin
 sealed class ServiceResult<out T> {
@@ -1352,7 +1426,15 @@ fun findUser(id: Long): ServiceResult<UserDto> =
         ?: ServiceResult.Fail("Not found")
 ```
 
-→ 성공/실패를 타입으로 명확하게 구분.
+**(2) UI 상태 전이**
+
+```kotlin
+fun render(state: UiState) = when (state) {
+    UiState.Loading -> println("Loading...")
+    is UiState.Content -> println("Items: ${state.items}")
+    is UiState.Error -> println("Error: ${state.cause.message}")
+}
+```
 
 
 
