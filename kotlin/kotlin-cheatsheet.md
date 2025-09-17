@@ -2447,46 +2447,152 @@ for ((key, value) in configs) {
 
 ***
 
-예시1 (기본 문법 전/후)
+1\) let
 
-#### (1) null-safe 처리 (let)
+#### 기본 문법 예시
 
-```java
-// Java
-if (person != null) {
-    System.out.println(person.getName());
-}
+```kotlin
+val name: String? = "Joon"
+name?.let { println("Length = ${it.length}") }
 ```
 
 ```kotlin
-// Kotlin
-person?.let { println(it.name) }
+val numbers = listOf(1, 2, 3)
+numbers.map { it * 2 }.let { println("Result = $it") }
+```
+
+#### 실무 활용 예시
+
+```kotlin
+val userName = request.user?.let { it.trim() } ?: "Guest"
+```
+
+```kotlin
+val conn = dbConnection?.let { it.query("SELECT * FROM user") }
 ```
 
 ***
 
-#### (2) 객체 초기화 (apply/run)
+2\) run
 
-```java
-// Java
-User u = new User();
-u.setId(1L);
-u.setName("Joon");
+#### 기본 문법 예시
+
+```kotlin
+val strLength = "Hello".run {
+    println("Original: $this")
+    length
+}
 ```
 
 ```kotlin
-// Kotlin
+val result = run {
+    val x = 10
+    val y = 20
+    x + y
+}
+```
+
+#### 실무 활용 예시
+
+```kotlin
+val response = connection.run {
+    connect()
+    send("ping")
+    receive()
+}
+```
+
+```kotlin
+val session = run {
+    val s = Session()
+    s.open()
+    s
+}
+```
+
+***
+
+3\) apply
+
+#### 기본 문법 예시
+
+```kotlin
 val u = User().apply {
     id = 1L
     name = "Joon"
 }
 ```
 
+```kotlin
+val list = mutableListOf<Int>().apply {
+    add(1)
+    add(2)
+    add(3)
+}
+```
+
+#### 실무 활용 예시
+
+```kotlin
+val request = HttpRequest().apply {
+    method = "POST"
+    url = "/login"
+    headers["Content-Type"] = "application/json"
+}
+```
+
+```kotlin
+val builder = StringBuilder().apply {
+    append("Hello, ")
+    append("World")
+}
+```
+
 ***
 
-예시2 (실무 활용)
+4\) also
 
-#### (1) API 응답 매핑 (with)
+#### 기본 문법 예시
+
+```kotlin
+val list = mutableListOf(1, 2, 3).also { println("Init size = ${it.size}") }
+```
+
+```kotlin
+val text = "hello".also { println("Before upper = $it") }.uppercase()
+```
+
+#### 실무 활용 예시
+
+```kotlin
+val token = generateToken()
+    .also { log.info("Generated token = $it") }
+```
+
+```kotlin
+val user = User("Joon").also { auditService.recordCreation(it) }
+```
+
+***
+
+### 5) with
+
+#### 기본 문법 예시
+
+```kotlin
+val str = with(StringBuilder()) {
+    append("Hello, ")
+    append("World")
+    toString()
+}
+```
+
+```kotlin
+val person = Person("Joon", 30)
+val description = with(person) { "$name is $age years old" }
+```
+
+#### 실무 활용 예시
 
 ```kotlin
 fun toDto(user: User) = with(user) {
@@ -2494,15 +2600,8 @@ fun toDto(user: User) = with(user) {
 }
 ```
 
-→ DTO 변환 시 반복되는 `user.` 생략.
-
-***
-
-#### (2) 로깅/디버깅 (also)
-
 ```kotlin
-val token = generateToken()
-    .also { println("Generated token = $it") }
+val properties = with(envConfig) {
+    "DB: $dbUrl, Redis: $redisUrl, Kafka: $kafkaUrl"
+}
 ```
-
-→ 체이닝 중간에 값 확인용 로깅 삽입.
