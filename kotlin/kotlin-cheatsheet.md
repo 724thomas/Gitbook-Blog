@@ -954,22 +954,13 @@ fun User.toDto() = UserDto(id!!, name)
 
 ***
 
-예시1 (기본 문법)
+1️⃣ `open`
 
-#### (1) Java → Kotlin 변환
+#### 🔹 기본 문법 예시
 
-```java
-// Java
-class Animal {
-    public void sound() { System.out.println("..."); }
-}
-class Dog extends Animal {
-    @Override public void sound() { System.out.println("Woof"); }
-}
-```
+**(1) 클래스 상속 허용**
 
 ```kotlin
-// Kotlin
 open class Animal {
     open fun sound() = println("...")
 }
@@ -978,9 +969,48 @@ class Dog: Animal() {
 }
 ```
 
+**(2) 메서드 재정의 허용**
+
+```kotlin
+open class Vehicle {
+    open fun move() = println("Moving...")
+}
+class Car: Vehicle() {
+    override fun move() = println("Car moving fast")
+}
+```
+
+#### 🔹 실무 활용 예시
+
+**(1) 확장 가능한 서비스 클래스**
+
+```kotlin
+open class BaseService {
+    open fun execute() = println("Base logic")
+}
+class UserService: BaseService() {
+    override fun execute() = println("User logic")
+}
+```
+
+**(2) 테스트에서 Mocking 용이**
+
+```kotlin
+open class EmailSender {
+    open fun send(to: String) = println("Sending email to $to")
+}
+class FakeEmailSender: EmailSender() {
+    override fun send(to: String) = println("Mock send to $to")
+}
+```
+
 ***
 
-#### (2) 추상 클래스
+2️⃣ `abstract`
+
+#### 🔹 기본 문법 예시
+
+**(1) 추상 클래스**
 
 ```kotlin
 abstract class Shape {
@@ -991,42 +1021,160 @@ class Circle(val r: Double): Shape() {
 }
 ```
 
-***
+**(2) 추상 메서드 + 구현 메서드 혼합**
 
-예시2 (실무 활용)
+```kotlin
+abstract class Animal {
+    abstract fun sound(): String
+    fun info() = "I am an animal"
+}
+class Dog: Animal() {
+    override fun sound() = "Woof"
+}
+```
 
-#### (1) 서비스 계층 템플릿
+#### 🔹 실무 활용 예시
+
+**(1) 서비스 템플릿**
 
 ```kotlin
 abstract class BaseService {
     abstract fun execute()
 }
-
-class UserService: BaseService() {
-    override fun execute() { println("User Service") }
+class OrderService: BaseService() {
+    override fun execute() = println("Order executed")
 }
 ```
 
-→ 공통 템플릿을 추상화하고 서비스별 구현 제공.
+**(2) UI 컴포넌트 추상화**
+
+```kotlin
+abstract class View {
+    abstract fun render()
+}
+class Button: View() {
+    override fun render() = println("Render Button")
+}
+```
 
 ***
 
-#### (2) Enum + 인터페이스 조합
+3️⃣ `interface`
+
+#### 🔹 기본 문법 예시
+
+**(1) 단순 인터페이스**
+
+```kotlin
+interface Walkable {
+    fun walk()
+}
+class Person: Walkable {
+    override fun walk() = println("Walking...")
+}
+```
+
+**(2) default 메서드 제공**
+
+```kotlin
+interface Runnable {
+    fun run() = println("Default running...")
+}
+class Robot: Runnable
+```
+
+#### 🔹 실무 활용 예시
+
+**(1) 전략 패턴**
+
+```kotlin
+interface Payment {
+    fun pay(amount: Int)
+}
+class CardPayment: Payment {
+    override fun pay(amount: Int) = println("Pay $amount by card")
+}
+class KakaoPay: Payment {
+    override fun pay(amount: Int) = println("Pay $amount by KakaoPay")
+}
+```
+
+**(2) Enum + 인터페이스 조합**
 
 ```kotlin
 interface Privilege { fun check(): Boolean }
 
 enum class Role: Privilege {
-    ADMIN {
-        override fun check() = true
-    },
-    USER {
-        override fun check() = false
-    }
+    ADMIN { override fun check() = true },
+    USER { override fun check() = false }
 }
 ```
 
-→ 권한(Role)과 기능(Privilege)을 연결해 타입 안전하게 구현.
+***
+
+4️⃣ `override`
+
+#### 🔹 기본 문법 예시
+
+**(1) 메서드 오버라이드**
+
+```kotlin
+open class Parent {
+    open fun greet() = println("Hello from Parent")
+}
+class Child: Parent() {
+    override fun greet() = println("Hello from Child")
+}
+```
+
+**(2) 프로퍼티 오버라이드**
+
+```kotlin
+open class Animal {
+    open val sound: String = "..."
+}
+class Dog: Animal() {
+    override val sound: String = "Woof"
+}
+```
+
+#### 🔹 실무 활용 예시
+
+**(1) JPA Entity 재정의**
+
+```kotlin
+import jakarta.persistence.*
+
+@MappedSuperclass
+open class BaseEntity {
+    open val createdAt: Long = System.currentTimeMillis()
+}
+
+@Entity
+class User(
+    @Id @GeneratedValue val id: Long? = null,
+    override val createdAt: Long = System.currentTimeMillis()
+): BaseEntity()
+```
+
+**(2) 스프링 시큐리티 UserDetails 구현**
+
+```kotlin
+import org.springframework.security.core.userdetails.UserDetails
+
+class CustomUser(
+    private val username: String,
+    private val password: String
+): UserDetails {
+    override fun getUsername() = username
+    override fun getPassword() = password
+    override fun isEnabled() = true
+    override fun isAccountNonExpired() = true
+    override fun isAccountNonLocked() = true
+    override fun isCredentialsNonExpired() = true
+    override fun getAuthorities() = emptyList<GrantedAuthority>()
+}
+```
 
 
 
@@ -1523,33 +1671,34 @@ val activeTokens = tokens.filter { it.expiresAt > now() }
 
 ***
 
-예시1 (기본 문법)
+📌 Infix 함수
 
-#### (1) infix 함수
+* **중위 호출 지원** → `a to b` 처럼 DSL 스타일 문법 가능
+* **조건**: 멤버 함수/확장 함수여야 하고, **단일 파라미터만 허용**
+
+#### 🔹 기본 문법 예시
+
+**(1) Int 확장**
 
 ```kotlin
 infix fun Int.times(str: String) = str.repeat(this)
 
-val result = 3 times "Hi "   // Hi Hi Hi
+val result = 3 times "Hi "   // "Hi Hi Hi "
 ```
 
-***
-
-#### (2) inline 함수
+**(2) Pair 생성기**
 
 ```kotlin
-inline fun measureTime(block: () -> Unit) {
-    val start = System.currentTimeMillis()
-    block()
-    println("Took ${System.currentTimeMillis() - start}ms")
-}
+infix fun <A, B> A.pairWith(that: B) = Pair(this, that)
+
+val pair = "Alice" pairWith 20   // Pair("Alice", 20)
 ```
 
 ***
 
-예시2 (실무 활용)
+#### 🔹 실무 활용 예시
 
-#### (1) DSL 스타일 API (infix)
+**(1) DSL 스타일 API (권한 체크)**
 
 ```kotlin
 infix fun User.hasRole(role: Role): Boolean = role in this.roles
@@ -1559,11 +1708,109 @@ if (user hasRole Role.ADMIN) {
 }
 ```
 
-→ 보안/권한 DSL 정의.
+**(2) 컬렉션 빌더 DSL**
+
+```kotlin
+infix fun MutableList<String>.addItem(item: String) { this.add(item) }
+
+val items = mutableListOf<String>()
+items addItem "Apple"
+items addItem "Banana"
+println(items) // [Apple, Banana]
+```
 
 ***
 
-#### (2) 검증 로직 캡슐화 (local function)
+📌 Inline 함수
+
+* **함수 호출 대신 본문을 호출 지점에 삽입**
+* **람다 객체 생성/호출 오버헤드 제거** → 고차 함수 성능 최적화
+
+#### 🔹 기본 문법 예시
+
+**(1) 실행 시간 측정**
+
+```kotlin
+inline fun measureTime(block: () -> Unit) {
+    val start = System.currentTimeMillis()
+    block()
+    println("Took ${System.currentTimeMillis() - start}ms")
+}
+```
+
+**(2) repeat 실행**
+
+```kotlin
+inline fun repeatAction(n: Int, action: () -> Unit) {
+    for (i in 1..n) action()
+}
+
+repeatAction(3) { println("Hello") }
+```
+
+***
+
+#### 🔹 실무 활용 예시
+
+**(1) 안전 실행 블록**
+
+```kotlin
+inline fun <T> runCatchingOrDefault(default: T, block: () -> T): T =
+    try { block() } catch (e: Exception) { default }
+
+val result = runCatchingOrDefault(0) { "abc".toInt() }  // 0
+```
+
+**(2) 트랜잭션 처리**
+
+```kotlin
+inline fun <T> transaction(block: () -> T): T {
+    println("Begin Transaction")
+    val result = block()
+    println("Commit Transaction")
+    return result
+}
+
+transaction {
+    println("DB 작업 수행")
+}
+```
+
+***
+
+📌 Local Function
+
+* **함수 내부에 함수 정의 가능**
+* **중복 제거 및 캡슐화 강화**, 외부로 노출되지 않음
+
+#### 🔹 기본 문법 예시
+
+**(1) 간단한 중복 제거**
+
+```kotlin
+fun printUserInfo(name: String, age: Int) {
+    fun validate(value: Int, field: String) {
+        require(value > 0) { "$field must be positive" }
+    }
+    validate(age, "age")
+    println("User: $name, $age")
+}
+```
+
+**(2) 내부 전용 유틸**
+
+```kotlin
+fun calculateScore(scores: List<Int>): Int {
+    fun normalize(score: Int) = score.coerceIn(0, 100)
+    return scores.sumOf { normalize(it) }
+}
+```
+
+***
+
+#### 🔹 실무 활용 예시
+
+**(1) 검증 로직 캡슐화**
 
 ```kotlin
 fun createOrder(req: OrderRequest) {
@@ -1575,7 +1822,14 @@ fun createOrder(req: OrderRequest) {
 }
 ```
 
-→ 유효성 검증 로직을 지역 함수로 모듈화.
+**(2) 파싱 로직 분리**
+
+```kotlin
+fun parseCsvLine(line: String): List<String> {
+    fun clean(field: String) = field.trim().removeSurrounding("\"")
+    return line.split(",").map { clean(it) }
+}
+```
 
 
 
@@ -1676,58 +1930,424 @@ route("/health") { req -> Response(200, "OK") }
 
 ***
 
-예시1 (기본 문법 전/후)
+🔹 필터링
 
-#### (1) Java Stream vs Kotlin
+***
 
-```java
-// Java
-List<String> fruits = Arrays.asList("apple","banana","apple");
-long count = fruits.stream()
-                   .filter(f -> f.equals("apple"))
-                   .count();
+#### 1. `filter`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,2,3,4,5)
+val evens = nums.filter { it % 2 == 0 }     // [2,4]
 ```
 
 ```kotlin
-// Kotlin
-val fruits = listOf("apple","banana","apple")
-val count = fruits.filter { it == "apple" }.count()
+val words = listOf("apple","banana","pear")
+val aWords = words.filter { it.startsWith("a") } // ["apple"]
+```
+
+**실무 활용**
+
+```kotlin
+val users = listOf(User("A",true), User("B",false))
+val activeUsers = users.filter { it.active } // 활성 사용자만
+```
+
+```kotlin
+val orders = orderRepo.findAll()
+val expensive = orders.filter { it.amount > 10000 }
 ```
 
 ***
 
-#### (2) null-safe map
+#### 2. `filterIndexed`
+
+**기본 문법**
 
 ```kotlin
-val prices = listOf("100", "200", null, "150")
-val ints = prices.mapNotNull { it?.toIntOrNull() }
-// [100, 200, 150]
+val letters = listOf("a","b","c","d")
+val evenIndex = letters.filterIndexed { i, _ -> i % 2 == 0 } // ["a","c"]
+```
+
+```kotlin
+val nums = listOf(10,20,30)
+val gtIndex = nums.filterIndexed { i, n -> n > i*10 } // [30]
+```
+
+**실무 활용**
+
+```kotlin
+val logs = listOf("INFO","WARN","ERROR")
+val oddIndexed = logs.filterIndexed { i, _ -> i % 2 == 1 }
+```
+
+```kotlin
+val batch = items.filterIndexed { i, _ -> i < 100 } // 첫 100개 페이징
 ```
 
 ***
 
-예시2 (실무 활용)
-
-#### (1) 사용자 그룹핑
-
-```kotlin
-val users = listOf(User(1,"A"), User(2,"B"), User(3,"A"))
-val grouped = users.groupBy { it.name }
-// {"A"=[User(1,"A"), User(3,"A")], "B"=[User(2,"B")]}
-```
-
-→ DB 조회 결과를 키 기준으로 묶을 때 유용.
+🔹 매핑
 
 ***
 
-#### (2) 중첩 리스트 평탄화
+#### 3. `map`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,2,3)
+val squares = nums.map { it*it } // [1,4,9]
+```
+
+```kotlin
+val names = listOf("a","b")
+val upper = names.map { it.uppercase() } // ["A","B"]
+```
+
+**실무 활용**
+
+```kotlin
+val entities = repo.findAll()
+val dtos = entities.map { it.toDto() }
+```
+
+```kotlin
+val files = listOf("a.txt","b.txt")
+val sizes = files.map { File(it).length() }
+```
+
+***
+
+#### 4. `mapIndexed`
+
+**기본 문법**
+
+```kotlin
+val words = listOf("a","b")
+val mapped = words.mapIndexed { i, s -> "$i:$s" } // ["0:a","1:b"]
+```
+
+```kotlin
+val nums = listOf(10,20)
+val doubled = nums.mapIndexed { i,n -> i+n } // [10,21]
+```
+
+**실무 활용**
+
+```kotlin
+val items = cart.mapIndexed { i, item -> OrderLine(i+1, item) }
+```
+
+```kotlin
+val cols = header.mapIndexed { i, col -> i to col }
+```
+
+***
+
+#### 5. `mapNotNull`
+
+**기본 문법**
+
+```kotlin
+val strs = listOf("1","a","2")
+val ints = strs.mapNotNull { it.toIntOrNull() } // [1,2]
+```
+
+```kotlin
+val maybe = listOf(null,"x",null)
+val notNull = maybe.mapNotNull { it } // ["x"]
+```
+
+**실무 활용**
+
+```kotlin
+val prices = listOf("100","200",null,"abc")
+val valid = prices.mapNotNull { it?.toIntOrNull() }
+```
+
+```kotlin
+val tokens = input.split(" ").mapNotNull { parseToken(it) }
+```
+
+***
+
+🔹 조건
+
+***
+
+#### 6. `all`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(2,4,6)
+nums.all { it % 2 == 0 } // true
+```
+
+```kotlin
+val names = listOf("Ann","Amy")
+names.all { it.startsWith("A") } // true
+```
+
+**실무 활용**
+
+```kotlin
+val users = listOf(User("A",true), User("B",true))
+val allActive = users.all { it.active }
+```
+
+```kotlin
+val passwords = inputs.all { it.length >= 8 }
+```
+
+***
+
+#### 7. `any`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,2,3)
+nums.any { it > 2 } // true
+```
+
+```kotlin
+val empty = emptyList<Int>()
+empty.any() // false
+```
+
+**실무 활용**
+
+```kotlin
+val orders = orders.any { it.status == "CANCELLED" }
+```
+
+```kotlin
+val roles = user.roles.any { it == "ADMIN" }
+```
+
+***
+
+#### 8. `none`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,2,3)
+nums.none { it < 0 } // true
+```
+
+```kotlin
+val words = listOf("apple","pear")
+words.none { it.length > 10 } // true
+```
+
+**실무 활용**
+
+```kotlin
+val users = users.none { it.banned }
+```
+
+```kotlin
+val jobs = queue.none { it.isRunning }
+```
+
+***
+
+🔹 집계/정렬
+
+***
+
+#### 9. `count`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,2,2,3)
+nums.count { it==2 } // 2
+```
+
+```kotlin
+val empty = emptyList<String>()
+empty.count() // 0
+```
+
+**실무 활용**
+
+```kotlin
+val errors = logs.count { it.level=="ERROR" }
+```
+
+```kotlin
+val duplicates = data.count { it==target }
+```
+
+***
+
+#### 10. `sortedBy`
+
+**기본 문법**
+
+```kotlin
+val words = listOf("ccc","a","bb")
+words.sortedBy { it.length } // ["a","bb","ccc"]
+```
+
+```kotlin
+val nums = listOf(3,1,2)
+nums.sortedBy { it } // [1,2,3]
+```
+
+**실무 활용**
+
+```kotlin
+val players = players.sortedByDescending { it.score }
+```
+
+```kotlin
+val events = events.sortedBy { it.timestamp }
+```
+
+***
+
+#### 11. `distinctBy`
+
+**기본 문법**
+
+```kotlin
+val nums = listOf(1,1,2,2,3)
+nums.distinctBy { it } // [1,2,3]
+```
+
+```kotlin
+val users = listOf(User(1,"A"), User(2,"A"))
+users.distinctBy { it.name } // User(1,"A")
+```
+
+**실무 활용**
+
+```kotlin
+val emails = listOf("a@a.com","a@a.com","b@b.com")
+emails.distinctBy { it } // 중복 제거
+```
+
+```kotlin
+val books = repo.findAll().distinctBy { it.isbn }
+```
+
+***
+
+🔹 변환
+
+***
+
+#### 12. `groupBy`
+
+**기본 문법**
+
+```kotlin
+val words = listOf("a","bb","ccc","dd")
+words.groupBy { it.length }
+// {1=["a"],2=["bb","dd"],3=["ccc"]}
+```
+
+```kotlin
+val nums = listOf(1,2,3,4)
+nums.groupBy { it%2 } // {1=[1,3],0=[2,4]}
+```
+
+**실무 활용**
+
+```kotlin
+val users = users.groupBy { it.department }
+```
+
+```kotlin
+val orders = orders.groupBy { it.customerId }
+```
+
+***
+
+#### 13. `associateBy`
+
+**기본 문법**
+
+```kotlin
+val users = listOf(User(1,"A"), User(2,"B"))
+val map = users.associateBy { it.id } 
+// {1=User(1,"A"),2=User(2,"B")}
+```
+
+```kotlin
+val strs = listOf("apple","banana")
+val map = strs.associateBy { it.first() }
+// {a="apple", b="banana"}
+```
+
+**실무 활용**
+
+```kotlin
+val books = books.associateBy { it.isbn }
+```
+
+```kotlin
+val sessions = sessions.associateBy { it.token }
+```
+
+***
+
+#### 14. `flatMap`
+
+**기본 문법**
+
+```kotlin
+val nested = listOf(listOf(1,2), listOf(3))
+nested.flatMap { it } // [1,2,3]
+```
+
+```kotlin
+val strs = listOf("ab","cd")
+val chars = strs.flatMap { it.toList() } // [a,b,c,d]
+```
+
+**실무 활용**
+
+```kotlin
+val companies = companies.flatMap { it.employees }
+```
+
+```kotlin
+val orders = orders.flatMap { it.items }
+```
+
+***
+
+#### 15. `flatten`
+
+**기본 문법**
 
 ```kotlin
 val nested = listOf(listOf(1,2), listOf(3,4))
-val flat = nested.flatten() // [1,2,3,4]
+nested.flatten() // [1,2,3,4]
 ```
 
-→ 다단계 구조 데이터를 단일 리스트로 변환할 때 활용.
+```kotlin
+val nestedStr = listOf(listOf("a","b"), listOf("c"))
+nestedStr.flatten() // ["a","b","c"]
+```
+
+**실무 활용**
+
+```kotlin
+val menu = listOf(category1.items, category2.items).flatten()
+```
+
+```kotlin
+val permissions = roles.map { it.permissions }.flatten()
+```
 
 
 
