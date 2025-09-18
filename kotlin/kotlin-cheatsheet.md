@@ -678,78 +678,183 @@ for (order in orders) {
 
 ***
 
-예시1 (기본 문법)
+### 1. Checked Exception 없음
 
-#### (1) Java → Kotlin 전환
+#### 기본 문법 예시
 
-```java
-// Java
-try {
-    riskyOperation();
-} catch (IOException e) {
-    return -1;
-} finally {
-    System.out.println("done");
+```kotlin
+// Kotlin - throws 선언 필요 없음
+fun readFile(path: String): String {
+    throw IOException("File not found")
 }
 ```
 
 ```kotlin
-// Kotlin
-val result: Int = try {
-    riskyOperation()
+// Kotlin - try 블록에서 바로 예외 발생 가능
+val text = try {
+    readFile("data.txt")
 } catch (e: IOException) {
+    "default"
+}
+```
+
+#### 실무 활용 예시
+
+```kotlin
+// JPA save에서 SQLException 발생 가능
+fun saveUser(user: User): User {
+    return repo.save(user) // throws 선언 필요 없음
+}
+```
+
+```kotlin
+// 외부 API 호출
+fun callApi(): String {
+    val response = httpClient.get("https://api.test.com") 
+    if (!response.isSuccessful) throw RuntimeException("API Error")
+    return response.body
+}
+```
+
+***
+
+### 2. try/catch/finally (표현식)
+
+#### 기본 문법 예시
+
+```kotlin
+val number = try {
+    "123".toInt()
+} catch (e: NumberFormatException) {
+    0
+}
+```
+
+```kotlin
+val result = try {
+    riskyOperation()
+} catch (e: Exception) {
     -1
 } finally {
-    println("done")
+    println("always runs")
+}
+```
+
+#### 실무 활용 예시
+
+```kotlin
+val fileContent = try {
+    Files.readString(Paths.get("config.yaml"))
+} catch (e: IOException) {
+    logger.error("Failed to load config", e)
+    "{}"
+}
+```
+
+```kotlin
+val json = try {
+    objectMapper.writeValueAsString(dto)
+} catch (e: Exception) {
+    "{}"
 }
 ```
 
 ***
 
-#### (2) Checked Exception 차이
+### 3. runCatching
 
-```java
-// Java - 반드시 throws 선언 필요
-public String readFile(String path) throws IOException {
-    ...
-}
+#### 기본 문법 예시
+
+```kotlin
+val result = runCatching { "123".toInt() }
+println(result.getOrDefault(0))
 ```
 
 ```kotlin
-// Kotlin - throws 불필요
-fun readFile(path: String): String {
-    throw IOException("fail")
-}
+val res = runCatching { riskyOperation() }
+    .onSuccess { println("ok: $it") }
+    .onFailure { println("error: ${it.message}") }
 ```
 
-***
-
-예시2 (실무 활용)
-
-#### (1) API 응답 Wrapping
+#### 실무 활용 예시
 
 ```kotlin
-fun <T> handle(block: () -> T): ApiResponse<T> =
+fun <T> safe(block: () -> T): Result<T> =
     runCatching { block() }
-        .fold(
-            onSuccess = { ApiResponse.success(it) },
-            onFailure = { ApiResponse.error(it.message ?: "Unknown") }
-        )
+
+val res = safe { service.getUser(1) }
 ```
 
-→ 서비스 로직의 성공/실패를 API 응답으로 감싸는 패턴.
+```kotlin
+val user = runCatching { repo.findById(1) }
+    .getOrElse { throw BusinessException("User not found") }
+```
 
 ***
 
-#### (2) 트랜잭션 처리
+### 4. Result\<T>
+
+#### 기본 문법 예시
 
 ```kotlin
-@Transactional
-fun saveUser(user: User): Result<User> =
-    runCatching { repo.save(user) }
+val success: Result<Int> = Result.success(42)
+val failure: Result<Int> = Result.failure(Exception("Oops"))
 ```
 
-→ DB 트랜잭션 실행 시 예외를 `Result`로 감싸 안전하게 반환.
+```kotlin
+val res = Result.runCatching { "abc".toInt() }
+println(res.getOrElse { -1 })
+```
+
+#### 실무 활용 예시
+
+```kotlin
+fun loadUser(id: Long): Result<User> =
+    Result.runCatching { repo.findById(id)!! }
+```
+
+```kotlin
+val output = service.loadConfig()
+    .fold(
+        onSuccess = { "Config loaded: $it" },
+        onFailure = { "Fallback config" }
+    )
+```
+
+***
+
+### 5. 사용자 정의 예외 (RuntimeException 상속)
+
+#### 기본 문법 예시
+
+```kotlin
+class InvalidAgeException(message: String) : RuntimeException(message)
+
+fun validate(age: Int) {
+    if (age < 0) throw InvalidAgeException("Age cannot be negative")
+}
+```
+
+```kotlin
+class AuthenticationException: RuntimeException("Invalid credentials")
+```
+
+#### 실무 활용 예시
+
+```kotlin
+class BusinessException(val code: String, msg: String) : RuntimeException(msg)
+
+fun findUser(id: Long): User =
+    repo.findById(id) ?: throw BusinessException("USER_NOT_FOUND", "User $id not found")
+```
+
+```kotlin
+class TokenExpiredException: RuntimeException("JWT expired")
+
+fun validateToken(token: String) {
+    if (jwt.isExpired(token)) throw TokenExpiredException()
+}
+```
 
 
 
