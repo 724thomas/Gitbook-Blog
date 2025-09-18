@@ -678,7 +678,7 @@ for (order in orders) {
 
 ***
 
-### 1. Checked Exception 없음
+1\. Checked Exception 없음
 
 #### 기본 문법 예시
 
@@ -718,7 +718,7 @@ fun callApi(): String {
 
 ***
 
-### 2. try/catch/finally (표현식)
+2\. try/catch/finally (표현식)
 
 #### 기본 문법 예시
 
@@ -761,7 +761,7 @@ val json = try {
 
 ***
 
-### 3. runCatching
+3\. runCatching
 
 #### 기본 문법 예시
 
@@ -792,7 +792,7 @@ val user = runCatching { repo.findById(1) }
 
 ***
 
-### 4. Result\<T>
+4\. Result\<T>
 
 #### 기본 문법 예시
 
@@ -823,7 +823,7 @@ val output = service.loadConfig()
 
 ***
 
-### 5. 사용자 정의 예외 (RuntimeException 상속)
+5\. 사용자 정의 예외 (RuntimeException 상속)
 
 #### 기본 문법 예시
 
