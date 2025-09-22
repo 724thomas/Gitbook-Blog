@@ -2710,3 +2710,313 @@ val properties = with(envConfig) {
     "DB: $dbUrl, Redis: $redisUrl, Kafka: $kafkaUrl"
 }
 ```
+
+
+
+## 배열
+
+* **Array\<Array\<T>>**
+  * 크기가 고정됨.
+  * 자바와의 호환성 필요할 때 유리.
+  * 예: 그래프 인접 행렬, 게임 보드.
+* **MutableList\<MutableList\<T>>**
+  * 크기 가변적.
+  * 행/열 추가·삭제가 쉬움.
+  * 예: 테이블 데이터, 동적 좌석 예약.
+
+📌 2차원 배열/리스트 정리
+
+1️⃣ 기본 예시 (Array 기반)
+
+#### 예시 1: 고정 크기 배열
+
+```kotlin
+val arr = Array(3) { IntArray(4) }
+arr[0][1] = 42
+println(arr[0][1]) // 42
+```
+
+#### 예시 2: 초기값 채워넣기
+
+```kotlin
+val matrix = Array(2) { row -> IntArray(3) { col -> row + col } }
+// [[0,1,2], [1,2,3]]
+```
+
+***
+
+2️⃣ 기본 예시 (MutableList 기반)
+
+#### 예시 1: 고정 크기 + 값 변경
+
+```kotlin
+val list2D: MutableList<MutableList<Int>> = MutableList(3) { MutableList(4) { 0 } }
+list2D[1][2] = 99
+println(list2D)
+// [[0,0,0,0],[0,0,99,0],[0,0,0,0]]
+```
+
+#### 예시 2: 행/열 자유롭게 추가
+
+```kotlin
+val jagged = mutableListOf(
+    mutableListOf(1, 2),
+    mutableListOf(3, 4, 5)
+)
+jagged.add(mutableListOf(6, 7, 8, 9)) // 새 행 추가
+jagged[0].add(99) // 열 추가
+println(jagged)
+// [[1,2,99],[3,4,5],[6,7,8,9]]
+```
+
+***
+
+3️⃣ 실전 예시 (Array 기반)
+
+#### 예시 1: 게임 보드 초기화
+
+```kotlin
+val board = Array(5) { CharArray(5) { '.' } }
+// 출력: 5x5 '.' 문자로 채워진 보드
+```
+
+#### 예시 2: 인접 행렬 (그래프 표현)
+
+```kotlin
+val n = 4
+val adjMatrix = Array(n) { IntArray(n) }
+// 간선 추가
+adjMatrix[0][1] = 1
+adjMatrix[1][2] = 1
+```
+
+***
+
+4️⃣ 실전 예시 (MutableList 기반)
+
+#### 예시 1: 가변적인 좌석 예약 시스템
+
+```kotlin
+val seats = MutableList(3) { MutableList(4) { false } }
+seats[1][2] = true // 특정 좌석 예약
+println(seats)
+// [[false,false,false,false],[false,false,true,false],[false,false,false,false]]
+```
+
+#### 예시 2: 다차원 데이터 테이블
+
+```kotlin
+val table = mutableListOf(
+    mutableListOf("ID", "Name", "Age"),
+    mutableListOf("1", "Alice", "23"),
+    mutableListOf("2", "Bob", "30")
+)
+table.add(mutableListOf("3", "Charlie", "28")) // 행 추가
+println(table)
+```
+
+
+
+## 중첩 컬렉션
+
+1️⃣ List → Map (`List<Map<K,V>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val listOfMaps = listOf(
+    mapOf("a" to 1, "b" to 2),
+    mapOf("x" to 10, "y" to 20)
+)
+
+val mutableListOfMaps = mutableListOf(
+    mutableMapOf("id" to 1, "name" to "Alice"),
+    mutableMapOf("id" to 2, "name" to "Bob")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// API 응답 JSON 배열
+val responses: List<Map<String, Any>> = listOf(
+    mapOf("id" to 1, "name" to "Alice"),
+    mapOf("id" to 2, "name" to "Bob")
+)
+
+// 쇼핑몰 주문 목록
+val orders: List<Map<String, Any>> = listOf(
+    mapOf("orderId" to "O1001", "price" to 15000),
+    mapOf("orderId" to "O1002", "price" to 25000)
+)
+```
+
+***
+
+2️⃣ List → Set (`List<Set<T>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val listOfSets = listOf(
+    setOf(1, 2, 3),
+    setOf(4, 5, 6)
+)
+
+val mutableListOfSets = mutableListOf(
+    mutableSetOf("a", "b"),
+    mutableSetOf("c", "d")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// 사용자별 태그
+val userTags: List<Set<String>> = listOf(
+    setOf("kotlin", "java"),
+    setOf("spring", "redis")
+)
+
+// 대회 참가자 그룹
+val contestGroups: List<Set<String>> = listOf(
+    setOf("Alice", "Bob"),
+    setOf("Charlie", "David")
+)
+```
+
+***
+
+3️⃣ Map → List (`Map<K, List<V>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val mapOfLists = mapOf(
+    "numbers" to listOf(1, 2, 3),
+    "letters" to listOf("a", "b", "c")
+)
+
+val mutableMapOfLists = mutableMapOf(
+    "group1" to mutableListOf("A", "B"),
+    "group2" to mutableListOf("C", "D")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// 학생별 성적
+val studentScores: Map<String, List<Int>> = mapOf(
+    "Alice" to listOf(90, 85, 100),
+    "Bob" to listOf(70, 80, 75)
+)
+
+// 카테고리별 상품
+val categories: Map<String, List<String>> = mapOf(
+    "Fruits" to listOf("Apple", "Banana"),
+    "Drinks" to listOf("Water", "Juice")
+)
+```
+
+***
+
+4️⃣ Map → Set (`Map<K, Set<V>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val mapOfSets = mapOf(
+    "fruits" to setOf("apple", "banana"),
+    "animals" to setOf("dog", "cat")
+)
+
+val mutableMapOfSets = mutableMapOf(
+    "numbers" to mutableSetOf(1, 2, 3),
+    "letters" to mutableSetOf("a", "b")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// 사용자별 권한
+val userRoles: Map<String, Set<String>> = mapOf(
+    "admin" to setOf("READ", "WRITE", "DELETE"),
+    "user" to setOf("READ")
+)
+
+// 부서별 직원
+val departmentEmployees: Map<String, Set<String>> = mapOf(
+    "IT" to setOf("Alice", "Bob"),
+    "HR" to setOf("Charlie", "David")
+)
+```
+
+***
+
+5️⃣ Set → Map (`Set<Map<K,V>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val setOfMaps = setOf(
+    mapOf("x" to 1),
+    mapOf("y" to 2)
+)
+
+val mutableSetOfMaps = mutableSetOf(
+    mutableMapOf("id" to 1, "name" to "Alice"),
+    mutableMapOf("id" to 2, "name" to "Bob")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// 권한 조합
+val rolePermissions: Set<Map<String, Boolean>> = setOf(
+    mapOf("READ" to true, "WRITE" to false),
+    mapOf("READ" to true, "WRITE" to true)
+)
+
+// API 옵션 세트
+val apiOptions: Set<Map<String, Any>> = setOf(
+    mapOf("timeout" to 1000, "retry" to 3),
+    mapOf("timeout" to 2000, "retry" to 5)
+)
+```
+
+***
+
+6️⃣ Set → List (`Set<List<T>>`)
+
+#### ✅ 기본 예시
+
+```kotlin
+val setOfLists = setOf(
+    listOf(1, 2),
+    listOf(3, 4)
+)
+
+val mutableSetOfLists = mutableSetOf(
+    mutableListOf("a", "b"),
+    mutableListOf("c", "d")
+)
+```
+
+#### 💡 실전 예시
+
+```kotlin
+// 좌석 조합
+val seatGroups: Set<List<String>> = setOf(
+    listOf("A1", "A2"),
+    listOf("B1", "B2")
+)
+
+// 시험 문제 세트
+val examVariants: Set<List<Int>> = setOf(
+    listOf(1, 2, 3, 4),
+    listOf(5, 6, 7, 8)
+)
+```
