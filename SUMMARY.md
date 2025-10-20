@@ -28,12 +28,13 @@
     * [Data Concurrency Optimization with Kafka – Request-Reply Pattern](techtalk-review/woowacon/2024/data-concurrency-optimization-with-kafka-request-reply-pattern.md)
     * [Region Clustering using delvery data](techtalk-review/woowacon/2024/region-clustering-using-delvery-data.md)
     * [Using Distributed Locks for Inventory Transfers in WMS](techtalk-review/woowacon/2024/using-distributed-locks-for-inventory-transfers-in-wms.md)
-* [Slash 24](techtalk-review/slash-24/README.md)
-  * [Stable Operation of Large-Scale User-Based MyData Service](techtalk-review/slash-24/stable-operation-of-large-scale-user-based-mydata-service.md)
-  * [Safe Currency Exchange in Distributed Environments with Compensating Transactions](techtalk-review/slash-24/safe-currency-exchange-in-distributed-environments-with-compensating-transactions.md)
-  * [Improving Toss Securities Ranking Service Architecture with ClickHouse](techtalk-review/slash-24/improving-toss-securities-ranking-service-architecture-with-clickhouse.md)
-  * [Eliminating Unnecessary Polling with SSE (Server-Sent Events) Push](techtalk-review/slash-24/eliminating-unnecessary-polling-with-sse-server-sent-events-push.md)
-  * [Next Core Banking: Opening the Era of Lifetime Free Currency Exchange with MSA and MySQL](techtalk-review/slash-24/next-core-banking-opening-the-era-of-lifetime-free-currency-exchange-with-msa-and-mysql.md)
+* [Slash(toss)](techtalk-review/slash-toss/README.md)
+  * [Stable Operation of Large-Scale User-Based MyData Service](techtalk-review/slash-toss/stable-operation-of-large-scale-user-based-mydata-service.md)
+  * [Safe Currency Exchange in Distributed Environments with Compensating Transactions](techtalk-review/slash-toss/safe-currency-exchange-in-distributed-environments-with-compensating-transactions.md)
+  * [Improving Toss Securities Ranking Service Architecture with ClickHouse](techtalk-review/slash-toss/improving-toss-securities-ranking-service-architecture-with-clickhouse.md)
+  * [Eliminating Unnecessary Polling with SSE (Server-Sent Events) Push](techtalk-review/slash-toss/eliminating-unnecessary-polling-with-sse-server-sent-events-push.md)
+  * [Next Core Banking: Opening the Era of Lifetime Free Currency Exchange with MSA and MySQL](techtalk-review/slash-toss/next-core-banking-opening-the-era-of-lifetime-free-currency-exchange-with-msa-and-mysql.md)
+  * [This is how toss use Gateway](techtalk-review/slash-toss/this-is-how-toss-use-gateway.md)
 
 ## Books
 
