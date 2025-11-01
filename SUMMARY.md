@@ -148,6 +148,7 @@
   * [Chapter 8. Bytecode Executor Engine (1/2)](books/digging-deep-into-jvm/chapter-8.-bytecode-executor-engine-1-2.md)
 * [The Pragmatic Programmer](books/the-pragmatic-programmer/README.md)
   * [#1 Pragmatic Philosophy](books/the-pragmatic-programmer/1-pragmatic-philosophy.md)
+  * [#2 Pragmatic Approach](books/the-pragmatic-programmer/2-pragmatic-approach.md)
 
 ## Interview Practices
 
