@@ -146,6 +146,8 @@
   * [Chapter 5. Optimization Practice](books/digging-deep-into-jvm/chapter-5.-optimization-practice.md)
   * [Chapter 6. Class file structure](books/digging-deep-into-jvm/chapter-6.-class-file-structure.md)
   * [Chapter 8. Bytecode Executor Engine (1/2)](books/digging-deep-into-jvm/chapter-8.-bytecode-executor-engine-1-2.md)
+* [The Pragmatic Programmer](books/the-pragmatic-programmer/README.md)
+  * [#1 Pragmatic Philosophy](books/the-pragmatic-programmer/1-pragmatic-philosophy.md)
 
 ## Interview Practices
 
