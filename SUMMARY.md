@@ -35,6 +35,8 @@
   * [Eliminating Unnecessary Polling with SSE (Server-Sent Events) Push](techtalk-review/slash-toss/eliminating-unnecessary-polling-with-sse-server-sent-events-push.md)
   * [Next Core Banking: Opening the Era of Lifetime Free Currency Exchange with MSA and MySQL](techtalk-review/slash-toss/next-core-banking-opening-the-era-of-lifetime-free-currency-exchange-with-msa-and-mysql.md)
   * [This is how toss use Gateway](techtalk-review/slash-toss/this-is-how-toss-use-gateway.md)
+* [Dangeun Tech](techtalk-review/dangeun-tech/README.md)
+  * [On call. Alarm is killing me](techtalk-review/dangeun-tech/on-call.-alarm-is-killing-me.md)
 
 ## Books
 
