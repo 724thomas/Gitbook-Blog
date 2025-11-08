@@ -152,6 +152,7 @@
   * [#1 Pragmatic Philosophy](books/the-pragmatic-programmer/1-pragmatic-philosophy.md)
   * [#2 Pragmatic Approach](books/the-pragmatic-programmer/2-pragmatic-approach.md)
   * [#3 Basic Tools](books/the-pragmatic-programmer/3-basic-tools.md)
+  * [#4 Pragmatic Paranoia](books/the-pragmatic-programmer/4-pragmatic-paranoia.md)
 
 ## Interview Practices
 
