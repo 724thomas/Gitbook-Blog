@@ -37,6 +37,7 @@
   * [This is how toss use Gateway](techtalk-review/slash-toss/this-is-how-toss-use-gateway.md)
 * [Dangeun Tech](techtalk-review/dangeun-tech/README.md)
   * [On call. Alarm is killing me](techtalk-review/dangeun-tech/on-call.-alarm-is-killing-me.md)
+  * [The Kafka Newbie’s Migration](techtalk-review/dangeun-tech/the-kafka-newbies-migration.md)
 
 ## Books
 
