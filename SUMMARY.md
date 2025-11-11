@@ -154,6 +154,7 @@
   * [#2 Pragmatic Approach](books/the-pragmatic-programmer/2-pragmatic-approach.md)
   * [#3 Basic Tools](books/the-pragmatic-programmer/3-basic-tools.md)
   * [#4 Pragmatic Paranoia](books/the-pragmatic-programmer/4-pragmatic-paranoia.md)
+  * [#5 Bend, or Break](books/the-pragmatic-programmer/5-bend-or-break.md)
 
 ## Interview Practices
 
