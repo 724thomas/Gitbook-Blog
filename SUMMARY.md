@@ -2,6 +2,11 @@
 
 * [README](README.md)
 
+## Trustay
+
+* [Documentation](trustay/documentation/README.md)
+  * [channel notification display time design](trustay/documentation/channel-notification-display-time-design.md)
+
 ## ALGORITHM
 
 * [Sieve of Eratosthenes](algorithm/sieve-of-eratosthenes.md)
@@ -200,9 +205,6 @@
     * [JPA: OSIV](k6-optimization-project/leetcode-project/troubleshooting/jpa-osiv.md)
     * [RabbitMq: ackMode = None](k6-optimization-project/leetcode-project/troubleshooting/rabbitmq-ackmode-none.md)
     * [Throughput beyond # vCPU](k6-optimization-project/leetcode-project/troubleshooting/throughput-beyond-vcpu.md)
-* Trustay
-  * [Documentation](k6-optimization-project/trustay/documentation/README.md)
-    * [channel notification display time design](k6-optimization-project/trustay/documentation/channel-notification-display-time-design.md)
 
 ## F-Lab
 
