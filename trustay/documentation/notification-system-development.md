@@ -4,7 +4,7 @@ description: 알림 시스템 개발
 
 # Notification System Development
 
-## Notification & Push 개발 회고 보고서
+## Notification & Push 개발
 
 ### 문서 정보
 
