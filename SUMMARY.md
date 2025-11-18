@@ -7,6 +7,7 @@
 * [Documentation](trustay/documentation/README.md)
   * [Notification System Development](trustay/documentation/notification-system-development.md)
   * [channel notification display time design](trustay/documentation/channel-notification-display-time-design.md)
+  * [Page 1](trustay/documentation/page-1.md)
 
 ## ALGORITHM
 
