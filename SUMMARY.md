@@ -8,6 +8,7 @@
   * [Notification System Development](trustay/documentation/notification-system-development.md)
   * [channel notification display time design](trustay/documentation/channel-notification-display-time-design.md)
   * [PreRegistration](trustay/documentation/preregistration.md)
+  * [Git Branch Contamination & Recovery Case Study Report](trustay/documentation/git-branch-contamination-and-recovery-case-study-report.md)
 
 ## ALGORITHM
 
