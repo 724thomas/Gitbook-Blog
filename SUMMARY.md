@@ -164,6 +164,7 @@
   * [#4 Pragmatic Paranoia](books/the-pragmatic-programmer/4-pragmatic-paranoia.md)
   * [#5 Bend, or Break](books/the-pragmatic-programmer/5-bend-or-break.md)
   * [#6 Concurrency](books/the-pragmatic-programmer/6-concurrency.md)
+  * [#7 While You Are Coding](books/the-pragmatic-programmer/7-while-you-are-coding.md)
 
 ## Interview Practices
 
