@@ -2,7 +2,7 @@
 
 [https://youtu.be/ovGgdPPUZ2I?si=4VC6c6ncNmcn5gbh](https://youtu.be/ovGgdPPUZ2I?si=4VC6c6ncNmcn5gbh)
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ## 요약
 
@@ -12,14 +12,14 @@
 
 ### 1. 배경
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 준 실시간성으로 계좌 정보를 가져오기 위해 Polling 방식으로 구성
 * 사용자 증가 → Polling 방식이 부담 (CPU 50% 이상)
 
 ### 2. 해결
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 계좌 API를 요청할때 재조회 이벤트가 요청이 있을때만 호출.
 
