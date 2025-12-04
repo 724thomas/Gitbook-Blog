@@ -2,7 +2,7 @@
 
 ## 오늘 날의 가비지 컬렉터들
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 클래식 컬렉터들과 오늘날의 컬렉터들의 가장 큰 특징은, 신세대용, 구세대용 구분이 사라졌다는 점입니다. 즉, 어떤 조합이 최선일까 하는 고민을 하지 않아도 됩니다.
 
@@ -30,7 +30,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 셰넌도어와 ZGC는 거의 모든 과정이 동시에 수행됩니다. 최초, 최종 표시에만 정지가 짧게 일어나고, 이 시간은 고정적입니다. (힙 크기와 객체 수가 많아지더라도 영향을 주지 않음)
 
@@ -48,7 +48,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 연결 행렬은 2차원 표로 이해할 수 있습니다.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 객체 A가 B를 참조하고 있으면, (5,3)에 표시를 하고, B가 C를 참조 하고 있으면 (3,1)에 표시를 합니다. 이걸 활용하여 리전 간 참조를 포함하는 리전들을 알아내게 됩니다.
 
@@ -192,11 +192,11 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 이 부분은 CAS 기법(낙관적 락)을 사용하여 해결
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가복사 중에 사용자가 스레드가 쓰기를 시도할때,
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가 복사 중일때
 

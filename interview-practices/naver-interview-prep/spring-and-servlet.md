@@ -16,8 +16,7 @@ DispatcherServlet이 요청을 받은 후 내부적으로 어떤 흐름으로 �
 
 Client → Filter → DispatcherServlet →\
 HandlerMapping → HandlerAdapter → Controller →\
-ModelAndView → ViewResolver → View → Response\
-
+ModelAndView → ViewResolver → View → Response<br>
 
 * Filter: 서블릿 컨테이너 레벨의 전처리
 * Interceptor: Spring Handler 전/후 처리

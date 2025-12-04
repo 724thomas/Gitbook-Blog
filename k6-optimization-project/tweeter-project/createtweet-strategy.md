@@ -6,8 +6,7 @@ description: CreateTweet 전략 분석 보고서
 
 ### 개요
 
-**TweetServiceAdvanced.java**에 구현된 Fan-out-on-write 전략의 핵심 최적화 기법들을 중심으로 대규모 SNS 시스템에서 **트윗 생성(CreateTweet)** 기능의 구현 전략을 구현했습니다. \
-
+**TweetServiceAdvanced.java**에 구현된 Fan-out-on-write 전략의 핵심 최적화 기법들을 중심으로 대규모 SNS 시스템에서 **트윗 생성(CreateTweet)** 기능의 구현 전략을 구현했습니다. <br>
 
 **구현 언어**: Java 17 + Spring Boot 3.x \
 **데이터베이스**: Apache Cassandra (NoSQL), MySQL (RDB) \

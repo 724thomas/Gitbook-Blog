@@ -512,6 +512,7 @@
 ## INFRA
 
 * [BFF & Front Server](infra/bff-and-front-server.md)
+* [What is ArgoCD](infra/what-is-argocd.md)
 
 ## AWS
 
