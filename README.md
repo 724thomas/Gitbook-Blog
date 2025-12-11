@@ -1,5 +1,5 @@
 ---
-description: I decode the enigma of technology, one blog post at a time.
+description: I decode the enigma of technology, one blog post at a time
 ---
 
 # README
