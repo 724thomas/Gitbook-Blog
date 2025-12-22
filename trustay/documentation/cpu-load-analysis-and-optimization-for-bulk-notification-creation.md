@@ -4,7 +4,22 @@ description: 전체 알림 생성시 CPU 부하 해결 과정
 
 # CPU Load Analysis and Optimization for Bulk Notification Creation
 
-## 콘솔 푸시 체크 사항
+콘솔 전체 알림 + 푸시 생성, 발송 과정에서 DB CPU가 100%까지 올라가는 문제가 발생했습니다.
+
+<figure><img src="../../.gitbook/assets/image (458).png" alt=""><figcaption></figcaption></figure>
+
+다른 서비스에서도 DB를 공유하고 있기때문에, 문제가 커지게됩니다.
+
+문제는 크게 2가지였는데,
+
+* 위치 기반 쿼리 효율성
+* 알림 생성/소비 과정에서의 효율성
+
+
+
+우선적으로 급히 사용해야하는 알림 생성/소비 과정에서의 효율성을 해결하려고 했습니다.
+
+
 
 ## Notification - read에 문제가 없는지 확인한다.
 
