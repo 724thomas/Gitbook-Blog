@@ -23,9 +23,7 @@ description: 리더보드 조회 API 최적화
 <summary>MySQL 인덱스 동작 원리</summary>
 
 * 단일 컬럼 인덱스(`contest_id`)만으로는 정렬 조건(`score DESC`)이 인덱스에 포함되지 않아 filesort 단계가 발생.
-
-- `contest_id`와 `score DESC`를 함께 포함한 복합 인덱스를 사용하면 정렬 작업을 인덱스 레벨에서 해결하여 정렬 비용을 줄이고 성능을 향상시킬 수 있습니다.
-
+* `contest_id`와 `score DESC`를 함께 포함한 복합 인덱스를 사용하면 정렬 작업을 인덱스 레벨에서 해결하여 정렬 비용을 줄이고 성능을 향상시킬 수 있습니다.
 * 일반적으로 MySQL의 인덱스 정렬 처리 비용은 \*\*O(log n)\*\*로, 인덱스를 사용한 정렬이 디스크 정렬보다 훨씬 빠릅니다.
 
 </details>
@@ -40,9 +38,9 @@ SQL Plan 확인
 
 * FK(`contest_id`) 인덱스를 사용하여 데이터를 필터링한 뒤 정렬 처리를 하고 있습니다.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 

@@ -97,7 +97,7 @@ SQL 문을 구문 분석해 추상 구문 트리(AST)를 만듭니다.
    2. 어떤 인덱스를 사용할지 결정
 4. 실행 계획 생성 (EXPLAIN 키워드)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * id: 서브쿼리 없이 하나의 SELECT 블록에서 실행
 * select\_type: 단일 SELECT 실행 계획(서브쿼리나 UNION 없이 단순 SELECT)
