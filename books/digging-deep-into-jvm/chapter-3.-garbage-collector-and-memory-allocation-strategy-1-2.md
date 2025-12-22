@@ -30,7 +30,7 @@ A와 B객체에는 모두 instance 라는 필드가 있고, A.instance = B, B.in
 
 ### 도달 가능성 분석 알고리즘
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 루트라고 하는 루트 객체들을 시작으로 출발하여, 참조하는 다른 객체들로 탐색해 들어가는 알고리즘입니다. 탐색 과정에서 만들어지는 경로를 `참조 체인(reference chain)`  이라고 합니다. 루트로부터 시작하여 도달할 수 없는 객체는 더 이상 사용할 수 없는게 확실해집니다.
 
@@ -39,17 +39,11 @@ GC 루트라고 하는 루트 객체들을 시작으로 출발하여, 참조하�
 <summary>자바에서 GC 루트로 이용할 수 있는 객체:</summary>
 
 * 가상 머신 스택에서 참조하는 객체: 현재 실행중인 메서드에서 쓰는 매개 변수, 지역 변수, 임시 변수 등
-
-- 메서드 영역에서 클래스가 정적 필드로 참조하는 객체: 자바 클래스의 참조 타입 정적 변수
-
+* 메서드 영역에서 클래스가 정적 필드로 참조하는 객체: 자바 클래스의 참조 타입 정적 변수
 * 메서드 영역에서 상수로 참조되는 객체
-
-- 네이티브 메서드 스택에서 JNI가 참조하는 객체
-
+* 네이티브 메서드 스택에서 JNI가 참조하는 객체
 * 자바 가상 머신 내부에서 쓰이는 참조: 기본 데이터 타입에 해당하는 Class 객체, 일부 상주 예외 객체, 시스템 클래스 로더
-
-- 동기화 락으로 잠겨 있는 모든 객체
-
+* 동기화 락으로 잠겨 있는 모든 객체
 * 자바 가상 머신 내부 상황을 반영하는 JMXBean: JVMTI에 등록된 콜백 로컬 코드 캐시 등
 
 </details>
@@ -148,13 +142,13 @@ GC는 GC Root에서부터 도달 가능성 분석을 수행합니다.\
 
 ### 2. 마크-스윕 알고리즘 (최초의 GC 알고리즘)
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. 마크-카피 알고리즘(신세대)
 
 회수할 객체가 많아 질수록 효율이 떨어지는 마크-스윕 알고리즘을 해결하기 위해 사용
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 가용 메모리를 똑같은 크기로 2개로 나눕니다. 한 공간에서 살아남은 객체를 다른 공간으로 복사하고, 기존 공간은 모두 삭제
 * +파편화 해결
@@ -238,7 +232,7 @@ GC는 GC Root에서부터 도달 가능성 분석을 수행합니다.\
 
 카드 테이블은 기록 정밀도와 힙 메모리의 매핑 관계 등을 정의하여 기억 집합을 구체적으로 구현한 방법 중 하나입니다.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 카드 페이지 하나의 메모리는 보통 하나 이상의 객체가 들어있고, 이 객체들 중 하나에라도 세대 간 포인터를 갖는 필드가 이쓰면, 해당 원소 카드를 1로 표시하고, 이를 더럽혀졌다고 합니다. 객체를 회수 할때는 카드 테이블에서 더럽혀진 원소만 확인하면 됩니다.
 
@@ -259,7 +253,7 @@ GC는 GC Root에서부터 도달 가능성 분석을 수행합니다.\
 
 사후 쓰기 장벽: 대입 후 쓰기 장벽.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 카드 테이블은 멀티스레드 시나리오에서 거짓 공유 문제가 발생할 수 있다. 거짓 공유는 동시성과 관련되어 있는데, 이는
 

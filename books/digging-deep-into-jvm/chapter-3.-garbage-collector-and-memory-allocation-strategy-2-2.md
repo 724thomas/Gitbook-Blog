@@ -2,7 +2,7 @@
 
 ## 오늘 날의 가비지 컬렉터들
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 클래식 컬렉터들과 오늘날의 컬렉터들의 가장 큰 특징은, 신세대용, 구세대용 구분이 사라졌다는 점입니다. 즉, 어떤 조합이 최선일까 하는 고민을 하지 않아도 됩니다.
 
@@ -30,7 +30,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 셰넌도어와 ZGC는 거의 모든 과정이 동시에 수행됩니다. 최초, 최종 표시에만 정지가 짧게 일어나고, 이 시간은 고정적입니다. (힙 크기와 객체 수가 많아지더라도 영향을 주지 않음)
 
@@ -48,7 +48,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 연결 행렬은 2차원 표로 이해할 수 있습니다.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 객체 A가 B를 참조하고 있으면, (5,3)에 표시를 하고, B가 C를 참조 하고 있으면 (3,1)에 표시를 합니다. 이걸 활용하여 리전 간 참조를 포함하는 리전들을 알아내게 됩니다.
 
@@ -133,9 +133,9 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 정리:
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -192,11 +192,11 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 이 부분은 CAS 기법(낙관적 락)을 사용하여 해결
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가복사 중에 사용자가 스레드가 쓰기를 시도할때,
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가 복사 중일때
 
@@ -420,9 +420,7 @@ JVM이 그걸 **자동으로 감지하고**\
 **과정:**
 
 * 사용자 스레드가 재배치 집합에 포함된 객체에 동시에 접근 시도
-
-- 메모리 장벽이 해당 리전의 포워드 테이블에 기록된 정보를 보고 새로운 객체로 포워드.
-
+* 메모리 장벽이 해당 리전의 포워드 테이블에 기록된 정보를 보고 새로운 객체로 포워드.
 * 동시에, 해당 참조 값도 새로운 객체를 직접 가리키도록 생신.
 
 </details>
@@ -450,12 +448,9 @@ G1과 비교했을때, ZGC는:
 <summary>세대 구분이 없기 때문에 문제점 발생</summary>
 
 * 동시 회수를 진행하는 과정중, 애플리케이션 객체 할당 속도가 너무 빨라서 많은 객체를 새로 만들게 되면, 현 회수 단계에서는 다 표시하기 어려워서 대부분 살아남을 것.
-
-- 현 회수 단계에서 살아남게되면 쓰레기 객체가됨.
-
+* 현 회수 단계에서 살아남게되면 쓰레기 객체가됨.
 * 다음 회수 과정중 애플리케이션이 또, 대량의 객체를 새로 또 만들게 되면, 동시 회수 주기가 계속해서 길어질 것.
-
-- 결국 힙 여유 공간이 부족해짐
+* 결국 힙 여유 공간이 부족해짐
 
 </details>
 
