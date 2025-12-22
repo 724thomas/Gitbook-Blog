@@ -1,8 +1,10 @@
-# Untitled
+---
+description: 전체 알림 생성시 CPU 부하 해결 과정
+---
 
-콘솔 푸시 체크 사항
+# CPU Load Analysis and Optimization for Bulk Notification Creation
 
-
+## 콘솔 푸시 체크 사항
 
 ## Notification - read에 문제가 없는지 확인한다.
 
