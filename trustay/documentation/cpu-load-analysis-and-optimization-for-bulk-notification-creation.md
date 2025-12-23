@@ -4,7 +4,8 @@ description: 전체 알림 생성시 CPU 부하 해결 과정
 
 # CPU Load Analysis and Optimization for Bulk Notification Creation
 
-콘솔 전체 알림 + 푸시 생성, 발송 과정에서 DB CPU가 100%까지 올라가는 문제가 발생했습니다.
+콘솔에서 **전체 알림 생성 → 푸시 생성 → 발송**이 겹치는 구간에서 **DB CPU가 100%까지 치솟는 문제**가 발생했다.\
+해당 DB는 다른 서비스와도 **공유 인스턴스**이기 때문에, 단일 작업의 부하가 전체 시스템에 영향을 주는 상황이었습니다.
 
 <figure><img src="../../.gitbook/assets/image (458).png" alt=""><figcaption></figcaption></figure>
 
@@ -15,8 +16,6 @@ description: 전체 알림 생성시 CPU 부하 해결 과정
 * 위치 기반 쿼리 효율성
 * 알림 생성/소비 과정에서의 효율성
 
-
-
 우선적으로 급히 사용해야하는 알림 생성/소비 과정에서의 효율성을 해결하려고 했습니다.
 
 
@@ -26,6 +25,9 @@ description: 전체 알림 생성시 CPU 부하 해결 과정
 
 
 ### &#x20;문제 발생 - writer 인스턴스
+
+* 특정 시점부터 **CPU가 급격히 상승**
+* 알림 생성 작업과 정확히 시간대가 겹침
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 1 (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -88,13 +90,13 @@ for (page in 0 until defaultPage.totalPageSize) {
 
 ### 가설
 
-channelRepository.findChannelIdsByTypeWithPaging에서 문제.
+문제의 원인은 channelRepository.findChannelIdsByTypeWithPaging에 있다고 판단.
 
-A. 비효율적인 Count쿼리: 모든 데이터를 다 읽고 카운트를 실행하는 문제
+A. 비효율적인 Count쿼리: 모든 데이터를 다 읽고 카운트를 실행하는 문제: fetch().size 방식
 
-B. Count 쿼리를 매 페이징 사이즈만큼 조회때마다 집계
+B. Count 쿼리를 매 페이징 사이즈만큼 조회때마다 집계: 실제로는 1번만 필요
 
-C. Offset방식으로 인해, 매번 0번째 데이터부터 조회
+C. Offset방식: 매번 0번째 데이터부터 조회
 
 ### 과정
 
@@ -113,6 +115,9 @@ val totalCount =
 <figure><img src="../../.gitbook/assets/Pasted Graphic 2.png" alt=""><figcaption></figcaption></figure>
 
 동일한 결과
+
+* CPU 패턴 변화 없음
+* Count 쿼리는 핵심 원인이 아님
 
 
 
@@ -160,7 +165,10 @@ override fun findChannelIdsByTypeWithPaging(
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 3.png" alt=""><figcaption></figcaption></figure>
 
-동일한 결과<br>
+동일한 결과
+
+* 여전히 동일한 CPU 부하
+* Offset Paging 자체가 문제일까 의심<br>
 
 #### C. 오프셋 페이징 처리를 커서 방식으로 변경
 
@@ -211,13 +219,19 @@ override fun findChannelIdsByTypeWithCursor(
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 4.png" alt=""><figcaption></figcaption></figure>
 
-확실히 부하가 줄어든걸 볼 수 있다.
+확실히 부하가 줄어든걸 볼 수 있습니다.
+
+DB CPU 부하가 **눈에 띄게 감소: 조회 병목의 핵심 원인은 Offset Paging**
 
 
 
 ## &#x20;Notification - write에 문제가 없는지 확인합니다.
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 5.png" alt=""><figcaption></figcaption></figure>
+
+* 200건 단위 INSERT
+* 5개의 인덱스 동시 업데이트
+* CPU 사용량 **약 5\~10% 증가**
 
 200건씩의 INSERT가 발생할때마다 5번개의 인덱스가 업데이트되지만 대량 INSERT에서는 평소보다 5\~10% CPU 부하가 생기고 있고, 크게 문제가 되진 않는다고 판단됩니다.
 
@@ -227,11 +241,13 @@ override fun findChannelIdsByTypeWithCursor(
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 6.png" alt=""><figcaption></figcaption></figure>
 
-채널 조회 부분만 실행했을때 Notification - read와 동일한 문제로 CPU가 높아집니다.
+채널 조회 부분만 실행했을때 Notification - read와 동일한 문제로 CPU가 높아집니다. Notification - read와 동일한 문제
 
-### A. Cursor 방식으로 처리하고 CPU 부하가 낮아졌습니다.
+### A. Cursor 방식으로 처리.
 
 <figure><img src="../../.gitbook/assets/Pasted Graphic 7.png" alt=""><figcaption></figcaption></figure>
+
+Cursor방식 적용 후 CPU 부하가 낮아졌습니다.
 
 ### B. 나머지 조회(알림 허용, fcm 토큰 조회, 채널Id로 타운Id 조회)
 
@@ -245,7 +261,9 @@ CPU 13%로 push-read 조회는 크게 문제가 없습니다.
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-오래 걸리긴 하지만 CPU 부하가 크진 않습니다.
+* 처리 시간은 길지만
+* CPU 부하는 크지 않음
+* 대량 발송 시에도 **10\~15% 수준**
 
 
 
@@ -295,7 +313,7 @@ BULK 처리를 하게될시 허용범위가 어느정도인지 감이 안오는 
 
 
 
-## 다음 문제:
+## 남은 문제:
 
 *   처리량을 낮췄고 서비스를 상시 배포하고 있기때문에, 콘솔 알림 생성 스레드의 작업이 끝나기전에 재배포 되는 경우.
 
