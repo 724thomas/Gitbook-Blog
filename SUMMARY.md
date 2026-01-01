@@ -10,6 +10,7 @@
   * [PreRegistration](trustay/documentation/preregistration.md)
   * [Git Branch Contamination & Recovery Case Study Report](trustay/documentation/git-branch-contamination-and-recovery-case-study-report.md)
   * [CPU Load Analysis and Optimization for Bulk Notification Creation](trustay/documentation/cpu-load-analysis-and-optimization-for-bulk-notification-creation.md)
+  * [Connection Pool Exhaustion Caused by Poor Transaction Design](trustay/documentation/connection-pool-exhaustion-caused-by-poor-transaction-design.md)
 
 ## ALGORITHM
 

@@ -4,7 +4,7 @@
 
 DIP는 SOLID 원칙 중 역전관계 제어 원칙을 의미합니다. 이는 고수준 모듈은 저수준 모듈에 의존해서는 안된다는 의미입니다. 다시 말해서, 구현체에 의존하지 않고, 추상화를 참조하라는 원칙입니다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. DIP를 지키지 않은 코드
 

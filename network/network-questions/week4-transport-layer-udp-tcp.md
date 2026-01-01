@@ -76,7 +76,7 @@ description: UDP, TCP
 
 ## 4-way handshake에 대해 설명해주세요
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * **4-way handshake**는 **TCP 연결을 종료**할 때 사용하는 절차. 주요 패킷은 **FIN(Finish)**&#xACFC; **ACK(Acknowledgment)**
 * 클라이언트 → 서버: FIN
