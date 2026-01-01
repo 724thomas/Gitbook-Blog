@@ -135,7 +135,7 @@ TCP/IP 모델의 4계층:&#x20;
 
 ## 브리지(bridge)에 대해서 설명해주세요
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 데이터 링크 계층(2계층)에서 동작하는 네트워크 장치
 * **여러 네트워크 세그먼트**를 연결하여 **하나의 네트워크처럼 동작**하게 해줍니다.&#x20;

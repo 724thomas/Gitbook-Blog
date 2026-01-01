@@ -38,11 +38,11 @@ SQL Plan 확인
 
 * FK(`contest_id`) 인덱스를 사용하여 데이터를 필터링한 뒤 정렬 처리를 하고 있습니다.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>SQL plan</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>EXPLAIN ANALYZE 결과</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>Application 단 API 성능</p></figcaption></figure>
 
 * DB 조회 시간: 약 **100ms**
 * 총 서비스 호출 시간: **286ms (DB 조회, 네트워크 통신, 애플리케이션 처리시간을 모두 포함)**
