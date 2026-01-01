@@ -271,7 +271,7 @@ CPU 13%로 push-read 조회는 크게 문제가 없습니다.
 
 ### Push - write에 문제가 없는지 확인합니다.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 처리 시간은 길지만
 * CPU 부하는 크지 않음
@@ -310,7 +310,7 @@ templateRepository.getSystemNotificationByContentType
 
 현재 인덱스는 push\_notification\_status, push\_time만 설정되어있고, 쿼리 분석결과 type=range로 인덱스를 잘 활용하고 있습니다.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Push\_Notification에서 10만건의 발송 대기가 쌓여있고, 즉시 발송 알림들을 생성하여 발송했을때 CPU의 큰 변화가 없습니다.
 
@@ -568,3 +568,30 @@ extra1: Using where, extra2: Using where; FirstMatch(u)
 ```
 
 ## 3. 단지 질문글 알림센터, 푸시 성능 개선
+
+
+
+
+
+## 4. 대량 알림 생성 작업들이 순차적으로 실행될 수 있도록 구조 개선
+
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+
+알림 대량 생성 작업들은 현재:
+
+* 운영팀 콘솔 전체 알림
+* 배치 인기글 알림
+* 단지 질문글 알림
+
+위 3개의 작업들은 별도로 관리되지 않는 이상(eg. 시간표) 동시에 작업이 생성될 수 있는 구조. \
+각 작업당 10\~15%의 DB CPU를 사용하기에 최대 45%까지 CPU가 일시적으로 증가할 수 있습니다.
+
+이를 개선하기 위해 순차적으로 처리되도록 구조를 바꾸려고 합니다.
+
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+
+* NotificationCreationQueue를 두고, 배치 스케줄러를 통해 작업들을 큐에 쌓아두고 순차적으로 처리되게 합니다.
+* 상태와 마지막 처리 과정을 업데이트하면서 순차처리, 재처리가 가능해지도록 했습니다.
+
+<figure><img src="../../.gitbook/assets/image (462).png" alt=""><figcaption></figcaption></figure>
+

@@ -22,7 +22,7 @@ description: 트랜잭션 설계 문제로 발생한 커넥션 풀 고갈 이슈
 
 ### 1. 쓰레드 풀 고갈이라는 메시지를 **애플리케이션 로그, 모니터링(Datadog)** 에서 확인
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 * "Connection is not available, request timed out after 3000ms."
 * HikariPool-1 - Connection is not available, request timed out after 3000ms.
@@ -35,7 +35,7 @@ description: 트랜잭션 설계 문제로 발생한 커넥션 풀 고갈 이슈
 SHOW FULL PROCESSLIST;
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * User: 어떤 계정이
 * Host: 어떤 host(IP)에서
@@ -50,7 +50,7 @@ SHOW FULL PROCESSLIST;
 SELECT * FROM performance_schema.data_lock_waits;
 ```
 
-<div data-full-width="false"><figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="false"><figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
