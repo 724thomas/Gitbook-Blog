@@ -4,7 +4,7 @@ description: 트랜잭션 설계 문제로 발생한 커넥션 풀 고갈 이슈
 
 # Connection Pool Exhaustion Caused by Poor Transaction Design
 
-락은 증상이었다: 커넥션 풀 고갈의 진짜 원인 찾기
+## 상황
 
 앱에서 게시글 등록시 요청이 실패하는 상황.
 
