@@ -109,7 +109,7 @@ export default function () {
 
 * k6 실행 결과
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 전체적으로 **지연이 다소 긴 편** (2초 내외), 일부 요청은 **10초 이상**
 

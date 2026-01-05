@@ -64,7 +64,7 @@ A. **JVM의 지역 변수 테이블은 "슬롯 인덱스를 명확히 지정"하
 
 메서드 호출 시 매개 변수들도 지역 변수 테이블을 통해 전달됩니다. 아래는 인스턴스 메서드가 호출될 때 지역 변수 테이블에 추가되는 변수들의 순서를 보여줍니다.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 인덱스 0: 메서드가 속한 객체의 인스턴스의 참조.(this가 가능한 이유도 이때문입니다)
 * 인덱스 1-N: 매개 변수 테이블의 갯수만큼 순서대로 할당 됩니다.
@@ -206,7 +206,7 @@ public void handleRequest() {
 * 공간 적약
 * 메서드 호출 시 매개 변수로 전달할 데이터를 복사할 필요가 없음.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -561,7 +561,7 @@ Son chose a qq
 
 가상 메서드 테이블(vtable)
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 * **vtable**은 객체의 클래스에 대응되는 **메서드 테이블**
 * 테이블에는 각 메서드의 \*\*시작 주소(포인터)\*\*가 저장됨

@@ -29,7 +29,7 @@ description: 문제 상세 정보 가져오기 API 최적화
 
 
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>결과</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>결과</p></figcaption></figure>
 
 * 캐싱 적용 결과, 문제 상세 정보 조회 API의 응답 속도가 50% 이상 개선되었습니다.
 * 캐시 히트가 100%라면 자주 조회되는 문제에 대해서는 DB 접근 빈도가 줄어 서버 부하가 감소함을 예상할 수 있습니다.
