@@ -30,7 +30,7 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 셰넌도어와 ZGC는 거의 모든 과정이 동시에 수행됩니다. 최초, 최종 표시에만 정지가 짧게 일어나고, 이 시간은 고정적입니다. (힙 크기와 객체 수가 많아지더라도 영향을 주지 않음)
 
@@ -192,11 +192,11 @@ JDK 21부터는 세대 구분 ZGC라고 하여, ZGC에 세대 구분 모드가 �
 
 이 부분은 CAS 기법(낙관적 락)을 사용하여 해결
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가복사 중에 사용자가 스레드가 쓰기를 시도할때,
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 GC 스레드가 복사 중일때
 

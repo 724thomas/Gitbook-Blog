@@ -12,7 +12,7 @@
 
 ### 1. 배경
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 준 실시간성으로 계좌 정보를 가져오기 위해 Polling 방식으로 구성
 * 사용자 증가 → Polling 방식이 부담 (CPU 50% 이상)
