@@ -172,6 +172,8 @@
   * [#7 While You Are Coding](books/the-pragmatic-programmer/7-while-you-are-coding.md)
   * [#8 Before the Project](books/the-pragmatic-programmer/8-before-the-project.md)
   * [#9 Pragmatic Projects](books/the-pragmatic-programmer/9-pragmatic-projects.md)
+* [Toby's Spring vol1](books/tobys-spring-vol1.md)
+* [Object and relation 1.1.\~1.3.](books/object-and-relation-1.1.-1.3..md)
 
 ## Interview Practices
 
@@ -482,7 +484,7 @@
   * [Linking](computer-science/computer-architecture-101/linking.md)
   * [Compiler vs Interpreter](computer-science/computer-architecture-101/compiler-vs-interpreter.md)
   * [Mutex vs Semaphore](computer-science/computer-architecture-101/mutex-vs-semaphore.md)
-  * [32bit  CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
+  * [32bit CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
   * [Local vs Static Variable](computer-science/computer-architecture-101/local-vs-static-variable.md)
   * [Page](computer-science/computer-architecture-101/page.md)
 
