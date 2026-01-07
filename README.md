@@ -17,3 +17,4 @@ description: I decode the enigma of technology, one blog post at a time.
 
 포트폴리오 [https://wonjoonthomaschoi.notion.site/140addeab3568150b6ded356ea199e48](https://wonjoonthomaschoi.notion.site/140addeab3568150b6ded356ea199e48)
 
+
