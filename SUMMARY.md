@@ -172,8 +172,8 @@
   * [#7 While You Are Coding](books/the-pragmatic-programmer/7-while-you-are-coding.md)
   * [#8 Before the Project](books/the-pragmatic-programmer/8-before-the-project.md)
   * [#9 Pragmatic Projects](books/the-pragmatic-programmer/9-pragmatic-projects.md)
-* [Toby's Spring vol1](books/tobys-spring-vol1.md)
-* [Object and relation 1.1.\~1.3.](books/object-and-relation-1.1.-1.3..md)
+* [Toby's Spring vol1](books/tobys-spring-vol1/README.md)
+  * [Object and relation 1.1.\~1.3.](books/tobys-spring-vol1/object-and-relation-1.1.-1.3..md)
 
 ## Interview Practices
 

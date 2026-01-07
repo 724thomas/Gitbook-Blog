@@ -262,9 +262,7 @@
 JBossCache는&#x20;
 
 * 클러스터 사이의 데이터 통신에 JGroups이라는 개념 적용.&#x20;
-
-- JGroups는 데이터를 패킷으로 보내고 받는데 필요한 다양한 필수 특정을 자유롭게 조합할 수 있는 프로토콜 스택 이용.
-
+* JGroups는 데이터를 패킷으로 보내고 받는데 필요한 다양한 필수 특정을 자유롭게 조합할 수 있는 프로토콜 스택 이용.
 * 프로토콜 스택 계층의 up()과 down() 메서드를 호출하여 패킷들을 순차적으로 주고받는 식.
 
 </details>
@@ -311,7 +309,7 @@ JGroup의 전송 대기열의 사이즈를 제한할 수 있음.&#x20;
 * 힙 용량을 키우고, -XX:+HeapDumpOnOutOfMemoryError를 설정해도, 시스템은 덤프 파일을 생성하지 못함.
 * jstat을 보니, 힙, 메서드 영역은 모두 안정적이고, GC는 자주 발생하지 않았다.
 
-<figure><img src="../../.gitbook/assets/image (337).png" alt=""><figcaption><p>시스템 로그</p></figcaption></figure>
+<figure><img src="/broken/files/8byp9aLDIZ5Qc9GxJ3Kq" alt=""><figcaption><p>시스템 로그</p></figcaption></figure>
 
 ### 원인
 
@@ -398,7 +396,7 @@ JGroup의 전송 대기열의 사이즈를 제한할 수 있음.&#x20;
 * 클러스터 노드의 가상 머신 프로세스가 갑자기 닫히는 일이 빈번해짐
 * 가상 머신 프로세스는 log파일만 남긴 채 사라지고, 두 컴퓨터의 모든 노드에서 프로세스 충돌 발생
 
-<figure><img src="../../.gitbook/assets/image (338).png" alt=""><figcaption><p>"원격지에서 연결을 끊었다"</p></figcaption></figure>
+<figure><img src="/broken/files/pOIlskH5CM35wKHRHI8W" alt=""><figcaption><p>"원격지에서 연결을 끊었다"</p></figcaption></figure>
 
 
 
@@ -463,9 +461,9 @@ JGroup의 전송 대기열의 사이즈를 제한할 수 있음.&#x20;
 * 데이터 분석을 위해 10분 단위로 80MB 크기의 파일을 메모리로 읽는 과정에서, 100만 개 이상의 HashMap\<Long,Long> 객체를 생성
 * 마이너 GC가 해당 객체들을 검사하는 과정에서 STW 발생
 
-<figure><img src="../../.gitbook/assets/image (339).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ubahVnOVzbUfZP8V17l0" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (340).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/sqilzVPhiryNeQA0nt4s" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -517,11 +515,11 @@ GUI 데스크톱 프로그램에서 발생
 * 거짓 양성이 생기는 이유는 프로그램이 약 1분 간격으로 로그 출력 없이 일시 정지 상태가 되기 때문.
 * -XX:+PrintGCApplicationStoppedTime, -XX:+PrintGCDate-Stamps -Xloggc:gclog.log 변수를 추가한 후, GC가 문제임을 확인
 
-<figure><img src="../../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/BELU9RUFAxMn0cnMKXGo" alt=""><figcaption></figcaption></figure>
 
 * -XX: +PrintReferenceGC 매개 변수를 추가하여 로그 정보를 자세히 보니, 컬렉션 준비 단계에서 실제 시작까지 시간 소요가 큼.
 
-<figure><img src="../../.gitbook/assets/image (342).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/q9zEO4YNT9FojWanBtiY" alt=""><figcaption></figcaption></figure>
 
 * 프로그램 창을 최소화하면 메모리 사용량이 급격하게 줄었지만, 가상 메모리에는 변화가 없음. 창을 최소화하면 작업 메모리가 디스크로 스왑된다고 짐작됨.
 * 위 상황에서 GC를 수행하려면 스와프된 데이터를 메모리로 다시 불러와야함.
@@ -551,11 +549,11 @@ GUI 프로그램에서 이 현사은, -Dsun.awt.keepWorkingSetOnMinimize=true �
 
 * GC의 STW가 3초 이상까지 길어지는 일이 자주 발생
 
-<figure><img src="../../.gitbook/assets/image (343).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/K531FBPZ4u54EqDbFVlG" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (344).png" alt=""><figcaption><p>안전지점에서의 통계로그</p></figcaption></figure>
+<figure><img src="/broken/files/Cu36lUp9LFyZ4lIMrxmW" alt=""><figcaption><p>안전지점에서의 통계로그</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (345).png" alt=""><figcaption><p>스레드들이 안전 지점에 도착할 때까지 가상 머신을 기다리게 함. 그 위, 2000ms후 타임아웃을 발생시킨 후 결과</p></figcaption></figure>
+<figure><img src="/broken/files/bWQ226RMDxGUsjlXlM4y" alt=""><figcaption><p>스레드들이 안전 지점에 도착할 때까지 가상 머신을 기다리게 함. 그 위, 2000ms후 타임아웃을 발생시킨 후 결과</p></figcaption></figure>
 
 ### 원인
 

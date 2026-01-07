@@ -4,7 +4,7 @@ description: 시스템 콜이, 운영체제에서 어떤 과정으로 실행되�
 
 # Execution process of a system call
 
-<figure><img src="../../../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/bqSKCfw25gQHQnuEughA" alt=""><figcaption></figcaption></figure>
 
 **`write()` 시스템 콜 호출 예시 (x86 기준)**
 

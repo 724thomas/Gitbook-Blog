@@ -361,7 +361,7 @@ LEFT JOIN test_users    AS u  IGNORE INDEX (PRIMARY)  ON u.user_id    = o.user_i
 LEFT JOIN test_products AS p  IGNORE INDEX (PRIMARY)  ON p.product_id = o.product_id;
 ```
 
-<figure><img src="../.gitbook/assets/image (456).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CldsJarsWMrp8RY0seN3" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Left hash join (p.product_id = o.product_id)  (cost=12.5e+12 rows=125e+12) (actual time=32.1..245 rows=500000 loops=1)
@@ -386,7 +386,7 @@ JOIN test_users     AS u IGNORE INDEX (PRIMARY)
     ON u.user_id = o.user_id;
 ```
 
-<figure><img src="../.gitbook/assets/image (457).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/nkqf4IhjAErk1o4V3TEl" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Left hash join (p.product_id = o.product_id)  (cost=25.1e+6 rows=251e+6) (actual time=26.6..243 rows=500000 loops=1)
@@ -415,7 +415,7 @@ LEFT JOIN test_users u    ON u.user_id = o.user_id
 LEFT JOIN test_products p ON p.product_id = o.product_id;
 ```
 
-<figure><img src="../.gitbook/assets/image (454).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/RcymtR5bioNVOab0fqP9" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Nested loop left join  (cost=399183 rows=498348) (actual time=2..446 rows=500000 loops=1)
@@ -436,7 +436,7 @@ RIGHT JOIN test_orders o   ON u.user_id = o.user_id
 JOIN test_products p       ON p.product_id = o.product_id;
 ```
 
-<figure><img src="../.gitbook/assets/image (455).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/7YS0Wa2UHwu9zcjd9Qmv" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Nested loop left join  (cost=4005 rows=5000) (actual time=0.489..432 rows=500000 loops=1)
@@ -465,7 +465,7 @@ WHERE o.status = 'COMPLETED'
   AND o.order_date >= CURRENT_DATE - INTERVAL 30 DAY;
 ```
 
-<figure><img src="../.gitbook/assets/image (452).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/j3JSXERfalsDsMrdFy4L" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Nested loop left join  (cost=24194 rows=21038) (actual time=7.02..63.9 rows=11111 loops=1)
@@ -490,7 +490,7 @@ WHERE o.status = 'COMPLETED'
   AND o.order_date >= CURRENT_DATE - INTERVAL 30 DAY;
 ```
 
-<figure><img src="../.gitbook/assets/image (453).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LJ1ww4b1qVmTeZeD7gqS" alt=""><figcaption></figcaption></figure>
 
 ```
 -> Nested loop left join  (cost=2343 rows=250) (actual time=5.32..328 rows=11111 loops=1)

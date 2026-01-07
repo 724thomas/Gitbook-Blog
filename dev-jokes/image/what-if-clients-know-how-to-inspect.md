@@ -1,3 +1,3 @@
 # what if clients know how to inspect
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ct3PwQyp13zcfWpzuUNz" alt=""><figcaption></figcaption></figure>

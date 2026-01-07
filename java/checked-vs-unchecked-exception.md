@@ -8,7 +8,7 @@
 
 **Unchecked Exception**은 프로그래밍 오류에서 발생하며, 개발자가 필요한 경우에만 예외 처리를 할 수 있습니다. 필수가 아니므로 코드가 간결해지는 장점이 있지만, 발생 시 프로그램이 비정상 종료될 가능성이 있습니다.
 
-<figure><img src="../.gitbook/assets/image (249).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/jM63PBF5Bsf5r6GRnwMQ" alt=""><figcaption></figcaption></figure>
 
 ## 2. Checked Exception
 

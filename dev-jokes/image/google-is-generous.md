@@ -1,3 +1,3 @@
 # Google is generous
 
-<figure><img src="../../.gitbook/assets/image (221).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/USAN34VB3oRTYvqMuSRJ" alt=""><figcaption></figcaption></figure>

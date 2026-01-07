@@ -10,7 +10,7 @@ description: 생산자와 소비자
 
 프린터 예제:
 
-<figure><img src="../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/l5iYmejrHo13FqxX7p4R" alt=""><figcaption></figcaption></figure>
 
 * 생산자: 데이터를 생산하는 역할. 파일에서 데이터를 읽어오거나 네트워크에서 데이터를 받아오는 스레드. 위 예제에서는 사용자의 입력을 프린터 큐에 전달하는 스레드가 생산자.
 * 소비자: 생성된 데이터를 사용하는 역할. 데이터를 처리하거나 저장하는 스레드가 소비자. 위 예제에서는 큐에 전달된 데이터를 받아서 출력하는 스레드가 소비자.
@@ -245,15 +245,15 @@ public class BoundedMain {
 Process finished with exit code 0
 ```
 
-<figure><img src="../.gitbook/assets/image (294).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/tgHJz4lX8bN8NA0Tq3yY" alt=""><figcaption></figcaption></figure>
 
 세번째 생산자 스레드가 버퍼에 데이터를 저장하려고 하지만 꽉차서 데이터를 버리게 됨. 데이터를 버리지 않기 위해서는 큐에 빈 공간이 생길때까지 기다리는 방법이 있다.
 
-<figure><img src="../.gitbook/assets/image (295).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/996DSkdJrto11tyhSgB1" alt=""><figcaption></figcaption></figure>
 
 소비자 입장에서 큐에 데이터가 없으니 null을 반환. 하지만 기다리는 것도 대안.
 
-<figure><img src="../.gitbook/assets/image (296).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/zhoQMLbVYkCu7TshkE47" alt=""><figcaption></figcaption></figure>
 
 결과적으로 p3스레드가 데이터를 버리게 되므로 c3가 조회하는 시점에 버퍼는 비어있어서 데이터를 받지 못하고 null값을 받는다.
 
@@ -299,7 +299,7 @@ Process finished with exit code 0
 Process finished with exit code 0
 ```
 
-<figure><img src="../.gitbook/assets/image (297).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/0cLp7asiIXrA8kSPdZGI" alt=""><figcaption></figcaption></figure>
 
 consumer가 먼저 실행이 되었을때, 소비자 스레드들은 모두 null값을 반환하게 되고, 큐에는 생산자 스레드 값이 2개만 들어간다.
 
@@ -316,11 +316,11 @@ consumer가 먼저 실행이 되었을때, 소비자 스레드들은 모두 null
 
 생산자 우선:
 
-<figure><img src="../.gitbook/assets/image (298).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/vgETsqoDdIodBVIs2n6S" alt=""><figcaption></figcaption></figure>
 
 소비자 우선:
 
-<figure><img src="../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/y35Mby3xjW6edRoOvUXH" alt=""><figcaption></figcaption></figure>
 
 위 그림과 같이 임계영역 안에서 **락을 가지고 있는 TIMED\_WAITING 상태가 되어서, 다른 스레드가 접근하지 못해서 프로그램이 멈추게 됨.**
 
@@ -448,7 +448,7 @@ Process finished with exit code 0
 
 ```
 
-<figure><img src="../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LOAByubpyBnvm9J6y4jH" alt=""><figcaption></figcaption></figure>
 
 * p3는 자리가 없으므로 wait()을 호출하고 스레드 대기 집합에 들어간다.
 * c1이 실행되면서 데이터를 큐에서 빼고, 스레드 대기 집합에 있는 스레드를 하나 꺠운다.
@@ -509,7 +509,7 @@ Process finished with exit code 0
 
 ```
 
-<figure><img src="../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/iEevf57WRygQ2oitYfEi" alt=""><figcaption></figcaption></figure>
 
 * 소비자 스레드들이 모두 실행되지만 큐에 데이터가 없으므로 모두 대기 집합에서 WAITING 상태.
 * p1이 데이터를 큐에 넣고 대기 집합에서 스레드를 하나 깨운다.
@@ -522,7 +522,7 @@ Process finished with exit code 0
 
 위 예시에서는 wait()을 통해 스레드를 WAITING 상태로 대기 집합에 넣을 수 있었다.  몇가지 단점이 있다.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/WscghMBMNOwgHD99vRAZ" alt=""><figcaption></figcaption></figure>
 
 * notify() / notifyAll() 을 통해서 스레드를 깨우게 되는데, 랜덤으로 스레드를 깨우게 된다.&#x20;
 * 이때, 상황에 따라 Thread Starvation이 발생할 수 있다. 왜냐하면 랜덤으로 스레드가 깨어나서 락을 획득하기 떄문에, 락을 획득 못하는 스레드가 발생할 수 있다.
@@ -937,7 +937,7 @@ Lock(ReentrantLock)도 2가지 단계의 대기 상태 존재하며 3가지 기�
 
 제공 메서드
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/6BC8dPafNNAeNVL0lOkZ" alt=""><figcaption></figcaption></figure>
 
 #### **Throws Exception - 대기 시 예외 발생**
 

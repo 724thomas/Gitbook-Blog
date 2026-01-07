@@ -16,11 +16,11 @@ description: '트러블슈팅: ackMode = ‘NONE’'
     * 증상 1: Consumer 서버에서 2개의 스레드만 처리를 하게됨
     * 증상 2: RabbitMq에서 분당 소비되는 메시지 수가 급격하게 줄음
 
-    <figure><img src="../../../.gitbook/assets/image (427).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/EP2S5BKl4Qp1zBsAcPcZ" alt=""><figcaption></figcaption></figure>
 
     * 증상 3: RabbitMq의 분당 컨텍스트 스위칭 횟수가 급격하게 줄음
 
-    <figure><img src="../../../.gitbook/assets/image (428).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/BwxZJpyC6dWHJdhZfJuw" alt=""><figcaption></figcaption></figure>
 
 이 미스터리를 풀기 위해 두가지 가설을 세우고 검증하는 과정을 거쳤습니다.
 
@@ -70,11 +70,11 @@ procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu----
     * **GC Pressure** 그래프는 0%를 기록하며 GC로 인한 CPU 부하가 전혀 없음을 보여주었습니다.
     * **Pause Durations** 그래프 역시 GC로 인한 멈춤 시간이 10\~30ms 수준으로 매우 짧고 안정적이어서, 시스템이 GC 때문에 멈췄다고 보기 어려웠습니다.
 
-    <figure><img src="../../../.gitbook/assets/image (429).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/biICIyyjFcqNPCNXtkNu" alt=""><figcaption></figcaption></figure>
 
     * **JVM Heap** 그래프는 완만하게 사용량이 증가할 뿐, 시스템을 붕괴시킬 만한 급격한 메모리 적체 현상은 보이지 않았습니다.
 
-    <figure><img src="../../../.gitbook/assets/image (430).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/3l71oQQqckgmY8wZ7E4c" alt=""><figcaption></figcaption></figure>
 
 
 

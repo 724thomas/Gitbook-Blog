@@ -8,7 +8,7 @@ description: 명령 사이클(instruction cycle) (CPU 동작 방식)
 * 계속해서 명령 사이클을 반복하면서 CPU가 동작함
 * 여러 단계로 나뉘어져 있음
 
-<figure><img src="../../.gitbook/assets/image (134).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/PcicLWBT2ODncXLhCyaV" alt=""><figcaption></figcaption></figure>
 
 1. **인출(Fetch)**
    * 주기억장치로부터 수행할 명령어를 CPU로 가져옴
@@ -30,7 +30,7 @@ description: 명령 사이클(instruction cycle) (CPU 동작 방식)
     * 인터럽트 발생시 인터럽트 처리를 위한 단계
     * 인터럽트 처리 순서
 
-    <figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/hN48EGDYvNoe6R6ukWVO" alt=""><figcaption></figcaption></figure>
 
 <details>
 

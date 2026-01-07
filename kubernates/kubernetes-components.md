@@ -1,3 +1,3 @@
 # Kubernetes Components
 
-<figure><img src="../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/M7yP27nXLRxXb4wwU83O" alt=""><figcaption></figcaption></figure>

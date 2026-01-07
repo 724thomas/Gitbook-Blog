@@ -4,7 +4,7 @@ description: 하버드 구조 vs 폰 노이만 구조
 
 # Harvard Architecture vs. von Neumann Architecture
 
-<figure><img src="../../.gitbook/assets/image (133).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/hfoQdx2yM8FcC85Wmm7M" alt=""><figcaption></figcaption></figure>
 
 * **가장 큰 차이점은 메모리와 데이터 전송 방식**
   * 폰노이만 구조에서는 CPU가 명령어와 데이터에 동시에 접근이 불가능
@@ -19,4 +19,4 @@ description: 하버드 구조 vs 폰 노이만 구조
 
 [Harvard Architecture versus Von Neumann Architecture](https://youtu.be/4nY7mNHLrLk?si=SJtjA5dMlxW1EnNv)
 
-[하버드 아키텍처](https://ko.wikipedia.org/wiki/%ED%95%98%EB%B2%84%EB%93%9C\_%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)
+[하버드 아키텍처](https://ko.wikipedia.org/wiki/%ED%95%98%EB%B2%84%EB%93%9C_%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98)

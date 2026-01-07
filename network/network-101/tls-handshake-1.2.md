@@ -4,9 +4,9 @@ description: TLS핸드쉐이크
 
 # TLS Handshake 1.2
 
-<figure><img src="../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/RzNqToLuJfiFX2JVklk0" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/zlB5TiXt1xrBR8oOUazC" alt=""><figcaption></figcaption></figure>
 
 ## TLS 핸드쉐이크 1.2 기준
 

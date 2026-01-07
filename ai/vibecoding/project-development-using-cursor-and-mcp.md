@@ -1421,7 +1421,7 @@ vctest6/
 
 \# 참고 파일 - @task.mdc
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/7R1y8BFJvr6tXMq7QQGS" alt=""><figcaption></figcaption></figure>
 
 ## Step11. 기본 개발 원칙 MDC 작성 (development-policy.mdc)
 

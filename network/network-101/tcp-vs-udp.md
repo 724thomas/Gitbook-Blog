@@ -14,7 +14,7 @@
 
 ### 헤더
 
-<figure><img src="../../.gitbook/assets/image (184).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ITSpWwsRFi4l76TbEeVM" alt=""><figcaption></figcaption></figure>
 
 * Source Port(16): <mark style="color:red;">**데이터가 송신되는 포트 번호**</mark>로, 송신자의 애플리케이션을 식별합니다
 * Destination Port(16): <mark style="color:red;">**데이터가 수신되는 포트 번호**</mark>로, 수신자의 애플리케이션을 식별합니다
@@ -237,7 +237,7 @@ Data: 없음
 * Additive Increase Multiplicative Decrease (AIMD)\
   TCP 혼잡 제어의 기본 원칙으로, 혼잡 윈도우를 선형적으로 증가시키고 혼잡이 감지되면 지수적으로 감소시키는 메커니즘.
 
-<figure><img src="../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/URooJLTeVhluVxcDBz4l" alt=""><figcaption></figcaption></figure>
 
 * **TCP Tahoe**&#x20;
   * 느린 시작 (Slow Start)
@@ -245,7 +245,7 @@ Data: 없음
   * 빠른 재전송 (Fast Retransmit)
   * 타임아웃이나 중복된 ACK를 수신하면 혼잡 윈도우(cwnd)를 1로 설정하고, ssthresh를 현재 cwnd의 절반으로 설정.
 
-<figure><img src="../../.gitbook/assets/image (187).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/C9QBx7Mhbrxh92RMHyKU" alt=""><figcaption></figcaption></figure>
 
 * **TCP Reno:** TCP Tahoe의 개선 버전으로, 빠른 복구(Fast Recovery) 메커니즘을 추가하여 성능을 향상시켰습니다.
   * 느린 시작 (Slow Start)
@@ -254,7 +254,7 @@ Data: 없음
   * 빠른 복구 (Fast Recovery)
   * 중복된 ACK를 수신하면 빠른 재전송을 수행하고, 혼잡 윈도우를 절반으로 줄인 후 빠른 복구를 통해 혼잡 윈도우를 선형적으로 증가시킴.
 
-<figure><img src="../../.gitbook/assets/image (188).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/zqnYLmQBHdiMvsnK0fSr" alt=""><figcaption></figcaption></figure>
 
 * **TCP New Reno:** 빠른 복구 메커니즘을 더 효율적으로 개선한 알고리즘으로, 실전에서 많이 사용됩니다.
 * **TCP Cubic:** 높은 대역폭-지연 제품 네트워크(BDP 네트워크)에서 성능을 최적화하기 위해 설계된 알고리즘.

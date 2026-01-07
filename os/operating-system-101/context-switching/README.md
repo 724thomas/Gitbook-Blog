@@ -1,6 +1,6 @@
 # Context switching
 
-<figure><img src="../../../.gitbook/assets/image (115).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ncVOqSf5gtRgGS7wG0lk" alt=""><figcaption></figcaption></figure>
 
 컨텍스트 스위칭(context switching)은 앞서 설명한 PCB를 교환하는 과정을 말합니다. 한 프로세스에 할당된 시간이 끝나거나 인터럽트에 의해 발생합니다. 컴퓨터는 많은 프로그램을 동시에 실행하는 것처럼 보이지만 어떠한 시점에서 실행되고 있는 프로세스는 단 한 개이며, 많은 프로세스가 동시에 구동되는 것처럼 보이는 것은 다른 프로세스와의 컨텍스트 스위칭이 아주 빠른 속도로 실행되기 때문입니다.
 

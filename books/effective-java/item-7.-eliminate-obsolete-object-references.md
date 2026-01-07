@@ -97,11 +97,11 @@ WeakReference는 객체가 약하게 참조되도록 하여, 필요 없을 때 �
 
 HashMap과 WeakHashMap
 
-<figure><img src="../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ZAwIFuENzG14yl10mzty" alt=""><figcaption></figcaption></figure>
 
 HashMap을  사용하면 GC 돌리고 나서도 2개가 남아있습니다.
 
-<figure><img src="../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/bzHnqb6HdK6AWTghlaJo" alt=""><figcaption></figcaption></figure>
 
 WeakHashMap을 사용하면 GC를 돌리면 1개가 남아있습니다.
 

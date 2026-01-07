@@ -27,16 +27,16 @@ spec:
 
 *   kubectl apply -f deployment.yaml
 
-    \-> deployment.apps/**web** created
+    -> deployment.apps/**web** created
 *   kubectl get pods | grep -i **web**
 
-    \->&#x20;
+    ->&#x20;
 
-    <figure><img src="../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/sCtmFrJ1WpKtETCb8ReE" alt=""><figcaption></figcaption></figure>
 *   kubectl get pods -o wide | grep -i **web**
 
-    \->&#x20;
+    ->&#x20;
 
-    <figure><img src="../../.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/1kQZKRxS7JQKLbR870K2" alt=""><figcaption></figcaption></figure>
 * kubectl delete -f deployment.yaml\
-  \-> deployment.apps "web" deleted
+  -> deployment.apps "web" deleted

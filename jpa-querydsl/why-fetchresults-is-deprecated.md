@@ -75,7 +75,7 @@ public void testFetchResults(ProductSearchConditionDto conditionDto) {
 
 사실, fetchResult()는 보기에는 한번의 호출처럼 보이지만, 실제로는 fetch()와 count()가 내부에서 모두 실행됩니다.
 
-<figure><img src="../.gitbook/assets/image (426).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/m4cyNkDHtXVlmQKSCdS9" alt=""><figcaption></figcaption></figure>
 
 fetchResult()를 실행했을때 확인해보면, 실제로는 두개의 쿼리가 나가는것을 확인했습니다. 쿼리를 날리는 횟수는 동일한 것으로 확인했습니다. 그러면 쿼리를 날리는 수가 동일한데, 왜 변경을 했을까? 라는 의문이 들었습니다.
 

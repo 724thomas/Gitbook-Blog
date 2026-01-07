@@ -8,11 +8,11 @@ description: 전략 패턴
 
 실행 중에 알고리즘 전략을 선택하여 객체 동작을 실시간으로 바뀌도록 할 수 있게 하는 행위 디자인 패턴입니다. 어떤 일을 수행하는 알고리즘이 여러개 일때, 동작들을 미리 전략으로 정의함으로써 손쉽게 전략을 교체할 수 있는, 알고리즘 변형이 빈번하게 필요한 경우에 적합한 패턴입니다.
 
-<figure><img src="../.gitbook/assets/image (237).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Blq6HuQIUvQkX8Iss0N7" alt=""><figcaption></figcaption></figure>
 
 ## 전략 패턴 구조
 
-<figure><img src="../.gitbook/assets/image (238).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/i7QFj8GtjK67X1SMhp6O" alt=""><figcaption></figcaption></figure>
 
 * 전략 알고리즘 객체들: 알고리즘, 행위, 동작을 객체로 정의한 구현체
 * 전략 인터페이스: 모든 전략 구현제에 대한 공용 인터페이스
@@ -23,7 +23,7 @@ description: 전략 패턴
 
 ## 전략 패턴 흐름
 
-<figure><img src="../.gitbook/assets/image (239).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/hyiFtjAfoAqmfmYoLfyR" alt=""><figcaption></figcaption></figure>
 
 ```java
 // 전략(추상화된 알고리즘)

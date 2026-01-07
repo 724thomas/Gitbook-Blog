@@ -19,14 +19,14 @@ spec:
 
 *   kubectl apply -f services.yaml
 
-    \-> service/**web-svc** created
+    -> service/**web-svc** created
 *   kubectl get svc
 
-    \->
+    ->
 
-    <figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/7btYR8ifoiEUm7gR95U3" alt=""><figcaption></figcaption></figure>
 
 web-svc의 10.16.15.100이 단일 진입점이 된다.
 
 * kubectl delete -f services.yaml\
-  \-> services "web-svc" deleted
+  -> services "web-svc" deleted

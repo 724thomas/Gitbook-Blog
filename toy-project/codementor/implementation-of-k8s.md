@@ -19,7 +19,7 @@ CodeMentor 프로젝트는 처음 단일 서버로 시작했었습니다. 모든
   * 요청 대기 시간이 길어지며 시스템 응답 속도가 저하
   * Python 코드는 평균 1.53초, Java 코드는 2.98초 소요
 
-<figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/R7jOcSXImArjJSMmQUC9" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -36,7 +36,7 @@ _**@Async**_&#xB97C; 도입하면서,  저희 서비스는 이제 다수의 요�
 * **해결**: 비동기 작업으로 다수의 요청을 병렬 처리하여 응답 시간을 단축
 * **새로운 문제**: 트래픽이 더욱 커지면, **코드 실행 서버가 비정상적으로 종료**
 
-<figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/BT8eo2F0z5WdgaE4HBBu" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -56,7 +56,7 @@ _**@Async**_&#xB97C; 도입하면서,  저희 서비스는 이제 다수의 요�
 * **새로운 문제**: `Execute` 서버에서 다른 API 요청(문제 조회 등)으로 인해 병목 현상이 재발 가능
   * 특정 도메인의 트래픽 급증이 전체 시스템 성능에 영향을 미침
 
-<figure><img src="../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/xCvbLOTvah8he7h7ogk3" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -73,7 +73,7 @@ _**@Async**_&#xB97C; 도입하면서,  저희 서비스는 이제 다수의 요�
   * 각 도메인에 최적화된 데이터베이스 설계를 통해 효율성 강화
   * API 게이트웨이를 통해 요청을 분배하고 각 도메인에 특화된 서버로 요청 처리
 
-<figure><img src="../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/kf2KVTeF23LFLUKUUPXN" alt=""><figcaption></figcaption></figure>
 
 API게이트웨이 서버를제외하고 총 3개의 도메인으로 분리를 하였고, DB 또한 각각의 도메인 별로 나누게 됬었습니다.  결론적으로, 프로젝트는 총 5개의 서버로 이루어지게 되었고 큰 프로젝트가 되었습니다.
 
@@ -85,7 +85,7 @@ API게이트웨이 서버를제외하고 총 3개의 도메인으로 분리를 �
 
 k8s 도입으로, 각 pod에 대한 헬스체크가 가능해졌었습니다. 이를 통해 기존에 여러 서버를 띄어놨던 코드 실행 서버들을 두개로 줄였고, Liveness Probe를 통해, 카프카의 상태에 따라 동적으로 확장되어 많은 요청에 대해 유연하게 처리함과 동시에, 리소스를 아낄 수 있게 되었습니다.
 
-<figure><img src="../../.gitbook/assets/image (97).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/6WugxMk45zOed7y1SE0c" alt=""><figcaption></figcaption></figure>
 
 아키텍처:
 

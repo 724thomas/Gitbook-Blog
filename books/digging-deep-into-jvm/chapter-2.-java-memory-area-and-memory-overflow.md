@@ -6,9 +6,9 @@ description: 2장. 자바 메모리 영역과 메모리 오버플로
 
 ## 2-2. 런타임 데이터 영역
 
-<figure><img src="../../.gitbook/assets/image (329).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/2ObbL5KnZxdN9aENCyxq" alt=""><figcaption></figcaption></figure>
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/2SZqEyEWO2zCCTxyJnQC" alt=""><figcaption></figcaption></figure></div>
 
 ### 프로그램 카운터
 
@@ -578,7 +578,7 @@ TLAB이 파편화된 힙에서 충분한 공간을 제공할 수 있는지는 **
 
 \*\*TLAB 최적화 관련 JVM 옵션
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (331).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/RLM4iVcW4UHf9IaEUgDt" alt=""><figcaption></figcaption></figure></div>
 
 
 
@@ -596,7 +596,7 @@ TLAB이 파편화된 힙에서 충분한 공간을 제공할 수 있는지는 **
 
 ### 2. 객체의 메모리 레이아웃
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (333).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/7G3Uz7zuN4LwYbaYE7DU" alt=""><figcaption></figcaption></figure></div>
 
 핫스팟 가상 머신은 객체를 세 부분으로 나누어 힙에 저장한다.
 
@@ -617,16 +617,14 @@ TLAB이 파편화된 힙에서 충분한 공간을 제공할 수 있는지는 **
   * 스레드 경합 상태 (Thread Contention State)
   * 평활화 스레드 타임스탬프 (Bias Locking Timestamp)
 
-<figure><img src="../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/GQVSbTBsTLTtTPYgCbUE" alt=""><figcaption></figcaption></figure>
 
 <details>
 
 <summary><strong>객체 헤더 크기</strong></summary>
 
 * 32비트 JVM에서는 **8바이트**
-
-- 64비트 JVM에서는 **16바이트**
-
+* 64비트 JVM에서는 **16바이트**
 * 배열의 경우 추가적인 4바이트 필요
 
 </details>
@@ -762,7 +760,7 @@ JVM은 Bias Lock을 유지할지, 해제할지를 결정해야 하는데,\
 
 
 
-<figure><img src="../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/K5WRAkCWhfjJiWN3eKsb" alt=""><figcaption></figcaption></figure>
 
 * 핸들(Handle) 방식
   * 핸들 방식에서는 힙(heap) 외부에 별도의 핸들 풀(handle pool)을 유지
@@ -776,7 +774,7 @@ JVM은 Bias Lock을 유지할지, 해제할지를 결정해야 하는데,\
 
 
 
-<figure><img src="../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/SIJ4xEItFpa4BCx084xd" alt=""><figcaption></figcaption></figure>
 
 * 다이렉트 포인터 (Direct Pointer) 방식. (핫스팟 JVM의 기본값)
   * 다이렉트 포인터 방식에서는 **객체 참조가 직접 힙 메모리의 객체 주소를 가리킨다**.
@@ -801,4 +799,4 @@ JVM은 Bias Lock을 유지할지, 해제할지를 결정해야 하는데,\
 * 객체 참조 → 객체 실제 메모리
 * **객체 이동 시 참조 주소를 직접 변경해야 함**
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/cDONj84AiPehepxBJCk0" alt=""><figcaption></figcaption></figure></div>

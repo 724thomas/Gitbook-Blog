@@ -1,6 +1,6 @@
 # service-name-headless?
 
-<figure><img src="../.gitbook/assets/image (143).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/xb8kRhgvbvz1KR2S1GVJ" alt=""><figcaption></figcaption></figure>
 
 1. service-name-headless
 

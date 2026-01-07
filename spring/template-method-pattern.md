@@ -10,7 +10,7 @@ description: 템플릿 메서드 패턴
 
 변하지 않는 기능은 상위 클래스에 만들어두고, 자주 변경되어 확장할 기능은 하위 클래스에서 만드는것으로, 알고리즘의 골격을 변경해야 할 때, 상위 클래스만 수정하면 됩니다.
 
-<figure><img src="../.gitbook/assets/image (233).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/j6i75bvMyaQdvLeO2jPw" alt=""><figcaption></figcaption></figure>
 
 AbstractClass
 

@@ -1,3 +1,3 @@
 # Genie dislikes cloud
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/k31QIxR29pcUlkhmbZkv" alt=""><figcaption></figcaption></figure>

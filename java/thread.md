@@ -6,7 +6,7 @@ description: 쓰레드
 
 ## 1. 자바 메모리 구조
 
-<figure><img src="../.gitbook/assets/image (278).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/2CMhAeDLBaRHu8X9LYF8" alt=""><figcaption></figcaption></figure>
 
 * 메서드 영역: 프로그램을 실행하는데 필요한 공통 데이터를 관리. 모든 영역에서 공유함
   * 클래스 정보: 클래스의 실행 코드(바이트 코드), 필드, 메서드와 생성자 코드등 모든 실행 코드가 존재.
@@ -85,7 +85,7 @@ Thread-0: run()
 
 
 
-<figure><img src="../.gitbook/assets/image (279).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/nAp2mvuYVhbtIwrC1688" alt=""><figcaption></figcaption></figure>
 
 * main 스레드가 HelloThread 인스턴스를 생성.
 * start() 메서드 호출 후 Thread-0 스레드가 run() 메서드 호출. main 스레드가 run()을 호출하는게 아니라 Thread-0 스레드가 run() 메서드를 실행.
@@ -124,7 +124,7 @@ main: start() 호출 후
 main: main() end
 ```
 
-<figure><img src="../.gitbook/assets/image (281).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/EXaDQRVeYDXdXAQ4L0Zl" alt=""><figcaption></figcaption></figure>
 
 * 별도의 스레드가 run()을 실행하지 않고, main 스레드가 run() 메서드를 호출
 
@@ -377,7 +377,7 @@ Thread-0: run()
 Thread-1: run()
 ```
 
-<figure><img src="../.gitbook/assets/image (282).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/8iQcrhnWO0Ae5Aa3yN85" alt=""><figcaption></figcaption></figure>
 
 * 스레드 3개를 생성할 때 모두 같은 HelloRunnable 인스턴스(x001)를 스레드의 실행 작업으로 전달.
 * Thread-0, 1, 2는 모두 HelloRunnable 인스턴스에 있는 run() 메서드를 실행.
@@ -557,7 +557,7 @@ log("myThread.threadId() = " + myThread.threadId());
 
 ### 3.2. 스레드 생명주기
 
-<figure><img src="../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ICuTnbzL9odNvpp4i3rJ" alt=""><figcaption></figcaption></figure>
 
 * NEW: 아직 시작되지 않은 상태
   * 스레드가 생성되고 아직 시작되지 않은 상태
@@ -641,7 +641,7 @@ public class ThreadStateMain {
 * Thread.sleep(): InterruptedException 이라는 체크 예외를 던진다. 따라서 체크 예외를 잡아서 처리하거나 던져야 한다
 * InterruptedException: 은 인터럽트가 걸릴 때 발생.
 
-<figure><img src="../.gitbook/assets/image (285).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/KAGyvuL6fOVw41wqPg85" alt=""><figcaption></figcaption></figure>
 
 ### 3.3. 체크 예외 재정의
 
@@ -750,7 +750,7 @@ public class JoinMainV4 {
 17:34:56.580 [ thread-1] 작업 완료 result = 1275
 ```
 
-<figure><img src="../.gitbook/assets/image (286).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/KvBxfJZ7O6JOJ0fPq0I6" alt=""><figcaption></figcaption></figure>
 
 * main 스레드는 join(1000)을 사용해서 thread-1을 1초간 기다린다. 이때 main 스레드의 생태는 TIMED\_WAITING이다.
 * thread-1의 작업에는 2초가 걸린다.
@@ -1109,6 +1109,4 @@ q
 Process finished with exit code 0
 
 ```
-
-
 

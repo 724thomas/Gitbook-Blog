@@ -25,11 +25,7 @@ description: 컬렉션
 
 ## JCF의 계층구조를 설명해주세요
 
-<div data-full-width="true">
-
-<figure><img src="../../.gitbook/assets/image (246).png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div data-full-width="true"><figure><img src="/broken/files/uHu8zua4jM0KQdMN73OE" alt=""><figcaption></figcaption></figure></div>
 
 JCF의 계층 구조는 여러 인터페이스와 그 인터페이스를 구현한 클래스들로 구성되어 있습니다.
 
@@ -54,7 +50,7 @@ JCF의 계층 구조는 여러 인터페이스와 그 인터페이스를 구현�
 
 ## List 인터페이스는 무엇이고, 구현체의 종류는 무엇이 있나요?
 
-<figure><img src="../../.gitbook/assets/image (248).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/DNz9zV2yvaMaLKH3gHfx" alt=""><figcaption></figcaption></figure>
 
 List 인터페이스는 순서가 있는 데이터 집합을 나타내며, 중복된 요소를 허용하고 인덱스를 통해 요소에 접근할 수 있는 자바 컬렉션의 핵심 인터페이스 중 하나입니다. 주요 구현체로는 `ArrayList`, `LinkedList`, `Vector`, `Stack`이 있습니다. `ArrayList`는 요소 접근이 빠르지만, 요소 추가/삭제가 빈번할 때는 `LinkedList`를 사용하는 것이 더 효율적입니다.
 

@@ -21,6 +21,6 @@ PCB는 커널 스택이 아니라 커널 데이터 영역에 저장되거나, PC
 
 
 
-<figure><img src="../../../.gitbook/assets/image (107).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/j1zmPY8ZJrEbd6ZqGM6B" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/s9e8Hi5Ziux8irANKTMe" alt=""><figcaption></figcaption></figure>

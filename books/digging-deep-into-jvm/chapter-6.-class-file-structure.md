@@ -8,7 +8,7 @@
 
 언어가 어떻든, 가상 머신을 통해 최종 "클래스 파일"로 저장합니다.
 
-<figure><img src="../../.gitbook/assets/image (346).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/elzw6jjYwhKynNMy19Bf" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -28,9 +28,7 @@
 <summary>unsigned number 부호없는 숫자</summary>
 
 * 기본 데이터 타입을 표현.
-
-- u1, u2, u4, u8은 각각 1, 2, 4, 8 바이트를 뜻함.
-
+* u1, u2, u4, u8은 각각 1, 2, 4, 8 바이트를 뜻함.
 * 숫자, 인덱스 참조, 수량 값을 기술하거나 UTF-8로 인코딩된 문자열 값을 구성
 
 </details>
@@ -40,14 +38,11 @@
 <summary>테이블</summary>
 
 * 여러개의 부호 없는 숫자나 또 다른 테이블로 구성된 복합 데이터 타입을 표현.
-
-- 구분이 쉽도록 테이블 이름은 \_info로 끝남.
-
+* 구분이 쉽도록 테이블 이름은 \_info로 끝남.
 * 테이블은 계층적으로 구성된 복합 구조의 데이터를 설명하는데 사용.
+* 클래스 파일 전체는 본질적으로 테이블이다.
 
-- 클래스 파일 전체는 본질적으로 테이블이다.
-
-<figure><img src="../../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/bxw5nx0g5tXUWlrVqYrx" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -72,7 +67,7 @@
 * 7\~8번째 바이트: 메이저 버전
 * 45번쨰 바이트 부터 자바 버전 번호가 나옵니다.
 
-<figure><img src="../../.gitbook/assets/image (348).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ZsDVBt0EijWgyre7oMcA" alt=""><figcaption></figcaption></figure>
 
 ## 3.2 상수 풀
 
@@ -80,7 +75,7 @@
 
 상수 풀에 들어 있는 상수의 수는 고정적이지 않으므로, 상수 풀 항목들에 앞서 항목 개수를 알려주는 u2 타입 데이터가 필요. 관례상 개수는 1부터 시작.
 
-<figure><img src="../../.gitbook/assets/image (349).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/fsaoHo4XSZwLIM5hRVuR" alt=""><figcaption></figcaption></figure>
 
 위 그림에서 TestClass 클래스의 상수 풀 크기는 16진수로 0x0013이고, 10진수 19에 해당. 다시 말해, 상수 풀에는 상수가 18개 존재하며, 인덱스 범위는 1\~18까지다.
 
@@ -96,7 +91,7 @@
 
 리터럴은 말 그대로 **직접적으로 값이 들어 있는 상수**입니다.
 
-<figure><img src="../../.gitbook/assets/image (350).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/zqPC8X2kSz8dPYarnAQP" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -116,7 +111,7 @@
 심벌 참조는 리터럴과 달리, **다른 클래스, 메서드, 필드 등의 "위치나 이름"에 대한 참조 정보**입니다.\
 **JVM이 실행 시에 연결(linking)해서 실제 메모리 주소로 변환**합니다.
 
-<figure><img src="../../.gitbook/assets/image (351).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/sHJMczIeiAGR28v2oroa" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -133,7 +128,7 @@
 
 <summary>상수 풀의 항목 타입</summary>
 
-<figure><img src="../../.gitbook/assets/image (352).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/5bBgCYWI46UeNBu1qnIX" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -147,9 +142,9 @@
 
 같은 클래스의 메서드를 가리키는 심벌 참조이며 구조는 아래와 같습니다.
 
-<figure><img src="../../.gitbook/assets/image (353).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/8AqR6HaEuczfsVcwyukv" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (355).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/DBBqYtwQstVFEhQAwjA5" alt=""><figcaption></figcaption></figure>
 
 * tag: 플래그 비트. 상수 타입을 구분하는 용도
 * index: 상수 풀에서의 인덱스로 위에서는 각각 2와 3입니다. 전체 의미를 파악하기 위해서는 2번쨰, 3번째 상수도 확인해봐야 함.
@@ -158,11 +153,11 @@
 
 이 타입은 클래스나 인터페이스를 가리키는 심벌 참조이며 구조는 아래와 같습니다.
 
-<figure><img src="../../.gitbook/assets/image (356).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/VDmCPQp4MjaHewAHnrH6" alt=""><figcaption></figcaption></figure>
 
 name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드가 정의된 클래스의 이름을 알 수 있습니다. 하나씩 추적해서 조합하면, 첫번째 상수의 의미는 Object 클래스의 기본 인스턴스 생성자임을 알 수 있습니다.
 
-<figure><img src="../../.gitbook/assets/image (357).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/gP32bEsgSz5c8VfMdX6Z" alt=""><figcaption></figcaption></figure>
 
 그림의 분석 결과
 
@@ -174,7 +169,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 표 6-3에서 확인해보면 CONSTANT\_utf8\_info 타입 상수이며 구조는 아래와 같습니다.
 
-<figure><img src="../../.gitbook/assets/image (358).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/PVaEwtY872Ydz7CVEb9A" alt=""><figcaption></figcaption></figure>
 
 * length: UTF-8 축약 인코딩된 문자열이 몇 바이트인지 나타냄. \
   바로 이어서 길이만큼 데이터가 문자열의 실제 데이터.
@@ -183,7 +178,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 이어지는 16바이트는 "java/lang/Object"이다.
 
-<figure><img src="../../.gitbook/assets/image (359).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/TdT2h8rHyZcDNobu9o7y" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -193,7 +188,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>상수 풀의 내용 - (javap)</summary>
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (360).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/OUdFq2JaBrkURswiSHo7" alt=""><figcaption></figcaption></figure></div>
 
 * I, ()V, \<init>, LineNumberTable은 필드 테이블, 메서드 테이블, 속성 테이블에서 참조됨.
 
@@ -203,9 +198,9 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>상수 풀의 17개 데이터 타입의 일반적인 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (361).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/jSdk4iJd2yrdvEgHbZ5i" alt=""><figcaption></figcaption></figure>
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (362).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/ZNrT8sJMWq8ZsxUeWWTz" alt=""><figcaption></figcaption></figure></div>
 
 
 
@@ -222,7 +217,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>접근 플래그의 종류와 의미</summary>
 
-<figure><img src="../../.gitbook/assets/image (363).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/X1xyftrnGYCgk3ePqvaZ" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -232,7 +227,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 ## 3.4 클래스, 부모 클래그, 인터페이스 인덱스
 
-<figure><img src="../../.gitbook/assets/image (364).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/xKTh1oMDY6uD4rMLzJun" alt=""><figcaption></figcaption></figure>
 
 이어서 현재 클래스 인덱스, 부모 클래스 인덱스, 인터페이스 인덱스 컬렉션(interfaces)이 나옵니다. 파일의 상속 관계를 규정.
 
@@ -272,7 +267,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>필드 테이블 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (365).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/nkqlTqynin2CJ3JU40qe" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -282,7 +277,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>AccessFlag</summary>
 
-<figure><img src="../../.gitbook/assets/image (366).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/aVRpha4Dd8HyCdgUdeBV" alt=""><figcaption></figcaption></figure>
 
 데이터 타입은 u2.
 
@@ -305,7 +300,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 * 필드의 경우, 데이터 타입까지.
 * 메서드의 경우, 매개 변수 목록과 반환값까지 기술.
 
-<figure><img src="../../.gitbook/assets/image (368).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/YRFvpS10eMxDKUPMOZoC" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -315,7 +310,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 코드를 컴파일해 생성한 TestClass.class 파일의 경우 테이블 컬렉션이 0x000000B9부터 시작.
 
-<figure><img src="../../.gitbook/assets/image (369).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/7lt5vt59u2mMKl9XqVTE" alt=""><figcaption></figcaption></figure>
 
 * 0x0001: 필드 개수를 뜻하는 field\_count. 필드 테이블에는 데이터가 단 하나라는 뜻.
 * 0x0002: accessFlag 이며, ACC\_PRIVATE플래그만 true.
@@ -335,7 +330,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>메서드 테이블 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (370).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/RCa90zTDKhaKxQsvOXTU" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -345,7 +340,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>메서드 접근 플래그 표</summary>
 
-<figure><img src="../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/YicGOWZEteQRt9asLb5W" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -358,7 +353,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>메서드 테이블 구조 예시:</summary>
 
-<figure><img src="../../.gitbook/assets/image (372).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/zX5hQ4wmrUrBqYdpsvNh" alt=""><figcaption></figcaption></figure>
 
 * 0x0001: 접근 플래그. ACC\_PUBLIC true
 * 0x0005: 이름 인덱스. 값 = \<init>
@@ -382,9 +377,9 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>자바 명세에 사전 정의된 속성</summary>
 
-<figure><img src="../../.gitbook/assets/image (374).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CDiREDgI2fQfIwcl2HgX" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (375).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/s2YbAyvOFtFFcY05w2EZ" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -397,7 +392,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>속성 테이블 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (376).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/A94HxJQ2CDOZXu18wUD8" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -413,29 +408,24 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>Code속성 테이블 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (377).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Tt6vTO6dskQLIxgwYdrB" alt=""><figcaption></figcaption></figure>
 
 * attribute\_name\_index:&#x20;
   * CONSTANT\_Utf8\_info 타입 상수를 가리키는 인덱스.&#x20;
   * 값은Code로 고정되어있음.
-
-- attribute\_length:&#x20;
+* attribute\_length:&#x20;
   * 이 속성의 값이 차지하는 길이. &#x20;
   * 크기: 테이블전체  길이에서 6바이트를 뺀 만큼.(attribute\_name\_index와 attribute\_length까지가 6바이트를 차지함으로)
-
 * max\_stack:&#x20;
   * 피연산자 스택의 최대 깊이.&#x20;
   * 가상 머신은 이 값만큼의 피연산자 스택을 스택 프레임에 할당
-
-- max\_locals:&#x20;
+* max\_locals:&#x20;
   * 지역 변수 테이블에 피룡한 저장소 공간을 뜻함. 즉, 이 지역 변수들이 차지하는 변수 슬롯의 개수.
   * 피연산자 스택의 깊이와 변수 슬롯의 개수를 필요 이상으로 크게 잡으면 메모리가 낭비되기 때문에, 자바 가상 머신은 사용을 마친 변수 슬롯을 재사용함.
-
 * code\_length
   * 자바 소스 코드가 컴파일되어 생성된 바이트코드 명령어들을 저장하는데 사용됨.
   * code\_length는 바이트 코드의 길이 (u4 타입, 이지만, 값이 65535를 넘을 수 없으로사실상 u2타입에 해당)
-
-- code
+* code
   * 자바 소스 코드가 컴파일되어 생성된 바이트코드 명령어들을 저장하는데 사용됨.
   * 바이트 코드 명령어들이 순서대로 저장되는 바이트 스트림.
 
@@ -445,7 +435,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>속성 테이블 예시:</summary>
 
-<figure><img src="../../.gitbook/assets/image (379).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/OixTBvAfXyJPpoX3cp7B" alt=""><figcaption></figcaption></figure>
 
 * 0x0001: 피연산자 스택의 최대 깊이
 * 0x0001: 지역변수 테이블의 용량
@@ -463,7 +453,7 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 결과는 아래와 같다.
 
-<figure><img src="../../.gitbook/assets/image (380).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/YrwAU14AzXPvtrnI4e1J" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -478,11 +468,10 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>Exceptions 속성구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (382).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/HsVElb0mJ3soYTXbPEFU" alt=""><figcaption></figcaption></figure>
 
 * number\_of\_exceptions:해당 메서드가 던질 수 있다고 명시한 검사 예외의 수
-
-- exception\_index\_table: 상수 풀의 CONSTANT\_Class\_info 타입 상수를 가리키는 인덱스. 검사 예외의 클래스를 알려줌
+* exception\_index\_table: 상수 풀의 CONSTANT\_Class\_info 타입 상수를 가리키는 인덱스. 검사 예외의 클래스를 알려줌
 
 </details>
 
@@ -498,12 +487,10 @@ name\_index의 값은 4 이므로, 네번쨰 상수를 보면 해당 메서드�
 
 <summary>LineNumberTable 속성구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (383).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Doo31R9Q7ZOiweG9ytOx" alt=""><figcaption></figcaption></figure>
 
 * line\_number\_table : u2 타입인 start\_poc와 line\_number 항목으로 구성
-
-- start\_pc: 바이트코드의 줄 번호
-
+* start\_pc: 바이트코드의 줄 번호
 * line\_number: 자바 소스의 줄 번호
 
 </details>
@@ -521,19 +508,14 @@ LocalVariableTable
 
 <summary>LocalVariableTable 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (384).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/pMLaZlPgEXXoK6dXiEx9" alt=""><figcaption></figcaption></figure>
 
 * local\_variable\_table: 소스 코드에서 스택 프레임과 지역 변수 사이의 관계를 나타냄
-
-- start\_pc: 지역 변수의 수명 주기가 시작되는 바이트코드의 오프셋.
-
+* start\_pc: 지역 변수의 수명 주기가 시작되는 바이트코드의 오프셋.
 * length: 유효 범위의 길이 (start\_pc와의 조합으로 지역변수의 유효 범위 표현)
-
-- name\_index: 상수 풀 안의 CONSTANT\_Utf8\_info 타입 상수를 가리키는 인덱스. 지역 변수 이름을 나타냄
-
+* name\_index: 상수 풀 안의 CONSTANT\_Utf8\_info 타입 상수를 가리키는 인덱스. 지역 변수 이름을 나타냄
 * descriptor\_index:상수 풀 안의 CONSTANT\_Utf8\_info 타입 상수를 가리키는 인덱스. 지역 변수의 서술자를 나타냄
-
-- index: 스택 프레임의 지역 변수 테이블에서 해당 지역 변수를 담고 있는 변수 슬롯의 위치
+* index: 스택 프레임의 지역 변수 테이블에서 해당 지역 변수를 담고 있는 변수 슬롯의 위치
 
 </details>
 
@@ -545,9 +527,9 @@ LocalVariableTypeTable
 
 <summary>LocalVariableTypeTable 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (385).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Jyts7dnOdpv3komJpgON" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (386).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/52dNhTrt9Q1BmPtRBtTx" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -563,7 +545,7 @@ SourceFile
 
 <summary>SourceFile 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (387).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CmjVLnHIy3iGGFpHsLPf" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -575,7 +557,7 @@ SourceDebugExtention
 
 <summary>SourceDebugExtention 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (389).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Hmiek5S3kZmmz373F3X6" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -590,7 +572,7 @@ SourceDebugExtention
 
 <summary>ConstantValue 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (390).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/gY9J6M1AGE0MhAz4WA8k" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -604,7 +586,7 @@ SourceDebugExtention
 
 <summary>InnerClasses 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (391).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/hbyMBGCx4jDtSaxmhvPw" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -625,7 +607,7 @@ Synthetic
 
 <summary>Deprecated, Synthetic 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (392).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/shVUKF5iytpotfHQnQnz" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -641,7 +623,7 @@ Synthetic
 
 <summary>StackMapTable 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (393).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/KTm9zEpVOGeZ0Vo8prE8" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -658,7 +640,7 @@ Synthetic
 
 <summary>Signature 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (394).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/h39IdN4ozRqj5K84BAEN" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -712,7 +694,7 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>BootstrapMethods 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (395).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/eIXSuHKZNyJZMPXIG2GK" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -727,7 +709,7 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>MethodParameters 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (396).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/OHlGEtEoMn3mD257Bejj" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -742,17 +724,17 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>Module, ModulePackages, ModuleMainClass속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (397).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/lxS08SSaDePPJ2Q3HUKH" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (398).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../../.gitbook/assets/image (399).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/68eQ12aXqAILa2XWObiL" alt=""><figcaption></figcaption></figure>
 
 
 
-<figure><img src="../../.gitbook/assets/image (400).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/OMGD81lpyouYKRECNJZg" alt=""><figcaption></figcaption></figure>
+
+
+
+<figure><img src="/broken/files/iol2oThqGnhHaz314Sfj" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -767,9 +749,9 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>RuntimeVisibleAnnotations, annotation 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (401).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LsZdSggnvyITnTjO52f3" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (402).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/oihU0DrWI2UD9RRn7BDL" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -784,7 +766,7 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>Record 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (403).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/D2CVyVfzTexmyNbByx0P" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -798,7 +780,7 @@ List<Integer> list2 = new ArrayList<>();
 
 <summary>PermittedSubclasses 속성 구조</summary>
 
-<figure><img src="../../.gitbook/assets/image (404).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/PSUFgFupFag8YTdH1fjl" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -887,7 +869,7 @@ int x = 100;
 
 <summary>예외 처리를 고려하지 않았을때, 자바 가상 머신이 해석하는 기본적인 실행모들의 의사 코드.</summary>
 
-<figure><img src="../../.gitbook/assets/image (405).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/NAsszOVTDMPgidP5YQqx" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -906,7 +888,7 @@ int x = 100;
 
 <summary>자바 가상 머신이 제공하는 데이터 타입 관련 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (406).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/T9HbaJRI18k7IIyqYYtm" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -921,7 +903,7 @@ int x = 100;
 
 <summary>로드와 스토어 명령어들</summary>
 
-<figure><img src="../../.gitbook/assets/image (407).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CwZwETAkzVLBSabNzBlR" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -936,7 +918,7 @@ int x = 100;
 
 <summary>산술 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (408).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/XLdXFxoBRHHW8Hlg2eZ8" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -973,7 +955,7 @@ int x = 100;
 
 <summary>객체 생성과 접근 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (409).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/H7vhqudwkSpoFBNuE9X4" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -985,7 +967,7 @@ int x = 100;
 
 <summary>피연산자 스택 관리 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (410).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/mAhPwBzg4Y02GCI7zob5" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -999,7 +981,7 @@ int x = 100;
 
 <summary>제어 전이 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (411).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/kruovlUgGnCUozbfnNS0" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -1016,9 +998,9 @@ int x = 100;
 
 <summary>메서드 호출과 반환 명령어</summary>
 
-<figure><img src="../../.gitbook/assets/image (412).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/hta29DW48YR0XN7pbXSc" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (413).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/UU22oWgyxZIEZiE2XXnY" alt=""><figcaption></figcaption></figure>
 
 </details>
 

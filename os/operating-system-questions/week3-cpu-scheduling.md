@@ -41,7 +41,7 @@ description: CPU 스케줄링
 
 ## CPU 스케줄링에 대해 설명해주세요.
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (243).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/pYQfLz9GAsJ3kFYvqCvG" alt=""><figcaption></figcaption></figure></div>
 
 * **시스템의 CPU 자원을 효율적으로 관리**하고 **프로세스의 성능을 극대화**하기 위해, 여러 프로세스 중에서 **어떤 프로세스가 CPU를 사용할지 결정하는 과정**
 * **처리량(Throughput)**&#xC744; 극대화 **응답시간(Response Time)** 최소화, **CPU 자원의 효율적 사용**

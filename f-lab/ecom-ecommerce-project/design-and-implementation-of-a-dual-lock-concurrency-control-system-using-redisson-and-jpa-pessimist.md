@@ -34,7 +34,7 @@ E-Commerce 플랫폼에서 동시 주문 시 재고 중복 차감 문제를 해�
 
 **락 계층 구조 - 최종 아키텍처**
 
-<figure><img src="../../.gitbook/assets/image (451).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/v0yNLr0SEeXPapykY8aP" alt=""><figcaption></figcaption></figure>
 
 
 

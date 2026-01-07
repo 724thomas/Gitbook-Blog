@@ -87,7 +87,7 @@ fetch('https://api.example.com/data')
 
 ## REST가 뭔가요? RESTFUL API는 뭔가요?
 
-<figure><img src="../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/kQ182nfmS3hBDy0ve9ar" alt=""><figcaption></figcaption></figure>
 
 REST
 

@@ -239,9 +239,9 @@ B- 트리
 
 ## 쿼리 실행 계획에 대해서 설명해주세요. 실행 계획을 확인해본 적이 있나요?
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (244).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/2lANcr4jwWPdGlooURGm" alt=""><figcaption></figcaption></figure></div>
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (245).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/BOF7AaMX6wKHdm4uFT3t" alt=""><figcaption></figcaption></figure></div>
 
 * 데이터베이스가 **SQL 쿼리를 어떻게 실행할지에 대한 상세한 계획**
 * 옵티마이저의 실행 계획은 그 과정에서 테이블에 어떻게 접근할 것인지, **어떤 인덱스를 사용할 것인지**, **조인을 어떻게 처리할 것인지** 등을 보여줍니다.

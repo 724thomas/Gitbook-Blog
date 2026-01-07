@@ -25,7 +25,7 @@ MV 테이블은 정렬된 인덱스를 활용해 빠르게 데이터를 조회�
 3시간마다 스테이징 테이블을 원자적으로 교체하는 방식으로 실시간 가용성과 정합성을 모두 고려했습니다.\
 이 과정을 통해 최종 조회 속도는 **600ms → 0.01ms 수준**으로 개선되었습니다.
 
-<figure><img src="../.gitbook/assets/image (257).png" alt="" width="360"><figcaption></figcaption></figure>
+<figure><img src="/broken/files/pTbyLms6OzCyx2QP8QOZ" alt="" width="360"><figcaption></figcaption></figure>
 
 기존 요구사항:
 
@@ -41,7 +41,7 @@ MV 테이블은 정렬된 인덱스를 활용해 빠르게 데이터를 조회�
 
 ## 2. 아키텍처
 
-<figure><img src="../.gitbook/assets/image (258).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/W7i6k6j0KIi7LlQkmj2L" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -198,7 +198,7 @@ EXPLAIN, EXPLAIN ANALZY 키워드를 통해, 쿼리가 어떻게 실행이 되�
 
 아래는 EXPLAIN, EXPLAIN ANALYZE, 시각화한 흐름도입니다.
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image (259).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/4HSBPbSSnNXkInjeqQjj" alt=""><figcaption></figcaption></figure></div>
 
 {% code fullWidth="true" %}
 ```
@@ -257,7 +257,7 @@ EXPLAIN, EXPLAIN ANALZY 키워드를 통해, 쿼리가 어떻게 실행이 되�
   * deleted 필드에 인덱스를 추가
   * CREATE INDEX idx\_deleted ON `User` (deleted);
 
-<div data-full-width="true"><figure><img src="../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="/broken/files/rRQn47x2g9MQNAowf9Y7" alt=""><figcaption></figcaption></figure></div>
 
 {% code fullWidth="true" %}
 ```

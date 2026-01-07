@@ -105,7 +105,7 @@ Docker-Compose 실행하기
 docker-compose -f docker-compose.yml up -d
 ```
 
-<figure><img src="../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/A7k6qldwzFNVu4L24abn" alt=""><figcaption></figcaption></figure>
 
 Docker 상태 로그 확인하기
 
@@ -113,7 +113,7 @@ Docker 상태 로그 확인하기
 docker ps
 ```
 
-<figure><img src="../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/V6SpMqEFlKi0xAQM0L2H" alt=""><figcaption></figcaption></figure>
 
 컨테이너 ID로 로그를 확인한다
 
@@ -129,7 +129,7 @@ Topic 생성하기
 docker-compose exec kafka-1 kafka-topics --create --topic my-topic --bootstrap-server kafka-1:9092 --replication-factor 3 --partitions 2
 ```
 
-<figure><img src="../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/E9PsdoMDoO8O0MYW5pUD" alt=""><figcaption></figcaption></figure>
 
 * docker-compose:
   * 명령어를 수행한다.
@@ -159,7 +159,7 @@ docker-compose exec kafka-1 kafka-topics --create --topic my-topic --bootstrap-s
 docker-compose exec kafka-1 kafka-topics --describe --topic my-topic --bootstrap-server kafka-1:9092 
 ```
 
-<figure><img src="../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/SGHpO2YBLBSqM2YJYiCk" alt=""><figcaption></figcaption></figure>
 
 * docker-compose:
   * 명령어를 수행한다.

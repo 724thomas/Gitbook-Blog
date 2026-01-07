@@ -1,3 +1,3 @@
 # how i wrote my achievement on resume
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/p28TrgaAklVQ4h0N6PxW" alt=""><figcaption></figcaption></figure>

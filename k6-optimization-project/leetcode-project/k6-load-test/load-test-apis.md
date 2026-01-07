@@ -109,7 +109,7 @@ export default function () {
 
 * k6 실행 결과
 
-<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/tSorKzRV9kWvq0waF1yc" alt=""><figcaption></figcaption></figure>
 
 전체적으로 **지연이 다소 긴 편** (2초 내외), 일부 요청은 **10초 이상**
 
@@ -136,7 +136,7 @@ export default function () {
 
 <summary>Java Application</summary>
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LdBOR82SXghIOMcPLQrO" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -144,7 +144,7 @@ export default function () {
 
 <summary>RDS</summary>
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/3w4HaHiDLXbDipcxtMbx" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -152,7 +152,7 @@ export default function () {
 
 <summary>Redis, MQ</summary>
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/dZn4jPShXMc9RM1TnniT" alt=""><figcaption></figcaption></figure>
 
 </details>
 
@@ -208,7 +208,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 #### JVM Memory
 
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/avgZf8ehGDSC6b48cjpy" alt=""><figcaption></figcaption></figure>
 
 * Heap 메모리 여유 있음.
 * Non-Heap 안정적
@@ -216,7 +216,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 #### JVM Misc
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/K0srAgPiQObVNI6QUGAJ" alt=""><figcaption></figcaption></figure>
 
 * <mark style="color:yellow;">**Java 프로세스 CPU 100% 도달**</mark>
 * <mark style="color:yellow;">**시스템 Load 급증: Max 8.8**</mark>
@@ -225,7 +225,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 #### Garbage Collection
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/MHV7nF8wXzSZOWUxt8Fr" alt=""><figcaption></figcaption></figure>
 
 * Minor GC 횟수 적절
 * GC Pause 시간 짧음
@@ -233,7 +233,7 @@ Prometeus로 수집하고, Grafana로 시각화한 지표를 바탕으로 해석
 
 #### **JVM Memory Pools (Heap)**
 
-<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/6zlZ2iPfhOx30U2O4W6j" alt=""><figcaption></figcaption></figure>
 
 * Eden 공간에서 주기적 GC 발생
 * Old Gen 여유 있음

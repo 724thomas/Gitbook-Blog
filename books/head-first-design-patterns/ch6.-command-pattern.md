@@ -41,7 +41,7 @@ description: 호출 캡슐화하기. 커멘드 패턴
 
 객체마을 식당의 시스템은 커맨드 패턴을 완벽하게 반영한다. 고객이 음식을 주문하고, 그 주문이 커맨드 객체로 캡슐화되어, 서빙 담당자와 주방장을 통해 실행된다. 이러한 구조는 커맨드 패턴의 핵심 아이디어인 "호출의 캡슐화"를 잘 보여준다.
 
-<figure><img src="../../.gitbook/assets/image (223).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/iGo3MvDVzWvg11TAGuD6" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -122,7 +122,7 @@ public class WaiterInvoker {
 
 커맨드 패턴의 구조를 시각적으로 이해하기 위해 클래스 다이어그램을 살펴보자.
 
-<figure><img src="../../.gitbook/assets/image (224).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/1Ic26RgG71vXernGo40W" alt=""><figcaption></figcaption></figure>
 
 다이어그램에는 다음과 같은 클래스들이 포함되어 있다:
 

@@ -22,7 +22,7 @@
 
 데이터를 DB에 쓰는 순간 캐시도 갱신
 
-<figure><img src="../../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/YPWpYj1bihHqwvLv8WFQ" alt=""><figcaption></figcaption></figure>
 
 * 캐시와 DB간의 데이터 정합성이 좋습니다
 * 쓰기 연산이 느려짐
@@ -31,7 +31,7 @@
 
 DB에 먼저 데이터를 기록하고, 캐시에는 기록하지 않습니다. 데이터가 읽힐때 캐시에 저장
 
-<figure><img src="../../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/3p1FCCrC8qpaiA3raJhD" alt=""><figcaption></figcaption></figure>
 
 * 모든 데이터는 DB에 저장하고 캐시를 갱신하지 않음
 * 캐시 미스가 발생하는 경우에만 DB와 캐시에도 데이터를 저장
@@ -40,7 +40,7 @@ DB에 먼저 데이터를 기록하고, 캐시에는 기록하지 않습니다. 
 
 캐시가 우선적으로 업데이트 되고, 특정 주기에 따라 DB에 기록
 
-<figure><img src="../../.gitbook/assets/image (304).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/wmuLpEJKBF9FhQwR43Jw" alt=""><figcaption></figcaption></figure>
 
 * 쓰기 속도가 매우 빠름
 * DB에 반영이 되지 않은 상태에서 문제가 발생하거나 데이터 유실 가능성
@@ -53,13 +53,13 @@ DB에 먼저 데이터를 기록하고, 캐시에는 기록하지 않습니다. 
 
 데이터를 찾을때 우선 캐시에 저장되어 있는지 먼저 확인. 캐시에 데이터가 없으면 DB조회
 
-<figure><img src="../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/hwbgmO1V45J13WKTPHXV" alt=""><figcaption></figcaption></figure>
 
 ### 4.2. Read-Through
 
 캐시에서만 데이터를 읽어오는 전략.
 
-<figure><img src="../../.gitbook/assets/image (303).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/LZ0RYvN921HAzx5kRIE7" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -67,14 +67,14 @@ DB에 먼저 데이터를 기록하고, 캐시에는 기록하지 않습니다. 
 
 ### 5.1. Look Aside + Write Around 조합(일반적)
 
-<figure><img src="../../.gitbook/assets/image (307).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/iI7vetUF7ES4qBI9TiwK" alt=""><figcaption></figcaption></figure>
 
 * 항상 DB에 씁니다
 * 캐시에서 읽을때 항상 DB에서 먼저 읽어옴.
 
 ### 5.2. Read Through + Write Through 조합
 
-<figure><img src="../../.gitbook/assets/image (308).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/MTAsXJQ3rhvgG2lAIw5R" alt=""><figcaption></figcaption></figure>
 
 * 데이터를 쓸때 항상 캐시에 먼저 씀.
 * 데이터를 쓸때 항상 캐시에서 DB로 보내기때문에 정합성 보장.

@@ -25,7 +25,7 @@ helm만 설치되어있을때, 레포지토리가 아무것도 없는 상태이�
 
     * mariadb의 차트가 어떤 내용을 담고 있는지 확인(간단한 내용)
 
-    <figure><img src="../../.gitbook/assets/image (141).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/aoWSUsqBIVoNu1zZQcbQ" alt=""><figcaption></figcaption></figure>
 * helm inspect values bitnami/mariadb
   * mariadb의 차트가 어떤 내용을 담고 있는지 확인(상세한 내용)
   * 각종 yaml파일들이 reference하고 있는 values 파일 내용을 볼 수 있다
@@ -37,7 +37,7 @@ helm만 설치되어있을때, 레포지토리가 아무것도 없는 상태이�
 
     * inspect value안에 있는 값들을 바꿔서 배포도 가능하다.
 
-    <figure><img src="../../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="/broken/files/0nNucfV7EvaEC0FxEZow" alt=""><figcaption></figcaption></figure>
 * helm list
   * 운영중인 chart 패키지들을 확인할 수 있다
 * helm uninstall app-db

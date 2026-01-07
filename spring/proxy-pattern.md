@@ -8,7 +8,7 @@ description: 프록시 패턴
 
 원본 객체를 대리하여 처리하게 함으로써 로직의 흐름을 제어하는 행동 패턴입니다. 대상 객체의 메서드를 직접 실행하는 것이 아닌, 대상 객체에 접근하기 전에 프록시(Proxy) 객체의 메서드를 접근한 후 추가적인 로직을 먼저 처리한 뒤 대상 객체에 접근합니다.
 
-<figure><img src="../.gitbook/assets/image (234).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/3pDmfyZsI2JO8QayyZSU" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -139,7 +139,7 @@ public class RemoteProxyDemo {
 
 ## 구조
 
-<figure><img src="../.gitbook/assets/image (235).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/f4IIyok0YYxrEsQUtHWY" alt=""><figcaption></figcaption></figure>
 
 다른 객체에 대한 접근을 제어하는 개체.
 

@@ -4,7 +4,7 @@ description: 프로세스 컴파일 과정
 
 # Process of compiling a process
 
-<figure><img src="../../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/626xfF37VYW7hILCacBw" alt=""><figcaption></figcaption></figure>
 
 **전처리** : 소스 코드의 주석을 제거하고 #include 등 헤더 파일을 병합하여 메크로를 치환.
 

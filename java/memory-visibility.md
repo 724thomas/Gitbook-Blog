@@ -50,7 +50,7 @@ public class VolatileFlagMain {
 * 이후에 main 스레드가 runFlag의 값을 false 로 변경한다.
 * runFlag의 값이 false가 되었으므로 flag 스레드는 무한 루프를 탈출하며, 작업을 종료한다.
 
-<figure><img src="../.gitbook/assets/image (287).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Ajffc9o6OSPlcKQGSIKF" alt=""><figcaption></figcaption></figure>
 
 * main, work 스레드 모두 MyTask 인스턴스(x001)에 있는 runFlag를 사용
 * 이 값을 false로 변경하면 work 스레드의 작업을 종료.
@@ -82,13 +82,13 @@ public class VolatileFlagMain {
 
 일반적으로 생각하는 메모리 접근 방식은 아래와 같다.
 
-<figure><img src="../.gitbook/assets/image (288).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CY304NNMzHPtqihActqK" alt=""><figcaption></figcaption></figure>
 
 하지만 실제로는,
 
-<figure><img src="../.gitbook/assets/image (291).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/20yCHb9BXvqSC3VqvK1G" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/KzQhAj761PGGQ2wL8aO6" alt=""><figcaption></figcaption></figure>
 
 * 그림에서 보듯이, 스레드는 캐시를 가지고 있다. 그래서 변수가 변경되어도 바로 메인 메모리에 반영되지 않고 캐시메모리만 갱신된다.
 * 메인 메모리와 work 스레드의 캐시 메모리의 runFlag는 여전히 true가 된다.

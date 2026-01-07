@@ -12,7 +12,7 @@
 
 ### 1.1 애플리케이션 계층
 
-<figure><img src="../../.gitbook/assets/image (178).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/YCPSrPwHycgIoNwMvXpT" alt=""><figcaption></figcaption></figure>
 
 1. 브라우저 캐시 확인: 브라우저 캐시에 최근 방문한 웹사이트의 DNS 정보가 있는지 확인합니다.
 2. 운영체제의 로컬호스트 파일 확인: 시스템콜을 호출 하여 운영체제의 호스트 파일을 확인합니다.
@@ -65,7 +65,7 @@
 
 ### 2.1 3way handshake
 
-<figure><img src="../../.gitbook/assets/image (182).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/VB5j5r0mzAgGQvIhri1a" alt=""><figcaption></figcaption></figure>
 
 1. 클라이언트에서 ISN(Initial Sequence Number)가 포함된  SYN 패킷(예: <mark style="color:red;">2341</mark>)을 서버에 보냅니다.
 2. 서버는 클라이언트의 SYN 패킷(<mark style="color:red;">2341</mark>)을 수신하고, 요청을 수락한다는 의미로 자신의 ISN이 포함된 SYN(예:<mark style="color:blue;">9853</mark>)과,  ACK 패킷(예: <mark style="color:red;">2342</mark>)을 클라이언트에게 전송합니다.
@@ -73,7 +73,7 @@
 
 ### 2.2 TLS 핸드쉐이크
 
-<figure><img src="../../.gitbook/assets/image (181).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/c3U2FeUAA1NMgUX883dR" alt=""><figcaption></figcaption></figure>
 
 1. 클라이언트가 서버와의 연결을 시작하기 위해 'ClientHello(Client Random값포함)' 메세지를 보냅니다.
 2. 서버는 'ClientHello'를 수신하고, 암호화 방법을 선택하여 'ServerHello(Server Random값 포함)'를 보냅니다.
@@ -119,7 +119,7 @@
 
 SpringBoot에서 요청이 들어온 경우를 가정합니다.
 
-<figure><img src="../../.gitbook/assets/image (183).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/9uAcPaUK3yXdWClO1jhx" alt=""><figcaption></figcaption></figure>
 
 1. HTTP 요청을 수신하게 되면, WAS(내장 웹 애플리케이션 서버)에서 요청을 받습니다.
 2. 요청을 서블릿 컨테이너로 전달하게 되고, 서블릿 컨테이너는 요청 URL에 따라 해당 서블릿으로 요청을 라우팅합니다. (스프링 부트는 기본 DispatcherServlet)

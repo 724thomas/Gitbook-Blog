@@ -6,7 +6,7 @@ description: 부동소수점에서 무한대와 NAN 표시 방법
 
 
 
-<figure><img src="../../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/BIuTWCywxxPVm843TQSR" alt=""><figcaption></figcaption></figure>
 
 *   exponent가 전부 0/1 일때를 Special Case라고 생각하면 될 듯합니다.
 

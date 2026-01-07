@@ -87,7 +87,7 @@ server:
 
 단순히 스프링 서버 대수를 늘려서 가용 스레드를 늘리는 방안입니다.
 
-<figure><img src="../../../.gitbook/assets/image (432).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/IMc6GH74MTEZ1zJKN56I" alt=""><figcaption></figcaption></figure>
 
 **장점**
 
@@ -123,7 +123,7 @@ server:
 
 코드 실행(sandbox) 담당 로직을 비동기로 처리하고, polling / SSE로 결과를 확인하는 방법을 생각했습니다.
 
-<figure><img src="../../../.gitbook/assets/image (433).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/7mGZhJ5s2t1L1hhGysI2" alt=""><figcaption></figcaption></figure>
 
 **장점**
 
@@ -148,19 +148,19 @@ server:
 
 **Java app**
 
-<figure><img src="../../../.gitbook/assets/image (435).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/jx0KVvFyPE0YcVx6IylW" alt=""><figcaption></figcaption></figure>
 
 * CPU: 최대 81%로, 위험한 수준입니다.
 * Mem: 최대 52.3%로 메모리는 널널한 수준입니다.
 * Heap: 78.2%로 위험한 수준입니다. 하지만 수초(약 20초) 내에 60% 아래로 회복됨이 확인됩니다.
 
-<figure><img src="../../../.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/6yqtc5Lt6MdUfA6fPnDd" alt=""><figcaption></figcaption></figure>
 
 **RDS**
 
-<figure><img src="../../../.gitbook/assets/image (437).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/JOCk0ZEf8Yr5nJr7rTbi" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/3HeD2vCl3MYPzshHq1Ke" alt=""><figcaption></figcaption></figure>
 
 * CPU: 33%으로 널널한 편입니다.
 * FreeableMemory(103M)이라서 Ram 가용공간이 많은 편입니다.
@@ -168,7 +168,7 @@ server:
 
 **K6**
 
-<figure><img src="../../../.gitbook/assets/image (439).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/CNCrCxmVlF1qDeZbTT8O" alt=""><figcaption></figcaption></figure>
 
 요청 처리 시간:
 
@@ -186,15 +186,15 @@ server:
 
 요청이 처리되는 최대 시간: 5분 52초
 
-<figure><img src="../../../.gitbook/assets/image (440).png" alt=""><figcaption><p>첫번째 요청: 6초 (15분 11초 - 15분 17초)</p></figcaption></figure>
+<figure><img src="/broken/files/utcg2qtcQdxFFYDJ6cin" alt=""><figcaption><p>첫번째 요청: 6초 (15분 11초 - 15분 17초)</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (441).png" alt=""><figcaption><p>10000번째 요청(마지막): <strong>5분 52초.</strong> (15분 57초 - 21분 49초)</p></figcaption></figure>
+<figure><img src="/broken/files/6wwcYfGLxrSeStnKofcw" alt=""><figcaption><p>10000번째 요청(마지막): <strong>5분 52초.</strong> (15분 57초 - 21분 49초)</p></figcaption></figure>
 
 요청이 잘 처리가되는것을 확인했습니다. 다만, 요청 처리 속도가 효율적이지 않습니다.
 
-<figure><img src="../../../.gitbook/assets/image (442).png" alt=""><figcaption><p>Api 서버 -> Sandbox 서버</p></figcaption></figure>
+<figure><img src="/broken/files/zZFu1uGOqW8ESQ9fQNtg" alt=""><figcaption><p>Api 서버 -> Sandbox 서버</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (444).png" alt=""><figcaption><p>Sandbox 서버 -> Api 서비</p></figcaption></figure>
+<figure><img src="/broken/files/pbcXuCWubVWYWTfOHiNP" alt=""><figcaption><p>Sandbox 서버 -> Api 서비</p></figcaption></figure>
 
 
 
@@ -219,9 +219,9 @@ factory.setMaxConcurrentConsumers(200); // 200으로 늘려줬습니다.
 ...
 ```
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (445).png" alt=""><figcaption><p>첫번째 요청: 2초 (31분 01초 - 31분 03초)</p></figcaption></figure></div>
+<div align="left"><figure><img src="/broken/files/AAhy9XAVjEYboHk6hig9" alt=""><figcaption><p>첫번째 요청: 2초 (31분 01초 - 31분 03초)</p></figcaption></figure></div>
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (446).png" alt=""><figcaption><p>10000번째 요청(마지막): <strong>2분 50초.</strong> (31분 31초 - 34분 21초)</p></figcaption></figure></div>
+<div align="left"><figure><img src="/broken/files/6JOAYgbV9FlD4Wv1vaUy" alt=""><figcaption><p>10000번째 요청(마지막): <strong>2분 50초.</strong> (31분 31초 - 34분 21초)</p></figcaption></figure></div>
 
 마지막 요청 처리 시간이 2분 50초로, 훨씬 빨라진것을 확인했습니다. (처리속도가 2배 증가)
 
@@ -237,13 +237,13 @@ factory.setMaxConcurrentConsumers(250); // 250으로 늘려줬습니다.
 ...
 ```
 
-<figure><img src="../../../.gitbook/assets/image (449).png" alt=""><figcaption><p>Api 서버 -> Sandbox 서버</p></figcaption></figure>
+<figure><img src="/broken/files/OOIlNBhlA261Sm5b0QdI" alt=""><figcaption><p>Api 서버 -> Sandbox 서버</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (450).png" alt=""><figcaption><p>Sandbox 서버 -> Api 서비</p></figcaption></figure>
+<figure><img src="/broken/files/CDwALyUZlzjQA2XAwyvF" alt=""><figcaption><p>Sandbox 서버 -> Api 서비</p></figcaption></figure>
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (447).png" alt=""><figcaption><p>첫번째 요청: 3초 (52분 27초 - 52분 30초)</p></figcaption></figure></div>
+<div align="left"><figure><img src="/broken/files/oTlC87av1vPM7BBl083v" alt=""><figcaption><p>첫번째 요청: 3초 (52분 27초 - 52분 30초)</p></figcaption></figure></div>
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (448).png" alt=""><figcaption><p>10000번째 요청(마지막): 1분 7초. (52분 39초 - 53분 48초)</p></figcaption></figure></div>
+<div align="left"><figure><img src="/broken/files/dqMC1e9LtLrhLRnEu917" alt=""><figcaption><p>10000번째 요청(마지막): 1분 7초. (52분 39초 - 53분 48초)</p></figcaption></figure></div>
 
 훨씬 빨라진것을 확인했습니다. 처리속도가 또 2배로 증가했습니다. \
 (그 이상도 테스트를 해봤지만, 빨라지진 않았습니다.)

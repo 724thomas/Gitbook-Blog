@@ -1,3 +1,3 @@
 # last day of unpaid internship
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/0m7h9AGPuPcf7tdmgCcN" alt=""><figcaption></figcaption></figure>

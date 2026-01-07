@@ -2,7 +2,7 @@
 
 [https://youtu.be/ovGgdPPUZ2I?si=4VC6c6ncNmcn5gbh](https://youtu.be/ovGgdPPUZ2I?si=4VC6c6ncNmcn5gbh)
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/PWlGN7HZ1SWXDoQKG4RV" alt=""><figcaption></figcaption></figure>
 
 ## 요약
 
@@ -12,14 +12,14 @@
 
 ### 1. 배경
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/3RJ3cc16Z2rD26GazSUJ" alt=""><figcaption></figcaption></figure>
 
 * 준 실시간성으로 계좌 정보를 가져오기 위해 Polling 방식으로 구성
 * 사용자 증가 → Polling 방식이 부담 (CPU 50% 이상)
 
 ### 2. 해결
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/wzUXlsKk9ue0ZJmc7Pqi" alt=""><figcaption></figcaption></figure>
 
 계좌 API를 요청할때 재조회 이벤트가 요청이 있을때만 호출.
 
@@ -38,7 +38,7 @@
 
 #### SSE 구현
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/c3G7fYQPlbhsz71720lw" alt=""><figcaption></figcaption></figure>
 
 ### Client side message 전략
 
@@ -96,7 +96,7 @@
 
 
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/i7SU1YztWUcafOUaEhfS" alt=""><figcaption></figcaption></figure>
 
 * 클라이언트3는 메시지를 API Server로 전송
 * API Server는 메시지를 메시지 브로커로 전송
@@ -167,7 +167,7 @@
     }
     ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/wClyZ0M2YNVDOLCrOp59" alt=""><figcaption></figcaption></figure>
 
 * 유저별 단독 채널 생성
 * 클라이언트는 본인 채널만 구독하면 됨
@@ -176,7 +176,7 @@
 
 * 보유자산 polling 제거
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/OtBXZQTGn8bRrZEpnja2" alt=""><figcaption></figcaption></figure>
 
 3초 주기의 폴링을 없앨 수 없다. 그래서 중간에 SSE Server를 두고 재조회 이벤트가 발행되었을 때만 보유 종목 API를 호출하여 30%정도의 성능 개선
 
@@ -184,7 +184,7 @@
 
 * 배경
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/ummg1QVIueubTJh8EkTY" alt=""><figcaption></figcaption></figure>
 
 * FCM Push가 Capacity가 넘어가는 상황
 * 모든 푸쉬 이벤트를 전부 FCM을 발행하도록 되어있음
@@ -195,7 +195,7 @@
 * 미접속중: FCM Push
 * Redis Pub/Sub을 사용하여 접속/미접속 사용자 구별
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/z5bx7I0sPP33gl98Up6A" alt=""><figcaption></figcaption></figure>
 
 ## Server Side Message
 
@@ -213,7 +213,7 @@
 
 ### NATS
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/2c2GYRF0HWteUpWWw1Yr" alt=""><figcaption></figcaption></figure>
 
 * 동작 방식
   1. NATS 2에게 PUB msg를 보냄
@@ -234,4 +234,4 @@
 
 ## 결과
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/O6iSdR0JWBHuQc2InZjw" alt=""><figcaption></figcaption></figure>

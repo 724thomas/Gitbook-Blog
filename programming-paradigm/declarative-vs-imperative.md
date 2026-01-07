@@ -4,11 +4,7 @@ description: 선언형, 명령형의 차이
 
 # Declarative vs Imperative
 
-<div data-full-width="true">
-
-<figure><img src="../.gitbook/assets/image (240).png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div data-full-width="true"><figure><img src="/broken/files/uWZP9rng4rQqfcnNGiJh" alt=""><figcaption></figcaption></figure></div>
 
 요약:
 

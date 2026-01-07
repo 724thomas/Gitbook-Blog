@@ -12,7 +12,7 @@ HTTP/1.1에서 등장한 Keep-alive와 pipelining으로 인해, 요청들이 직
 
 ### Keep-alive에서 발생하는 상황
 
-<figure><img src="../.gitbook/assets/image (417).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/BVeB8F4uDpJwuVYLMG4h" alt=""><figcaption></figcaption></figure>
 
 * 총 4개의 요청과 응답을 주고 받고 있습니다.
 * 각 요청은 응답을 받은 후에 다음 요청을 보내게 됩니다.
@@ -23,7 +23,7 @@ HTTP/1.1에서 등장한 Keep-alive와 pipelining으로 인해, 요청들이 직
 
 ### Pipelining에서 발생하는 상황
 
-<figure><img src="../.gitbook/assets/image (419).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/x7J4cYjc9Rs9rHA7SU6d" alt=""><figcaption></figcaption></figure>
 
 * pipelining은 응답을 받지 않고도 요청들을 계속 보낼 수 있게 해줍니다.
 * pipelining에는 streamID가 존재하지 않아서, 클라이언트는 순서에 의존해서 요청/응답을 매핑합니다.
@@ -40,7 +40,7 @@ HTTP/1.1에서 등장한 Keep-alive와 pipelining으로 인해, 요청들이 직
 
 HTTP/2는 하나의 TCP 커넥션 내에서 여러개의 스트림(논리적 연결 단위)을 생성하고, 각각의 스트림을 프레임 단위로 쪼개어 병렬로 전송할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (420).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/VieWQ9QcwhlVwymqacgT" alt=""><figcaption></figcaption></figure>
 
 * 각 요청/응답은 독립된 StreamID를 가짐
 * 요청과 응답은 Frame 단위로 쪼개져 전송되며, 중간에 교차도 가능
@@ -53,7 +53,7 @@ HTTP/2는 하나의 TCP 커넥션 내에서 여러개의 스트림(논리적 연
 
 TCP는 전송 계층에서의 연결 지향적 프로코롤로, 데이터 순서를 보장하며, 이 부분으로 인해 Holb가 발생합니다.
 
-<figure><img src="../.gitbook/assets/image (424).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/QwFD82nGdQI6akzAU7yZ" alt=""><figcaption></figcaption></figure>
 
 * TCP 수신자는 순서를 지키기 위해 중간 패킷이 오기를 기다립니다.
 * 전송 계층에서 발생하며, 패킷 단위입니다.
@@ -70,7 +70,7 @@ TCP는 전송 계층에서의 연결 지향적 프로코롤로, 데이터 순서
 
 QUIC는 구글이 개발한 프로토콜로, UDP 기반으로 TCP의 단점을 극복하기 위해 만들어졌습니다. 스트림 단위의 독립 전송을 지원하며, TCP의 순서 보장 강제성과 Holb를 회피할 수 있습니다.
 
-<figure><img src="../.gitbook/assets/image (425).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/IwdEdaGn6bPBDIa6wuqm" alt=""><figcaption></figcaption></figure>
 
 * 하나의 연결 안에 여러 스트림 존재(논리적)
 * 각 스트림은 독립적인 순서로 데이터 전송 가능
