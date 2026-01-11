@@ -173,7 +173,7 @@
   * [#8 Before the Project](books/the-pragmatic-programmer/8-before-the-project.md)
   * [#9 Pragmatic Projects](books/the-pragmatic-programmer/9-pragmatic-projects.md)
 * [Toby's Spring vol1](books/tobys-spring-vol1/README.md)
-  * [Object and relation 1.1.\~1.3.](books/tobys-spring-vol1/object-and-relation-1.1.-1.3..md)
+  * [1. Object and relation](books/tobys-spring-vol1/1.-object-and-relation.md)
 
 ## Interview Practices
 
