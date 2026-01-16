@@ -5,6 +5,7 @@
 ## Trustay
 
 * [Documentation](trustay/documentation/README.md)
+  * [Evolution of Notification & Push Delivery System](trustay/documentation/evolution-of-notification-and-push-delivery-system.md)
   * [Avoiding spatial index for trade-off](trustay/documentation/avoiding-spatial-index-for-trade-off.md)
   * [Notification System Development](trustay/documentation/notification-system-development.md)
   * [channel notification display time design](trustay/documentation/channel-notification-display-time-design.md)
