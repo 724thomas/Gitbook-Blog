@@ -4,7 +4,9 @@ description: 대량 알림 생성 파이프라인 재설계
 
 # Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure
 
-### Outbox 기반 큐 구조로 알림 생성 안정성과 운영 안전장치 확보하기
+(사내 보안 규정에 따라 실제 서비스·테이블·코드 식별자는 모두 일반화되어 있습니다)
+
+## Outbox 기반 큐 구조로 알림 생성 안정성과 운영 안전장치 확보하기
 
 대량 알림(인기 콘텐츠, 위치 기반 글, 운영자 등로 알림) 을 안정적으로 생성하고 운영 리스크를 줄이기 위해,\
 기존의 즉시 생성 / 즉시 발송 중심 구조를 **큐 기반(outbox) 생성 구조로 전환**했습니다.

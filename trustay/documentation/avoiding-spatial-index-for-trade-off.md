@@ -4,6 +4,8 @@ description: '대량 위치 기반 조회에서 Spatial Index를 쓰지 않은 �
 
 # Avoiding spatial index for trade-off
 
+(사내 보안 규정에 따라 실제 서비스·테이블·코드 식별자는 모두 일반화되어 있습니다)
+
 ## 문제 배경
 
 거리 기반 대상 추출(예: 반경 10km)은 알림 대상을 식별하기 위한 필터로 사용됩니다.\
