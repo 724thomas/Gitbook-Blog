@@ -6,6 +6,7 @@
 
 * [Documentation](trustay/documentation/README.md)
   * [Evolution of Notification & Push Delivery System](trustay/documentation/evolution-of-notification-and-push-delivery-system.md)
+  * [Designing a Traceable Push Delivery System](trustay/documentation/designing-a-traceable-push-delivery-system.md)
   * [Eliminating Domain Confusion in a Notification System](trustay/documentation/eliminating-domain-confusion-in-a-notification-system.md)
   * [Resolving Duplicate Notification Bursts with Redis-Based Rate Limiting](trustay/documentation/resolving-duplicate-notification-bursts-with-redis-based-rate-limiting.md)
   * [Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure](trustay/documentation/redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
