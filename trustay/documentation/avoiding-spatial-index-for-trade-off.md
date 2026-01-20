@@ -78,6 +78,12 @@ AND ST_Distance_Sphere(location, :center) <= 10000;
 * 각 MBR들은 내부 노드(MBR)들을 포함하고 있고,
 * 계층 아래 쪽에 있는 MBR들은 결국 리프 노드(좌표)들을 가지고 있습니다.
 * 전체 좌표들 중 후보들을 빠르게 추리기 위한 필터링 방법입니다.
+* **이 과정을 생략하게 되면, 존재하는 모든 좌표들에 대해 거리 계산을 하게 됩니다.**
+
+`ST-Distance_Sphere`
+
+* 거리 계산을 위해 사용되며 기준 좌표와 대상 좌표의 거리를 나타냅니다.
+* 내부 MBR이 어떻게 생겼는지 알기가 어렵기 때문에, 이 과정을 생략하면 정확도가 많이 떨어집니다.
 
 
 
@@ -88,10 +94,6 @@ AND ST_Distance_Sphere(location, :center) <= 10000;
 4. 마지막 MBR 내부의 좌표들을 가져옵니다.
 
 
-
-ST-Disasdf
-
-asdfasdf
 
 해당 쿼리의 핵심 문제는:
 
@@ -106,7 +108,7 @@ asdfasdf
 
 
 
-#### 예시  EXPLAIN 분석
+#### 예시  EXPLAIN ANALYZE 분석
 
 ```sql
 EXPLAIN ANALYZE
@@ -144,6 +146,13 @@ AND longitude BETWEEN :minLng AND :maxLng;
 -> Index range scan using idx_lat_lng
    rows=135000
 ```
+
+#### 동작 원리
+
+1. 위, 경도 컬럼에 인덱스가 존재하는 상황에서, Between minLat, maxLat을 통해 1차 필터링을 하게됩니다.
+2. Between minLng, maxLng을 통해 2차 필터링을 하여 결과를 빠르게 가져옵니다.
+
+
 
 차이점:
 
