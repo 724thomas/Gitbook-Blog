@@ -11,13 +11,8 @@
   * [Resolving Duplicate Notification Bursts with Redis-Based Rate Limiting](trustay/documentation/resolving-duplicate-notification-bursts-with-redis-based-rate-limiting.md)
   * [Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure](trustay/documentation/redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
   * [Avoiding spatial index for trade-off](trustay/documentation/avoiding-spatial-index-for-trade-off.md)
+  * [Analyzing a Long-Running Transaction and Database Lock Incident Caused by a Cursor Paging Bug](trustay/documentation/analyzing-a-long-running-transaction-and-database-lock-incident-caused-by-a-cursor-paging-bug.md)
   * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
-  * [Notification System Development](trustay/documentation/notification-system-development.md)
-  * [channel notification display time design](trustay/documentation/channel-notification-display-time-design.md)
-  * [PreRegistration](trustay/documentation/preregistration.md)
-  * [Git Branch Contamination & Recovery Case Study Report](trustay/documentation/git-branch-contamination-and-recovery-case-study-report.md)
-  * [CPU Load Analysis and Optimization for Bulk Notification Creation](trustay/documentation/cpu-load-analysis-and-optimization-for-bulk-notification-creation.md)
-  * [Connection Pool Exhaustion Caused by Poor Transaction Design](trustay/documentation/connection-pool-exhaustion-caused-by-poor-transaction-design.md)
 
 ## ALGORITHM
 
