@@ -178,6 +178,7 @@
   * [1. Object and relation](books/tobys-spring-vol1/1.-object-and-relation.md)
   * [2. Test](books/tobys-spring-vol1/2.-test.md)
   * [3. Template](books/tobys-spring-vol1/3.-template.md)
+  * [4. Exception](books/tobys-spring-vol1/4.-exception.md)
 
 ## Interview Practices
 
