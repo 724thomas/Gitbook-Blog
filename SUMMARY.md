@@ -13,7 +13,7 @@
   * [Avoiding spatial index for trade-off](trustay/documentation/avoiding-spatial-index-for-trade-off.md)
   * [Analyzing a Long-Running Transaction and Database Lock Incident Caused by a Cursor Paging Bug](trustay/documentation/analyzing-a-long-running-transaction-and-database-lock-incident-caused-by-a-cursor-paging-bug.md)
   * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
-  * [Page 1](trustay/documentation/page-1.md)
+  * [Resolving the Reprocessing Problem](trustay/documentation/resolving-the-reprocessing-problem.md)
 
 ## ALGORITHM
 

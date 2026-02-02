@@ -2,7 +2,7 @@
 description: 재처리 불가 문제 해결 과정
 ---
 
-# Page 1
+# Resolving the Reprocessing Problem
 
 ## 배경 및 문제
 
