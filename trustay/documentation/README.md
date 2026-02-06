@@ -2,8 +2,8 @@
 
 #### 알림 푸시 시스템 진화 기록
 
-{% content-ref url="evolution-of-notification-and-push-delivery-system.md" %}
-[evolution-of-notification-and-push-delivery-system.md](evolution-of-notification-and-push-delivery-system.md)
+{% content-ref url="overall-evolution-of-notification-and-push-delivery-system.md" %}
+[overall-evolution-of-notification-and-push-delivery-system.md](overall-evolution-of-notification-and-push-delivery-system.md)
 {% endcontent-ref %}
 
 #### 푸시 추적성 강화:  다중 대상 푸시를 1Row = 1Target 구조로 재설계하여 에러 추적 용이함과 성능 예측 향상
@@ -26,8 +26,8 @@
 
 #### 대량 알림 생성 파이프라인 재설계
 
-{% content-ref url="redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md" %}
-[redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md](redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
+{% content-ref url="overall-redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md" %}
+[overall-redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md](overall-redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
 {% endcontent-ref %}
 
 #### 대량 위치 기반 조회에서 Spatial Index를 쓰지 않은 이유: 정확도 vs 성능 트레이드 오프

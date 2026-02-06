@@ -32,7 +32,7 @@ description: '대량 위치 기반 조회에서 Spatial Index를 쓰지 않은 �
 
 ## Spatial Index는 왜 부담이 되었는가
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### &#x20;Spatial Index는 "거리"를 모른다.
 
@@ -230,7 +230,7 @@ R-Tree는 공간 객체(spatial object)를 빠르게 찾기 위한 자료구조 
 
 R-Tree의 구조
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 [Root MBR]

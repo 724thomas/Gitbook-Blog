@@ -5,17 +5,17 @@
 ## Trustay
 
 * [Documentation](trustay/documentation/README.md)
-  * [Evolution of Notification & Push Delivery System](trustay/documentation/evolution-of-notification-and-push-delivery-system.md)
-  * [Designing a Traceable Push Delivery System](trustay/documentation/designing-a-traceable-push-delivery-system.md)
-  * [Eliminating Domain Confusion in a Notification System](trustay/documentation/eliminating-domain-confusion-in-a-notification-system.md)
-  * [Resolving Duplicate Notification Bursts with Redis-Based Rate Limiting](trustay/documentation/resolving-duplicate-notification-bursts-with-redis-based-rate-limiting.md)
-  * [Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure](trustay/documentation/redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
-  * [Avoiding spatial index for trade-off](trustay/documentation/avoiding-spatial-index-for-trade-off.md)
-  * [Analyzing a Long-Running Transaction and Database Lock Incident Caused by a Cursor Paging Bug](trustay/documentation/analyzing-a-long-running-transaction-and-database-lock-incident-caused-by-a-cursor-paging-bug.md)
-  * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
+  * [Redesigning Bulk Notification Processing for Stability](trustay/documentation/redesigning-bulk-notification-processing-for-stability.md)
   * [Resolving the Reprocessing Problem](trustay/documentation/resolving-the-reprocessing-problem.md)
   * [Designing a Safe Abort Mechanism for Long-Running Bulk Jobs](trustay/documentation/designing-a-safe-abort-mechanism-for-long-running-bulk-jobs.md)
-  * [Redesigning Bulk Notification Processing for Stability](trustay/documentation/redesigning-bulk-notification-processing-for-stability.md)
+  * [Designing a Traceable Push Delivery System](trustay/documentation/designing-a-traceable-push-delivery-system.md)
+  * [Avoiding spatial index for trade-off](trustay/documentation/avoiding-spatial-index-for-trade-off.md)
+  * [Resolving Duplicate Notification Bursts with Redis-Based Rate Limiting](trustay/documentation/resolving-duplicate-notification-bursts-with-redis-based-rate-limiting.md)
+  * [Eliminating Domain Confusion in a Notification System](trustay/documentation/eliminating-domain-confusion-in-a-notification-system.md)
+  * [Analyzing a Long-Running Transaction and Database Lock Incident Caused by a Cursor Paging Bug](trustay/documentation/analyzing-a-long-running-transaction-and-database-lock-incident-caused-by-a-cursor-paging-bug.md)
+  * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
+  * [(Overall) Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure](trustay/documentation/overall-redesigning-a-bulk-notification-creation-pipeline-with-an-outbox-based-structure.md)
+  * [(Overall) Evolution of Notification & Push Delivery System](trustay/documentation/overall-evolution-of-notification-and-push-delivery-system.md)
 
 ## ALGORITHM
 

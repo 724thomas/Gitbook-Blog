@@ -8,6 +8,8 @@ description: 대량 알림 생성 시 DB CPU 스파이크 문제 해결로 서�
 
 #### DB CPU 스파이크가 반복적으로 발생한 상황
 
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 서비스 내 대량 알림은 특정 시점에 수만\~수십만 채널을 대상으로 알림을 생성합니다.
 
 초기 구조에서는 이러한 대량 알림이 아래와 같은 방식으로 처리되고 있었습니다.
@@ -71,6 +73,8 @@ description: 대량 알림 생성 시 DB CPU 스파이크 문제 해결로 서�
 ## 해결책1: Outbox 기반 생성 큐 도입
 
 #### 즉시 실행 구조 -> 작업 큐 + 배치 소비 구조
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 문제를 구조적으로 해결하기 위해, 대량 알림 생성은 **즉시 실행 모델에서 Outbox 기반 작업 큐 모델로 전환했습니다.**
 
