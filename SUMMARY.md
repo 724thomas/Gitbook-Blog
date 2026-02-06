@@ -14,6 +14,7 @@
   * [Analyzing a Long-Running Transaction and Database Lock Incident Caused by a Cursor Paging Bug](trustay/documentation/analyzing-a-long-running-transaction-and-database-lock-incident-caused-by-a-cursor-paging-bug.md)
   * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
   * [Resolving the Reprocessing Problem](trustay/documentation/resolving-the-reprocessing-problem.md)
+  * [Designing a Safe Abort Mechanism for Long-Running Bulk Jobs](trustay/documentation/designing-a-safe-abort-mechanism-for-long-running-bulk-jobs.md)
 
 ## ALGORITHM
 
