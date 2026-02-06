@@ -15,6 +15,7 @@
   * [Case Study: Analysis of Git Branch Contamination and Recovery](trustay/documentation/case-study-analysis-of-git-branch-contamination-and-recovery.md)
   * [Resolving the Reprocessing Problem](trustay/documentation/resolving-the-reprocessing-problem.md)
   * [Designing a Safe Abort Mechanism for Long-Running Bulk Jobs](trustay/documentation/designing-a-safe-abort-mechanism-for-long-running-bulk-jobs.md)
+  * [Redesigning Bulk Notification Processing for Stability](trustay/documentation/redesigning-bulk-notification-processing-for-stability.md)
 
 ## ALGORITHM
 
