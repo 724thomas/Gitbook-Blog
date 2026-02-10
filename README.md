@@ -6,7 +6,8 @@ description: I decode the enigma of technology, one blog post at a time.
 
 #### Contact & Channel
 
-이메일 724thomas@gmail.com\
+이메일 724thomas@gmail.com<br>
+
 \
 깃허브 [github.com/724thomas](https://github.com/724thomas)
 
