@@ -230,9 +230,8 @@ R-Tree 대안으로는 Geohash 방식과 Quadtree 방식이 있습니다.\
 
 ### 3.1. Geohash
 
-*
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 * **원리:** 지도를 격자 형태로 나누고 각 격자에 고유한 문자열 ID를 부여합니다. 이는 경도, 위도 정보인 2차원 데이터를 1차원으로 변경한 것입니다. 이를 통해 LIKE 'abcd%' 처럼 prefix 검색이 가능합니다.
 * **기각 사유:** 사용자가 격자 경계선에 위치한 경우, 바로 옆집이라도 해시값이 달라집니다. 이를 해결하려면 주변 8개의 셀을 추가로 계산해서 조회해야하는데, 구현 복잡도가 높습니다.
 
@@ -264,7 +263,7 @@ WHERE geohash LIKE 'wydmc%'  -- 기준 격자 (Center)
 
 ### 3.2. Quadtree
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure></div>
 
 * **원리:** 공간을 재귀적으로 4등분하여 데이터 밀도에 따라 깊이를 조절합니다.
 * **기각 사유:** RDBMS로는 지원되지 않고, 애플리케이션 레벨에서 구현을 직접 해야합니다.
