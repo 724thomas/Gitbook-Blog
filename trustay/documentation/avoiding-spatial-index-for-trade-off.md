@@ -363,8 +363,6 @@ fun find대상By지역idsWithCursor(
     ): List<Long>
 ```
 
-(CPU 성능 저하를 피하기 위해 커서 기반 페이징 기법을 사용했습니다.)
-
 
 
 ## 5. 결과
