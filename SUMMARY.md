@@ -183,6 +183,7 @@
   * [3. Template](books/tobys-spring-vol1/3.-template.md)
   * [4. Exception](books/tobys-spring-vol1/4.-exception.md)
   * [5. Service Abstraction](books/tobys-spring-vol1/5.-service-abstraction.md)
+  * [6. AOP](books/tobys-spring-vol1/6.-aop.md)
 
 ## Interview Practices
 
