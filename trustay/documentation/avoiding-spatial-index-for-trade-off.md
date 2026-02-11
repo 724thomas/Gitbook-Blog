@@ -1,5 +1,5 @@
 ---
-description: '대량 위치 기반 조회에서 Spatial Index를 쓰지 않은 이유: 정확도 vs 성능 트레이드 오프'
+description: '대량 위치 조회에서 Spatial Index를 걷어낸 이유: 정확도와 성능의 Trade-off'
 ---
 
 # Avoiding spatial index for trade-off
