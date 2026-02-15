@@ -36,7 +36,7 @@ R-Tree는 공간 객체(spatial object)를 빠르게 찾기 위한 자료구조 
 
 #### R-Tree의 구조
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 [Root MBR]

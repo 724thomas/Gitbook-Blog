@@ -509,6 +509,10 @@
 
 * [why fetchResults() is deprecated](jpa-querydsl/why-fetchresults-is-deprecated.md)
 
+## Automation
+
+* [what is n8n](automation/why-fetchresults-is-deprecated.md)
+
 ## PYTHON
 
 * [Icecream](python/icecream.md)

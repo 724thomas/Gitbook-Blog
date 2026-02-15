@@ -134,7 +134,7 @@ TTL을 둔 이유는 중단 신호가 영구 유지되며 다음날까지 작업
 Abort가 기술적으로 가능해도 운영자가 쓰기 어렵다면 의미가 없습니다.\
 그래서 Admin-console에 “Job 단위 제어”를 제공했습니다.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 운영자가 할 수 있는 일:
 

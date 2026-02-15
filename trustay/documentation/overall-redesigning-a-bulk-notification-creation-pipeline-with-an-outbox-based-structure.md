@@ -2,7 +2,7 @@
 description: 대량 알림 생성 파이프라인 재설계
 ---
 
-# Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure
+# (Overall) Redesigning a Bulk Notification Creation Pipeline with an Outbox Based Structure
 
 (사내 보안 규정에 따라 실제 서비스·테이블·코드 식별자는 모두 일반화되어 있습니다)
 
@@ -86,7 +86,7 @@ description: 대량 알림 생성 파이프라인 재설계
 
 ## 문제 인식 - 기존 구조의 한계
 
-<div align="center" data-full-width="true"><figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
+<div align="center" data-full-width="true"><figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 초기 설계는 요구사항을 빠르게 충족하는데 초점이 맞춰져 있었고, 각 알림은 다음과 같이 처리되었습니다.
 
