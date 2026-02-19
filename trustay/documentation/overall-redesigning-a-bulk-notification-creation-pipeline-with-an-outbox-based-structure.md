@@ -86,7 +86,7 @@ description: 대량 알림 생성 파이프라인 재설계
 
 ## 문제 인식 - 기존 구조의 한계
 
-<div align="center" data-full-width="true"><figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure></div>
+<div align="center" data-full-width="true"><figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 초기 설계는 요구사항을 빠르게 충족하는데 초점이 맞춰져 있었고, 각 알림은 다음과 같이 처리되었습니다.
 
@@ -222,7 +222,7 @@ Outbox는 외부 메시지 브로커가 아닌,&#x20;DB 테이블을 작업 큐
 
 각 대량 알림 요청은 하나의 작업으로 큐에 저장됩니다.
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure></div>
 
 ### 주요 개념
 
@@ -267,7 +267,7 @@ Outbox는 외부 메시지 브로커가 아닌,&#x20;DB 테이블을 작업 큐
 
 배치 프로세스는 아래의 규칙을 따릅니다.
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 * RUNNING 상태의 job이 있으면 신규 job 실행 금지
 * 오래 갱신되지 않은 RUNNING job은 stuck job으로 판단
