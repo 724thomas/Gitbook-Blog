@@ -10,7 +10,7 @@ description: '대량 위치 조회에서 Spatial Index를 걷어낸 이유: 정�
 
 ## 1. 문제 및 배경: "우리 동네 질문글 알림"
 
-<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 저희 서비스는 지역 기반의 커뮤니티 SNS입니다. 유저가 글을 올리고 이를 "단지 질문글"로 설정하면, 해당 지역에 있는 유저들에게 알림 생성, 푸시가 발송됩니다.
 
@@ -36,7 +36,7 @@ R-Tree는 공간 객체(spatial object)를 빠르게 찾기 위한 자료구조 
 
 #### R-Tree의 구조
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ```
 [Root MBR]
@@ -126,7 +126,7 @@ R-Tree는:
 
 ## 2. 왜 Spatial Index(R-Tree)는 병목이 되었는가
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
 R-Tree는 2차원 공간 데이터를 빠르게 검색하기 위한 자료구조입니다.\
 다만, 해당 기능의 특성과는 맞지 않은 두 가지 문제가 있었습니다.
@@ -230,7 +230,7 @@ R-Tree 대안으로는 Geohash 방식과 Quadtree 방식이 있습니다.\
 
 ### 3.1. Geohash
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
 * **원리:** 지도를 격자 형태로 나누고 각 격자에 고유한 문자열 ID를 부여합니다. 이는 경도, 위도 정보인 2차원 데이터를 1차원으로 변경한 것입니다. 이를 통해 LIKE 'abcd%' 처럼 prefix 검색이 가능합니다.
 * **기각 사유:** 사용자가 격자 경계선에 위치한 경우, 바로 옆집이라도 해시값이 달라집니다. 이를 해결하려면 주변 8개의 셀을 추가로 계산해서 조회해야하는데, 구현 복잡도가 높습니다.
@@ -263,7 +263,7 @@ WHERE geohash LIKE 'wydmc%'  -- 기준 격자 (Center)
 
 ### 3.2. Quadtree
 
-<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure></div>
+<div data-full-width="true"><figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure></div>
 
 * **원리:** 공간을 재귀적으로 4등분하여 데이터 밀도에 따라 깊이를 조절합니다.
 * **기각 사유:** RDBMS로는 지원되지 않고, 애플리케이션 레벨에서 구현을 직접 해야합니다.
@@ -293,7 +293,7 @@ Quadtree는 데이터 밀도에 따라 트리의 깊이(Depth)가 달라집니�
 
 ## 4. 해결책: 하이브리드 전략(정적 지역 + 동적 유저)
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 문제를 다시 생각해봤을때, 좌표가 중요하지 않고, 그 좌표 반경의 "동네" 사람들을 찾는 것이 목표입니다.\
 **그래서, 대상을 User테이블에서 Region테이블로 연산 대상을 옮겼습니다**.

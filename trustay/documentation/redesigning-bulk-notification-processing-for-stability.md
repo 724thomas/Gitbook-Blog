@@ -74,7 +74,7 @@ description: 대량 알림 생성 시 DB CPU 스파이크 문제 해결로 서�
 
 #### 즉시 실행 구조 -> 작업 큐 + 배치 소비 구조
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 문제를 구조적으로 해결하기 위해, 대량 알림 생성은 **즉시 실행 모델에서 Outbox 기반 작업 큐 모델로 전환했습니다.**
 

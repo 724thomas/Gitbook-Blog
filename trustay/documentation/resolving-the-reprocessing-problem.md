@@ -141,7 +141,7 @@ description: 재처리 불가 문제 해결 과정
 
 ### 재처리 로직
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 * RUNNING 상태의 job이 있으면 신규 job 실행 금지
 * 오래 갱신되지 않은 RUNNING job은 stuck job으로 판단
