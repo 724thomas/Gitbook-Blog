@@ -309,6 +309,7 @@
 
 ## JAVA
 
+* [Dynamic Proxy](java/dynamic-proxy.md)
 * [problems of InstanceOf](java/problems-of-instanceof.md)
 * [MESI protocol in CAS](java/mesi-protocol-in-cas.md)
 * [CAS (Compare and Set)](java/cas-compare-and-set.md)
