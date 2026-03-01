@@ -184,7 +184,7 @@
   * [4. Exception](books/tobys-spring-vol1/4.-exception.md)
   * [5. Service Abstraction](books/tobys-spring-vol1/5.-service-abstraction.md)
   * [6. AOP](books/tobys-spring-vol1/6.-aop.md)
-  * [7.](books/tobys-spring-vol1/7..md)
+  * [7. Applications of Core Spring Technologies](books/tobys-spring-vol1/7.-applications-of-core-spring-technologies.md)
 
 ## Interview Practices
 
