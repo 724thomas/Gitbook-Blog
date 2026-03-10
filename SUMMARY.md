@@ -280,6 +280,7 @@
   * [Communication between servers in msa](toy-project/codementor/communication-between-servers-in-msa.md)
 * [Search Engine](toy-project/search-engine/README.md)
   * [Keyword Search](toy-project/search-engine/keyword-search.md)
+  * [Elastic Search](toy-project/search-engine/elastic-search.md)
 
 ## AI
 
