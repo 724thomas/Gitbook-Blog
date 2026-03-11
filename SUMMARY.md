@@ -185,6 +185,7 @@
   * [5. Service Abstraction](books/tobys-spring-vol1/5.-service-abstraction.md)
   * [6. AOP](books/tobys-spring-vol1/6.-aop.md)
   * [7. Applications of Core Spring Technologies](books/tobys-spring-vol1/7.-applications-of-core-spring-technologies.md)
+  * [8. What is Spring?](books/tobys-spring-vol1/8.-what-is-spring.md)
 
 ## Interview Practices
 
