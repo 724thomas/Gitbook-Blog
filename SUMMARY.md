@@ -2,6 +2,11 @@
 
 * [README](README.md)
 
+## ENKI
+
+* [STIX (Todo)](enki/stix-todo.md)
+* [SIGMA Rule](enki/sigma-rule.md)
+
 ## Trustay
 
 * [Documentation](trustay/documentation/README.md)
@@ -369,6 +374,10 @@
   * [Security](spring/spring-questions/security.md)
   * [ETC](spring/spring-questions/etc.md)
 
+## FastAPI
+
+* [Template Page](fastapi/template-page.md)
+
 ## DATABASE
 
 * [Consistent Hashing](database/consistent-hashing.md)
@@ -520,10 +529,9 @@
 ## PYTHON
 
 * [Icecream](python/icecream.md)
-
-## FASTAPI
-
-* [Template Page](fastapi/template-page.md)
+* [Python History(Todo)](python/python-history-todo.md)
+* [Python Memory Management(Todo)](python/python-memory-management-todo.md)
+* [Page 1](python/page-1.md)
 
 ## LINUX
 
