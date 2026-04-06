@@ -4,7 +4,7 @@
 
 ## ENKI
 
-* [STIX (Todo)](enki/stix-todo.md)
+* [STIX 2.1 (Structured Threat Information Expression)](enki/stix-2.1-structured-threat-information-expression.md)
 * [SIGMA Rule](enki/sigma-rule.md)
 
 ## Trustay
