@@ -792,23 +792,81 @@ TCP/IP 계층 구조의 거의 모든 정보를 표현할 수 있습니다.
 
 ### 5.2 호스트 자산 관찰
 
-#### File: 해시, 크기, 이름 및 디렉토리 정보
+#### File & Directory
 
-#### Directory, Process, Windows Registry Key, Mutex
+* File 객체: 파일의 정적 속성을 정의합니다. extensions 속성을 통해 OS 전용 정보 등 메타데이터를 붙일 수 있습니다.
+* Directory 객체: 파일이 위치하는 주소. 주요 속성으로 path, contains\_refs 있습니다.
+
+> Page 143
+
+#### Process
+
+Process 객체는 다른 SCO들을 하나로 묶는 허브 역할을 수행합니다.
+
+* 프로세스의 원본 파일 -> image\_ref 속성
+* 누가 실행했는가 -> creator\_user\_ref 속성
+* 부모 프로세스 -> parent\_ref 속성
+
+> Page 174
+
+#### Windows Registry Key, Mutex
+
+* Windows Registry 객체:\
+  해커가 PC가 재부팅되어도 악성코드가 다시 실행되도록 설정할때 건드리는 윈도우 설정 DB.
+* Mutex 객체:\
+  운영체제에서 프로세스 동시 접근을 제어하는 자물쇠. \
+  유저가 악성코드를 여러번 실행하게 되면 발각될 확률이 높기때문에 싱글톤으로 관리되게끔 뮤텍스를 생성.
 
 #### Software, User Account
 
-#### 5.3 기타 디지털 자산
+* Software 객체:\
+  시스템에 설치된 프로그램. CPE(Common Platform Enumeration)을 cpe 속성에 기록하여 취약점 연동.
+* User Account 객체: \
+  해커가 탈취한 계정 정보
 
-* Artifact: Base64로 인코딩된 페이로드 및 파일 내용
-* Email Message & Email Address
-* X.509 Certificate
+### 5.3 기타 디지털 자산
 
-#### 5.4 사전 정의된 객체 확장 (Predefined Extensions)
+#### Artifact (아티팩트): Base64로 인코딩된 페이로드 및 파일 내용
 
-* NTFS, PDF, Raster Image, Windows PE Binary 파일 확장
-* HTTP Request, ICMP, TCP, Network Socket 트래픽 확장
-* Windows Process, Windows Service, UNIX Account 계정 확장
+File의 실제 내용물을 담는 객체.\
+JSON형식인 STIX에 Binary 데이터를 직접 넣을 수 없기에, base64 인코딩을 거친 텍스트를 payload\_bin 속성에 넣습니다. 크기가 커지면 대신, url 속성에 virustotal 다운로드 링크 주소를 적습니다.
+
+#### Email Message & Email Address
+
+* Email-Addr: 단일 이메일 주소
+* Email-Message: 이메일 메시지. subject, body, from\_ref, to\_refs 속성
+
+> Page 135
+
+#### X.509 Certificate
+
+백신을 우회하기 위해 프로그램이 신뢰할 수 있는 개발자에 의해 만들어졌다는 디지털 인증서.
+
+> Page 188
+
+### 5.4 사전 정의된 객체 확장 (SCO 내부: Predefined Extensions 속성)
+
+#### 파일 객체를 위한 확장: NTFS, PDF, Raster Image, Windows PE Binary&#x20;
+
+* NTFS 확장: 파일이 윈도우 NTFS 파일 시스템에 저장될 떄의 특성을 캡처
+* PDF 확장: PDF 파일의 버전, 최적화 여부, 메타데이터를 기록.
+* Raster Image 확장: 이미지 파일의 메터데이터를 기록
+* Windows PE Binary 확장: 윈도우 실행파일 전용 확장.
+
+#### 네트워크 통신 객체를 위한 확장 HTTP Request, ICMP, TCP, Network Socket&#x20;
+
+* HTTP Request 확장: L7의 HTTP 요청을 분석합니다.
+* ICMP 확장: 핑 통신 등에 쓰이는 ICMP 프로토콜의 icmp\_type\_hex, code\_hex바이트를 16진수로 기록
+* TCP 확장: TCP 통신 세션 전체에서 관찰된 src, dst\_flags\_hex를 캡처하여 비정상적인 스캔 공격을 증명
+* Network Socket 확장: 통신이 맺어진 운영체제의 '소켓'상태와 주소 패밀리 정보 묘사.
+
+#### 프로세스와 계정 객체를 위한 확장 Windows Process, Windows Service, UNIX Account
+
+* Windows Process 확장: 윈도우 프로세스만의 특성인 메모리 보호 기법적용 여부 등을 기록
+* Windows Service 확장: 프로세스가 윈도우 '서비스'로 동작할때의 정보
+* Unix Account 확장: 유닉스/리눅스 계정 전용 확장.
+
+> Page 147, 149, 150, 151, 169, 171, 173, 172, 177, 178, 185
 
 ***
 
