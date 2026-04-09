@@ -24,7 +24,15 @@
 * 결과: \*\*`Attack Pattern` (SDO)\*\*이 생성됩니다.
 * 관계 연결: 방금 발견한 악성코드가 이 공격 기법을 사용한다는 의미로 ➔ `[Malware] --(uses)--> [Attack Pattern]` 관계(`SRO`)를 맺어줍니다.
 
-### 4. 다이아몬드 모델 피버팅과 인프라 파악 (Connecting the Dots)
+### 4. 인텔리전스 무기화 및 탐지 룰 생성 (Weaponization)
+
+해부된 악성코드의 특이한 행동(A행동 후 B행동)이나, 해커가 사용하는 고정된 인프라(IP, 도메인)를 바탕으로 기계가 읽을 수 있는 탐지 공식(STIX Pattern)을 작성합니다.
+
+* 작업: "이 악성코드는 `drop.exe`를 만들고(`[file:name = 'drop.exe']`), 이어서 레지스트리를 바꾼다(`FOLLOWEDBY [windows-registry-key:...]`)"라는 논리적 규칙을 STIX Patterning 문법으로 짭니다.
+* 결과: 이 패턴을 담은 핵심 방어 무기인 ➔ \*\*`Indicator` (SDO)\*\*가 탄생합니다
+* 관계 연결: 이 룰이 도대체 무엇을 탐지하기 위해 만들어졌는지 명시하기 위해 ➔ `[Indicator] --(indicates)--> [Malware]` 또는 `[Infrastructure]`, `[Attack Pattern]` 관계(`SRO`)를 맺어줍니다.
+
+### 5. 다이아몬드 모델 피버팅과 인프라 파악 (Connecting the Dots)
 
 해커가 남긴 작은 단서 하나(IP)를 파고들어 전체 서버망을 밝혀냅니다.
 
@@ -32,27 +40,27 @@
 * 결과: 추상적인 서버망을 뜻하는 \*\*`Infrastructure` (SDO)\*\*를 만듭니다.
 * 관계 연결: 이 인프라의 실체가 방금 찾은 IP와 도메인으로 구성되어 있음을 증명하기 위해 ➔ `[Infrastructure] --(consists-of)--> [IPv4-Addr]` 및 `[Domain-Name]` 관계(`SRO`)를 각각 연결합니다.
 
-### 5. 캠페인(Campaign)의 형성
+### 6. 캠페인(Campaign)의 형성
 
 도메인과 악성코드를 분석하다 보니, 과거의 다른 해킹 사건과 똑같은 수법이 쓰인 것을 발견합니다.
 
 * 결과: 흩어진 사건들을 하나의 거대한 작전으로 묶어 ➔ \*\*`Campaign` (SDO)\*\*을 생성합니다.
 * 관계 연결: 이 작전에 과거와 현재의 악성코드, 인프라가 모두 쓰였다는 것을 선언하기 위해 ➔ `[Campaign] --(uses)--> [Malware]` 및 `[Infrastructure]` 관계(`SRO`)를 연결합니다.
 
-### 6. 침해 조직 (Intrusion Set) 묶기
+### 7. 침해 조직 (Intrusion Set) 묶기
 
 생성된 캠페인들의 타겟(예: 한국 금융권), 활동 시간대, 목적을 과거 데이터베이스와 대조합니다.
 
 * 결과: "이 작전들은 모두 동일한 습관을 가진 범죄 조직의 짓이다!"라고 결론짓고 ➔ \*\*`Intrusion Set` (SDO)\*\*을 식별해 냅니다.
 
-### 7. 귀인(Attribution) 및 위협 행위자 (Threat Actor) 특정
+### 8. 귀인(Attribution) 및 위협 행위자 (Threat Actor) 특정
 
 식별된 침해 조직(집단)의 배후에 있는 실제 국가 기관이나 자금줄(스폰서)을 특정하는 가장 고난도의 작업입니다.
 
 * 결과: 배후 세력인 ➔ \*\*`Threat Actor` (SDO)\*\*를 식별합니다.
 * 관계 연결: 이 배후 세력이 해당 침해 조직으로 위장하여 활동하고 있음을 명시하기 위해 ➔ `[Threat Actor] --(attributes-to)--> [Intrusion Set]` 관계(`SRO`)를 연결합니다.
 
-### 8. Report 발간과 보안 등급 포장 (Packaging)
+### 9. Report 발간과 보안 등급 포장 (Packaging)
 
 지금까지 파헤친 모든 내용을 종합하여, 사람이 읽을 수 있는 문서와 기계가 읽을 수 있는 STIX 데이터로 포장합니다.
 
