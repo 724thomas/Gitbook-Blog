@@ -6,7 +6,8 @@
 
 * [STIX 2.1 (Structured Threat Information Expression)](enki/stix-todo.md)
 * [SIGMA Rule](enki/sigma-rule.md)
-* [STIX Report 객체가 만들어지기까지](enki/stix-report.md)
+* [Until STIX Report is built](enki/until-stix-report-is-built.md)
+* [Future Defence and Retro Hunting](enki/future-defence-and-retro-hunting.md)
 
 ## Trustay
 

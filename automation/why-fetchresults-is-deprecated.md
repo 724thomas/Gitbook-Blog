@@ -125,7 +125,7 @@ n8n은 통합/자동화/오케스트레이션에 강합니다.
 
 #### 실행/장애/재시도 설계
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 * 자동화는 성공보다는 실패 경로가 더 중요합니다. 재시도 정책, 중복 실행 대비, 부분 실패 처리, DLQ 유사 운영, 알림/모니터링
 * 큐 모드에서의 분산 실행 흐름을 말로 그릴 수 있어야 함.
