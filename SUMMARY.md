@@ -2,13 +2,6 @@
 
 * [README](README.md)
 
-## ENKI
-
-* [STIX 2.1 (Structured Threat Information Expression)](enki/stix-todo.md)
-* [SIGMA Rule](enki/sigma-rule.md)
-* [Until STIX Report is built](enki/until-stix-report-is-built.md)
-* [Future Defence and Retro Hunting](enki/future-defence-and-retro-hunting.md)
-
 ## Trustay
 
 * [Documentation](trustay/documentation/README.md)
@@ -515,6 +508,13 @@
   * [32bit CPU and 64bit CPU](computer-science/computer-architecture-101/32bit-cpu-and-64bit-cpu.md)
   * [Local vs Static Variable](computer-science/computer-architecture-101/local-vs-static-variable.md)
   * [Page](computer-science/computer-architecture-101/page.md)
+
+## Detection Engineering
+
+* [SIGMA Rule](detection-engineering/sigma-rule.md)
+* [STIX 2.1 (Structured Threat Information Expression)](detection-engineering/stix-2.1-structured-threat-information-expression.md)
+* [How STIX Report is built](detection-engineering/how-stix-report-is-built.md)
+* [Future Defence and Retro Hunting](detection-engineering/future-defence-and-retro-hunting.md)
 
 ## Programming Paradigm
 

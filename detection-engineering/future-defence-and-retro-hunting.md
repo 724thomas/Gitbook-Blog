@@ -6,8 +6,8 @@
 
 KISA 등의 기관이 위협 인텔리전스를 담은 Report(SDO) 객체를 만들고, 그 안에 Malware(SDO), Infrastructure(SDO), 그리고 이를 탐지할 Indicator(SDO), 데이터 유출을 막기 위한 Marking Definition 꼬리표를 달고 Bundle에 포장하여 TAXII 서버에 올립니다.
 
-{% content-ref url="until-stix-report-is-built.md" %}
-[until-stix-report-is-built.md](until-stix-report-is-built.md)
+{% content-ref url="how-stix-report-is-built.md" %}
+[how-stix-report-is-built.md](how-stix-report-is-built.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}
