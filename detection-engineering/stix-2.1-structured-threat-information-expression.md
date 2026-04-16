@@ -1478,10 +1478,208 @@ STIX 탐지 패턴 언어를 구현하는 소프트웨어는 그들이 처리할
 
 **feedback: 객체에 대해서 좀 잘 봐야 됨 - 막 이상하진 않음**
 
+객체 고유 속성:
+
+* sighting\_of\_ref(req)
+* first\_seen, last\_seen
+* count
+* where\_sighted\_refs: \[identity] / \[location]
+* observed\_data\_refs: 증거 자료 링크. observed-data 객체의 ID 목록.
+* summary
+
+공통 필수 속성:
+
+* type: "sighting"
+* spec\_version: "2.1"
+* id: "sighting--..."
+* created, modified
+
+공통 선택 속성:
+
+* created\_by\_ref
+* revoked: 철회여부
+* labels: 검색용 해시태그
+* confidence: 정보의 신뢰도
+* lang
+* external\_references: 문서 전체의 기밀 등급
+* granular\_marking: 특성 속성의기밀 등급
+
+```json
+// Example
+{
+  "type": "sighting",
+  "spec_version": "2.1",
+  "id": "sighting--ee20065d-cbbf-4171-bea0-f007e0c3a2ef",
+  "created": "2024-04-16T10:00:00.000Z",
+  "modified": "2024-04-16T10:00:00.000Z",
+  "sighting_of_ref": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+  
+  "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+  "first_seen": "2024-04-15T08:00:00.000Z",
+  "last_seen": "2024-04-15T18:00:00.000Z",
+  "count": 50,
+  "observed_data_refs": [
+    "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf"
+  ],
+  "where_sighted_refs": [
+    "identity--b3bca3c2-1f3d-4b54-b44f-dac42c3a8f01",
+    "location--a6e9345f-5a15-4c29-8bb3-7dcc5d168d64"
+  ],
+  "summary": true,
+  
+  "revoked": false,
+  "labels": ["ransomware-sighting", "critical-alert"],
+  "confidence": 90,
+  "lang": "en",
+  "external_references": [
+    {
+      "source_name": "Acme-Security-Report",
+      "description": "방화벽 로그 기반 악성 IP 차단 내역",
+      "url": "https://acme.com/reports/12345"
+    }
+  ],
+  "object_marking_refs": [
+    "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
+  ],
+  "granular_markings": [
+    {
+      "selectors": ["count"],
+      "marking_ref": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+    }
+  ]
+}
+```
+
+### **시간 표현**
+
+**feedback: 시간 표현 관련 공부 할 것 (UTC & Z)**
+
+UTC (Coordinated Universal Time, 협정 세계시)&#x20;
+
+* "전 세계가 시계를 맞추기 위해 합의한 절대 기준점"
+* 2024-04-16 10:00:00 (UTC)
+
+Z (Zulu Time, 줄루 타임)
+
+* "UTC 시간을 데이터로 표기할 때 쓰는 기호"
+* 로그나 데이터베이스에 시간을 기록할때 씁니다.
+* 2024-04-16T10:00:00.000Z
+
+2024-04-16 10:00:00 (UTC) -> 2024-04-16T10:00:00.000Z
 
 
-### **시간 표현 관련 공부 할 것** (UTC & Z)
 
 ### ID 구조
 
-### 탐지 정보를 SDO, SCO 중 어떤 것을 넣어야 할지
+모든 STIX 2.1 객체에는 -- 으로 연결된 구조를 가집니다.
+
+* <객체타입>--\<UUID>
+* SCO같은 경우 UUIDv5
+* 나머지는 UUIDv4
+
+
+
+### 탐지정보: SDO, SCO
+
+**feedback: 탐지 정보를 SDO, SCO 중 어떤 것을 넣어야 할지**
+
+```
+🗺️ STIX 2.1 초정밀 대통합 맵 (연결성 중심 계층 구조)
+※ 괄호 [ ] 안의 단어는 두 객체를 이어주는 STIX 공식 동사(Relationship Type) 또는 속성명입니다.
+
+📁 1. 컨테이너 & 메타데이터 (모든 것을 담거나 수식하는 객체들)
+📦 Report / Grouping
+┗━ [object_refs (포함)] ➔ (모든 SDO, SRO, SMO, SCO 중복 포함 가능)
+
+📝 Note / Opinion
+┗━ [object_refs (포함)] ➔ (메모나 의견을 달고 싶은 모든 STIX 객체)
+*※ 모든 STIX 객체는 공통적으로 [created_by_ref]를 통해 **Identity(작성자)*와 연결됩니다.
+
+🦹‍♂️ 2. 위협 주체 및 작전 (누가, 어떤 판을 짰는가?)
+🦹 Threat Actor (위협 행위자)
+┣━ [uses (사용)] ➔ Malware, Tool, Attack Pattern, Infrastructure
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [attributed-to (배후 실체)] ➔ Identity (현실 세계의 실제 인물/기관)
+┣━ [impersonates (사칭)] ➔ Identity
+┣━ [located-at (위치)] ➔ Location
+┣━ [owns / hosts / compromises (소유/호스팅/장악)] ➔ Infrastructure
+┗━ [participates-in (참여)] ➔ Campaign
+
+👥 Intrusion Set (침해 그룹 / 활동 세트)
+┣━ [uses (사용)] ➔ Malware, Tool, Attack Pattern, Infrastructure
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [attributed-to (배후 조직)] ➔ Threat Actor
+┣━ [originates-from (발원지)] ➔ Location
+┗━ [owns / hosts / compromises (소유/호스팅/장악)] ➔ Infrastructure
+
+🎯 Campaign (공격 캠페인)
+┣━ [uses (사용)] ➔ Malware, Tool, Attack Pattern, Infrastructure
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [attributed-to (배후)] ➔ Threat Actor, Intrusion Set
+┣━ [originates-from (발원지)] ➔ Location
+┗━ [compromises (장악)] ➔ Infrastructure
+
+⚔️ 3. 공격 자산 및 수법 (무엇으로, 어떻게 쳤는가?)
+🦠 Malware (악성코드)
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [uses (사용)] ➔ Attack Pattern, Tool, Infrastructure, 다른 Malware
+┣━ [authored-by (제작자)] ➔ Threat Actor, Intrusion Set
+┣━ [downloads / drops (다운로드/생성)] ➔ 다른 Malware, Tool, [SCO] File
+┣━ [exploits (취약점 악용)] ➔ Vulnerability
+┣━ [variant-of (변종)] ➔ 원본 Malware
+┣━ [originates-from (발원지)] ➔ Location
+┗━ [communicates-with (통신)] ➔ [SCO] IPv4/IPv6-Addr, Domain-Name, URL
+
+🛠️ Tool (해킹 도구)
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [uses (사용)] ➔ Infrastructure
+┣━ [delivers / drops (전달/생성)] ➔ Malware
+┗━ [exploits (취약점 악용)] ➔ Vulnerability
+
+🏗️ Infrastructure (공격 인프라: C&C 서버 등)
+┣━ [communicates-with (통신)] ➔ 다른 Infrastructure, [SCO] IPv4/IPv6-Addr, Domain-Name, URL
+┣━ [consists-of (구성 요소)] ➔ Indicator, Observed Data, [SCO] (IP, 도메인 등)
+┣━ [controls (제어)] ➔ 다른 Infrastructure, Malware
+┣━ [delivers / hosts (전달/호스팅)] ➔ Malware, Tool
+┣━ [located-at (위치)] ➔ Location
+┗━ [uses (사용)] ➔ 다른 Infrastructure
+
+🥷 Attack Pattern (공격 기법)
+┣━ [targets (타깃)] ➔ Identity, Location, Vulnerability
+┣━ [uses (사용)] ➔ Malware, Tool
+┗━ [delivers (전달)] ➔ Malware
+
+🚨 4. 탐지, 방어 및 분석 (어떻게 찾아내고 막을 것인가?)
+🚨 Indicator (탐지 지표 / 룰)
+┣━ [indicates (탐지 대상)] ➔ Malware, Threat Actor, Tool, Attack Pattern, Campaign, Infrastructure, Intrusion Set
+┗━ [based-on (근거 자료)] ➔ Observed Data
+
+👀 Sighting (목격 기록 / SRO)
+┣━ [sighting_of_ref (목격 대상)] ➔ Indicator, Malware, Threat Actor 등 (거의 모든 위협 객체)
+┣━ [where_sighted_refs (목격 장소)] ➔ Identity, Location
+┗━ [observed_data_refs (증거 첨부)] ➔ Observed Data
+
+🔍 Observed Data (관측된 증거 데이터 모음)
+┗━ [objects (내부 포함)] ➔ [SCO] IP, Domain, File, Process, Network-Traffic, Registry 등 20여 종의 모든 디지털 흔적들
+
+🛡️ Course of Action (대응 방안)
+┣━ [mitigates (위협 완화)] ➔ Attack Pattern, Indicator, Malware, Tool, Vulnerability
+┣━ [remediates (치료/복구)] ➔ Malware, Vulnerability
+┗━ [investigates (조사)] ➔ Indicator
+
+🔬 Malware Analysis (악성코드 정밀 분석 결과)
+┣━ [analysis-of / characterizes (분석 대상)] ➔ Malware
+┣━ [dynamic-analysis-of (동적 분석)] ➔ Malware
+┗━ [static-analysis-of (정적 분석)] ➔ Malware
+
+🎯 5. 피해 대상 및 환경 (누가, 어디서, 어떤 약점을 찔렸는가?)
+👤 Identity (조직/개인/신원)
+┗━ [located-at (위치)] ➔ Location
+(Identity는 주로 Threat Actor에 의해 targets 당하거나, Sighting에서 where_sighted로 불려 오는 '수동적'인 위치에 가장 많이 중복 등장합니다.)
+
+📍 Location (위치)
+┗━ [located-at (상위 위치)] ➔ 더 큰 Location (예: 서울 ➔ 대한민국)
+
+🕳️ Vulnerability (취약점)
+(Vulnerability 자체에서 뻗어 나가는 고유 연결선은 없으며, Malware나 Attack Pattern으로부터 exploits(악용됨) 당하거나 Course of Action으로부터 mitigates(완화됨) 당하는 타깃으로 무수히 중복 등장합니다.)
+```
