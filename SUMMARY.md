@@ -533,7 +533,7 @@
 * [Icecream](python/icecream.md)
 * [Python History(Todo)](python/python-history-todo.md)
 * [Python Memory Management(Todo)](python/python-memory-management-todo.md)
-* [Page 1](python/page-1.md)
+* [Decorator Pattern in Python](python/decorator-pattern-in-python.md)
 
 ## LINUX
 
