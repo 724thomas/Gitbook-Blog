@@ -209,6 +209,10 @@
   * [Dependency Injection](interview-practices/naver-interview-prep/dependency-injection.md)
   * [Object Oriented Programming](interview-practices/naver-interview-prep/object-oriented-programming.md)
 
+## C
+
+* [메모리 기초](c/undefined.md)
+
 ## K6 Optimization Project
 
 * [Tweeter Project](k6-optimization-project/tweeter-project/README.md)
