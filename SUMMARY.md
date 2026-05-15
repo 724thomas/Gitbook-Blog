@@ -212,6 +212,7 @@
 ## C
 
 * [메모리 기초](c/undefined.md)
+* [.exe 부터 프로그램 실행까지 part1](c/.exe-part1.md)
 
 ## K6 Optimization Project
 
