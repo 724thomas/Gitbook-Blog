@@ -92,10 +92,10 @@ car.move();
 * README와 함께 **리비전 관리**하여 살아있는 문서로 유지(형상관리)
   *   용어사전
 
-      ![Image](https://github.com/user-attachments/assets/0e42910c-d681-4273-b3cf-3c2e96025cef)
+      <img src="https://github.com/user-attachments/assets/0e42910c-d681-4273-b3cf-3c2e96025cef" alt="Image" height="413" width="701">
   *   인수 테스트
 
-      ![Image](https://github.com/user-attachments/assets/b89e7348-6e1b-4dd1-8aab-85c8350e47d1)
+      <img src="https://github.com/user-attachments/assets/b89e7348-6e1b-4dd1-8aab-85c8350e47d1" alt="Image" height="345" width="841">
 
       고객의 관점에서 소프트웨어가 어떻게 작동하는지를 고려한다.
 
@@ -118,7 +118,7 @@ car.move();
 * 코어 / 서포팅 / 제너릭 (ex. 코어 = 주문, 제너릭 = 이메일 전송)
 *   아래는 core domain chart
 
-    ![Image](https://github.com/user-attachments/assets/58efa3f6-9fd0-4fd7-b7fd-957784414a04)
+    <img src="https://github.com/user-attachments/assets/58efa3f6-9fd0-4fd7-b7fd-957784414a04" alt="Image" height="463" width="561">
 * 팀 역량/자원 배분도 이에 따라 조정
 
 #### 📊 활용 도구
@@ -172,7 +172,7 @@ car.move();
 * 호기심 유발 (ex. 화이트보드 낙서)
   *   실제 발표자의 화이트보드
 
-      ![Image](https://github.com/user-attachments/assets/dc38c75b-3393-441b-8da5-596576b66cb1)
+      <img src="https://github.com/user-attachments/assets/dc38c75b-3393-441b-8da5-596576b66cb1" alt="Image" width="563">
 * Issue 발급 → 자연스러운 논의 유도 → 동료 설득
 
 ***
