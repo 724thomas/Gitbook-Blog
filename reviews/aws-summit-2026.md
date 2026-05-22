@@ -20,6 +20,12 @@ AI Ops는 AI 모델을 붙이는 것보다는, 흩어진 운영 데이터를 서
 
 ### AI Ops 에이전트의 역할 정의
 
+<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_50 (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_49 (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_49 (3).png" alt=""><figcaption></figcaption></figure>
+
 삼전은 AI Ops 에이전트를 운영 도메인 담당으로 지정하고, 메트릭과 로그를 교차 분석하도록 합니다. 시큐리티 에이전트는 WAF 로그를 Text to SQL로 질의, 분석하여 공격을 탐지하고 보고 하도록 했습니다.
 
 * 운영 에이전트: 메트릭 로그 기반 장애 원인 분석
@@ -88,6 +94,10 @@ PR이 생성됬을때 AI가 답할 수 있는 질문들:
 
 #### 데이터
 
+<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_48 (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_17_52 (3).png" alt=""><figcaption></figcaption></figure>
+
 AI가 잘 동작하기 위해서는 좋은 데이터가 있어야하고, AI가 이해하기 쉬운 markdown / yaml 형태가 적합합니다.
 
 * 과거 장애 보고서
@@ -97,34 +107,6 @@ AI가 잘 동작하기 위해서는 좋은 데이터가 있어야하고, AI가 �
 * 특이사항
 * 오탐 / 미탐 사례
 * 운영 문의/대응 History
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_50 (5).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_49 (4).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_49 (3).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_49 (2).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_18_48 (1).png" alt=""><figcaption></figcaption></figure>
-
-
-
-<figure><img src="../.gitbook/assets/ChatGPT Image 2026년 5월 20일 오후 05_17_52 (3).png" alt=""><figcaption></figcaption></figure>
-
-
-
-
 
 
 
