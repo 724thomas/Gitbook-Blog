@@ -188,6 +188,7 @@
   * [8. What is Spring?](books/tobys-spring-vol1/8.-what-is-spring.md)
 * [The Secret of the Underlying Computer](books/the-secret-of-the-underlying-computer/README.md)
   * [1.1. Making Programming Language](books/the-secret-of-the-underlying-computer/1.1.-making-programming-language.md)
+  * [1.2 How does Compiler work?](books/the-secret-of-the-underlying-computer/1.2-how-does-compiler-work.md)
 
 ## Interview Practices
 
