@@ -189,6 +189,7 @@
 * [The Secret of the Underlying Computer](books/the-secret-of-the-underlying-computer/README.md)
   * [1.1. Making Programming Language](books/the-secret-of-the-underlying-computer/1.1.-making-programming-language.md)
   * [1.2 How does Compiler work?](books/the-secret-of-the-underlying-computer/1.2-how-does-compiler-work.md)
+  * [Linker](books/the-secret-of-the-underlying-computer/linker.md)
 
 ## Interview Practices
 
