@@ -187,10 +187,13 @@
   * [7. Applications of Core Spring Technologies](books/tobys-spring-vol1/7.-applications-of-core-spring-technologies.md)
   * [8. What is Spring?](books/tobys-spring-vol1/8.-what-is-spring.md)
 * [The Secret of the Underlying Computer](books/the-secret-of-the-underlying-computer/README.md)
-  * [1.1. Making Programming Language](books/the-secret-of-the-underlying-computer/1.1.-making-programming-language.md)
-  * [1.2 How does Compiler work?](books/the-secret-of-the-underlying-computer/1.2-how-does-compiler-work.md)
-  * [1.3 Linker](books/the-secret-of-the-underlying-computer/1.3-linker.md)
-  * [1.4 Abstract](books/the-secret-of-the-underlying-computer/1.4-abstract.md)
+  * [1. Inventing Program Language](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/README.md)
+    * [1.1. Making Programming Language](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/1.1.-making-programming-language.md)
+    * [1.2 How does Compiler work?](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/1.2-how-does-compiler-work.md)
+    * [1.3 Linker](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/1.3-linker.md)
+    * [1.4 Abstract](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/1.4-abstract.md)
+  * [2. How does a Program work](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/README.md)
+    * [2.1. OS, Process, Thread](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.1.-os-process-thread.md)
 
 ## Interview Practices
 
