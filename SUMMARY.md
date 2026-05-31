@@ -194,7 +194,7 @@
     * [1.4 Abstract](books/the-secret-of-the-underlying-computer/1.-inventing-program-language/1.4-abstract.md)
   * [2. How does a Program work](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/README.md)
     * [2.1. OS, Process, Thread](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.1.-os-process-thread.md)
-    * [Process Resourced shared between Threads](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/process-resourced-shared-between-threads.md)
+    * [2.2 Process Resourced shared between Threads](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.2-process-resourced-shared-between-threads.md)
 
 ## Interview Practices
 
