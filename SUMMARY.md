@@ -195,6 +195,8 @@
   * [2. How does a Program work](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/README.md)
     * [2.1. OS, Process, Thread](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.1.-os-process-thread.md)
     * [2.2 Process Resourced shared between Threads](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.2-process-resourced-shared-between-threads.md)
+    * [2.3. Thread Safe Code](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.3.-thread-safe-code.md)
+    * [2.4. Coroutine](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.4.-coroutine.md)
 
 ## Interview Practices
 
