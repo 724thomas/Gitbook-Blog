@@ -199,6 +199,8 @@
     * [2.4. Coroutine](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.4.-coroutine.md)
     * [2.5 Callback](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.5-callback.md)
     * [2.6 sync, async](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.6-sync-async.md)
+    * [2.7. Blocking, Non-blocking](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.7.-blocking-non-blocking.md)
+    * [2.8. server with high concurrency and performance](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.8.-server-with-high-concurrency-and-performance.md)
 
 ## Interview Practices
 
