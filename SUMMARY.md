@@ -201,6 +201,9 @@
     * [2.6 sync, async](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.6-sync-async.md)
     * [2.7. Blocking, Non-blocking](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.7.-blocking-non-blocking.md)
     * [2.8. server with high concurrency and performance](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.8.-server-with-high-concurrency-and-performance.md)
+    * [2.9 data, code, callback, closure, container, vm](books/the-secret-of-the-underlying-computer/2.-how-does-a-program-work/2.9-data-code-callback-closure-container-vm.md)
+  * [3. Lower level memory](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/README.md)
+    * [Memory, pointer and reference](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/memory-pointer-and-reference.md)
 
 ## Interview Practices
 
