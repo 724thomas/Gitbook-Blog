@@ -206,6 +206,7 @@
     * [3.1 Memory, pointer and reference](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.1-memory-pointer-and-reference.md)
     * [3.2 Process in memory](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.2-process-in-memory.md)
     * [3.3 Memory: Stack area](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.3-memory-stack-area.md)
+    * [3.8 SSD](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.8-ssd.md)
 
 ## Interview Practices
 
