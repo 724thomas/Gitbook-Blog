@@ -207,6 +207,9 @@
     * [3.2 Process in memory](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.2-process-in-memory.md)
     * [3.3 Memory: Stack area](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.3-memory-stack-area.md)
     * [3.8 SSD](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.8-ssd.md)
+  * [Page 1](books/the-secret-of-the-underlying-computer/page-1/README.md)
+    * [4.4 CPU & if](books/the-secret-of-the-underlying-computer/page-1/4.4-cpu-and-if.md)
+    * [4.5 CPU Core & Thread](books/the-secret-of-the-underlying-computer/page-1/4.5-cpu-core-and-thread.md)
 
 ## Interview Practices
 
