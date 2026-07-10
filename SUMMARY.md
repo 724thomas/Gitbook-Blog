@@ -210,6 +210,8 @@
   * [Page 1](books/the-secret-of-the-underlying-computer/page-1/README.md)
     * [4.4 CPU & if](books/the-secret-of-the-underlying-computer/page-1/4.4-cpu-and-if.md)
     * [4.5 CPU Core & Thread](books/the-secret-of-the-underlying-computer/page-1/4.5-cpu-core-and-thread.md)
+    * [4.6 Evolution of CPU(1)](books/the-secret-of-the-underlying-computer/page-1/4.6-evolution-of-cpu-1.md)
+    * [4.7 Evolution of CPU(2)](books/the-secret-of-the-underlying-computer/page-1/4.7-evolution-of-cpu-2.md)
 
 ## Interview Practices
 
