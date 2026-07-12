@@ -207,13 +207,13 @@
     * [3.2 Process in memory](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.2-process-in-memory.md)
     * [3.3 Memory: Stack area](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.3-memory-stack-area.md)
     * [3.8 SSD](books/the-secret-of-the-underlying-computer/3.-lower-level-memory/3.8-ssd.md)
-  * [Transister to CPU](books/the-secret-of-the-underlying-computer/transister-to-cpu/README.md)
-    * [4.4 CPU & if](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.4-cpu-and-if.md)
-    * [4.5 CPU Core & Thread](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.5-cpu-core-and-thread.md)
-    * [4.6 Evolution of CPU(1)](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.6-evolution-of-cpu-1.md)
-    * [4.7 Evolution of CPU(2)](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.7-evolution-of-cpu-2.md)
-    * [4.8 Evolution of CPU(3)](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.8-evolution-of-cpu-3.md)
-    * [4.9 CPU, Stack, function call, system call, thread switch, interrupt](books/the-secret-of-the-underlying-computer/transister-to-cpu/4.9-cpu-stack-function-call-system-call-thread-switch-interrupt.md)
+  * [4. Transistor to CPU](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/README.md)
+    * [4.4 CPU & if](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.4-cpu-and-if.md)
+    * [4.5 CPU Core & Thread](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.5-cpu-core-and-thread.md)
+    * [4.6 Evolution of CPU(1)](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.6-evolution-of-cpu-1.md)
+    * [4.7 Evolution of CPU(2)](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.7-evolution-of-cpu-2.md)
+    * [4.8 Evolution of CPU(3)](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.8-evolution-of-cpu-3.md)
+    * [4.9 CPU, Stack, function call, system call, thread switch, interrupt](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.9-cpu-stack-function-call-system-call-thread-switch-interrupt.md)
 
 ## Interview Practices
 
