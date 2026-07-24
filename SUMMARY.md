@@ -214,6 +214,9 @@
     * [4.7 Evolution of CPU(2)](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.7-evolution-of-cpu-2.md)
     * [4.8 Evolution of CPU(3)](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.8-evolution-of-cpu-3.md)
     * [4.9 CPU, Stack, function call, system call, thread switch, interrupt](books/the-secret-of-the-underlying-computer/4.-transistor-to-cpu/4.9-cpu-stack-function-call-system-call-thread-switch-interrupt.md)
+  * [5. Cache](books/the-secret-of-the-underlying-computer/5.-cache/README.md)
+    * [5.3 multi-threaded performance killers](books/the-secret-of-the-underlying-computer/5.-cache/5.3-multi-threaded-performance-killers.md)
+    * [5.4 Beacon Fires and Memory Barriers](books/the-secret-of-the-underlying-computer/5.-cache/5.4-beacon-fires-and-memory-barriers.md)
 
 ## Interview Practices
 
