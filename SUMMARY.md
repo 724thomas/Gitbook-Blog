@@ -217,6 +217,9 @@
   * [5. Cache](books/the-secret-of-the-underlying-computer/5.-cache/README.md)
     * [5.3 multi-threaded performance killers](books/the-secret-of-the-underlying-computer/5.-cache/5.3-multi-threaded-performance-killers.md)
     * [5.4 Beacon Fires and Memory Barriers](books/the-secret-of-the-underlying-computer/5.-cache/5.4-beacon-fires-and-memory-barriers.md)
+  * [6. Computer Exist with Zero I/O?](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/README.md)
+    * [6.1 I/O in CPU](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.1-i-o-in-cpu.md)
+    * [6.2 CPU while disk on I/O process](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.2-cpu-while-disk-on-i-o-process.md)
 
 ## Interview Practices
 
