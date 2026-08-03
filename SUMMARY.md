@@ -220,6 +220,8 @@
   * [6. Computer Exist with Zero I/O?](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/README.md)
     * [6.1 I/O in CPU](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.1-i-o-in-cpu.md)
     * [6.2 CPU while disk on I/O process](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.2-cpu-while-disk-on-i-o-process.md)
+    * [6.3 program when reading a file](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.3-program-when-reading-a-file.md)
+    * [6.4. High Concurrency: Multiple IO](books/the-secret-of-the-underlying-computer/6.-computer-exist-with-zero-i-o/6.4.-high-concurrency-multiple-io.md)
 
 ## Interview Practices
 
