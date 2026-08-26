@@ -196,7 +196,7 @@ val result = transactionManager.run {
 
 > **“결합을 줄여라. 묻지 말고 말하라.”**\
 > 느슨한 연결이 유연한 시스템을 만든다.\
-> &#xNAN;_&#x4C;ow coupling, high cohesion._
+> _&#x4C;ow coupling, high cohesion._
 
 
 
@@ -415,7 +415,7 @@ result.subscribe(resp => console.log(resp));
 
 > **“코드는 현실의 시간축 위에서 반응해야 한다.”**\
 > 이벤트, 상태, 스트림을 저글링하라.\
-> &#xNAN;_&#x44;on’t fight the world. Model it._
+> _&#x44;on’t fight the world. Model it._
 
 
 
@@ -426,7 +426,7 @@ result.subscribe(resp => console.log(resp));
 ## 🧩 변환 프로그래밍 — “프로그램은 결국 변환이다”
 
 > _“자신이 하고 있는 일 하나의 과정으로 서술할 수 없다면,_\
-> &#xNAN;_&#xC790;기가 뭘 하고 있는지 모르는 것이다.” – W. 에드워즈 데밍_
+> _&#xC790;기가 뭘 하고 있는지 모르는 것이다.” – W. 에드워즈 데밍_
 
 ### ✔️ 프로그래밍은 곧 변환 과정이다
 

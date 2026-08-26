@@ -14,7 +14,7 @@ description: 4장 실용주의 편집증
 > — 랄프 월도 에머슨
 
 소프트웨어는 사람과 시스템의 약속이다.\
-&#xNAN;**‘계약에 의한 설계(Design by Contract)’** 는 그 약속을 **명문화하여 코드로 보증하는 방법론**이다.
+**‘계약에 의한 설계(Design by Contract)’** 는 그 약속을 **명문화하여 코드로 보증하는 방법론**이다.
 
 이는 단순한 패러다임이 아니라,\
 “소프트웨어 구성 요소 간의 신뢰를 수학적으로 정의”하려는 철학이다.
@@ -321,7 +321,7 @@ spawn(fun() -> error("boom!") end).
 
 > **“죽은 프로그램은 거짓말하지 않는다.”**\
 > 오류를 덮지 말고, 빠르게 드러내라.\
-> &#xNAN;_&#x46;ail fast, fail honestly._
+> _&#x46;ail fast, fail honestly._
 
 
 
@@ -472,7 +472,7 @@ while (iter.hasNext()) {
 
 > **“단정(assert)은 코드의 양심이다.”**\
 > 스스로 증명할 수 없는 믿음을 코드에 두지 말라.\
-> &#xNAN;_&#x41;ssert early, assert often._
+> _&#x41;ssert early, assert often._
 
 
 
@@ -698,7 +698,7 @@ end
 
 > **“시작한 자가 끝내라. 열면 닫아라.”**\
 > 자원은 빌려 쓰는 것이다.\
-> &#xNAN;_&#x4D;anage scope, manage life._
+> _&#x4D;anage scope, manage life._
 
 
 
@@ -812,4 +812,4 @@ end
 
 > **“예측하지 말고, 피드백으로 조정하라.”**\
 > 작은 단계를 밟으며, 지금 보이는 빛 안에서 움직여라.\
-> &#xNAN;_&#x44;on’t predict. Adapt._
+> _&#x44;on’t predict. Adapt._

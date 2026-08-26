@@ -641,6 +641,7 @@
 * [Kakao Brain Pathfinder Review](reviews/kakao-brain-pathfinder-review.md)
 * [JSCODE 자바 1기 Review](reviews/jscode-1-review.md)
 * [AWS summit 2026 회고](reviews/aws-summit-2026.md)
+* [루클라비 더화이트 홀투어 및 상담 후기](reviews/undefined.md)
 
 ## 😁 Dev Jokes
 
